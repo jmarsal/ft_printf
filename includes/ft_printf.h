@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test1.c                                            :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/08 17:49:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/09 00:52:38 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/09 00:46:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(void)
-{
-	printf("%d%%%s%d%%\n", 42, " le resultat est donc ", 42);
-	ft_putstr("test putstr avec libftprintf ! \n");
-	return (0);
-}
+# include <unistd.h>
+
+void				ft_putchar_fd(char c, int fd);
+void				ft_putchar(char c);
+void				ft_putstr(char const *str);
+
+#endif

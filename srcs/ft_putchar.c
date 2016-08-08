@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test1.c                                            :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/08 17:49:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/09 00:52:38 by jmarsal          ###   ########.fr       */
+/*   Created: 2015/10/11 17:01:31 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/09 00:47:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
-int	main(void)
+/*
+**	Affiche le caractère c sur la sortie standard.
+*/
+
+void	ft_putchar(char c)
 {
-	printf("%d%%%s%d%%\n", 42, " le resultat est donc ", 42);
-	ft_putstr("test putstr avec libftprintf ! \n");
-	return (0);
+	ft_putchar_fd(c, 1);
 }
