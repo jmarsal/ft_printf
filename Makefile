@@ -6,21 +6,21 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/08 17:16:16 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/08 18:12:02 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = ftprintf
 CC = gcc
-OPTI = -O3 -fsanitize=address
+OPTI = -O1
 CFLAGS_DEBUG = -g3 -O0 -fsanitize=address
-CFLAGS = -Wall -Werror -Wextra $(OPTI)
-SRC_DIR = ./srcs/
-SRC_FILES = main.c
+CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
+SRC_DIR = ./test/
+SRC_FILES = test1.c
 OBJ_PATH = ./obj
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
-INC_PATH = -I./libft/ -I./libftprintf/ -I./includes/
-LIB_PATH = -L./libftprintf/ -lftprintf -L./libft/ -lft
+# INC_PATH = -I./libft/ -I./libftprintf/ -I./includes/
+# LIB_PATH = -L./libftprintf/ -lftprintf -L./libft/ -lft
 
 all: $(NAME)
 $(NAME): $(OBJ_FILES)
