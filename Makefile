@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/09 01:39:07 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/11 17:19:58 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS_DEBUG = -g3 -fsanitize=address
 CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
 INC_DIR = -I./includes
 SRC_DIR = ./srcs/
-SRC_FILES = ft_putchar_fd.c ft_putchar.c ft_putstr.c
+SRC_FILES = ft_printf.c parser.c ft_putchar_fd.c ft_putchar.c ft_putstr.c
 OBJ_PATH = ./obj
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
 

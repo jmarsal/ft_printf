@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/11 17:21:28 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/11 17:01:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-int         ft_printf(const char *format, ...)
+typedef struct	s_v_args
 {
-	int		len;
-	va_list	args;
+	int			index;
+}				t_v_args;
 
-	len = 0;
-	if (format)
-	{
-		va_start(args, format);
-		len = treatment(&args, format);
-		va_end(args);
-	}
-	return (len);
-}
+#endif
