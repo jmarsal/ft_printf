@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/11 17:19:58 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/12 01:43:33 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,16 @@ CC = gcc
 OPTI = -O0
 CFLAGS_DEBUG = -g3 -fsanitize=address
 CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
-INC_DIR = -I./includes
+INC_DIR = -I./libft/includes -I./includes
+LIB_PATH = -L./libft/ -lft
 SRC_DIR = ./srcs/
-SRC_FILES = ft_printf.c parser.c ft_putchar_fd.c ft_putchar.c ft_putstr.c
+SRC_FILES = ft_printf.c parser.c
 OBJ_PATH = ./obj
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
 
 all: $(NAME)
 $(NAME): $(OBJ_FILES)
+	@make -C libft/
 	@ar rc $(NAME) $(OBJ_FILES)
 	@ranlib $(NAME)
 	@echo "\n-------------------------------------------------"
@@ -34,12 +36,14 @@ $(OBJ_PATH)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -o $@ -c $< $(CFLAGS) $(INC_DIR)
 
 clean:
+	@make clean -C libft/
 	@rm -rf $(OBJ_PATH)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
+	@make fclean -C libft/
 	@rm -f $(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
