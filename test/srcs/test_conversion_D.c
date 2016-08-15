@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_p.c                                :+:      :+:    :+:   */
+/*   test_conversion_D.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/15 23:42:44 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/16 00:25:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <wchar.h>
+#include <limits.h>
+#include <string.h>
 
 int	main(void)
 {
-	int	*pointeur;
+	size_t	nb;
 
-	pointeur = 0;
-	// dDioOuUxXcC
-	printf("%p\n", pointeur);
+	// DioOuUxXcC
+	nb = 42;
+	printf("%ld\n", nb);
+	nb = -42;
+	printf("%ld\n", nb);
+	nb = INT_MIN;
+	printf("%ld\n", nb);
+	nb = INT_MAX;
+	printf("%ld\n", nb);
 	return (0);
 }

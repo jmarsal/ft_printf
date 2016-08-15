@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_p.c                                :+:      :+:    :+:   */
+/*   ft_test_conversion_x_X.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/15 23:42:44 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/16 00:58:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <wchar.h>
+#include "ft_printf.h"
+#include <limits.h>
+#include <string.h>
 
 int	main(void)
 {
-	int	*pointeur;
+	unsigned int	nb;
 
-	pointeur = 0;
-	// dDioOuUxXcC
-	printf("%p\n", pointeur);
+	// DioOuUxXcC
+	nb = 42;
+	ft_printf("%x\n", nb);
+	nb = -42;
+	ft_printf("%x\n", nb);
+	nb = INT_MIN;
+	ft_printf("%x\n", nb);
+	nb = INT_MAX;
+	ft_printf("%x\n", nb);
+	nb = 42;
+	ft_printf("%X\n", nb);
+	nb = -42;
+	ft_printf("%X\n", nb);
+	nb = INT_MIN;
+	ft_printf("%X\n", nb);
+	nb = INT_MAX;
+	ft_printf("%X\n", nb);
 	return (0);
 }

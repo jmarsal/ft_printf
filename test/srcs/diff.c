@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/15 01:50:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/16 01:32:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			main(void)
 
 	test = 0;
 	//test diffs sur les conversions
-
+////////////////////////////////////////////////////////////////////////////////
 	// %s
 	if ((fd = open("diff_output/diff_conv_s.txt", O_RDONLY)) < 1)
 	{
@@ -46,7 +46,7 @@ int			main(void)
 		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
 		 				\"diff_output\".");
 	}
-
+////////////////////////////////////////////////////////////////////////////////
 	// %S
 	if ((fd = open("diff_output/diff_conv_S.txt", O_RDONLY)) < 1)
 	{
@@ -69,7 +69,7 @@ int			main(void)
 		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
 						\"diff_output\".");
 	}
-
+////////////////////////////////////////////////////////////////////////////////
 	// %p
 	if ((fd = open("diff_output/diff_conv_p.txt", O_RDONLY)) < 1)
 	{
@@ -92,6 +92,214 @@ int			main(void)
 		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
 						\"diff_output\".");
 	}
+////////////////////////////////////////////////////////////////////////////////
+	// %d
+	if ((fd = open("diff_output/diff_conv_d_i.txt", O_RDONLY)) < 1)
+	{
+		printf("Erreur : Pas de fichier diff_conv_d_i.txt");
+		return (-1);
+	}
+	if ((len = read(fd, buffer, 4096)) == 0)
+	{
+		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%d ou \%i ok !");
+		close(fd);
+		remove("diff_output/diff_conv_d.txt");
+	}
+	else
+	{
+		printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+										conversion \%d ou \%i!");
+		printf("%s\n", buffer);
+		close(fd);
+		test = 1;
+		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+						\"diff_output\".");
+	}
+////////////////////////////////////////////////////////////////////////////////
+	// %D
+	if ((fd = open("diff_output/diff_conv_D.txt", O_RDONLY)) < 1)
+	{
+		printf("Erreur : Pas de fichier diff_conv_D.txt");
+		return (-1);
+	}
+	if ((len = read(fd, buffer, 4096)) == 0)
+	{
+		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%D ok !");
+		close(fd);
+		remove("diff_output/diff_conv_d.txt");
+	}
+	else
+	{
+		printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+										conversion \%D!");
+		printf("%s\n", buffer);
+		close(fd);
+		test = 1;
+		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+						\"diff_output\".");
+	}
+////////////////////////////////////////////////////////////////////////////////
+// %o
+if ((fd = open("diff_output/diff_conv_o.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_o.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%o ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%o!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %O
+if ((fd = open("diff_output/diff_conv_O.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_O.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%O ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%O!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %u
+if ((fd = open("diff_output/diff_conv_u.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_u.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%u ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%u!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %U
+if ((fd = open("diff_output/diff_conv_U.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_U.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%U ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%U!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %x %X
+if ((fd = open("diff_output/diff_conv_x_X.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_x_X.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%x ou \%X ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%x ou \%X!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %c
+if ((fd = open("diff_output/diff_conv_c.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_c.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%c ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%c!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
+// %C
+if ((fd = open("diff_output/diff_conv_C.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_C.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%C ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%C!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
 
 	// Fin de test
 	if (test == 0)
