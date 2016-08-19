@@ -6,34 +6,54 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/12 01:43:33 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/19 01:23:20 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = gcc
-OPTI = -O0
-CFLAGS_DEBUG = -g3 -fsanitize=address
-CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
-INC_DIR = -I./libft/includes -I./includes
-LIB_PATH = -L./libft/ -lft
-SRC_DIR = ./srcs/
-SRC_FILES = ft_printf.c parser.c
-OBJ_PATH = ./obj
-OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
+CC = clang
+CFLAGS_DEBUG = -g -O0
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
+# Headers
+INC_PATH = includes
+INC_FILES = ft_printf.h
+HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
+CFLAGS += $(addprefix -I,$(INC_PATH))
+
+# Sources
+SRC_PATH = srcs
+vpath %.c $(SRC_PATH)
+SOURCES += ft_printf.c \
+						parser.c
+
+# Objects
+OBJ_PATH = obj
+OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
+
+# Libft
+LIBFT_PATH = libft
+LIBFT = $(LIBFT_PATH)/libft.a
+CFLAGS += -I $(LIBFT_PATH)/includes
+
+# Rules
 all: $(NAME)
-$(NAME): $(OBJ_FILES)
-	@make -C libft/
-	@ar rc $(NAME) $(OBJ_FILES)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_PATH) all
+
+$(NAME): $(OBJECTS) $(LIBFT)
+	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo "\n-------------------------------------------------"
 	@echo "|\033[32;1m\t$(NAME) has been created !\t\033[0m|"
 	@echo "-------------------------------------------------\n"
 
-$(OBJ_PATH)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_PATH)
-	@$(CC) -o $@ -c $< $(CFLAGS) $(INC_DIR)
+$(OBJECTS): $(HEADERS) | $(OBJ_PATH)
+$(OBJECTS): $(OBJ_PATH)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_PATH):
+	@-mkdir -p $@
 
 clean:
 	@make clean -C libft/
@@ -51,10 +71,11 @@ fclean: clean
 
 re: fclean all
 
-# debug: re += $(CFLAGS_DEBUG)
-# 	@echo "\n-----------------------------------------------------------------"
-# 	@echo "|\033[32;1m\tDebug mode for $(NAME) with $(CFLAGS_DEBUG)!\t\033[0m|"
-# 	@echo "-----------------------------------------------------------------\n"
+debug: $(CFLAGS) += $(CFLAGS_DEBUG)
+debug : re
+	@echo "\n-----------------------------------------------------------------"
+	@echo "|\033[32;1m\tDebug mode for $(NAME) with $(CFLAGS_DEBUG)!\t\033[0m|"
+	@echo "-----------------------------------------------------------------\n"
 
 norme:
 	norminette $(SRC)
@@ -62,3 +83,78 @@ norme:
 
 .PHONY:  all, clean, fclean, re, libs, libs-clean, libs-fclean, libs-re \
 		fclean-all, debug, norme
+		# DEBUG = yes
+		#
+		# # Debug
+		# ifeq ($(DEBUG),yes)
+		# 	CFLAGS += -g -O0
+		# endif
+		#
+		# # Prof
+		# ifeq ($(PROF),yes)
+		# 	CFLAGS += -g -O0 -pg
+		# endif
+		#
+		# # Headers
+		# INC_PATH = includes
+		# INC_FILES = ft_printf.h
+		# HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
+		# CFLAGS += $(addprefix -I,$(INC_PATH))
+		#
+		# # Sources
+		# SRC_PATH = srcs/
+		# vpath %.c $(SRC_PATH)
+		# SOURCES += ft_printf.c \
+		# 						parser.c \
+		#
+		# # Objects
+		# OBJ_PATH = obj
+		# OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
+		#
+		# # Libft
+		# LIBFT_PATH = libft
+		# LIBFT = $(LIBFT_PATH)/libft.a
+		# CFLAGS += -I $(LIBFT_PATH)/include
+		#
+		# # Test
+		# TEST_PATH = test2
+		# TEST_EXEC = $(TEST_PATH)/test_ftprintf
+		#
+		#
+		# # Rules
+		# all: $(NAME)
+		#
+		# $(LIBFT):
+		# 	$(MAKE) -C $(LIBFT_PATH) all
+		#
+		# $(NAME): $(OBJECTS) $(LIBFT)
+		# 	ar rc $(NAME) $(OBJECTS)
+		# 	ranlib $(NAME)
+		# 	@echo "\n-------------------------------------------------"
+		# 	@echo "|\033[32;1m\t$(NAME) has been created !\t\033[0m|"
+		# 	@echo "-------------------------------------------------\n"
+		#
+		# $(OBJECTS): $(HEADERS) | $(OBJ_PATH)
+		# $(OBJECTS): $(OBJ_PATH)/%.o: %.c
+		# 	$(CC) $(CFLAGS) -c $< -o $@
+		#
+		# $(OBJ_PATH):
+		# 	@-mkdir -p $@
+		#
+		# .PHONY: all clean fclean re
+		#
+		# clean:
+		# 	make clean -C $(LIBFT_PATH)
+		# 	$(RM) -r $(OBJ_PATH)
+		# 	@echo "\n-----------------------------------------"
+		# 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
+		# 	@echo "-----------------------------------------\n"
+		#
+		# fclean: clean
+		# 	make fclean -C $(LIBFT_PATH)
+		# 	$(RM) $(NAME)
+		# 	@echo "\n-----------------------------------------"
+		# 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
+		# 	@echo "-----------------------------------------\n"
+		#
+		# re: fclean all

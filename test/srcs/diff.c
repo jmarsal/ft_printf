@@ -6,13 +6,12 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 01:32:17 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/19 01:25:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 int			main(void)
 {
@@ -25,7 +24,7 @@ int			main(void)
 	//test diffs sur les conversions
 ////////////////////////////////////////////////////////////////////////////////
 	// %s
-	if ((fd = open("diff_output/diff_conv_s.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_s.txt", O_RDONLY)) < 1)
 	{
 		printf("Erreur : Pas de fichier diff_conv_s.txt");
 		return (-1);
@@ -48,7 +47,7 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %S
-	if ((fd = open("diff_output/diff_conv_S.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_S.txt", O_RDONLY)) < 1)
 	{
 		printf("Erreur : Pas de fichier diff_conv_S.txt");
 		return (-1);
@@ -71,7 +70,7 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %p
-	if ((fd = open("diff_output/diff_conv_p.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_p.txt", O_RDONLY)) < 1)
 	{
 		printf("Erreur : Pas de fichier diff_conv_p.txt");
 		return (-1);
@@ -94,7 +93,7 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %d
-	if ((fd = open("diff_output/diff_conv_d_i.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_d_i.txt", O_RDONLY)) < 1)
 	{
 		printf("Erreur : Pas de fichier diff_conv_d_i.txt");
 		return (-1);
@@ -117,7 +116,7 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %D
-	if ((fd = open("diff_output/diff_conv_D.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_D.txt", O_RDONLY)) < 1)
 	{
 		printf("Erreur : Pas de fichier diff_conv_D.txt");
 		return (-1);
@@ -140,7 +139,7 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 // %o
-if ((fd = open("diff_output/diff_conv_o.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_o.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_o.txt");
 	return (-1);
@@ -163,7 +162,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %O
-if ((fd = open("diff_output/diff_conv_O.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_O.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_O.txt");
 	return (-1);
@@ -186,7 +185,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %u
-if ((fd = open("diff_output/diff_conv_u.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_u.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_u.txt");
 	return (-1);
@@ -209,7 +208,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %U
-if ((fd = open("diff_output/diff_conv_U.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_U.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_U.txt");
 	return (-1);
@@ -232,7 +231,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %x %X
-if ((fd = open("diff_output/diff_conv_x_X.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_x_X.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_x_X.txt");
 	return (-1);
@@ -255,7 +254,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %c
-if ((fd = open("diff_output/diff_conv_c.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_c.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_c.txt");
 	return (-1);
@@ -278,7 +277,7 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %C
-if ((fd = open("diff_output/diff_conv_C.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_C.txt", O_RDONLY)) < 1)
 {
 	printf("Erreur : Pas de fichier diff_conv_C.txt");
 	return (-1);
@@ -307,6 +306,5 @@ else
 		printf("\n\033[32m%s\033[0m\n", "---> ft_printf OK ! Well Done ;-)\n");
 		remove("diff_output");
 	}
-
 	return (0);
 }

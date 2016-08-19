@@ -6,13 +6,14 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 01:28:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/18 23:19:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ft_printf.h"
+#include "../../includes/ft_printf.h"
 #include <limits.h>
+#include "libft.h"
 
 int	main(void)
 {

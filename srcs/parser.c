@@ -6,19 +6,22 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/12 01:39:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/19 02:10:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
+#include <libft.h>
 
 int	treatment(va_list *args, const char *format)
 {
 	t_v_args	*v_args;
 	size_t		i;
+	size_t		test_flag;
+	char		*string;
 
 	i = 0;
-
+	test_flag = 0;
 	/*
 	** initialisation de t_v_args
 	*/
@@ -37,10 +40,24 @@ int	treatment(va_list *args, const char *format)
 		** Cherche combien d'args
 		*/
 
-		if (format[i] == '%')
+		if (format[i] == 's' && format[i - 1] == '%')
+		{
 			v_args->index++;
-		if (format[i] != 0 && format[i] == '%' && format[i - 1] == '%')
+			test_flag = 1;
+		}
+		if (format[i] != '\0' && format[i] == '%' && format[i - 1] == '%')
+		{
 			v_args->index -= 2;
+			test_flag = 2;
+			ft_putchar('%');
+		}
+		if (test_flag == 1)
+		{
+			string = va_arg(*args, char *);
+			//penser a diminuer l'index de v_args->index !
+			ft_putstr(string);
+		}
+		test_flag = 0;
 		//Voir pour faire un realloc de v_args->f_conv pour chaque index++
 		i++;
 
@@ -48,7 +65,6 @@ int	treatment(va_list *args, const char *format)
 		** end
 		*/
 	}
-	printf("v_args->index = %d\n", v_args->index);
 	(void)args;
 	return (v_args->index);
 }

@@ -1,4 +1,4 @@
-1,8c1,8$
+1,8d0$
 < 2a$
 < ffffffd6$
 < 80000000$
@@ -7,12 +7,3 @@
 < FFFFFFD6$
 < 80000000$
 < 7FFFFFFF$
----$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
-> v_args->index = 1$
