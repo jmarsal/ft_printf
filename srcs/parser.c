@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/21 17:48:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 01:52:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,43 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 								const char *format, size_t *i)
 {
 	if (format[*i + 1] && (format[*i + 1] == 's' ||
-							format[*i + 1] == 'd'))
+							format[*i + 1] == 'd' ||
+							format[*i + 1] == 'i' ||
+							format[*i + 1] == 'c' ||
+							format[*i + 1] == 'x' ||
+							format[*i + 1] == 'X'))
 	{
 		if (format[*i + 1] && format[*i + 1] == 's')
 		{
-			v_args->f_conv[v_args->i_args]->l_conv = 's';
-			v_args->f_conv[v_args->i_args]->str = ft_strdup(va_arg(*args, char *));
+			L_CONV = 's';
+			STR = ft_strdup(va_arg(*args, char *));
+			v_args->ret_ft_printf += ft_strlen(STR);
 		}
-		if (format[*i + 1] && format[*i + 1] == 'd')
+		if (format[*i + 1] && (format[*i + 1] == 'd' || format[*i + 1] == 'i'))
 		{
-			v_args->f_conv[v_args->i_args]->l_conv = 'd';
-			v_args->f_conv[v_args->i_args]->nb = va_arg(*args, int);
+			L_CONV = 'd';
+			NB = va_arg(*args, int);
+			// printf("%d\n", NB);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa(NB));
+		}
+		if (format[*i + 1] && format[*i + 1] == 'c')
+		{
+			L_CONV = 'c';
+			C = va_arg(*args, int);
+			v_args->ret_ft_printf++;
+		}
+		if (format[*i + 1] && format[*i + 1] == 'x')
+		{
+			L_CONV = 'x';
+			HEX = va_arg(*args, int);
+			printf("%d\n", HEX);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa_base(HEX, 16));
+		}
+		if (format[*i + 1] && format[*i + 1] == 'X')
+		{
+			L_CONV = 'X';
+			HEX = va_arg(*args, int);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa_base(HEX, 16));
 		}
 		v_args->i_args++;
 		*i += 2;
@@ -43,17 +69,19 @@ static void	get_content_format(va_list *args, const char *format,
 	{
 		if (format[i] && format[i] != '%')
 		{
-			v_args->f_conv[v_args->i_args]->l_conv = 's';
-			v_args->f_conv[v_args->i_args]->str = ft_strdup(ft_strchr_bef(format + i, '%'));
-			i += ft_strlen(v_args->f_conv[v_args->i_args]->str);
+			L_CONV = 's';
+			STR = ft_strdup(ft_strchr_bef(format + i, '%'));
+			i += ft_strlen(STR);
+			v_args->ret_ft_printf += ft_strlen(STR);
 			v_args->i_args++;
 		}
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
-			v_args->f_conv[v_args->i_args]->l_conv = '%';
-			v_args->f_conv[v_args->i_args]->str = "%";
+			L_CONV = '%';
+			STR = "%";
 			i += 2;
 			v_args->i_args++;
+			v_args->ret_ft_printf++;
 		}
 		if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(args, v_args, format, &i);
@@ -63,7 +91,11 @@ static void	get_content_format(va_list *args, const char *format,
 static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 {
 	if (format[*i + 1] && (format[*i + 1] == 's' ||
-							format[*i + 1] == 'd'))
+							format[*i + 1] == 'd' ||
+							format[*i + 1] == 'i' ||
+							format[*i + 1] == 'c' ||
+							format[*i + 1] == 'x' ||
+							format[*i + 1] == 'X'))
 	{
 		v_args->index += 1;
 		*i += 2;
@@ -116,6 +148,6 @@ int			treatment(va_list *args, const char *format)
 		return (-1);
 	get_content_format(args, format, v_args);
 	print_format(v_args);
-	return (0); // Faire plusieurs test (str + flags '%s' ou int pour
+	return (v_args->ret_ft_printf); // Faire plusieurs test (str + flags '%s' ou int pour
 				// check le retour exact)
 }

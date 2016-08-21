@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 00:33:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/21 23:37:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,23 @@
 
 int	main(void)
 {
+	int	nb;
 	// DioOuUxXcC
-	printf("%d\n", 42);
-	printf("%d\n", -42);
-	printf("%d\n", INT_MIN);
-	printf("%d\n", INT_MAX);
-	printf("%i\n", 42);
-	printf("%i\n", -42);
-	printf("%i\n", INT_MIN);
-	printf("%i\n", INT_MAX);
+	nb = printf("%d\n", 42);
+	printf("%d\n", nb);
+	nb = printf("%d\n", -42);
+	printf("%d\n", nb);
+	nb = printf("%d\n", INT_MIN);
+	printf("%d\n", nb);
+	nb = printf("%d\n", INT_MAX);
+	printf("%d\n", nb);
+	nb = printf("%i\n", 42);
+	printf("%d\n", nb);
+	nb = printf("%i\n", -42);
+	printf("%d\n", nb);
+	nb = printf("%i\n", INT_MIN);
+	printf("%d\n", nb);
+	nb = printf("%i\n", INT_MAX);
+	printf("%d\n", nb);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/21 15:50:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 01:35:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
-# include "structs.h"
 # include <libft.h>
+# include <wchar.h>
+# include "structs.h"
+# include "defines.h"
 
 #include <stdio.h> // WARNING !!!!
 

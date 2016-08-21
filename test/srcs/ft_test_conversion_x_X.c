@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 00:58:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 00:59:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,39 @@
 int	main(void)
 {
 	unsigned int	nb;
+	int				ret;
 
-	// DioOuUxXcC
 	nb = 42;
-	ft_printf("%x\n", nb);
+	ret = ft_printf("%x\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = -42;
-	ft_printf("%x\n", nb);
+	ret = ft_printf("%x\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = INT_MIN;
-	ft_printf("%x\n", nb);
+	ret = ft_printf("%x\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = INT_MAX;
-	ft_printf("%x\n", nb);
+	ret = ft_printf("%x\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = 42;
-	ft_printf("%X\n", nb);
+	ret = ft_printf("%X\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = -42;
-	ft_printf("%X\n", nb);
+	ret = ft_printf("%X\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = INT_MIN;
-	ft_printf("%X\n", nb);
+	ret = ft_printf("%X\n", nb);
+	ft_printf("%d\n", ret);
+
 	nb = INT_MAX;
-	ft_printf("%X\n", nb);
+	ret = ft_printf("%X\n", nb);
+	ft_printf("%d\n", ret);
+
 	return (0);
 }

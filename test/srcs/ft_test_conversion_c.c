@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/18 23:19:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 00:15:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,25 @@
 
 int	main(void)
 {
+	int	nb;
 	// DioOuUxXcC
-	ft_printf("%c\n", 42);
-	// ft_printf("%c\n", -42);
-	// ft_printf("%c\n", 0);
-	ft_printf("%c\n", 100);
-	// ft_printf("%c\n", 255);
+	nb = ft_printf("%c\n", 42);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%c\n", -42);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%c\n", 0);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%c\n", 100);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%c\n", 255);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%c\n", 'Y');
+	ft_printf("%d\n", nb);
+
 	return (0);
 }

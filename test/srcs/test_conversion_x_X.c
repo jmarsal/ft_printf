@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 00:59:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 00:58:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,39 @@
 int	main(void)
 {
 	unsigned int	nb;
+	int				ret;
 
-	// DioOuUxXcC
 	nb = 42;
-	printf("%x\n", nb);
+	ret = printf("%x\n", nb);
+	printf("%d\n", ret);
+
 	nb = -42;
-	printf("%x\n", nb);
+	ret = printf("%x\n", nb);
+	printf("%d\n", ret);
+
 	nb = INT_MIN;
-	printf("%x\n", nb);
+	ret = printf("%x\n", nb);
+	printf("%d\n", ret);
+
 	nb = INT_MAX;
-	printf("%x\n", nb);
+	ret = printf("%x\n", nb);
+	printf("%d\n", ret);
+
 	nb = 42;
-	printf("%X\n", nb);
+	ret = printf("%X\n", nb);
+	printf("%d\n", ret);
+
 	nb = -42;
-	printf("%X\n", nb);
+	ret = printf("%X\n", nb);
+	printf("%d\n", ret);
+
 	nb = INT_MIN;
-	printf("%X\n", nb);
+	ret = printf("%X\n", nb);
+	printf("%d\n", ret);
+
 	nb = INT_MAX;
-	printf("%X\n", nb);
+	ret = printf("%X\n", nb);
+	printf("%d\n", ret);
+
 	return (0);
 }
