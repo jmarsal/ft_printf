@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/19 01:23:20 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/21 14:54:08 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ CFLAGS += $(addprefix -I,$(INC_PATH))
 SRC_PATH = srcs
 vpath %.c $(SRC_PATH)
 SOURCES += ft_printf.c \
-						parser.c
+						parser.c \
+						output.c \
+						init.c
 
 # Objects
 OBJ_PATH = obj
