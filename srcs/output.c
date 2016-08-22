@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 15:59:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 23:42:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	print_format(t_v_args *v_args)
 			ft_putchar(v_args->f_conv[i]->c);
 		else if (v_args->f_conv[i]->l_conv == 'x')
 			ft_putstr(ft_strtolower(ft_itoa_base(v_args->f_conv[i]->hex, 16)));
-			//probleme de conversion avec les hexa en negatif...
 		else if (v_args->f_conv[i]->l_conv == 'X')
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->hex, 16));
 		else if (v_args->f_conv[i]->l_conv == 'b')
