@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 00:23:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/22 15:56:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct		s_conversion
 	char			*str;
 	int				nb;
 	int				hex;
+	int				binary;
 	char			c;
 	// size_t			index;
 	char			l_conv; //le flag de conversion. Peut etre besoin d'un char *

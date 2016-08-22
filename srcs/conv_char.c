@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   conv_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 15:57:23 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/22 15:41:46 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/22 15:42:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#include "ft_printf.h"
 
-/*
-** f_conv
-*/
-
-# define STR v_args->f_conv[v_args->i_args]->str
-# define NB v_args->f_conv[v_args->i_args]->nb
-# define HEX v_args->f_conv[v_args->i_args]->hex
-# define C v_args->f_conv[v_args->i_args]->c
-# define L_CONV v_args->f_conv[v_args->i_args]->l_conv
-# define BINARY v_args->f_conv[v_args->i_args]->binary
-
-#endif
+void	conv_char_c(va_list *args, t_v_args *v_args, const char *format,
+					size_t * i)
+{
+	if (format[*i + 1] && format[*i + 1] == 'c')
+	{
+		L_CONV = 'c';
+		C = va_arg(*args, int);
+		v_args->ret_ft_printf++;
+	}
+}
