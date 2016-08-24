@@ -1,4 +1,4 @@
-1,8d0$
+1,8c1,8$
 < 42$
 < -42$
 < -2147483648$
@@ -7,3 +7,12 @@
 < -42$
 < -2147483648$
 < 2147483647$
+---$
+> $
+> $
+> $
+> $
+> warning: invalid conversion specifier 'i'warning: invalid conversion specifier 'i'warning: invalid conversion specifier 'i'warning: invalid conversion specifier 'i'index = 1$
+> index = 1$
+> index = 1$
+> index = 1$

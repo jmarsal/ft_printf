@@ -1,0 +1,3 @@
+0a1$
+> warning: invalid conversion specifier 'S'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$

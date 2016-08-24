@@ -1,5 +1,8 @@
-1,4d0$
+1,4c1$
 < 42$
 < 18446744073709551574$
 < 18446744071562067968$
 < 2147483647$
+---$
+> warning: invalid conversion specifier 'U'warning: invalid conversion specifier 'U'warning: invalid conversion specifier 'U'warning: invalid conversion specifier 'U'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$

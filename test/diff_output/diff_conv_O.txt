@@ -1,5 +1,8 @@
-1,4d0$
+1,4c1$
 < 52$
 < 1777777777777777777726$
 < 1777777777760000000000$
 < 17777777777$
+---$
+> warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$

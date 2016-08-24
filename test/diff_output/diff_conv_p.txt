@@ -1,2 +1,5 @@
-1d0$
+1c1$
 < (nil)$
+---$
+> warning: invalid conversion specifier 'p'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$

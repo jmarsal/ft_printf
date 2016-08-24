@@ -1,4 +1,4 @@
-1,8d0$
+1,8c1$
 < 2a$
 < ffffffd6$
 < 80000000$
@@ -7,3 +7,6 @@
 < FFFFFFD6$
 < 80000000$
 < 7FFFFFFF$
+---$
+> warning: invalid conversion specifier 'x'warning: invalid conversion specifier 'x'warning: invalid conversion specifier 'x'warning: invalid conversion specifier 'x'warning: invalid conversion specifier 'X'warning: invalid conversion specifier 'X'warning: invalid conversion specifier 'X'warning: invalid conversion specifier 'X'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$
