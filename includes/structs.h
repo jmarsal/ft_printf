@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 15:56:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/25 01:00:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,25 @@
 
 typedef struct		s_conversion
 {
-	char			*str;
-	int				nb;
-	int				hex;
-	int				binary;
-	char			c;
+	char					*str;
+	int						nb;
+	int						hex;
+	int						binary;
+	char					c;
+	void					*p;
 	// size_t			index;
-	char			l_conv; //le flag de conversion. Peut etre besoin d'un char *
+	char					l_conv; //le flag de conversion. Peut etre besoin d'un char *
 							//Besoin d'une variable de taille de champ
 							//Besoin d'une variable de precision (par default 1)
 							//Besoin d'une variable modificateur de longueur (hh, h, l, ll, etc...)
-}					t_conversion;
+}								t_conversion;
 
-typedef struct		s_v_args
+typedef struct	s_v_args
 {
 	t_conversion	**f_conv; //stoque les flags de format dans l'ordre dans un tab
-	size_t			i_args;
-	size_t			index; // nb d'args
-	int				ret_ft_printf;
-}					t_v_args;
+	size_t				i_args;
+	size_t				index; // nb d'args
+	int						ret_ft_printf;
+}								t_v_args;
 
 #endif
