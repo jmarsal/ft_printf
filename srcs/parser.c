@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 15:55:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/23 13:07:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
 							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b'))
+							format[*i + 1] == 'b' ||
+							format[*i + 1] == 'p'))
 	{
 		conv_str_s(args, v_args, format, i);
 		conv_decimal_d(args, v_args, format, i);
@@ -71,7 +72,8 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
 							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b'))
+							format[*i + 1] == 'b' ||
+							format[*i + 1] == 'p'))
 	{
 		v_args->index += 1;
 		*i += 2;
