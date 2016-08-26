@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 18:02:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/26 23:09:49 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main()
 	int nb;
 	int nb1;
 	int nb2;
+	int ret;
 	int *p;
 
 	// nb1 = ft_printf("Hello%s%s world\n", " World !\n", "I am so happy");
@@ -119,9 +120,14 @@ int main()
 	// nb1 = ft_printf("%b\n", nb);
 	// ft_printf("%d\n", nb1);
 
-	nb = INT_MIN;
-	nb1 = ft_printf("%b\n", nb);
+	// nb = INT_MIN;
+	// nb1 = ft_printf("%b\n", nb);
+	// ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("%b\n", "Hello World");
 	ft_printf("%d\n", nb1);
+	ret = printf("%s\n","10000000001111011011000");
+	printf("%d\n", ret);
 
 	// nb = -42;
 	// nb1 = ft_printf("%b\n", nb);
