@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 15:49:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 00:04:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
 							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b'))
+							format[*i + 1] == 'b' ||
+							format[*i + 1] == 'p'))
 	{
 		conv_str_s(args, v_args, format, i);
 		conv_decimal_d(args, v_args, format, i);
@@ -29,6 +30,7 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 		conv_hex_x(args, v_args, format, i);
 		conv_hex_lx(args, v_args, format, i);
 		conv_binary_b(args, v_args, format, i);
+		conv_mem_p(args, v_args, format, i);
 		v_args->i_args++;
 		*i += 2;
 	}
@@ -71,7 +73,8 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
 							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b'))
+							format[*i + 1] == 'b' ||
+							format[*i + 1] == 'p'))
 	{
 		v_args->index += 1;
 		*i += 2;
@@ -124,6 +127,5 @@ int			treatment(va_list *args, const char *format)
 		return (-1);
 	get_content_format(args, format, v_args);
 	print_format(v_args);
-	return (v_args->ret_ft_printf); // Faire plusieurs test (str + flags '%s' ou int pour
-				// check le retour exact)
+	return (v_args->ret_ft_printf);
 }

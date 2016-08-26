@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 15:38:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 00:01:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct		s_conversion
 	int						hex;
 	int						binary;
 	char					c;
-	// int						*p;
+	int						*ptr;
 	char					l_conv;
 							//Besoin d'une variable de taille de champ
 							//Besoin d'une variable de precision (par default 1)

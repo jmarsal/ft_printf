@@ -6,11 +6,29 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 16:40:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:00:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void print_ptr(void *p, t_v_args *v_args)
+{
+	unsigned char 	t[sizeof(p)];
+	char			*ret;
+	size_t			i;
+
+	ret = ft_strnew(0);
+	i = sizeof(p);
+	i -= 2;
+	ft_memcpy(t, &p, sizeof(p));
+	ret = ft_strjoin(ret, "0x");
+	while ((i--) > 0)
+		ret = ft_strjoin(ret, ft_strtolower(ft_itoa_base(t[i], 16)));
+	ft_putstr(ret);
+	v_args->ret_ft_printf += ft_strlen(ret);
+	(void)t;
+}
 
 void	print_format(t_v_args *v_args)
 {
@@ -24,21 +42,14 @@ void	print_format(t_v_args *v_args)
 		// printf("l_conv = %c\n", v_args->f_conv[i]->l_conv);
 		if (v_args->f_conv[i]->l_conv == 's')
 			ft_putstr(v_args->f_conv[i]->str);
-		else if (v_args->f_conv[i]->l_conv == 'd')
+		if (v_args->f_conv[i]->l_conv == 'd')
 			ft_putnbr(v_args->f_conv[i]->nb);
 		else if (v_args->f_conv[i]->l_conv == 'c')
 			ft_putchar(v_args->f_conv[i]->c);
 		else if (v_args->f_conv[i]->l_conv == 'x')
 			ft_putstr(ft_strtolower(ft_itoa_base(v_args->f_conv[i]->hex, 16)));
-		// else if (v_args->f_conv[i]->l_conv == 'p')
-		// {
-		// 	ft_memcpy(t, &v_args->f_conv[i]->p, sizeof(v_args->f_conv[i]->p));
-		// 	while (i < sizeof(v_args->f_conv[i]->p))
-		// 	{
-		// 		ft_putstr(ft_strtolower(ft_itoa_base(t[j], 16)));
-		// 		++j;
-		// 	}
-		// }
+		else if (v_args->f_conv[i]->l_conv == 'p')
+			print_ptr(v_args->f_conv[i]->ptr, v_args);
 		else if (v_args->f_conv[i]->l_conv == 'X')
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->hex, 16));
 		else if (v_args->f_conv[i]->l_conv == 'b')
