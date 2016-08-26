@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/26 16:33:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 23:18:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:35:11 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int	main(void)
 {
 	int ret;
-//nb = 42
 
+//nb = 42
 	ret = printf("%s\n", "101010");
 	printf("%d\n", ret);
 
@@ -30,7 +30,7 @@ int	main(void)
 	printf("%d\n", ret);
 
 //Hello World
-	ret = printf("%s\n","10000000001111011101100");
+	ret = printf("%s\n","10000000010001011011100");
 	printf("%d\n", ret);
 	return (0);
 }

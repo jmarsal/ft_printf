@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/15 01:53:19 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:38:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 int	main(void)
 {
 	int	*pointeur;
+	int	t;
+	int ret;
 
-	pointeur = 0;
+	pointeur = &t;
 	// dDioOuUxXcC
-	ft_printf("%p\n", pointeur);
+	ret = ft_printf("%p\n", pointeur);
+	ft_printf("%d\n", ret);
 	return (0);
 }

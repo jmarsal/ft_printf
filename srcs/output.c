@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 01:00:10 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:27:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	print_format(t_v_args *v_args)
 	j = 0;
 	while (v_args->index--)
 	{
-		// printf("l_conv = %c\n", v_args->f_conv[i]->l_conv);
 		if (v_args->f_conv[i]->l_conv == 's')
 			ft_putstr(v_args->f_conv[i]->str);
 		if (v_args->f_conv[i]->l_conv == 'd')
