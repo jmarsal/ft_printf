@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:28:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 15:58:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/26 16:30:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	conv_binary_b(va_list *args, t_v_args *v_args, const char *format,
 	{
 		L_CONV = 'b';
 		BINARY = va_arg(*args, int);
-		v_args->ret_ft_printf += ft_strlen(ft_itoa_base(HEX, 2));
+		v_args->ret_ft_printf += ft_strlen(ft_itoa_base(BINARY, 2));
 	}
 }

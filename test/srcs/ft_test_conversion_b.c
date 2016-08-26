@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_char.c                                        :+:      :+:    :+:   */
+/*   ft_test_conversion_b.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/22 15:41:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 15:22:49 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/26 16:32:12 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/26 18:02:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include "../../includes/ft_printf.h"
+#include <limits.h>
+#include "libft.h"
 
-void	conv_char_c(va_list *args, t_v_args *v_args, const char *format,
-					size_t * i)
+int	main(void)
 {
-	if (format[*i + 1] && format[*i + 1] == 'c')
-	{
-		L_CONV = 'c';
-		C = va_arg(*args, int);
-		v_args->ret_ft_printf++;
-	}
+	int	nb;
+	int nb1;
+
+	nb = 42;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
+
+	nb = INT_MAX;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
+
+	nb = INT_MIN;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
+
+	return (0);
 }

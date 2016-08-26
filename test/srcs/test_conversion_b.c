@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_char.c                                        :+:      :+:    :+:   */
+/*   test_conversion_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/22 15:41:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 15:22:49 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/26 16:33:43 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/08/26 18:14:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 
-void	conv_char_c(va_list *args, t_v_args *v_args, const char *format,
-					size_t * i)
+int	main(void)
 {
-	if (format[*i + 1] && format[*i + 1] == 'c')
-	{
-		L_CONV = 'c';
-		C = va_arg(*args, int);
-		v_args->ret_ft_printf++;
-	}
+	int ret;
+//nb = 42
+
+	ret = printf("%s\n", "101010");
+	printf("%d\n", ret);
+
+//INT_MAX
+	ret = printf("%s\n", "1111111111111111111111111111111");
+	printf("%d\n", ret);
+
+//INT_MIN
+	ret = printf("%s\n", "10000000000000000000000000000000");
+	printf("%d\n", ret);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/19 01:25:32 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/26 16:59:12 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,7 +299,29 @@ else
 					\"diff_output\".");
 }
 ////////////////////////////////////////////////////////////////////////////////
-
+// %b
+if ((fd = open("test/diff_output/diff_conv_b.txt", O_RDONLY)) < 1)
+{
+	printf("Erreur : Pas de fichier diff_conv_b.txt");
+	return (-1);
+}
+if ((len = read(fd, buffer, 4096)) == 0)
+{
+	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%b ok !");
+	close(fd);
+	remove("diff_output/diff_conv_d.txt");
+}
+else
+{
+	printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
+									conversion \%b!");
+	printf("%s\n", buffer);
+	close(fd);
+	test = 1;
+	printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
+					\"diff_output\".");
+}
+////////////////////////////////////////////////////////////////////////////////
 	// Fin de test
 	if (test == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 02:16:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/26 15:38:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ typedef struct		s_conversion
 	int						hex;
 	int						binary;
 	char					c;
-	void					*p;
-	// size_t			index;
-	char					l_conv; //le flag de conversion. Peut etre besoin d'un char *
+	// int						*p;
+	char					l_conv;
 							//Besoin d'une variable de taille de champ
 							//Besoin d'une variable de precision (par default 1)
 							//Besoin d'une variable modificateur de longueur (hh, h, l, ll, etc...)

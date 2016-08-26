@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/08/21 14:54:08 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/08/26 15:32:39 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,11 @@ vpath %.c $(SRC_PATH)
 SOURCES += ft_printf.c \
 						parser.c \
 						output.c \
-						init.c
+						init.c \
+						conv_hex_bin.c \
+						conv_str.c \
+						conv_char.c \
+						conv_decimal.c
 
 # Objects
 OBJ_PATH = obj
