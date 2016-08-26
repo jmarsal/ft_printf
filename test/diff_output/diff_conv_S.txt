@@ -1,3 +1,0 @@
-0a1$
-> warning: invalid conversion specifier 'S'$
-\ No newline at end of file$

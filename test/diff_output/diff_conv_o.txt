@@ -1,8 +1,5 @@
-1,4c1$
+1,4d0$
 < 52$
 < 37777777726$
 < 20000000000$
 < 17777777777$
----$
-> warning: invalid conversion specifier 'o'warning: invalid conversion specifier 'o'warning: invalid conversion specifier 'o'warning: invalid conversion specifier 'o'$
-\ No newline at end of file$

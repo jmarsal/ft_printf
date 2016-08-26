@@ -1,5 +1,2 @@
-1c1$
+1d0$
 < (nil)$
----$
-> warning: invalid conversion specifier 'p'$
-\ No newline at end of file$

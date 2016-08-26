@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/23 13:07:10 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/26 02:22:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,42 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 							format[*i + 1] == 'i' ||
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
-							format[*i + 1] == 'X' ||
+							format[*i + 1] == 'X' /*||
 							format[*i + 1] == 'b' ||
-							format[*i + 1] == 'p'))
+							format[*i + 1] == 'p'*/))
 	{
-		conv_str_s(args, v_args, format, i);
-		conv_decimal_d(args, v_args, format, i);
-		conv_char_c(args, v_args, format, i);
-		conv_hex_x(args, v_args, format, i);
-		conv_hex_lx(args, v_args, format, i);
-		conv_binary_b(args, v_args, format, i);
+		if (format[*i + 1] && format[*i + 1] == 's')
+		{
+			L_CONV = 's';
+			STR = ft_strdup(va_arg(*args, char *));
+			v_args->ret_ft_printf += ft_strlen(STR);
+		}
+		if (format[*i + 1] && (format[*i + 1] == 'd' || format[*i + 1] == 'i'))
+		{
+			L_CONV = 'd';
+			NB = va_arg(*args, int);
+			// printf("%d\n", NB);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa(NB));
+		}
+		if (format[*i + 1] && format[*i + 1] == 'c')
+		{
+			L_CONV = 'c';
+			C = va_arg(*args, int);
+			v_args->ret_ft_printf++;
+		}
+		if (format[*i + 1] && format[*i + 1] == 'x')
+		{
+			L_CONV = 'x';
+			HEX = va_arg(*args, int);
+			printf("%d\n", HEX);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa_base(HEX, 16));
+		}
+		if (format[*i + 1] && format[*i + 1] == 'X')
+		{
+			L_CONV = 'X';
+			HEX = va_arg(*args, int);
+			v_args->ret_ft_printf += ft_strlen(ft_itoa_base(HEX, 16));
+		}
 		v_args->i_args++;
 		*i += 2;
 	}
@@ -71,9 +97,9 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 							format[*i + 1] == 'i' ||
 							format[*i + 1] == 'c' ||
 							format[*i + 1] == 'x' ||
-							format[*i + 1] == 'X' ||
+							format[*i + 1] == 'X'/* ||
 							format[*i + 1] == 'b' ||
-							format[*i + 1] == 'p'))
+							format[*i + 1] == 'p'*/))
 	{
 		v_args->index += 1;
 		*i += 2;
