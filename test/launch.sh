@@ -20,12 +20,6 @@ diff ./t_conv_S.txt ./ft_t_conv_S.txt | cat -e > test/diff_output/diff_conv_S.tx
 rm t_conv_S ft_t_conv_S t_conv_S.txt ft_t_conv_S.txt
 
 # <<<< %p >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_p.c -o t_conv_p
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_p.c -o ft_t_conv_p -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
-./t_conv_p > t_conv_p.txt
-./ft_t_conv_p > ft_t_conv_p.txt
-diff ./t_conv_p.txt ./ft_t_conv_p.txt | cat -e > test/diff_output/diff_conv_p.txt
-rm t_conv_p ft_t_conv_p t_conv_p.txt ft_t_conv_p.txt
 
 # <<<< %d %i >>>>
 clang -Wall -Wextra -Werror test/srcs/test_conversion_d_i.c -o t_conv_d_i

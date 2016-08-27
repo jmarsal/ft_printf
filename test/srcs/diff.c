@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 16:59:12 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 16:35:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int			main(void)
 	int		len;
 	int		test;
 	char	buffer[4096];
+	int		nb, nb1, nb2;
+	int		*ptr_nb;
 
 	test = 0;
 	//test diffs sur les conversions
@@ -70,26 +72,20 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %p
-	if ((fd = open("test/diff_output/diff_conv_p.txt", O_RDONLY)) < 1)
-	{
-		printf("Erreur : Pas de fichier diff_conv_p.txt");
-		return (-1);
-	}
-	if ((len = read(fd, buffer, 4096)) == 0)
-	{
+	printf("\n<<<<<\t\ttest pointeur %%p\t\t>>>>>\n");
+	ptr_nb = &nb;
+	nb1 = ft_printf("%p\n", ptr_nb);
+	ft_printf("%d\n", nb1);
+	//
+	nb2 = printf("%p\n", ptr_nb);
+	printf("%d\n", nb2);
+	if (nb1 == nb2)
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%p ok !");
-		close(fd);
-		remove("diff_output/diff_conv_p.txt");
-	}
 	else
 	{
 		printf("\033[31m\n%s\033[0m\n\n", "---> probleme avec le test de\
 										conversion \%p!");
-		printf("%s\n", buffer);
-		close(fd);
 		test = 1;
-		printf("%s\n", "Le fichier de diff se trouve dans le repertoire\
-						\"diff_output\".");
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %d
