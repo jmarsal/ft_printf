@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 01:27:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 02:05:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	print_format(t_v_args *v_args)
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->hex, 16));
 		else if (v_args->f_conv[i]->l_conv == 'b')
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->binary, 2));
+		else if (v_args->f_conv[i]->l_conv == 'o')
+			ft_putstr(ft_itoa_base(v_args->f_conv[i]->oct, 8));
 		else if (v_args->f_conv[i]->l_conv == '%')
 			ft_putstr(v_args->f_conv[i]->str);
 		i++;

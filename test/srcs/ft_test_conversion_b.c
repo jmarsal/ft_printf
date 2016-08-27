@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/26 16:32:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 01:34:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:56:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	main(void)
 
 	nb = INT_MIN;
 	nb1 = ft_printf("%b\n", nb);
-	ft_printf("%d\n", nb1);
-
-	nb1 = ft_printf("%b\n", "Hello World");
 	ft_printf("%d\n", nb1);
 
 	return (0);

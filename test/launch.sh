@@ -1,11 +1,6 @@
 mkdir diff_output
 cd .. && clear
 make re && sleep 1 && clear
-# gcc -Wall -Wextra -Werror test/test1.c -o ft_printf_test -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
-# echo "\n\033[34mDebut de test \n\n\033[0m"
-# ./ft_printf_test
-# rm ft_printf_test
-# echo "\n\033[31mFin de test \n\n\033[0m"
 echo "<<<<<\t\ttest de conversions\t\t>>>>>\n"
 
 # <<<< %s >>>>

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 00:01:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:58:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct		s_conversion
 	char					*str;
 	int						nb;
 	int						hex;
+	int						oct;
 	int						binary;
 	char					c;
 	int						*ptr;

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 00:02:58 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 01:59:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_conversion	**init_tab_args(t_v_args *v_args)
 		f_conv[i]->l_conv = 0;
 		f_conv[i]->str = NULL;
 		f_conv[i]->nb = 0;
+		f_conv[i]->oct = 0;
 		f_conv[i]->hex = 0;
 		f_conv[i]->binary = 0;
 		f_conv[i]->ptr = ft_memalloc(sizeof(int*));
