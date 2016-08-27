@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 02:13:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/27 16:26:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	int nb;
 	int nb1;
 	int nb2;
-	unsigned long int lnb;
+	size_t lnb;
 	int ret;
 	int *p;
 	char test;
@@ -34,12 +34,16 @@ int main()
 	lnb = 42;
 	nb = 42;
 
-	printf("%lo\n", lnb);
-	ft_printf("%o\n", nb);
-	lnb = -42;
-	nb = -42;
-	printf("%lo\n", lnb);
-	ft_printf("%o\n", nb);
+	ret = printf("%d\n", nb);
+	// ft_printf("%d\n", ret);
+	ret = ft_printf("%d\n", nb);
+	// ft_printf("%d\n", ret);
+	// lnb = -42;
+	// nb = -42;
+	// ret = printf("%ld\n", lnb);
+	// // ft_printf("%d\n", ret);
+	// ret = ft_printf("%D\n", lnb);
+	// ft_printf("%d\n", ret);
 	// p = &nb;
 	// nb1 = ft_printf("%p\n", p);
 	// ft_printf("%d\n", nb1);
