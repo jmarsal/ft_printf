@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 1,4c1,4$
+=======
+1,4c1$
+>>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
 < 42$
 < -42$
 < -2147483648$
 < 2147483647$
 ---$
+<<<<<<< HEAD
 > $
 > $
 > $
 > $
+=======
+> warning: invalid conversion specifier 'D'warning: invalid conversion specifier 'D'warning: invalid conversion specifier 'D'warning: invalid conversion specifier 'D'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$
+>>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818

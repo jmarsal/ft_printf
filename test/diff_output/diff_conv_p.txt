@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 1c1,2$
 < 0x7ffc0a01686c$
 ---$
 > 0x7ffe7f481d3c$
 > 15$
+=======
+1c1$
+< (nil)$
+---$
+> warning: invalid conversion specifier 'p'$
+\ Pas de fin de ligne M-CM-  la fin du fichier$
+>>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
