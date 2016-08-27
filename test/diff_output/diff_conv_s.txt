@@ -1,8 +1,13 @@
-<<<<<<< HEAD
-=======
-1c1,2$
-< Justine est la plus jolie$
+4d3$
+< Hello World !$
+17,19c16$
+< %$
+< 2$
+< Hello World$
 ---$
-> $
-> index = 1$
->>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
+> %2$
+21,22c18$
+< %Hello World !$
+< 15$
+---$
+> %15$

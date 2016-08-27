@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-=======
-1,2c1$
-< *$
-< d$
----$
-> warning: invalid conversion specifier 'c'warning: invalid conversion specifier 'c'$
-\ Pas de fin de ligne M-CM-  la fin du fichier$
->>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
+Binary files ./t_conv_C.txt and ./ft_t_conv_C.txt differ$
