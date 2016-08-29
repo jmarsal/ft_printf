@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 16:13:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/29 16:59:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@
 # define BINARY v_args->f_conv[v_args->i_args]->binary
 # define PTR v_args->f_conv[v_args->i_args]->ptr
 # define OCT v_args->f_conv[v_args->i_args]->oct
-// # define L_OCT v_args->f_conv[v_args->i_args]->oct
+# define L_OCT v_args->f_conv[v_args->i_args]->oct
 #endif

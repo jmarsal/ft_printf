@@ -2,8 +2,4 @@
 < *$
 ---$
 > warning: invalid conversion specifier 'C'$
-<<<<<<< HEAD
 \ No newline at end of file$
-=======
-\ Pas de fin de ligne M-CM-  la fin du fichier$
->>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818

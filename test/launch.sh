@@ -1,6 +1,6 @@
 mkdir diff_output
 cd .. && clear
-make re && sleep 1 && clear
+make debug && sleep 1 && clear
 echo "<<<<<\t\ttest de conversions\t\t>>>>>\n"
 
 # <<<< %s >>>>

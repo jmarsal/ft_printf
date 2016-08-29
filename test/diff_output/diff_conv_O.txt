@@ -1,12 +1,6 @@
-1,4c1$
-< 52$
+2,3c2,3$
 < 1777777777777777777726$
 < 1777777777760000000000$
-< 17777777777$
 ---$
-> warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'warning: invalid conversion specifier 'O'$
-<<<<<<< HEAD
-\ No newline at end of file$
-=======
-\ Pas de fin de ligne M-CM-  la fin du fichier$
->>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
+> 37777777726$
+> 20000000000$

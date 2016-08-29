@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-=======
-1c1,2$
-< Justine est la plus jolie$
----$
-> $
-> index = 1$
->>>>>>> a76b0b49d9df3edaf6b9e69a7c49f77972a86818
