@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 17:09:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 01:42:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	int nb;
 	// int nb1;
 	// int nb2;
-	size_t lnb;
+	long int lnb;
 	int ret;
 	// int *p;
 	// char test;
@@ -31,7 +31,15 @@ int main()
 	// ret = printf("%p\n", p);
 	// // printf("%d\n", ret);
 
-	lnb = 42;
+	lnb = LONG_MIN;
+	// ret = ft_printf("%D\n", lnb);
+	// ft_printf("%d\n", ret);
+	// ret = printf("%ld\n", lnb);
+	// printf("%d\n", ret);
+	ret = ft_printf("%O\n", lnb);
+	ft_printf("%d\n", ret);
+	ret = printf("%lo\n", lnb);
+	printf("%d\n", ret);
 	// nb = 42;
 
 	// ret = printf("%ld\n", lnb);
@@ -39,11 +47,11 @@ int main()
 	// ret = ft_printf("%D\n", lnb);
 	// ft_printf("%d\n", ret);
 	// lnb = -42;
-	nb = -42;
-	ret = printf("%d\n", nb);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%i\n", nb);
-	ft_printf("%i\n", ret);
+	// nb = -42;
+	// ret = printf("%d\n", nb);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("%i\n", nb);
+	// ft_printf("%i\n", ret);
 	// p = &nb;
 	// nb1 = ft_printf("%p\n", p);
 	// ft_printf("%d\n", nb1);

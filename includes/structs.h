@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 16:59:39 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/29 22:01:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct		s_conversion
 {
-	unsigned long int		l_oct;
-	long int					l_nb;
+	long int				l_oct;
+	long int				l_nb;
 	char					*str;
 	int						nb;
 	int						hex;

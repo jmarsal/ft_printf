@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 17:10:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/29 22:35:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
 	if (format[*i + 1] && format[*i + 1] == 'D')
 	{
 		L_CONV = 'D';
-		L_NB = va_arg(*args, size_t);
-		v_args->ret_ft_printf += ft_strlen(ft_itoa(L_NB));
+		L_NB = va_arg(*args, long int);
+		v_args->ret_ft_printf += ft_strlen(ft_litoa(L_NB));
 	}
 }
 
@@ -51,7 +51,7 @@ void	conv_octal_lo(va_list *args, t_v_args *v_args, const char *format,
 	if (format[*i + 1] && (format[*i + 1] == 'O'))
 	{
 		L_CONV = 'O';
-		OCT = va_arg(*args, unsigned long int);
-		v_args->ret_ft_printf += ft_strlen(ft_itoa_base(OCT, 8));
+		L_OCT = va_arg(*args, long int);
+		v_args->ret_ft_printf += ft_strlen(ft_litoa_base(L_OCT, 8));
 	}
 }
