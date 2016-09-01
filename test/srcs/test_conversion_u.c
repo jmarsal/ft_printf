@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 00:49:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 17:26:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,23 @@
 int	main(void)
 {
 	unsigned int	nb;
+	int				ret;
 
 	// DioOuUxXcC
 	nb = 42;
-	printf("%u\n", nb);
+	ret = printf("%u\n", nb);
+	printf("%d\n", ret);
 	nb = -42;
-	printf("%u\n", nb);
+	ret = printf("%u\n", nb);
+	printf("%d\n", ret);
 	nb = INT_MIN;
-	printf("%u\n", nb);
+	ret = printf("%u\n", nb);
+	printf("%d\n", ret);
 	nb = INT_MAX;
-	printf("%u\n", nb);
+	ret = printf("%u\n", nb);
+	printf("%d\n", ret);
+	nb = UINT_MAX;
+	ret = printf("%u\n", nb);
+	printf("%d\n", ret);
 	return (0);
 }

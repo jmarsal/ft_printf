@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 22:35:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 18:01:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	conv_decimal_d(va_list *args, t_v_args *v_args, const char *format,
 	if (format[*i + 1] && (format[*i + 1] == 'd' || format[*i + 1] == 'i'))
 	{
 		L_CONV = 'd';
-		NB = va_arg(*args, int);
-		v_args->ret_ft_printf += ft_strlen(ft_itoa(NB));
+		INT = va_arg(*args, int);
+		v_args->ret_ft_printf += ft_strlen(ft_itoa(INT));
 	}
 }
 
@@ -29,29 +29,29 @@ void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
 	if (format[*i + 1] && format[*i + 1] == 'D')
 	{
 		L_CONV = 'D';
-		L_NB = va_arg(*args, long int);
-		v_args->ret_ft_printf += ft_strlen(ft_litoa(L_NB));
+		L_INT = va_arg(*args, long int);
+		v_args->ret_ft_printf += ft_strlen(ft_litoa(L_INT));
 	}
 }
 
-void	conv_octal_o(va_list *args, t_v_args *v_args, const char *format,
+void	conv_u_decimal_u(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 'o'))
+	if (format[*i + 1] && (format[*i + 1] == 'u'))
 	{
-		L_CONV = 'o';
-		OCT = va_arg(*args, int);
-		v_args->ret_ft_printf += ft_strlen(ft_itoa_base(OCT, 8));
+		L_CONV = 'u';
+		U_INT = va_arg(*args, unsigned int);
+		v_args->ret_ft_printf += ft_strlen(ft_litoa(U_INT));
 	}
 }
 
-void	conv_octal_lo(va_list *args, t_v_args *v_args, const char *format,
+void	conv_lu_decimal_lu(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 'O'))
+	if (format[*i + 1] && (format[*i + 1] == 'U'))
 	{
-		L_CONV = 'O';
-		L_OCT = va_arg(*args, long int);
-		v_args->ret_ft_printf += ft_strlen(ft_litoa_base(L_OCT, 8));
+		L_CONV = 'U';
+		U_L_INT = va_arg(*args, unsigned long);
+		v_args->ret_ft_printf += ft_strlen(ft_ulitoa(U_L_INT));
 	}
 }

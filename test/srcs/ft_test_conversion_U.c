@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/16 00:55:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 18:08:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,24 @@
 
 int	main(void)
 {
-	unsigned long int	nb;
+	unsigned long	nb;
+	int				ret;
 
 	// DioOuUxXcC
 	nb = 42;
-	ft_printf("%U\n", nb);
+	ret = ft_printf("%U\n", nb);
+	ft_printf("%d\n", ret);
 	nb = -42;
-	ft_printf("%U\n", nb);
+	ret = ft_printf("%U\n", nb);
+	ft_printf("%d\n", ret);
 	nb = INT_MIN;
-	ft_printf("%U\n", nb);
+	ret = ft_printf("%U\n", nb);
+	ft_printf("%d\n", ret);
 	nb = INT_MAX;
-	ft_printf("%U\n", nb);
+	ret = ft_printf("%U\n", nb);
+	ft_printf("%d\n", ret);
+	nb = ULONG_MAX;
+	ret = ft_printf("%U\n", nb);
+	ft_printf("%d\n", ret);
 	return (0);
 }

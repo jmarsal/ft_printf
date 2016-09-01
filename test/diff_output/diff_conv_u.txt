@@ -1,8 +1,0 @@
-1,4c1$
-< 42$
-< 4294967254$
-< 2147483648$
-< 2147483647$
----$
-> warning: invalid conversion specifier 'u'warning: invalid conversion specifier 'u'warning: invalid conversion specifier 'u'warning: invalid conversion specifier 'u'$
-\ No newline at end of file$

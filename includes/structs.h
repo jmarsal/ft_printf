@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 22:01:19 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 17:17:34 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@
 
 typedef struct		s_conversion
 {
-	long int				l_oct;
+	unsigned long			u_l_nb;
 	long int				l_nb;
+	unsigned int			u_nb;
 	char					*str;
-	int						nb;
-	int						hex;
-	int						oct;
-	int						binary;
-	char					c;
 	int						*ptr;
+	int						nb;
+	char					c;
 	char					l_conv;
 							//Besoin d'une variable de taille de champ
 							//Besoin d'une variable de precision (par default 1)

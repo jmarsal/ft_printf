@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/29 17:00:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 18:02:37 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 							format[*i + 1] == 'b' ||
 							format[*i + 1] == 'p' ||
 							format[*i + 1] == 'o' ||
-							format[*i + 1] == 'O'))
+							format[*i + 1] == 'O' ||
+							format[*i + 1] == 'u' ||
+							format[*i + 1] == 'U'))
 	{
 		conv_str_s(args, v_args, format, i);
 		conv_decimal_d(args, v_args, format, i);
@@ -37,6 +39,8 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 		conv_mem_p(args, v_args, format, i);
 		conv_octal_o(args, v_args, format, i);
 		conv_octal_lo(args, v_args, format, i);
+		conv_u_decimal_u(args, v_args, format, i);
+		conv_lu_decimal_lu(args, v_args, format, i);
 		v_args->i_args++;
 		*i += 2;
 	}
@@ -83,7 +87,9 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 							format[*i + 1] == 'b' ||
 							format[*i + 1] == 'p' ||
 							format[*i + 1] == 'o' ||
-							format[*i + 1] == 'O'))
+							format[*i + 1] == 'O' ||
+							format[*i + 1] == 'u' ||
+							format[*i + 1] == 'U'))
 	{
 		v_args->index += 1;
 		*i += 2;
