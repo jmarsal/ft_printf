@@ -32,5 +32,5 @@
 *.dSYM/
 *.su
 *.txt
-test/diff_output/*.txt
+test/*.txt
 main
