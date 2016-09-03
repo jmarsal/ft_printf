@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/03 02:07:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/03 02:44:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			print_format(t_v_args *v_args);
 */
 
 t_v_args		*init_t_v_args(void);
-t_conversion	**init_tab_args(t_v_args *v_args);
+t_conversion	**init_tab_args(t_v_args *v_args)
 
 /*
 ** conv_hex_bin.c
