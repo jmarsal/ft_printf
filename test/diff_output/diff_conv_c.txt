@@ -1,5 +1,0 @@
-1c1$
-< *$
----$
-> warning: invalid conversion specifier 'C'$
-\ Pas de fin de ligne M-CM-  la fin du fichier$
