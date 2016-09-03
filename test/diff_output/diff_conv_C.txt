@@ -2,4 +2,4 @@
 < *$
 ---$
 > warning: invalid conversion specifier 'C'$
-\ Pas de fin de ligne M-CM-  la fin du fichier$
+\ No newline at end of file$

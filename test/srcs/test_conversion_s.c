@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_S.c                                :+:      :+:    :+:   */
+/*   test_conversion_s.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/15 01:53:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/03 17:02:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,27 @@
 
 int	main(void)
 {
-	wchar_t texte[50] = L"Antoine est le plus intelligent des Bébés !";
-	printf("%S\n", texte);
+	int nb1;
+
+	nb1 = printf("Hello%s%s world\n", " World !\n", "I am so happy");
+	printf("%d\n", nb1);
+
+	nb1 = printf("%s", "Hello World !\n");
+	printf("%d\n", nb1);
+
+	nb1 = printf("\n\n%s%s", "Hello World !\n", "C'est la fete !\n");
+	printf("%d\n", nb1);
+
+	nb1 = printf("\n\n%s%s%%%%%s", "Justine et jolie\n", "Antoine aussi!\n", "mon ange evidemment !\n");
+	printf("%d\n", nb1);
+
+	nb1 = printf("%%\n");
+	printf("%d\n", nb1);
+
+	nb1 = printf("Hello World\n");
+	printf("%d\n", nb1);
+
+	nb1 = printf("%%%s", "Hello World !\n");
+	printf("%d\n", nb1);
 	return (0);
 }
