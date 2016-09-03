@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_conversion_c.c                             :+:      :+:    :+:   */
+/*   ft_test_conversion_C.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 00:15:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/16 01:34:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../../includes/ft_printf.h"
-#include <limits.h>
-#include "libft.h"
+#include "ft_printf.h"
 
 int	main(void)
 {
-	int	nb;
-	// DioOuUxXcC
-	nb = ft_printf("%c\n", 42);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%c\n", -42);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%c\n", 0);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%c\n", 100);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%c\n", 255);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%c\n", 'Y');
-	ft_printf("%d\n", nb);
-
+	wchar_t texte = 42;
+	ft_printf("%C\n", texte);
 	return (0);
 }

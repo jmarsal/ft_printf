@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_conversion_o.c                             :+:      :+:    :+:   */
+/*   ft_test_conversion_O.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 02:08:39 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 00:49:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,27 @@
 
 int	main(void)
 {
-	unsigned int	nb;
+	long int	nb;
+	int			ret;
 
 	// DioOuUxXcC
 	nb = 42;
-	ft_printf("%o\n", nb);
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
 	nb = -42;
-	ft_printf("%o\n", nb);
-	nb = INT_MIN;
-	ft_printf("%o\n", nb);
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
+	nb = LONG_MIN;
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
+	nb = LONG_MAX;
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
 	nb = INT_MAX;
-	ft_printf("%o\n", nb);
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
+	nb = INT_MIN;
+	ret = ft_printf("%O\n", nb);
+	ft_printf("%d\n", ret);
 	return (0);
 }

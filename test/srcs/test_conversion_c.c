@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_c.c                                :+:      :+:    :+:   */
+/*   test_conversion_C.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/22 00:14:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/16 01:31:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <limits.h>
+#include <wchar.h>
+
 
 int	main(void)
 {
-	int	nb;
-	// DioOuUxXcC
-	nb = printf("%c\n", 42);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", -42);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 0);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 100);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 255);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 'Y');
-	printf("%d\n", nb);
-
+	wchar_t texte = 42;
+	printf("%lc\n", texte);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_o.c                                :+:      :+:    :+:   */
+/*   test_conversion_O.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/27 02:08:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/08/31 00:50:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,27 @@
 
 int	main(void)
 {
-	unsigned int	nb;
+	long int	nb;
+	int			ret;
 
 	// DioOuUxXcC
 	nb = 42;
-	printf("%o\n", nb);
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
 	nb = -42;
-	printf("%o\n", nb);
-	nb = INT_MIN;
-	printf("%o\n", nb);
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
+	nb = LONG_MIN;
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
+	nb = LONG_MAX;
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
 	nb = INT_MAX;
-	printf("%o\n", nb);
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
+	nb = INT_MIN;
+	ret = printf("%lo\n", nb);
+	printf("%d\n", ret);
 	return (0);
 }
