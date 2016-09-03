@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/01 02:03:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/02 15:46:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 int main()
 {
-	int nb;
+	short nb;
 	// int nb1;
 	// int nb2;
 	long int lnb;
 	unsigned int u_nb;
 	unsigned long	u_l_nb;
-	wchar_t wc = 58;     /* UNICODE X */
+	wint_t wc = 0x3;     /* UNICODE X */
 	int ret;
 	// int *p;
-	// char test;
+	signed char test;
 	// char *so;
 
 	// p = &nb;
@@ -45,7 +45,8 @@ int main()
 	u_l_nb = ULONG_MAX;
 	// ret = ft_printf("%U\n", u_l_nb);
 	// ft_printf("%d\n", ret);
-	ret = printf("%lc\n", wc);
+ 	u_l_nb = 17002442;
+	ret = printf("%.0ld\n", u_l_nb);
 	printf("%d\n", ret);
 	// nb = 42;
 
