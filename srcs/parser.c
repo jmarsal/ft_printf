@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 18:02:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 01:50:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,13 @@
 static void	get_content_flags(va_list *args, t_v_args *v_args,
 								const char *format, size_t *i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 's' ||
-							format[*i + 1] == 'd' ||
-							format[*i + 1] == 'D' ||
-							format[*i + 1] == 'i' ||
-							format[*i + 1] == 'c' ||
-							format[*i + 1] == 'x' ||
-							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b' ||
-							format[*i + 1] == 'p' ||
-							format[*i + 1] == 'o' ||
-							format[*i + 1] == 'O' ||
-							format[*i + 1] == 'u' ||
-							format[*i + 1] == 'U'))
+	*i += 1;
+	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
+	{
+		v_args->f_conv[v_args->i_args]->f_caracters = format[*i];
+		*i += 1;
+	}
+	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
 		conv_str_s(args, v_args, format, i);
 		conv_decimal_d(args, v_args, format, i);
@@ -42,7 +36,7 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 		conv_u_decimal_u(args, v_args, format, i);
 		conv_lu_decimal_lu(args, v_args, format, i);
 		v_args->i_args++;
-		*i += 2;
+		*i += 1;
 	}
 }
 
@@ -72,29 +66,24 @@ static void	get_content_format(va_list *args, const char *format,
 		}
 		if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(args, v_args, format, &i);
+			// printf("ici\n");
 	}
 }
 
 static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 's' ||
-							format[*i + 1] == 'd' ||
-							format[*i + 1] == 'D' ||
-							format[*i + 1] == 'i' ||
-							format[*i + 1] == 'c' ||
-							format[*i + 1] == 'x' ||
-							format[*i + 1] == 'X' ||
-							format[*i + 1] == 'b' ||
-							format[*i + 1] == 'p' ||
-							format[*i + 1] == 'o' ||
-							format[*i + 1] == 'O' ||
-							format[*i + 1] == 'u' ||
-							format[*i + 1] == 'U'))
+	*i += 1;
+	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
+		*i += 1;
+	// if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
+	// if (is_conversion_specifiers(format, i, PRECISION) == 1)
+	// if (is_conversion_specifiers(format, i, L_MODIFIER) == 1)
+	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
 		v_args->index += 1;
-		*i += 2;
+		*i += 1;
 	}
-	else if (format[*i + 1])
+	else
 	{
 		ft_putstr("warning: invalid conversion specifier '");
 		ft_putchar(format[*i + 1]);
@@ -123,7 +112,7 @@ static int	search_flags_in_format(t_v_args *v_args, const char *format)
 			i += 2;
 			v_args->index++;
 		}
-		else if (format[i] == '%' &&
+		else if (format[i + 1] && format[i] == '%' &&
 				(get_index(v_args, format, &i) == -1))
 			return (-1);
 	}

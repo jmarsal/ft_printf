@@ -1,5 +1,4 @@
 1c1$
 < *$
 ---$
-> warning: invalid conversion specifier 'C'$
-\ No newline at end of file$
+> $

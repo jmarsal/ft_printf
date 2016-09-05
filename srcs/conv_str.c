@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/26 15:24:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 00:47:35 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	conv_str_s(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && format[*i + 1] == 's')
+	if (format[*i] == 's')
 	{
 		L_CONV = 's';
 		STR = ft_strdup(va_arg(*args, char *));

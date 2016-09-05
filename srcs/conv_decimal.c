@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 18:01:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 00:44:23 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	conv_decimal_d(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 'd' || format[*i + 1] == 'i'))
+	if (format[*i] == 'd' || format[*i] == 'i')
 	{
 		L_CONV = 'd';
 		INT = va_arg(*args, int);
@@ -26,7 +26,7 @@ void	conv_decimal_d(va_list *args, t_v_args *v_args, const char *format,
 void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && format[*i + 1] == 'D')
+	if (format[*i] == 'D')
 	{
 		L_CONV = 'D';
 		L_INT = va_arg(*args, long int);
@@ -37,7 +37,7 @@ void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
 void	conv_u_decimal_u(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 'u'))
+	if (format[*i] == 'u')
 	{
 		L_CONV = 'u';
 		U_INT = va_arg(*args, unsigned int);
@@ -48,7 +48,7 @@ void	conv_u_decimal_u(va_list *args, t_v_args *v_args, const char *format,
 void	conv_lu_decimal_lu(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && (format[*i + 1] == 'U'))
+	if (format[*i] == 'U')
 	{
 		L_CONV = 'U';
 		U_L_INT = va_arg(*args, unsigned long);

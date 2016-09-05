@@ -6,14 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 17:18:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 02:24:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
-# include "structs.h"
 /*
 ** f_conv
 */
@@ -26,4 +25,26 @@
 # define C v_args->f_conv[v_args->i_args]->c
 # define L_CONV v_args->f_conv[v_args->i_args]->l_conv
 # define PTR v_args->f_conv[v_args->i_args]->ptr
+
+/*
+** conversion flags
+*/
+
+# define C_SPECIFIERS "dDioOuUxXcCsSbp"
+# define F_CARACTERS "-+ #0"
+# define F_WIDTH "0123456789*"
+# define PRECISION ".*"
+# define L_MODIFIER "hljz"
+
+/*
+** colors
+*/
+
+# define GREEN \033[32;1m
+# define RED "\033[31m"
+# define BLUE "\033[34m"
+# define PINK "\033[35;1m"
+# define CYAN "\033[36;1m"
+# define EOC "\033[0m"
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:28:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 16:49:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 00:46:23 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	conv_hex_x(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && format[*i + 1] == 'x')
+	if (format[*i] == 'x')
 	{
 		L_CONV = 'x';
 		INT = va_arg(*args, int);
@@ -26,7 +26,7 @@ void	conv_hex_x(va_list *args, t_v_args *v_args, const char *format,
 void	conv_hex_lx(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && format[*i + 1] == 'X')
+	if (format[*i] == 'X')
 	{
 		L_CONV = 'X';
 		INT = va_arg(*args, int);
@@ -37,7 +37,7 @@ void	conv_hex_lx(va_list *args, t_v_args *v_args, const char *format,
 void	conv_binary_b(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i + 1] && format[*i + 1] == 'b')
+	if (format[*i] == 'b')
 	{
 		L_CONV = 'b';
 		INT = va_arg(*args, int);

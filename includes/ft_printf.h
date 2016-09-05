@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/03 14:59:49 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/04 23:57:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,11 @@ void	conv_octal_lo(va_list *args, t_v_args *v_args, const char *format,
 
 void	conv_mem_p(va_list *args, t_v_args *v_args, const char *format,
 					size_t * i);
+
+/*
+** parser_helper.c
+*/
+
+int		is_conversion_specifiers(const char *format, size_t *i,
+					const char *flags);
 #endif
