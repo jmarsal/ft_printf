@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 02:24:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 22:57:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,92 +54,12 @@
 
 int main()
 {
-	// short nb;
-	// int nb1;
-	// int nb2;
-	// long int lnb;
-	// unsigned int u_nb;
-	// unsigned long	u_l_nb;
-	// wint_t wc = E2 82 AC;     /* UNICODE X */
+	int nb;
 	int ret;
-	// int *p;
-	// signed char test;
-	// char *so;
-	// ret = ft_printf("%+d\n", 0);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%+d\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%+d\n", -42);
-	// ft_printf("%d\n", ret);
-	// ft_printf("\n");
-	ret = ft_printf("\033[35;1m%s\033[0m\n", "hello");
-	printf("%d\n", ret);
-	// ret = printf("%+d\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("%+d\n", -42);
-	// printf("%d\n", ret);
-	// ret = ft_printf("%+d\n", -42);
-	// ft_printf("%d\n", ret);
-	// printf("%+d\n", -42);
-	// printf("%d\n", ret);
-	// p = &nb;
-	// ret = ft_printf("%p\n", p);
-	// // ft_printf("%d\n", ret);
-	//
-	// ret = printf("%p\n", p);
-	// // printf("%d\n", ret);
-	// setlocale(LC_ALL, "fr_FR.UTF-8");
-    // setlocale(LC_ALL, "");
-    // wprintf(L"ο Δικαιοπολις εν αγρω εστιν\n");  // wide output
-    // freopen(NULL, "w", stdout);                 // lets me switch
-	// printf("ο Δικαιοπολις εν αγρω εστιν\n");	// lnb = LONG_MIN;
-	// ret = ft_printf("%D\n", lnb);
-	// ft_printf("%d\n", ret);
-	// ret = printf("%ld\n", lnb);
-	// printf("%d\n", ret);
-	// u_nb = UINT_MAX;
-	// u_l_nb = ULONG_MAX;
-	// ret = ft_printf("%s%s\n", "hello", " world");
-	// ft_printf("%d\n", ret);
- // 	u_l_nb = 17002442;
- // ret = printf("%d\n", 12345);
- // printf("%d\n", ret);
- // ret = printf("%+d\n", 12345);
- // printf("%d\n", ret);
- // ret = printf("%-8d\n", 12345);
- // printf("%d\n", ret);
- // ret = printf("%.8d\n", 12345);
- // printf("%d\n", ret);
- // ret = printf("% 30.8d\n", -12345);
- // printf("%d\n", ret);
-	// nb = 42;
 
-	// ret = printf("%ld\n", lnb);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%D\n", lnb);
-	// ft_printf("%d\n", ret);
-	// lnb = -42;
-	// nb = -42;
-	// ret = printf("%d\n", nb);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%i\n", nb);
-	// ft_printf("%i\n", ret);
-	// p = &nb;
-	// nb1 = ft_printf("%p\n", p);
-	// ft_printf("%d\n", nb1);
-	//
-	// nb2 = printf("%p\n", p);
-	// printf("%d\n", nb2);
-	//
-	// so = &test;
-	// nb1 = ft_printf("%p\n", so);
-	// ft_printf("%d\n", nb1);
-	//
-	// nb2 = printf("%p\n", so);
-	// printf("%d\n", nb2);
-
-	// nb1 = ft_printf("%b\n", "Hello World");
-	// ft_printf("%d\n", nb1);
+	nb = 42;
+	ret = ft_printf("%c", '7');
+	ft_printf("%d\n", ret);
 
 return (0);
 }

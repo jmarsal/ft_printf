@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 01:51:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 22:48:12 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static void print_ptr(void *p, t_v_args *v_args)
 	i = sizeof(p);
 	i -= 2;
 	ft_memcpy(t, &p, sizeof(p));
-	ret = ft_strjoin(ret, "0x");
+	ret = ft_strcat(ret, "0x");
 	while ((i--) > 0)
-		ret = ft_strjoin(ret, ft_strtolower(ft_itoa_base(t[i], 16)));
+		ret = ft_strcat(ret, ft_strtolower(ft_itoa_base(t[i], 16)));
 	ft_putstr(ret);
 	v_args->ret_ft_printf += ft_strlen(ret);
 }
@@ -46,12 +46,20 @@ void	print_format(t_v_args *v_args)
 				v_args->f_conv[i]->f_caracters == '+')
 			{
 				ft_putchar('+');
-				v_args->ret_ft_printf += 1;	
+				v_args->ret_ft_printf += 1;
 			}
 			ft_putnbr(v_args->f_conv[i]->nb);
 		}
 		else if (v_args->f_conv[i]->l_conv == 'D')
+		{
+			if (v_args->f_conv[i]->l_nb >= 0 &&
+				v_args->f_conv[i]->f_caracters == '+')
+			{
+				ft_putchar('+');
+				v_args->ret_ft_printf += 1;
+			}
 			ft_putlnbr(v_args->f_conv[i]->l_nb);
+		}
 		else if (v_args->f_conv[i]->l_conv == 'u')
 			ft_putlnbr(v_args->f_conv[i]->u_nb);
 		else if (v_args->f_conv[i]->l_conv == 'U')

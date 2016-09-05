@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 02:24:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 14:46:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 ** colors
 */
 
-# define GREEN \033[32;1m
+# define GREEN "\033[32;1m"
 # define RED "\033[31m"
 # define BLUE "\033[34m"
 # define PINK "\033[35;1m"

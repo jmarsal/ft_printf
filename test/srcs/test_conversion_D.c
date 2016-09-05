@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 01:18:31 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/05 15:14:39 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,16 @@ int	main(void)
 	nb = LONG_MAX;
 	ret = printf("%ld\n", nb);
 	printf("%d\n", ret);
+
+	// test flags
+
+	ret = printf("%+ld\n", LONG_MIN);
+	printf("%d\n", ret);
+	ret = printf("%+ld\n", LONG_MAX);
+	printf("%d\n", ret);
+	nb = -0;
+	ret = printf("%+ld\n", nb);
+	printf("%d\n", ret);
+
 	return (0);
 }
