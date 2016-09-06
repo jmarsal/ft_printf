@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 16:00:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 16:26:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	print_format(t_v_args *v_args)
 		{
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->nb));
+			is_f_caracters_is_space(v_args, i);
 			is_f_caracters_is_positive(v_args, i);
 			is_precision(v_args, i);
 			ft_putnbr(v_args->f_conv[i]->nb);
@@ -53,6 +54,7 @@ void	print_format(t_v_args *v_args)
 		{
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->l_nb));
+			is_f_caracters_is_space(v_args, i);
 			is_f_caracters_is_positive(v_args, i);
 			is_precision(v_args, i);
 			ft_putlnbr(v_args->f_conv[i]->l_nb);

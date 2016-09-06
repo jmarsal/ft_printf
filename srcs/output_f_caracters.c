@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 01:07:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 16:08:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 16:29:11 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,19 @@ void	is_f_caracters_is_sharp(t_v_args *v_args, size_t i)
 			v_args->ret_ft_printf += 1;
 			ft_putstr("0X");
 		}
+		v_args->ret_ft_printf += 1;
+	}
+}
+
+void	is_f_caracters_is_space(t_v_args *v_args, size_t i)
+{
+	if (v_args->f_conv[i]->f_caracters == ' ' &&
+					v_args->f_conv[i]->nb >= 0 &&
+					v_args->f_conv[i]->l_nb >= 0)
+	{
+		if (v_args->f_conv[i]->l_conv == 'd' ||
+			v_args->f_conv[i]->l_conv == 'D')
+				ft_putchar(' ');
 		v_args->ret_ft_printf += 1;
 	}
 }

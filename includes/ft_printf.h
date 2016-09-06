@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 15:54:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 16:24:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ void	is_f_caracters_is_positive(t_v_args *v_args, size_t i);
 void	is_f_caracters_is_neg_and_precision(t_v_args *v_args, size_t i);
 void	is_precision(t_v_args *v_args, size_t i);
 void	is_f_caracters_is_sharp(t_v_args *v_args, size_t i);
+void	is_f_caracters_is_space(t_v_args *v_args, size_t i);
 
 #endif
