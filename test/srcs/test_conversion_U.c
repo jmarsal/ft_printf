@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 18:08:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 15:15:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,12 @@ int	main(void)
 	printf("%d\n", ret);
 	nb = ULONG_MAX;
 	ret = printf("%lu\n", nb);
+	printf("%d\n", ret);
+
+	//test with flags
+
+	ret = printf("%-8lu\n", nb);
+	printf("%d\n", ret);
+	ret = printf("%08lu\n", nb);
 	printf("%d\n", ret);
 }

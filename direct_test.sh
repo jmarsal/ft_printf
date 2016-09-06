@@ -2,4 +2,4 @@
 make debug
 # clear
 clang -o main main.c -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
-./main
+./main | cat -e

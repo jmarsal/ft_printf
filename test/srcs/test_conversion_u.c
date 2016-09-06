@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_U.c                                :+:      :+:    :+:   */
+/*   test_conversion_u.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/08/31 18:08:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 15:13:35 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,26 @@
 
 int	main(void)
 {
-	unsigned long	nb;
+	unsigned int	nb;
 	int				ret;
 
-	// DioOuUxXcC
 	nb = 42;
-	ret = printf("%lu\n", nb);
+	ret = printf("%u\n", nb);
 	printf("%d\n", ret);
 	nb = -42;
-	ret = printf("%lu\n", nb);
+	ret = printf("%u\n", nb);
 	printf("%d\n", ret);
 	nb = INT_MIN;
-	ret = printf("%lu\n", nb);
+	ret = printf("%u\n", nb);
 	printf("%d\n", ret);
 	nb = INT_MAX;
-	ret = printf("%lu\n", nb);
+	ret = printf("%u\n", nb);
 	printf("%d\n", ret);
-	nb = ULONG_MAX;
-	ret = printf("%lu\n", nb);
+
+	//test with flags
+
+	ret = printf("%-8u\n", nb);
+	printf("%d\n", ret);
+	ret = printf("%08u\n", nb);
 	printf("%d\n", ret);
 }

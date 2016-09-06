@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 01:50:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 00:52:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,23 @@
 static void	get_content_flags(va_list *args, t_v_args *v_args,
 								const char *format, size_t *i)
 {
+	char	*get_width;
+	size_t	len;
+
+	get_width = NULL;
+	len = 0;
 	*i += 1;
 	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
 	{
 		v_args->f_conv[v_args->i_args]->f_caracters = format[*i];
+		if (format[*i] == '0')
+			v_args->f_conv[v_args->i_args]->f_width_zero = 1;
 		*i += 1;
+	}
+	if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
+	{		
+		get_width = ft_get_number(format, i);
+		v_args->f_conv[v_args->i_args]->f_width = ft_atoi(get_width);
 	}
 	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
@@ -66,7 +78,6 @@ static void	get_content_format(va_list *args, const char *format,
 		}
 		if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(args, v_args, format, &i);
-			// printf("ici\n");
 	}
 }
 
@@ -75,7 +86,12 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 	*i += 1;
 	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
 		*i += 1;
-	// if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
+	if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
+	{
+		while (ft_isalnum(format[*i]))
+			*i += 1;
+		*i -= 1;
+	}
 	// if (is_conversion_specifiers(format, i, PRECISION) == 1)
 	// if (is_conversion_specifiers(format, i, L_MODIFIER) == 1)
 	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)

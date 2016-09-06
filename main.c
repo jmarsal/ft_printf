@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 22:57:59 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 16:06:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,25 @@
 
 int main()
 {
-	int nb;
+	unsigned int nb;
 	int ret;
 
 	nb = 42;
-	ret = ft_printf("%c", '7');
+	//
+	// nb = 42;
+	// ret = ft_printf("%U\n", nb);
+	// ft_printf("%d\n", ret);
+	ret = ft_printf("%x\n", nb);
 	ft_printf("%d\n", ret);
+	ret = ft_printf("%#x\n", nb);
+	ft_printf("%d\n", ret);
+
+	printf("\n");
+
+	ret = printf("%x\n", nb);
+	printf("%d\n", ret);
+	ret = printf("%#x\n", nb);
+	printf("%d\n", ret);
 
 return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/05 14:46:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/06 01:02:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 ** conversion flags
 */
 
-# define C_SPECIFIERS "dDioOuUxXcCsSbp"
-# define F_CARACTERS "-+ #0"
-# define F_WIDTH "0123456789*"
+# define C_SPECIFIERS "dDioOuUxXcCsSbp" //reste a gerer le 'C' ou 'S'
+# define F_CARACTERS "-+ #0" // reste a gerer le ' ' et le '#'
+# define F_WIDTH "123456789*" // OK
 # define PRECISION ".*"
 # define L_MODIFIER "hljz"
 
