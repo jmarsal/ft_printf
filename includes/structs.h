@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 00:34:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 00:26:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 
 # include "ft_printf.h"
 
+typedef struct		s_f_caracters
+{
+	int				minus;
+	int				plus;
+	int				space;
+	int				sharp;
+	int				zero;
+}					t_f_caracters;
+
 typedef struct		s_conversion
 {
+	t_f_caracters	*f_caracters;
 	unsigned long	u_l_nb;
 	long int		l_nb;
 	unsigned int	u_nb;
@@ -24,10 +34,10 @@ typedef struct		s_conversion
 	int				*ptr;
 	int				nb;
 	int				f_width;
-	int				f_width_zero;
+	int				f_is_width;
 	char			c;
 	char			l_conv;
-	char			f_caracters;
+	// char			f_caracters;
 					//Besoin d'une variable de precision (par default 1)
 					//Besoin d'une variable modificateur de longueur (hh, h, l, ll, etc...)
 }					t_conversion;

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 16:24:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 01:54:14 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int				treatment(va_list *args, const char *format);
 ** print_format
 */
 
-void			print_format(t_v_args *v_args);
+int			print_format(t_v_args *v_args);
 
 /*
 ** init.c

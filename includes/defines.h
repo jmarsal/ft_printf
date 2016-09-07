@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 01:02:24 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 02:04:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 ** conversion flags
 */
 
-# define C_SPECIFIERS "dDioOuUxXcCsSbp" //reste a gerer le 'C' ou 'S'
-# define F_CARACTERS "-+ #0" // reste a gerer le ' ' et le '#'
+# define F_CARACTERS "-+ #0" // OK
 # define F_WIDTH "123456789*" // OK
 # define PRECISION ".*"
 # define L_MODIFIER "hljz"
+# define C_SPECIFIERS "dDioOuUxXcCsSbp" //reste a gerer le 'C' ou 'S'
 
 /*
 ** colors
@@ -47,4 +47,18 @@
 # define CYAN "\033[36;1m"
 # define EOC "\033[0m"
 
+/*
+** Errors
+*/
+
+# define ERR_SHARP_D "Error : flag '#' results in undefined behavior with 'd' or 'i' conversion specifier\n"
+# define ERR_SHARP_LD "Error : flag '#' results in undefined behavior with 'ld' or 'D' conversion specifier\n"
+# define ERR_SHARP_U "Error : flag '#' results in undefined behavior with 'u' conversion specifier\n"
+# define ERR_SHARP_LU "Error : flag '#' results in undefined behavior with 'lu' or 'U' conversion specifier\n"
+# define ERR_SHARP_C "Error : flag '#' results in undefined behavior with 'c' conversion specifier\n"
+# define ERR_SHARP_LC "Error : flag '#' results in undefined behavior with 'lc' or 'C' conversion specifier\n"
+# define ERR_SHARP_S "Error : flag '#' results in undefined behavior with 's' conversion specifier\n"
+# define ERR_SHARP_LS "Error : flag '#' results in undefined behavior with 'ls' or 'S' conversion specifier\n"
+# define ERR_SHARP_B "Error : flag '#' results in undefined behavior with 'b' conversion specifier\n"
+# define ERR_SHARP_P "Error : flag '#' results in undefined behavior with 'p' conversion specifier\n"
 #endif

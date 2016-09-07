@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 00:39:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 00:26:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ t_conversion	**init_tab_args(t_v_args *v_args)
 		f_conv[i]->nb = 0;
 		f_conv[i]->l_nb = 0;
 		f_conv[i]->ptr = NULL;
-		f_conv[i]->f_caracters = 'N';
+		f_conv[i]->f_caracters = ft_memalloc(sizeof(t_f_caracters));
+		f_conv[i]->f_caracters->minus = 0;
+		f_conv[i]->f_caracters->plus = 0;
+		f_conv[i]->f_caracters->sharp = 0;
+		f_conv[i]->f_caracters->space = 0;
+		f_conv[i]->f_caracters->zero = 0;
 		f_conv[i]->f_width = 0;
-		f_conv[i]->f_width_zero = 0;
+		f_conv[i]->f_is_width = 0;
 		i++;
 	}
 	return (f_conv);

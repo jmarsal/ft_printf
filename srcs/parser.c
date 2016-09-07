@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 00:52:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 01:54:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,26 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 	get_width = NULL;
 	len = 0;
 	*i += 1;
-	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
+	while (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
 	{
-		v_args->f_conv[v_args->i_args]->f_caracters = format[*i];
+		if (format[*i] == '-')
+			v_args->f_conv[v_args->i_args]->f_caracters->minus = 1;
+		if (format[*i] == '+')
+			v_args->f_conv[v_args->i_args]->f_caracters->plus = 1;
+		if (format[*i] == ' ')
+			v_args->f_conv[v_args->i_args]->f_caracters->space = 1;
+		if (format[*i] == '#')
+			v_args->f_conv[v_args->i_args]->f_caracters->sharp = 1;
 		if (format[*i] == '0')
-			v_args->f_conv[v_args->i_args]->f_width_zero = 1;
+			v_args->f_conv[v_args->i_args]->f_caracters->zero = 1;
 		*i += 1;
 	}
 	if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
-	{		
+	{
 		get_width = ft_get_number(format, i);
 		v_args->f_conv[v_args->i_args]->f_width = ft_atoi(get_width);
+		free(get_width);
+		v_args->f_conv[v_args->i_args]->f_is_width = 1;
 	}
 	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
@@ -84,7 +93,7 @@ static void	get_content_format(va_list *args, const char *format,
 static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 {
 	*i += 1;
-	if (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
+	while (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
 		*i += 1;
 	if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
 	{
@@ -146,6 +155,7 @@ int			treatment(va_list *args, const char *format)
 	if (!(v_args->f_conv = init_tab_args(v_args)))
 		return (-1);
 	get_content_format(args, format, v_args);
-	print_format(v_args);
+	if ((print_format(v_args)) == -1)
+		return (-1);
 	return (v_args->ret_ft_printf);
 }

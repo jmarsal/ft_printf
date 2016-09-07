@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 16:29:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 02:00:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,35 @@
 
 int main()
 {
- 	long int nb;
+ 	long int	nb;
+	int nb2;
 	int ret;
 
-	nb = 42;
-	// ret = ft_printf("%x\n", nb);
-	// ft_printf("%d\n", ret);
-	ret = ft_printf("% D\n", nb);
-	ft_printf("%d\n", ret);
-	//
-	printf("\n");
+	nb2 = 42;
+	nb =42;
 
-	ret = printf("%  ld\n", nb);
+	ret = ft_printf("%#-+8D\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%+8d\n", nb2);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("% -8d\n", nb2);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#8x\n", (unsigned int)nb2);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%-#8x\n", (unsigned int)nb2);
+	ft_printf("%d\n", ret);
+
+	printf("avec printf\n");
+
+	ret = printf("%#-+8d\n", nb2);
+	printf("%d\n", ret);
+	ret = printf("%+8d\n", nb2);
+	printf("%d\n", ret);
+	ret = printf("% -8d\n", nb2);
+	printf("%d\n", ret);
+	ret = printf("%#8x\n", (unsigned int)nb2);
+	printf("%d\n", ret);
+	ret = printf("%-#8x\n", (unsigned int)nb2);
 	printf("%d\n", ret);
 
 return (0);
