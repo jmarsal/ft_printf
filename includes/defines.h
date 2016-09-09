@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 02:04:57 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 02:25:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@
 
 # define F_CARACTERS "-+ #0" // OK
 # define F_WIDTH "123456789*" // OK
-# define PRECISION ".*"
+# define PRECISION ".*" // Warning avec * : si 1 * et pas de largeur, alors * vaut largeur.
+										// si 1 * et largeur alors * vaut precision
+										// 2 * impossible...!!
 # define L_MODIFIER "hljz"
 # define C_SPECIFIERS "dDioOuUxXcCsSbp" //reste a gerer le 'C' ou 'S'
 

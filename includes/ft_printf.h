@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 01:54:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/08 00:57:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int		is_conversion_specifiers(const char *format, size_t *i,
 
 void	is_f_caracters_is_positive(t_v_args *v_args, size_t i);
 void	is_f_caracters_is_neg_and_precision(t_v_args *v_args, size_t i);
-void	is_precision(t_v_args *v_args, size_t i);
+void	is_width_in_format(t_v_args *v_args, size_t i);
 void	is_f_caracters_is_sharp(t_v_args *v_args, size_t i);
 void	is_f_caracters_is_space(t_v_args *v_args, size_t i);
 

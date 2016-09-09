@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 01:54:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/08 01:48:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 								const char *format, size_t *i)
 {
 	char	*get_width;
+	char	*get_precision;
 	size_t	len;
 
 	get_width = NULL;
+	get_precision = NULL;
 	len = 0;
 	*i += 1;
 	while (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
@@ -41,6 +43,19 @@ static void	get_content_flags(va_list *args, t_v_args *v_args,
 		v_args->f_conv[v_args->i_args]->f_width = ft_atoi(get_width);
 		free(get_width);
 		v_args->f_conv[v_args->i_args]->f_is_width = 1;
+	}
+	if (is_conversion_specifiers(format, i, PRECISION) == 1)
+	{
+		*i += 1;
+		get_precision = ft_get_number(format, i);
+		if (ft_atoi(get_precision) != 0)
+		{
+			v_args->f_conv[v_args->i_args]->precision = ft_atoi(get_precision);
+			v_args->f_conv[v_args->i_args]->is_precision = 1;
+			free(get_precision);
+		}
+		else
+			v_args->f_conv[v_args->i_args]->is_precision = 0;
 	}
 	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
@@ -92,6 +107,11 @@ static void	get_content_format(va_list *args, const char *format,
 
 static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 {
+	int	is_width;
+	int	is_precision;
+
+	is_width = 0;
+	is_precision = 0;
 	*i += 1;
 	while (is_conversion_specifiers(format, i, F_CARACTERS) == 1)
 		*i += 1;
@@ -99,10 +119,18 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 	{
 		while (ft_isalnum(format[*i]))
 			*i += 1;
-		*i -= 1;
+		is_width = 1;
 	}
-	// if (is_conversion_specifiers(format, i, PRECISION) == 1)
+	if (is_conversion_specifiers(format, i, PRECISION) == 1)
+	{
+		*i += 1;
+		while (ft_isalnum(format[*i]))
+			*i += 1;
+		is_precision = 1;
+	}
 	// if (is_conversion_specifiers(format, i, L_MODIFIER) == 1)
+	if (is_width == 1 || is_precision == 1)
+		*i -= 1;
 	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
 	{
 		v_args->index += 1;
@@ -111,7 +139,7 @@ static int	get_index(t_v_args *v_args, const char *format, size_t *i)
 	else
 	{
 		ft_putstr("warning: invalid conversion specifier '");
-		ft_putchar(format[*i + 1]);
+		ft_putchar(format[*i]);
 		ft_putstr("'");
 		return (-1);
 	}
@@ -155,6 +183,7 @@ int			treatment(va_list *args, const char *format)
 	if (!(v_args->f_conv = init_tab_args(v_args)))
 		return (-1);
 	get_content_format(args, format, v_args);
+	//Gestion d'erreurs ici !!!!!!!!!!!
 	if ((print_format(v_args)) == -1)
 		return (-1);
 	return (v_args->ret_ft_printf);

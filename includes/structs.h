@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 00:26:01 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/07 15:05:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct		s_conversion
 	int				nb;
 	int				f_width;
 	int				f_is_width;
+	int				precision;
+	int				is_precision;
 	char			c;
 	char			l_conv;
-	// char			f_caracters;
-					//Besoin d'une variable de precision (par default 1)
 					//Besoin d'une variable modificateur de longueur (hh, h, l, ll, etc...)
 }					t_conversion;
 

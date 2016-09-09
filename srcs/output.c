@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 02:07:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/08 16:44:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int		print_format(t_v_args *v_args)
 				ft_putstr(ERR_SHARP_D);
 				return (-1);
 			}
-			v_args->f_conv[i]->f_width -=
+			if ((v_args->f_conv[i]->f_is_width == 1 && v_args->f_conv[i]->is_precision != 1) ||
+				(v_args->f_conv[i]->f_is_width == 0 && v_args->f_conv[i]->is_precision != 0))
+				v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->nb));
 			if (v_args->f_conv[i]->f_caracters->space == 1 &&
 				v_args->f_conv[i]->f_is_width != 0)
@@ -64,7 +66,7 @@ int		print_format(t_v_args *v_args)
 				v_args->f_conv[i]->f_width -= 1;
 			is_f_caracters_is_space(v_args, i);
 			is_f_caracters_is_positive(v_args, i);
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			ft_putnbr(v_args->f_conv[i]->nb);
 			is_f_caracters_is_neg_and_precision(v_args, i);
 		}
@@ -85,7 +87,7 @@ int		print_format(t_v_args *v_args)
 				v_args->f_conv[i]->f_width -= 1;
 			is_f_caracters_is_space(v_args, i);
 			is_f_caracters_is_positive(v_args, i);
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			ft_putlnbr(v_args->f_conv[i]->l_nb);
 			is_f_caracters_is_neg_and_precision(v_args, i);
 		}
@@ -98,7 +100,7 @@ int		print_format(t_v_args *v_args)
 			}
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->u_nb));
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			ft_putlnbr(v_args->f_conv[i]->u_nb);
 			is_f_caracters_is_neg_and_precision(v_args, i);
 		}
@@ -111,7 +113,7 @@ int		print_format(t_v_args *v_args)
 			}
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_ulitoa(v_args->f_conv[i]->u_l_nb));
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			ft_putstr(ft_ulitoa(v_args->f_conv[i]->u_l_nb));
 			is_f_caracters_is_neg_and_precision(v_args, i);
 		}
@@ -132,7 +134,7 @@ int		print_format(t_v_args *v_args)
 				v_args->f_conv[i]->f_width -= 1;
 			if (v_args->f_conv[i]->f_is_width == 1)
 				v_args->f_conv[i]->f_width -= 1;
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			is_f_caracters_is_sharp(v_args, i);
 			ft_putstr(ft_strtolower(ft_itoa_base(v_args->f_conv[i]->nb, 16)));
 			is_f_caracters_is_neg_and_precision(v_args, i);
@@ -150,7 +152,7 @@ int		print_format(t_v_args *v_args)
 		{
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->nb));
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			is_f_caracters_is_sharp(v_args, i);
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->nb, 16));
 			is_f_caracters_is_neg_and_precision(v_args, i);
@@ -168,7 +170,7 @@ int		print_format(t_v_args *v_args)
 		{
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->u_nb));
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			is_f_caracters_is_sharp(v_args, i);
 			ft_putstr(ft_itoa_base(v_args->f_conv[i]->u_nb, 8));
 			is_f_caracters_is_neg_and_precision(v_args, i);
@@ -177,7 +179,7 @@ int		print_format(t_v_args *v_args)
 		{
 			v_args->f_conv[i]->f_width -=
 								ft_strlen(ft_itoa(v_args->f_conv[i]->u_l_nb));
-			is_precision(v_args, i);
+			is_width_in_format(v_args, i);
 			is_f_caracters_is_sharp(v_args, i);
 			ft_putstr(ft_litoa_base(v_args->f_conv[i]->u_l_nb, 8));
 			is_f_caracters_is_neg_and_precision(v_args, i);
