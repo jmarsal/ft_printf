@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	conv_str_s(va_list *args, t_v_args *v_args, const char *format,
+void	conv_str_s(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 's')

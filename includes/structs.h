@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 15:05:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/09 16:12:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,60 @@
 
 # include "ft_printf.h"
 
-typedef struct		s_f_caracters
+typedef struct		s_type
 {
-	int				minus;
-	int				plus;
-	int				space;
-	int				sharp;
-	int				zero;
-}					t_f_caracters;
-
-typedef struct		s_conversion
-{
-	t_f_caracters	*f_caracters;
 	unsigned long	u_l_nb;
 	long int		l_nb;
 	unsigned int	u_nb;
 	char			*str;
 	int				*ptr;
 	int				nb;
-	int				f_width;
-	int				f_is_width;
-	int				precision;
-	int				is_precision;
 	char			c;
-	char			l_conv;
-					//Besoin d'une variable modificateur de longueur (hh, h, l, ll, etc...)
-}					t_conversion;
+}					t_type;
 
-typedef struct		s_v_args
+typedef struct		s_modifier
 {
-	t_conversion	**f_conv; //stoque les flags de format dans l'ordre dans un tab
+	int				hh;
+	int				h;
+	int				l;
+	int				ll;
+	int				j;
+	int				z;
+}					t_modifier;
+
+typedef struct		s_w_or_p
+{
+	int				width;
+	int				precision;
+}					t_w_or_p;
+
+typedef struct		s_caracters
+{
+	int				minus;
+	int				plus;
+	int				space;
+	int				sharp;
+	int				zero;
+}					t_caracters;
+
+typedef struct		s_conv
+{
+	t_caracters		*caracters;
+	t_type			*type;
+	t_modifier		*modifier;
+	t_w_or_p		*widht_precision;
+	int				is_width;
+	int				is_precision;
+	int				is_modifier;
+	char			l_conv;
+}					t_conv;
+
+typedef struct		s_args
+{
+	t_conv			**f_conv;
 	size_t			i_args;
-	size_t			index; // nb d'args
+	size_t			index;
 	int				ret_ft_printf;
-}					t_v_args;
+}					t_args;
 
 #endif

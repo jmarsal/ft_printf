@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	conv_decimal_d(va_list *args, t_v_args *v_args, const char *format,
+void	conv_decimal_d(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'd' || format[*i] == 'i')
@@ -23,7 +23,7 @@ void	conv_decimal_d(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
+void	conv_decimal_ld(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'D')
@@ -34,7 +34,7 @@ void	conv_decimal_ld(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_u_decimal_u(va_list *args, t_v_args *v_args, const char *format,
+void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'u')
@@ -45,7 +45,7 @@ void	conv_u_decimal_u(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_lu_decimal_lu(va_list *args, t_v_args *v_args, const char *format,
+void	conv_lu_decimal_lu(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'U')

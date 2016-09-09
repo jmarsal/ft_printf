@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/06 01:11:31 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/09/09 16:54:48 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SOURCES += ft_printf.c \
 						parser.c \
 						output.c \
 						init.c \
+						init_f_conv.c \
 						conv_hex_bin.c \
 						conv_str.c \
 						conv_char.c \

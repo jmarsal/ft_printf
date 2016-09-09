@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	conv_hex_x(va_list *args, t_v_args *v_args, const char *format,
+void	conv_hex_x(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'x')
@@ -23,7 +23,7 @@ void	conv_hex_x(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_hex_lx(va_list *args, t_v_args *v_args, const char *format,
+void	conv_hex_lx(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'X')
@@ -34,7 +34,7 @@ void	conv_hex_lx(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_binary_b(va_list *args, t_v_args *v_args, const char *format,
+void	conv_binary_b(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'b')

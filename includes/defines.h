@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 02:25:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/09 16:53:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 ** f_conv
 */
 
-# define STR v_args->f_conv[v_args->i_args]->str
-# define U_L_INT v_args->f_conv[v_args->i_args]->u_l_nb
-# define INT v_args->f_conv[v_args->i_args]->nb
-# define L_INT v_args->f_conv[v_args->i_args]->l_nb
-# define U_INT v_args->f_conv[v_args->i_args]->u_nb
-# define C v_args->f_conv[v_args->i_args]->c
+# define STR v_args->f_conv[v_args->i_args]->type->str
+# define U_L_INT v_args->f_conv[v_args->i_args]->type->u_l_nb
+# define INT v_args->f_conv[v_args->i_args]->type->nb
+# define L_INT v_args->f_conv[v_args->i_args]->type->l_nb
+# define U_INT v_args->f_conv[v_args->i_args]->type->u_nb
+# define C v_args->f_conv[v_args->i_args]->type->c
 # define L_CONV v_args->f_conv[v_args->i_args]->l_conv
-# define PTR v_args->f_conv[v_args->i_args]->ptr
+# define PTR v_args->f_conv[v_args->i_args]->type->ptr
 
 /*
 ** conversion flags
 */
 
-# define F_CARACTERS "-+ #0" // OK
+# define CARACTERS "-+ #0" // OK
 # define F_WIDTH "123456789*" // OK
 # define PRECISION ".*" // Warning avec * : si 1 * et pas de largeur, alors * vaut largeur.
 										// si 1 * et largeur alors * vaut precision

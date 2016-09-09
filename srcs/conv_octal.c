@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 16:59:20 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 02:56:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/09 15:43:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	conv_octal_o(va_list *args, t_v_args *v_args, const char *format,
+void	conv_octal_o(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'o')
@@ -23,7 +23,7 @@ void	conv_octal_o(va_list *args, t_v_args *v_args, const char *format,
 	}
 }
 
-void	conv_octal_lo(va_list *args, t_v_args *v_args, const char *format,
+void	conv_octal_lo(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'O')
