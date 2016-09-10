@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/10 02:07:41 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/09/10 16:03:23 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,13 @@ SOURCES += ft_printf.c \
 						output_f_caracters.c \
 						get_content_format.c \
 						get_content_helper.c \
-						error.c
+						error.c \
+						output_char.c \
+						output_str.c \
+						output_decimal.c \
+						output_hex_bin.c \
+						output_mem.c \
+						output_octal.c
 
 # Objects
 OBJ_PATH = obj

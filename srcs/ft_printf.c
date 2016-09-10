@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:10:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/10 16:28:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int         ft_printf(const char *format, ...)
 			return (-1);
 		}
 		// //Gestion d'erreurs ici !!!!!!!!!!!
-		// if ((print_format(v_args)) == -1)
-		// 	return (-1);
+		if ((print_format(v_args)) == -1)
+			return (-1);
 	}
 	return (len);
 }

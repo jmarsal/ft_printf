@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:08:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/10 16:25:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,47 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args);
 */
 
 int		find_error_in_format(t_args *v_args);
+
+/*
+** output_char.c
+*/
+
+void	print_char_c(t_args *v_args, size_t i);
+
+/*
+** output_str.c
+*/
+
+void	print_str_s(t_args *v_args, size_t i);
+
+/*
+** output_decimal.c
+*/
+
+void	print_decimal_d(t_args *v_args, size_t i);
+void	print_decimal_ld(t_args *v_args, size_t i);
+void	print_decimal_u(t_args *v_args, size_t i);
+void	print_decimal_lu(t_args *v_args, size_t i);
+
+/*
+** output_hex_bin.c
+*/
+
+void 	print_hex_x(t_args *v_args, size_t i);
+void 	print_hex_lx(t_args *v_args, size_t i);
+void 	print_hex_b(t_args *v_args, size_t i);
+
+/*
+** output_mem.c
+*/
+
+void	print_ptr(t_args *v_args, size_t i);
+
+/*
+** output_octal.c
+*/
+
+void	print_octal_o(t_args *v_args, size_t i);
+void	print_octal_lo(t_args *v_args, size_t i);
 
 #endif
