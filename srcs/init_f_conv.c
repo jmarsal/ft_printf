@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/09 16:39:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/10 01:44:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ static t_w_or_p	*init_width_precision(void)
 	if (!(tmp = ft_memalloc(sizeof(t_w_or_p))))
 		return (NULL);
 	tmp->width = 0;
+	tmp->width_cpy = 0;
 	tmp->precision = 0;
+	tmp->precision_cpy = 0;
 	return (tmp);
 }
 
@@ -86,7 +88,7 @@ t_conv			**init_tab_args(t_args *v_args)
 			return (NULL);
 		if (!(f_conv[i]->modifier = init_modifier()))
 			return (NULL);
-		if (!(f_conv[i]->widht_precision = init_width_precision()))
+		if (!(f_conv[i]->width_precision = init_width_precision()))
 			return (NULL);
 		f_conv[i]->is_width = 0;
 		f_conv[i]->is_precision = 0;

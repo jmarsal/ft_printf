@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_helper.c                                    :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/04 00:33:03 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/09 18:03:11 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/09/10 02:26:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int		is_conversion_specifiers(const char *format, size_t *i,
-									const char *flags)
+int		find_error_in_format(t_args *v_args)
 {
-	if ((ft_strchr(flags, format[*i]) != NULL))
-		return (1);
-	return (-1);
+	int	index_cpy;
+	int	i;
+
+	index_cpy = v_args->index;
+	i = 0;
+	while (index_cpy--)
+	{
+		if (v_args->f_conv[i]->caracters->sharp == 1 &&
+			(!ft_strchr(ERR_SHARP, v_args->f_conv[i]->l_conv)))
+			return (-1);
+		i++;
+	}
+	return (0);
 }

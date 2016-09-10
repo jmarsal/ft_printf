@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/09 16:53:24 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/10 02:24:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 /*
 ** Errors
 */
+
+# define ERR_SHARP "oOxX"
 
 # define ERR_SHARP_D "Error : flag '#' results in undefined behavior with 'd' or 'i' conversion specifier\n"
 # define ERR_SHARP_LD "Error : flag '#' results in undefined behavior with 'ld' or 'D' conversion specifier\n"

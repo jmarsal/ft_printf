@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/09 16:54:48 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/09/10 02:07:41 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,10 @@ SOURCES += ft_printf.c \
 						conv_mem.c \
 						conv_octal.c \
 						parser_helper.c \
-						output_f_caracters.c
+						output_f_caracters.c \
+						get_content_format.c \
+						get_content_helper.c \
+						error.c
 
 # Objects
 OBJ_PATH = obj

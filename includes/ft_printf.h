@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/09 16:47:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/10 02:08:41 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <stdio.h> // WARNING !!!!
 
 int				ft_printf(const char *format, ...);
-int				treatment(va_list *args, const char *format);
+int				treatment(va_list *args, const char *format, t_args *v_args);
 
 /*
 ** print_format
@@ -113,5 +113,25 @@ void	is_caracters_is_neg_and_precision(t_args *v_args, size_t i);
 void	is_width_in_format(t_args *v_args, size_t i);
 void	is_caracters_is_sharp(t_args *v_args, size_t i);
 void	is_caracters_is_space(t_args *v_args, size_t i);
+
+/*
+** get_content_format.c
+*/
+
+void	get_content_format(va_list *args, const char *format,
+								t_args *v_args);
+
+/*
+** get_content_helper.c
+*/
+
+void	get_width_in_format(const char *format, size_t *i, t_args *v_args);
+void	get_precision_in_format(const char *format, size_t *i, t_args *v_args);
+
+/*
+** error.c
+*/
+
+int		find_error_in_format(t_args *v_args);
 
 #endif
