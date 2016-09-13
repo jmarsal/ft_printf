@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:11:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:38:12 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,14 @@ void	get_content_format(va_list *args, const char *format,
 			L_CONV = 's';
 			STR = ft_strdup(ft_strchr_bef(format + i, '%'));
 			i += ft_strlen(STR);
-			// v_args->ret_ft_printf += ft_strlen(STR);
 			v_args->i_args++;
 		}
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
-			L_CONV = '%';
+			L_CONV = 's';
 			STR = "%";
 			i += 2;
 			v_args->i_args++;
-			// v_args->ret_ft_printf++;
 		}
 		if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(args, v_args, format, &i);

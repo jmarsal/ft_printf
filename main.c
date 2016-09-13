@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 16:32:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/14 01:14:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,108 +66,72 @@
 
 int main()
 {
- 	int	nb;
-	int nb2;
-	int ret;
 
-	nb2 = 42;
+	int	nb;
+	int nb1;
+
 	nb = 42;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
 
-	// nb = ft_printf("%d\n", 42);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%d\n", -42);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%d\n", INT_MIN);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%d\n", INT_MAX);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%i\n", 42);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%i\n", -42);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%i\n", INT_MIN);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%i\n", INT_MAX);
-	// ft_printf("%d\n", nb);
-	//
-	// // test Flags caracters
-	//
-	// nb = ft_printf("%+d\n", 0);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%+d\n", 42);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%+d\n", -42);
-	// ft_printf("%d\n", nb);
-	//
-	// nb2 = 42;
-	// nb = ft_printf("%8d\n", nb2);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%-8d\n", nb2);
-	// ft_printf("%d\n", nb);
-	// nb = ft_printf("%08d\n", nb2);
-	// ft_printf("%d\n", nb);
-	//
-	// printf("avec printf\n");
-	//
-	// nb = printf("%d\n", 42);
-	// printf("%d\n", nb);
-	// nb = printf("%d\n", -42);
-	// printf("%d\n", nb);
-	// nb = printf("%d\n", INT_MIN);
-	// printf("%d\n", nb);
-	// nb = printf("%d\n", INT_MAX);
-	// printf("%d\n", nb);
-	// nb = printf("%i\n", 42);
-	// printf("%d\n", nb);
-	// nb = printf("%i\n", -42);
-	// printf("%d\n", nb);
-	// nb = printf("%i\n", INT_MIN);
-	// printf("%d\n", nb);
-	// nb = printf("%i\n", INT_MAX);
-	// printf("%d\n", nb);
-	//
-	// // test Flags caracters
-	//
-	// nb = printf("%+d\n", 0);
-	// printf("%d\n", nb);
-	// nb = printf("%+d\n", 42);
-	// printf("%d\n", nb);
-	// nb = printf("%+d\n", -42);
-	// printf("%d\n", nb);
-	//
-	// nb2 = 42;
-	// nb = printf("%8d\n", nb2);
-	// printf("%d\n", nb);
-	// nb = printf("%-8d\n", nb2);
-	// printf("%d\n", nb);
-	// nb = printf("%08d\n", nb2);
-	// printf("%d\n", nb);
+	nb = INT_MAX;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
+
+	nb = INT_MIN;
+	nb1 = ft_printf("%b\n", nb);
+	ft_printf("%d\n", nb1);
+
+////////////////////////////////////////////////////////////////////////////////
+	printf("Avec printf\n");
+////////////////////////////////////////////////////////////////////////////////
+
+int ret;
+
+//nb = 42
+ret = printf("%s\n", "101010");
+printf("%d\n", ret);
+
+//INT_MAX
+ret = printf("%s\n", "1111111111111111111111111111111");
+printf("%d\n", ret);
+
+//INT_MIN
+ret = printf("%s\n", "10000000000000000000000000000000");
+printf("%d\n", ret);
 
 ///////////////////////////////////////////////////////////////////////////////
-
-	ret = ft_printf("%c\n", nb2);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%+8.3d\n", nb2);
-	// ft_printf("%d\n", ret);
-
-	printf("avec printf\n");
-
-	// ret = printf("%-+8.2d\n", nb2);
+	// // ret = ft_printf("%p\n", &nb2);
+	// // ft_printf("%d\n", ret);
+	// ft_printf("%p\n", &nb2);
+	// // ret = ft_printf("%+8.3d\n", nb2);
+	// // ft_printf("%d\n", ret);
+	//
+	// printf("avec printf\n");
+	// ret = printf("%p\n", &nb2);
 	// printf("%d\n", ret);
-	// ret = printf("%+-8.3d\n", nb2);
-	// printf("%d\n", ret);
-	// ret = printf("%-+8.4d\n", nb2);
-	// printf("%d\n", ret);
-	// ret = printf("%-+8.5d\n", nb2);
-	// printf("%d\n", ret);
-	// ret = printf("%-+8.6d\n", nb2);
-	// printf("%d\n", ret);
-	// ret = printf("%-+8.7d\n", nb2);
-	// printf("%d\n", ret);
-	ret = printf("%-+8.3d\n", nb2);
-	printf("%d\n", ret);
-	// ret = printf("%-+*.10d\n", 9, nb2);
-	// printf("%d\n", ret);
+	//
+	// // ret = printf("%-+8.2d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%+-8.3d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+8.4d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+8.5d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+8.6d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+8.7d\n", nb2);
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+8.3d\n", nb2);
+	// // ret = printf("%+o\n", nb2);
+	// // ret = printf("%+u\n", nb2);
+	// // ret = printf("%+x\n", nb2);
+	// // ret = printf("%+c\n", 't');
+	// // ret = printf("%+s\n", "coucou");
+	// // printf("%d\n", ret);
+	// // ret = printf("%-+*.10d\n", 9, nb2);
+	// // printf("%d\n", ret);
 
 return (0);
 }

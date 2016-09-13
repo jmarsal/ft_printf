@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 16:25:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:03:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
 # include <wchar.h>
-# include "structs.h"
+# include "./structs.h"
 # include "defines.h"
 
 #include <stdio.h> // WARNING !!!!
@@ -133,12 +133,13 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args);
 */
 
 int		find_error_in_format(t_args *v_args);
+void 	error_output(int err);
 
 /*
 ** output_char.c
 */
 
-void	print_char_c(t_args *v_args, size_t i);
+void	print_char_c(t_args *v_args, size_t i, size_t *test_c);
 
 /*
 ** output_str.c

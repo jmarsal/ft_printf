@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:28:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:12:11 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/12 15:49:34 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ void	conv_hex_x(va_list *args, t_args *v_args, const char *format,
 	{
 		L_CONV = 'x';
 		INT = va_arg(*args, int);
-		// v_args->ret_ft_printf += ft_strlen(ft_itoa_base(INT, 16));
+		v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
+												ft_strlen(ft_itoa_base(INT, 16));
+		if (v_args->f_conv[v_args->i_args]->caracters->plus == 1)
+			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+		if (v_args->f_conv[v_args->i_args]->caracters->space == 1)
+			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
 	}
 }
 
@@ -30,7 +35,12 @@ void	conv_hex_lx(va_list *args, t_args *v_args, const char *format,
 	{
 		L_CONV = 'X';
 		INT = va_arg(*args, int);
-		// v_args->ret_ft_printf += ft_strlen(ft_itoa_base(INT, 16));
+		v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
+												ft_strlen(ft_itoa_base(INT, 16));
+		if (v_args->f_conv[v_args->i_args]->caracters->plus == 1)
+			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+		if (v_args->f_conv[v_args->i_args]->caracters->space == 1)
+			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
 	}
 }
 
@@ -41,6 +51,5 @@ void	conv_binary_b(va_list *args, t_args *v_args, const char *format,
 	{
 		L_CONV = 'b';
 		INT = va_arg(*args, int);
-		// v_args->ret_ft_printf += ft_strlen(ft_itoa_base(INT, 2));
 	}
 }

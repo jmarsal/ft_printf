@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:04:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:28:44 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,5 @@ int			treatment(va_list *args, const char *format, t_args *v_args)
 	if (!(v_args->f_conv = init_tab_args(v_args)))
 		return (-1);
 	get_content_format(args, format, v_args);
-	return (v_args->ret_ft_printf);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 16:28:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:28:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int         ft_printf(const char *format, ...)
 	t_args		*v_args;
 	va_list		args;
 	int			len;
+	int			err;
 
 	if (!(v_args = init_t_args()))
 		return (-1);
@@ -24,17 +25,17 @@ int         ft_printf(const char *format, ...)
 	if (format)
 	{
 		va_start(args, format);
-		if ((len = treatment(&args, format, v_args)) == -1)
+		if ((treatment(&args, format, v_args)) == -1)
 			return (-1);
 		va_end(args);
-		if (find_error_in_format(v_args) != 0)
+		if ((err = find_error_in_format(v_args)) != 0)
 		{
-			printf("error\n");
+			error_output(err);
 			return (-1);
 		}
-		// //Gestion d'erreurs ici !!!!!!!!!!!
-		if ((print_format(v_args)) == -1)
-			return (-1);
+		else
+			if ((len = print_format(v_args)) == -1)
+				return (-1);
 	}
 	return (len);
 }

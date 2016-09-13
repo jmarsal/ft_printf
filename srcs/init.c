@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/09 16:36:29 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:26:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_args				*init_t_args(void)
 	v_args->index = 0;
 	v_args->i_args = 0;
 	v_args->f_conv = NULL;
-	v_args->ret_ft_printf = 0;
+	v_args->ret_str = ft_strnew(0);
 	return (v_args);
 }

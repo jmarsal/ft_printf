@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 00:58:33 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 01:05:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	main(void)
 	nb = ft_printf("%-8d\n", nb2);
 	ft_printf("%d\n", nb);
 	nb = ft_printf("%08d\n", nb2);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%+08d\n", nb2);
 	ft_printf("%d\n", nb);
 
 	return (0);

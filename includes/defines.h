@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 02:24:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:07:33 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 # define C v_args->f_conv[v_args->i_args]->type->c
 # define L_CONV v_args->f_conv[v_args->i_args]->l_conv
 # define PTR v_args->f_conv[v_args->i_args]->type->ptr
+
+/*
+** ret_ft_printf
+*/
+
+# define RET_STR v_args->ret_str
 
 /*
 ** conversion flags
@@ -53,16 +59,15 @@
 ** Errors
 */
 
-# define ERR_SHARP "oOxX"
+# define GOOD_SHARP "oOxX"
+# define GOOD_ZERO "dDioOuUxX"
+# define GOOD_SPACE "dDi"
+# define GOOD_PLUS "dDi"
 
-# define ERR_SHARP_D "Error : flag '#' results in undefined behavior with 'd' or 'i' conversion specifier\n"
-# define ERR_SHARP_LD "Error : flag '#' results in undefined behavior with 'ld' or 'D' conversion specifier\n"
-# define ERR_SHARP_U "Error : flag '#' results in undefined behavior with 'u' conversion specifier\n"
-# define ERR_SHARP_LU "Error : flag '#' results in undefined behavior with 'lu' or 'U' conversion specifier\n"
-# define ERR_SHARP_C "Error : flag '#' results in undefined behavior with 'c' conversion specifier\n"
-# define ERR_SHARP_LC "Error : flag '#' results in undefined behavior with 'lc' or 'C' conversion specifier\n"
-# define ERR_SHARP_S "Error : flag '#' results in undefined behavior with 's' conversion specifier\n"
-# define ERR_SHARP_LS "Error : flag '#' results in undefined behavior with 'ls' or 'S' conversion specifier\n"
-# define ERR_SHARP_B "Error : flag '#' results in undefined behavior with 'b' conversion specifier\n"
-# define ERR_SHARP_P "Error : flag '#' results in undefined behavior with 'p' conversion specifier\n"
+# define ERR_SHARP "Error : flag '#' results in undefined behavior without 'o' or 'x' conversion specifier\n"
+# define ERR_ZERO "Error : flag '0' results in undefined behavior without 'dDioOuUxX' conversion specifier\n"
+# define ERR_SPACE "Error : flag ' ' results in undefined behavior without 'd' or 'i' conversion specifier\n"
+# define ERR_PLUS "Error : flag '+' results in undefined behavior without 'd' or 'i' conversion specifier\n"
+# define ERR_PLUS_SPACE "Error : flag ' ' is ignored when flag '+' is present\n"
+# define ERR_MEM "Error : flag 'p' results in undefined behavior with 'precision' conversion specifier\n"
 #endif

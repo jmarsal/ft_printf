@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 15:15:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 15:21:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(void)
 	unsigned long	nb;
 	int				ret;
 
-	// DioOuUxXcC
 	nb = 42;
 	ret = ft_printf("%U\n", nb);
 	ft_printf("%d\n", ret);

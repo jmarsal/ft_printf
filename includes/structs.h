@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 01:44:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:26:06 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct		s_args
 	t_conv			**f_conv;
 	size_t			i_args;
 	size_t			index;
-	int				ret_ft_printf;
+	char			*ret_str;
 }					t_args;
 
 #endif

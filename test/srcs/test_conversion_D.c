@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 01:39:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/13 01:25:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(void)
 	long int	nb2;
 	int			ret;
 
-	// DioOuUxXcC
 	nb = 42;
 	ret = printf("%ld\n", nb);
 	printf("%d\n", ret);

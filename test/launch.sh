@@ -99,10 +99,10 @@ clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_b.c -o ft_t_conv_b -I./
 ./t_conv_b > t_conv_b.txt
 ./ft_t_conv_b > ft_t_conv_b.txt
 diff ./t_conv_b.txt ./ft_t_conv_b.txt | cat -e > test/diff_output/diff_conv_b.txt
-rm t_conv_b ft_t_conv_b t_conv_b.txt ft_t_conv_b.txt
+# rm t_conv_b ft_t_conv_b t_conv_b.txt ft_t_conv_b.txt
 
 echo "Differences entre les deux fonctions testes sur les conversions...\n"
 clang -Wall -Wextra -Werror test/srcs/diff.c -o diff -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
 ./diff
-rm diff
+# rm diff
 cd test
