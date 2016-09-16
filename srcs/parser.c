@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 16:28:44 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:33:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static int	get_index(t_args *v_args, const char *format, size_t *i)
 	else
 	{
 		ft_putstr("error : invalid conversion specifier '");
-		ft_putchar(format[*i]);
-		ft_putstr("'");
+		format[*i] == '.' ? ft_putchar(format[*i + 1]) : ft_putchar(format[*i]);
+		ft_putstr("'\n");
 	}
 	return (-1);
 }

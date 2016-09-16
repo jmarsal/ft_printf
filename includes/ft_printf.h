@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 16:03:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:26:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int				treatment(va_list *args, const char *format, t_args *v_args);
 ** print_format
 */
 
-int			print_format(t_args *v_args);
 
 /*
 ** init.c
@@ -105,14 +104,22 @@ int		is_conversion_specifiers(const char *format, size_t *i,
 					const char *flags);
 
 /*
-** output_caracters.c
+** output.c
 */
 
+int		print_format(t_args *v_args);
 void	is_caracters_is_positive(t_args *v_args, size_t i);
+void	is_caracters_is_space(t_args *v_args, size_t i);
+
+
+/*
+** output_f_caracters.c
+*/
+
 void	is_caracters_is_neg_and_precision(t_args *v_args, size_t i);
 void	is_width_in_format(t_args *v_args, size_t i);
 void	is_caracters_is_sharp(t_args *v_args, size_t i);
-void	is_caracters_is_space(t_args *v_args, size_t i);
+// void	is_precision_in_format(t_args *v_args, size_t i);
 
 /*
 ** get_content_format.c

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/12 01:16:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:20:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args)
 	{
 		*i += 1;
 		get_precision = ft_get_number(format, i);
-		if (ft_atoi(get_precision) != 0)
+		if (ft_atoi(get_precision) >= 0)
 		{
 			v_args->f_conv[v_args->i_args]->width_precision->precision = ft_atoi(get_precision);
 			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy =
@@ -43,6 +43,8 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args)
 			v_args->f_conv[v_args->i_args]->is_precision = 1;
 			free(get_precision);
 		}
+		else if (ft_atoi(get_precision) <= 0)
+			RET_STR = ft_strcat(RET_STR, format);
 		else
 			v_args->f_conv[v_args->i_args]->is_precision = 0;
 	}

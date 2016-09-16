@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/10 01:44:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/15 02:53:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static t_type		*init_type(void)
 	tmp->nb = 0;
 	tmp->u_l_nb = 0;
 	tmp->u_nb = 0;
+	tmp->len_type = 0;
 	return (tmp);
 }
 

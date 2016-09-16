@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/12 15:49:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:03:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	conv_decimal_d(va_list *args, t_args *v_args, const char *format,
 	{
 		L_CONV = 'd';
 		INT = va_arg(*args, int);
+		v_args->f_conv[v_args->i_args]->type->len_type = ft_strlen(ft_itoa(INT));
 		v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
+												ft_strlen(ft_itoa(INT));
+		v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
 												ft_strlen(ft_itoa(INT));
 		if (v_args->f_conv[v_args->i_args]->caracters->plus == 1)
 			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;

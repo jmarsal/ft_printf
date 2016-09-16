@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 17:09:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:26:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	is_caracters_is_space(t_args *v_args, size_t i)
 		v_args->f_conv[i]->type->l_nb >= 0)
 	{
 		if (v_args->f_conv[i]->l_conv == 'd' ||
-			v_args->f_conv[i]->l_conv == 'D')
+			v_args->f_conv[i]->l_conv == 'D' ||
+			v_args->f_conv[i]->l_conv == 'b')
 			RET_STR = ft_strcat(RET_STR, " ");
 	}
 }

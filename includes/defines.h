@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 16:07:33 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/16 02:25:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@
 
 # define GOOD_SHARP "oOxX"
 # define GOOD_ZERO "dDioOuUxX"
-# define GOOD_SPACE "dDi"
+# define GOOD_SPACE "dDib"
 # define GOOD_PLUS "dDi"
 
 # define ERR_SHARP "Error : flag '#' results in undefined behavior without 'o' or 'x' conversion specifier\n"
@@ -70,4 +70,5 @@
 # define ERR_PLUS "Error : flag '+' results in undefined behavior without 'd' or 'i' conversion specifier\n"
 # define ERR_PLUS_SPACE "Error : flag ' ' is ignored when flag '+' is present\n"
 # define ERR_MEM "Error : flag 'p' results in undefined behavior with 'precision' conversion specifier\n"
+# define ERR_BIN "Error : flag 'b' results in undefined behavior with 'precision' conversion specifier\n"
 #endif
