@@ -14,31 +14,31 @@
 
 void	print_hex_x(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'x')
+	if (I_L_CONV == 'x')
 	{
 		RET_STR = ft_strcat(RET_STR,
-				ft_strtolower(ft_itoa_base(v_args->f_conv[i]->type->nb, 16)));
+				ft_strtolower(ft_itoa_base(I_INT, 16)));
 	}
 }
 
 void	print_hex_lx(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'X')
+	if (I_L_CONV == 'X')
 	{
 		RET_STR = ft_strcat(RET_STR,
-							ft_itoa_base(v_args->f_conv[i]->type->nb, 16));
+							ft_itoa_base(I_INT, 16));
 	}
 }
 
 void	print_hex_b(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'b')
+	if (I_L_CONV == 'b')
 	{
-		if (v_args->f_conv[i]->type->nb == INT_MIN)
+		if (I_INT == INT_MIN)
 			RET_STR = ft_strjoin(RET_STR,
 							"10000000000000000000000000000000");
 		else
 			RET_STR = ft_strcat(RET_STR,
-							ft_itoa_base(v_args->f_conv[i]->type->nb, 2));
+							ft_itoa_base(I_INT, 2));
 	}
 }

@@ -6,80 +6,95 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 01:07:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/16 02:37:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/17 01:58:14 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	is_caracters_is_neg_and_precision(t_args *v_args, size_t i)
+void	is_caracters_is_neg_and_precision(t_args *v_args, size_t i) //un prob va se poser ici...
 {
-	if (v_args->f_conv[i]->caracters->minus == 1 &&
-		v_args->f_conv[i]->is_width == 1)
+	if (MINUS && IS_WIDTH)
 	{
-		while (v_args->f_conv[i]->width_precision->width_cpy > 0)
+		while (WIDTH_CPY > 0)
 		{
 			RET_STR = ft_strcat(RET_STR, " ");
-			v_args->f_conv[i]->width_precision->width_cpy--;
+			WIDTH_CPY--;
 		}
 	}
 }
 
-void	is_width_in_format(t_args *v_args, size_t i)
+void	is_width_precision_plus_minus(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->is_width &&
-		!v_args->f_conv[i]->caracters->minus)
+	if (IS_WIDTH && IS_PRECISION && MINUS && PLUS)
 	{
-		if (v_args->f_conv[i]->caracters->zero &&
-			!v_args->f_conv[i]->is_precision)
+		if (PRECISION_CPY > 0)
+			WIDTH_CPY -= PRECISION_CPY;
+		RET_STR = ft_strcat(RET_STR, "+");
+		while (PRECISION_CPY-- > 0)
+			RET_STR = ft_strcat(RET_STR, "0");
+	}
+	else if (IS_WIDTH && IS_PRECISION && SHARP && MINUS)
+	{
+		if (I_L_CONV == 'x' || I_L_CONV == 'X')
+			WIDTH_CPY -= 2;
+		else
+			WIDTH_CPY -= 1;
+		if (PRECISION_CPY > 0)
+			WIDTH_CPY -= PRECISION_CPY;
+		while (PRECISION_CPY-- > 0)
+			RET_STR = ft_strcat(RET_STR, "0");
+	}
+}
+
+static void is_width_precision(t_args *v_args, size_t i)
+{
+	if (PRECISION_CPY > 0)
+		WIDTH_CPY -= PRECISION_CPY;
+	while (WIDTH_CPY-- > 0)
+		RET_STR = ft_strcat(RET_STR, " ");
+	if (IS_PRECISION && PLUS)
+		RET_STR = ft_strcat(RET_STR, "+");
+	while (PRECISION_CPY-- > 0)
+		RET_STR = ft_strcat(RET_STR, "0");
+	if (PLUS == 1 && MINUS == 0 && !IS_PRECISION)
+		RET_STR = ft_strcat(RET_STR, "+");
+}
+
+void	is_width_precision_and_not_minus(t_args *v_args, size_t i)
+{
+	if (IS_WIDTH && !MINUS)
+	{
+		if (ZERO && !IS_PRECISION)
 		{
-			if (v_args->f_conv[i]->caracters->plus)
+			if (PLUS)
 				RET_STR = ft_strcat(RET_STR, "+");
-			if ((v_args->f_conv[i]->type->nb < 0 ||
-				v_args->f_conv[i]->type->l_nb < 0) &&
-				(v_args->f_conv[i]->l_conv != 'x' &&
-				v_args->f_conv[i]->l_conv != 'X'))
+			if ((I_INT < 0 || I_L_INT < 0) &&
+				(I_L_CONV != 'x' && I_L_CONV != 'X'))
 				{
-					v_args->f_conv[i]->type->nb = -v_args->f_conv[i]->type->nb;
-					v_args->f_conv[i]->type->l_nb = v_args->f_conv[i]->type->l_nb;
+					I_INT = -I_INT;
 					RET_STR = ft_strcat(RET_STR, "-");
 				}
-			while (v_args->f_conv[i]->width_precision->width_cpy > 0)
+			while (WIDTH_CPY > 0)
 			{
 				RET_STR = ft_strcat(RET_STR, "0");
-				v_args->f_conv[i]->width_precision->width_cpy--;
+				WIDTH_CPY--;
 			}
 		}
 		else
-		{
-			if (v_args->f_conv[i]->width_precision->precision_cpy > 0)
-				v_args->f_conv[i]->width_precision->width_cpy -=
-				v_args->f_conv[i]->width_precision->precision_cpy;
-			while (v_args->f_conv[i]->width_precision->width_cpy-- > 0)
-				RET_STR = ft_strcat(RET_STR, " ");
-			if (v_args->f_conv[i]->is_precision &&
-				v_args->f_conv[i]->caracters->plus)
-				RET_STR = ft_strcat(RET_STR, "+");
-			while (v_args->f_conv[i]->width_precision->precision_cpy-- > 0)
-				RET_STR = ft_strcat(RET_STR, "0");
-			if (v_args->f_conv[i]->caracters->plus == 1 &&
-				v_args->f_conv[i]->caracters->minus == 0 &&
-				!v_args->f_conv[i]->is_precision)
-				RET_STR = ft_strcat(RET_STR, "+");
-		}
+			is_width_precision(v_args, i);
 	}
 }
-//
+
 void	is_caracters_is_sharp(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->caracters->sharp == 1)
+	if (SHARP == 1)
 	{
-		if (v_args->f_conv[i]->l_conv == 'o' ||
-			v_args->f_conv[i]->l_conv == 'O')
+		if (I_L_CONV == 'o' || I_L_CONV == 'O')
 			RET_STR = ft_strcat(RET_STR, "0");
-		else if (v_args->f_conv[i]->l_conv == 'x')
+		else if (I_L_CONV == 'x')
 			RET_STR = ft_strcat(RET_STR, "0x");
-		else if (v_args->f_conv[i]->l_conv == 'X')
+		else if (I_L_CONV == 'X')
 			RET_STR = ft_strcat(RET_STR, "0X");
 	}
 }

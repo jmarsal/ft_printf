@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/14 01:24:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/17 01:16:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,32 +39,20 @@ int		find_error_in_format(t_args *v_args)
 	i = 0;
 	while (index_cpy--)
 	{
-		if (v_args->f_conv[i]->caracters->sharp == 1 &&
-			(!ft_strchr(GOOD_SHARP, v_args->f_conv[i]->l_conv)))
+		if (SHARP == 1 && (!ft_strchr(GOOD_SHARP, I_L_CONV)))
 			return (-1);
-		else if (v_args->f_conv[i]->caracters->zero == 1 &&
-			(!ft_strchr(GOOD_ZERO, v_args->f_conv[i]->l_conv)))
+		else if (ZERO == 1 && (!ft_strchr(GOOD_ZERO, I_L_CONV)))
 			return (-2);
-		else if (v_args->f_conv[i]->caracters->space == 1 &&
-			(!ft_strchr(GOOD_SPACE, v_args->f_conv[i]->l_conv)))
+		else if (SPACE == 1 && (!ft_strchr(GOOD_SPACE, I_L_CONV)))
 			return (-3);
-		else if (v_args->f_conv[i]->caracters->plus == 1 &&
-			(!ft_strchr(GOOD_PLUS, v_args->f_conv[i]->l_conv)))
+		else if (PLUS == 1 && (!ft_strchr(GOOD_PLUS, I_L_CONV)))
 			return (-4);
-		else if (v_args->f_conv[i]->caracters->plus == 1 &&
-			v_args->f_conv[i]->caracters->space)
+		else if (PLUS == 1 && SPACE)
 			return (-5);
-		else if (v_args->f_conv[i]->l_conv == 'p' &&
-			v_args->f_conv[i]->is_precision == 1)
+		else if (I_L_CONV == 'p' && IS_PRECISION == 1)
 			return (-6);
-		else if (v_args->f_conv[i]->l_conv == 'b' &&
-			v_args->f_conv[i]->is_precision == 1)
+		else if (I_L_CONV == 'b' && IS_PRECISION == 1)
 			return (-7);
-		// pointeur ne marche pas avec '+', ' ', '#', 'precision(.6)', '0'
-		// marche avec 'width', '-'
-		////////////////////////////////////////////////////////////////////////
-		// binaire ne marche pas avec '+', '#', 'precision', '0'
-		// marche ' ', '-', 'width'
 		i++;
 	}
 	return (0);

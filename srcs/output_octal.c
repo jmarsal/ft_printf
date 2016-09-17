@@ -14,18 +14,18 @@
 
 void	print_octal_o(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'o')
+	if (I_L_CONV == 'o')
 	{
 		RET_STR = ft_strcat(RET_STR,
-			ft_itoa_base(v_args->f_conv[i]->type->u_nb, 8));
+			ft_itoa_base(I_U_INT, 8));
 	}
 }
 
 void	print_octal_lo(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'O')
+	if (I_L_CONV == 'O')
 	{
 		RET_STR = ft_strcat(RET_STR,
-			ft_litoa_base(v_args->f_conv[i]->type->u_l_nb, 8));
+			ft_litoa_base(I_U_L_INT, 8));
 	}
 }

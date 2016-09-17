@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 16:38:12 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/17 01:23:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 static void	find_witch_caracters(const char *format, size_t *i, t_args *v_args)
 {
 	if (format[*i] == '-')
-		v_args->f_conv[v_args->i_args]->caracters->minus = 1;
+		A_MINUS = 1;
 	if (format[*i] == '+')
-		v_args->f_conv[v_args->i_args]->caracters->plus = 1;
+		A_PLUS = 1;
 	if (format[*i] == ' ')
-		v_args->f_conv[v_args->i_args]->caracters->space = 1;
+		A_SPACE = 1;
 	if (format[*i] == '#')
-		v_args->f_conv[v_args->i_args]->caracters->sharp = 1;
+		A_SHARP = 1;
 	if (format[*i] == '0')
-		v_args->f_conv[v_args->i_args]->caracters->zero = 1;
+		A_ZERO = 1;
 }
 
 static void	get_caracters(const char *format, size_t *i, t_args *v_args)

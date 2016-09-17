@@ -14,14 +14,14 @@
 
 void	print_char_c(t_args *v_args, size_t i, size_t *test_c)
 {
-	if (v_args->f_conv[i]->l_conv == 'c')
+	if (I_L_CONV == 'c')
 	{
-		if (v_args->f_conv[i]->type->c == 0)
+		if (I_C == 0)
 		{
 			ft_putchar('\0');
 			*test_c += 1;
 		}
 		else
-			RET_STR = ft_strcat(RET_STR, &v_args->f_conv[i]->type->c);
+			RET_STR = ft_strcat(RET_STR, &I_C);
 	}
 }

@@ -14,8 +14,8 @@
 
 void 	print_str_s(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 's')
+	if (I_L_CONV == 's')
 	{
-		RET_STR = ft_strcat(RET_STR, v_args->f_conv[i]->type->str);
+		RET_STR = ft_strcat(RET_STR, I_STR);
 	}
 }

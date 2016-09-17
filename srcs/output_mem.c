@@ -14,8 +14,8 @@
 
 void	print_ptr(t_args *v_args, size_t i)
 {
-	if (v_args->f_conv[i]->l_conv == 'p')
+	if (I_L_CONV == 'p')
 	{
-		RET_STR = ft_get_ptr(v_args->f_conv[i]->type->ptr);
+		RET_STR = ft_get_ptr(I_PTR);
 	}
 }
