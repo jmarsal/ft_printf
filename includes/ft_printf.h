@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 00:40:17 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 01:37:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ void 	print_hex_b(t_args *v_args, size_t i);
 */
 
 void	print_ptr(t_args *v_args, size_t i);
+char	*ft_get_ptr(int *ptr);
 
 /*
 ** output_octal.c

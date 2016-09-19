@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 02:06:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 02:20:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,57 +67,69 @@
 int main()
 {
 
-	int	nb;
-	int nb1;
-	int nb2;
-	int ret;
+	// int	nb;
+	// int nb1;
+	// int nb2;
+	// int ret;
 
-	nb2 = 42;
-	ret = ft_printf("%#-8.0X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.1X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.2X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.3X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.4X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.5X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.6X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.7X\n", nb2);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%#-8.8X\n", nb2);
+	// nb2 = 10;
+
+	int			ret;
+
+
+	ret = ft_printf("%+D\n", LONG_MIN - 1);
 	ft_printf("%d\n", ret);
 
-////////////////////////////////////////////////////////////////////////////////
+// 	ret = ft_printf("%#-8.0X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.1X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.2X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.3X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.4X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.5X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.6X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.7X\n", nb2);
+// 	ft_printf("%d\n", ret);
+// 	ret = ft_printf("%#-8.8X\n", nb2);
+// 	ft_printf("%d\n", ret);
+//
+// ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
-////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////////
+//
 
-	// printf("avec printf\n");
-	// ret = printf("%p\n", &nb2);
-	// printf("%d\n", ret);
-	//
-	ret = printf("%#-8.0X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.1X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.2X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.3X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.4X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.5X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.6X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.7X\n", nb2);
-	printf("%d\n", ret);
-	ret = printf("%#-8.8X\n", nb2);
-	printf("%d\n", ret);
+ret = printf("%+ld\n", LONG_MIN - 1);
+printf("%d\n", ret);
+
+
+// 	// printf("avec printf\n");
+// 	// ret = printf("%p\n", &nb2);
+// 	// printf("%d\n", ret);
+// 	//
+// 	ret = printf("%#-8.0X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.1X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.2X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.3X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.4X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.5X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.6X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.7X\n", nb2);
+// 	printf("%d\n", ret);
+// 	ret = printf("%#-8.8X\n", nb2);
+// 	printf("%d\n", ret);
 
 	// // ret = printf("%-+*.10d\n", 9, nb2);
 	// // printf("%d\n", ret);
