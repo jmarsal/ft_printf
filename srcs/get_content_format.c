@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 01:23:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 22:17:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	find_witch_caracters(const char *format, size_t *i, t_args *v_args)
 
 static void	get_caracters(const char *format, size_t *i, t_args *v_args)
 {
-	while (is_conversion_specifiers(format, i, CARACTERS) == 1)
+	while (is_conversion_flag(format, i, CARACTERS) == 1)
 	{
 		find_witch_caracters(format, i, v_args);
 		*i += 1;
@@ -45,7 +45,8 @@ static void	get_content_flags(va_list *args, t_args *v_args,
 	get_caracters(format, i, v_args);
 	get_width_in_format(format, i, v_args);
 	get_precision_in_format(format, i, v_args);
-	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
+	get_modifier_in_format(format, i, v_args);
+	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)
 	{
 		conv_str_s(args, v_args, format, i);
 		conv_decimal_d(args, v_args, format, i);

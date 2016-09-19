@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 01:37:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 16:38:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	conv_mem_p(va_list *args, t_args *v_args, const char *format,
 ** parser_helper.c
 */
 
-int		is_conversion_specifiers(const char *format, size_t *i,
+int		is_conversion_flag(const char *format, size_t *i,
 					const char *flags);
 
 /*
@@ -134,6 +134,7 @@ void	get_content_format(va_list *args, const char *format,
 
 void	get_width_in_format(const char *format, size_t *i, t_args *v_args);
 void	get_precision_in_format(const char *format, size_t *i, t_args *v_args);
+void	get_modifier_in_format(const char *format, size_t *i, t_args *v_args);
 
 /*
 ** error.c

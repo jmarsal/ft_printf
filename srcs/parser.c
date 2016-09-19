@@ -6,34 +6,55 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/16 02:33:24 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 22:15:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+static int get_modifier(const char *format, size_t *i)
+{
+	size_t	count;
+	size_t	j;
+
+	count = 0;
+	j = *i + 1;
+	while ((is_conversion_flag(format, i, L_MODIFIER) == 1) &&
+		count < 2)
+	{
+		if (count == 1 &&
+			is_conversion_flag(format, &j, L_MODIFIER) == 1)
+			return (-1);
+		*i += 1;
+		j = *i + 1;
+		count++;
+	}
+	return (0);
+}
+
 static int	if_specifier(const char *format, t_w_or_p tmp,
 						size_t *i, size_t *index)
 {
-	while (is_conversion_specifiers(format, i, CARACTERS) == 1)
+	while (is_conversion_flag(format, i, CARACTERS) == 1)
 		*i += 1;
-	if (is_conversion_specifiers(format, i, F_WIDTH) == 1)
+	if (is_conversion_flag(format, i, F_WIDTH) == 1)
 	{
 		while (ft_isalnum(format[*i]))
 			*i += 1;
 		tmp.width = 1;
 	}
-	if (is_conversion_specifiers(format, i, PRECISION) == 1)
+	if (is_conversion_flag(format, i, PRECISION) == 1)
 	{
 		*i += 1;
 		while (ft_isalnum(format[*i]))
 			*i += 1;
 		tmp.precision = 1;
 	}
-	// if (is_conversion_specifiers(format, i, L_MODIFIER) == 1)
 	if (tmp.width == 1 || tmp.precision == 1)
 		*i -= 1;
-	if (is_conversion_specifiers(format, i, C_SPECIFIERS) == 1)
+	if (get_modifier(format, i) == -1)
+		return (-1);
+	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)
 	{
 		*index += 1;
 		*i += 1;

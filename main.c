@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 02:20:17 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/19 23:52:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,13 @@ int main()
 	// nb2 = 10;
 
 	int			ret;
+	char	c;
+
+	c = -42;
 
 
-	ret = ft_printf("%+D\n", LONG_MIN - 1);
-	ft_printf("%d\n", ret);
+	// ret = ft_printf("%+D\n", LONG_MIN - 1);
+	// ft_printf("%d\n", ret);
 
 // 	ret = ft_printf("%#-8.0X\n", nb2);
 // 	ft_printf("%d\n", ret);
@@ -99,12 +102,18 @@ int main()
 // 	ret = ft_printf("%#-8.8X\n", nb2);
 // 	ft_printf("%d\n", ret);
 //
+
+ret = ft_printf("%hhx\n", c);
+ft_printf("%d\n", ret);
+
 // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // ////////////////////////////////////////////////////////////////////////////////
 //
 
-ret = printf("%+ld\n", LONG_MIN - 1);
+// ret = printf("%c\n", c);
+// printf("%d\n", ret);
+ret = printf("%hhx\n", c);
 printf("%d\n", ret);
 
 
