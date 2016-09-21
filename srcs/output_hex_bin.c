@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:05:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/14 01:03:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/20 15:25:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,36 @@ void	print_hex_x(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'x')
 	{
-		RET_STR = ft_strcat(RET_STR,
+		if (!v_args->f_conv[i]->is_modifier)
+			RET_STR = ft_strcat(RET_STR,
 				ft_strtolower(ft_itoa_base(I_INT, 16)));
+		else if (v_args->f_conv[i]->modifier->hh == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 2));
+		else if (v_args->f_conv[i]->modifier->h == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 4));
+		else if (v_args->f_conv[i]->modifier->l == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 16));
+		else if (v_args->f_conv[i]->modifier->ll == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 64));
+
 	}
 }
 
-void	print_hex_lx(t_args *v_args, size_t i)
+void	print_hex_maj_x(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'X')
 	{
-		RET_STR = ft_strcat(RET_STR,
+		if (!v_args->f_conv[i]->is_modifier)
+			RET_STR = ft_strcat(RET_STR,
 							ft_itoa_base(I_INT, 16));
+		else if (v_args->f_conv[i]->modifier->hh == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 2));
+		else if (v_args->f_conv[i]->modifier->h == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 4));
+		else if (v_args->f_conv[i]->modifier->l == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 16));
+		else if (v_args->f_conv[i]->modifier->ll == 1)
+			RET_STR = ft_strcat(RET_STR, modifier_x(v_args, i, 64));
 	}
 }
 

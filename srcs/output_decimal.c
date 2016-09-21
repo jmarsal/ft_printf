@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 01:12:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/21 23:46:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@ void 	print_decimal_d(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'd')
 	{
-		RET_STR = ft_strcat(RET_STR, ft_itoa(I_INT));
+		if (!(v_args->f_conv[i]->modifier->l ||
+				v_args->f_conv[i]->modifier->ll))
+			RET_STR = ft_strcat(RET_STR, ft_itoa(I_INT));
+		else if (v_args->f_conv[i]->modifier->l ||
+				v_args->f_conv[i]->modifier->ll)
+			RET_STR = ft_strcat(RET_STR, ft_litoa(I_L_INT));
 	}
 }
 
@@ -32,7 +37,16 @@ void 	print_decimal_u(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'u')
 	{
-		RET_STR = ft_strcat(RET_STR, ft_litoa(I_U_INT));
+		if (!(v_args->f_conv[i]->modifier->l ||
+				v_args->f_conv[i]->modifier->ll))
+		{
+			RET_STR = ft_strcat(RET_STR, ft_litoa(I_U_INT));
+		}
+		else if (v_args->f_conv[i]->modifier->l ||
+				v_args->f_conv[i]->modifier->ll)
+		{
+			RET_STR = ft_strcat(RET_STR, ft_ulitoa(I_U_L_INT));
+		}
 	}
 }
 

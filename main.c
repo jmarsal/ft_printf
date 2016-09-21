@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 23:52:29 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/21 23:47:44 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main()
 	int			ret;
 	char	c;
 
-	c = -42;
+	c = -128;
 
 
 	// ret = ft_printf("%+D\n", LONG_MIN - 1);
@@ -103,7 +103,17 @@ int main()
 // 	ft_printf("%d\n", ret);
 //
 
-ret = ft_printf("%hhx\n", c);
+// test with modifier
+
+ret = ft_printf("%hhu\n", (char)2147483649051561567);
+ft_printf("%d\n", ret);
+ret = ft_printf("%hu\n", (short)2147483649051561567);
+ft_printf("%d\n", ret);
+ret = ft_printf("%u\n", (int)2147483649051561567);
+ft_printf("%d\n", ret);
+ret = ft_printf("%lu\n", (long)2147483649051561567);
+ft_printf("%d\n", ret);
+ret = ft_printf("%llu\n", (long long)2147483649051561567);
 ft_printf("%d\n", ret);
 
 // ////////////////////////////////////////////////////////////////////////////////
@@ -111,9 +121,15 @@ ft_printf("%d\n", ret);
 // ////////////////////////////////////////////////////////////////////////////////
 //
 
-// ret = printf("%c\n", c);
-// printf("%d\n", ret);
-ret = printf("%hhx\n", c);
+ret = printf("%hhu\n", (char)2147483649051561567);
+printf("%d\n", ret);
+ret = printf("%hu\n", (short)2147483649051561567);
+printf("%d\n", ret);
+ret = printf("%u\n", (int)2147483649051561567);
+printf("%d\n", ret);
+ret = printf("%lu\n", (long)2147483649051561567);
+printf("%d\n", ret);
+ret = printf("%llu\n", (long long)2147483649051561567);
 printf("%d\n", ret);
 
 

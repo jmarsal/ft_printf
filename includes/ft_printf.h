@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 16:38:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/20 01:09:05 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void	print_decimal_lu(t_args *v_args, size_t i);
 */
 
 void 	print_hex_x(t_args *v_args, size_t i);
-void 	print_hex_lx(t_args *v_args, size_t i);
+void 	print_hex_maj_x(t_args *v_args, size_t i);
 void 	print_hex_b(t_args *v_args, size_t i);
 
 /*
@@ -185,5 +185,11 @@ char	*ft_get_ptr(int *ptr);
 
 void	print_octal_o(t_args *v_args, size_t i);
 void	print_octal_lo(t_args *v_args, size_t i);
+
+/*
+** modifier.c
+*/
+
+char	*modifier_x(t_args *v_args, size_t i, size_t len);
 
 #endif

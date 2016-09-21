@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/13 16:32:44 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/09/20 00:16:23 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SOURCES += ft_printf.c \
 						output_decimal.c \
 						output_hex_bin.c \
 						output_mem.c \
-						output_octal.c
+						output_octal.c \
+						modifier.c
 
 # Objects
 OBJ_PATH = obj

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/07 01:43:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/20 15:40:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,50 @@ int	main(void)
 	ret = ft_printf("%#8X\n", nb);
 	ft_printf("%d\n", ret);
 	ret = ft_printf("%-#8X\n", nb);
+	ft_printf("%d\n", ret);
+
+	// test precision
+
+	ret = ft_printf("%#-8.0X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.1X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.2X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.3X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.4X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.5X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.6X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.7X\n", nb);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%#-8.8X\n", nb);
+	ft_printf("%d\n", ret);
+
+	// test with modifier
+
+	ret = ft_printf("%hhx\n", (char)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%hx\n", (short)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%x\n", (int)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%lx\n", (long)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%llx\n", (long long)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%hhX\n", (char)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%hX\n", (short)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%X\n", (int)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%lX\n", (long)2147483649051561567);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%llX\n", (long long)2147483649051561567);
 	ft_printf("%d\n", ret);
 
 	return (0);

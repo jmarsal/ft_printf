@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 23:46:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/21 23:45:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		print_format(t_args *v_args)
 		print_decimal_lu(v_args, i);
 		print_char_c(v_args, i, &test_c);
 		print_hex_x(v_args, i);
-		print_hex_lx(v_args, i);
+		print_hex_maj_x(v_args, i);
 		print_hex_b(v_args, i);
 		print_ptr(v_args, i);
 		print_octal_o(v_args, i);
