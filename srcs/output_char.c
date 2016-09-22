@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:44:22 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 17:07:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 11:32:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	print_char_c(t_args *v_args, size_t i, size_t *test_c)
 			*test_c += 1;
 		}
 		else
-			RET_STR = ft_strcat(RET_STR, &I_C);
+			RET_STR = ft_strjoin(RET_STR, &I_C);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:10:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 02:00:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 11:36:34 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	*itoa_ptr(unsigned char value)
 		val /= 16;
 	}
 	if (value < 16)
-		number = ft_strcat(number, "0");
+		number = ft_strjoin(number, "0");
 	return (ft_strrev(number));
 }
 
@@ -59,7 +59,7 @@ char	*ft_get_ptr(int *ptr)
 	i = sizeof(ptr);
 	i -= 2;
 	ft_memcpy(p, &ptr, sizeof(ptr));
-	ret = ft_strcat(ret, "0x");
+	ret = ft_strjoin(ret, "0x");
 	while (i-- > 0)
 		ret = ft_strjoin(ret, itoa_ptr(p[i]));
 	return (ret);

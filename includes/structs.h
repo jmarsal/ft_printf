@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/21 23:40:11 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 14:24:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_type
 	char			*str;
 	int				*ptr;
 	int				nb;
+	unsigned short	s_nb;
 	char			c;
 }					t_type;
 

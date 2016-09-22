@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/20 01:09:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 12:27:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	conv_decimal_ld(va_list *args, t_args *v_args, const char *format,
 void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
 					size_t * i);
 void	conv_lu_decimal_lu(va_list *args, t_args *v_args, const char *format,
+					size_t * i);
+void	conv_u_decimal_hu(va_list *args, t_args *v_args, const char *format,
 					size_t * i);
 
 /*
