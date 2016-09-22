@@ -6,6 +6,19 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/09/22 14:25:22 by jmarsal          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_decimal.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
 /*   Updated: 2016/09/21 23:45:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -67,7 +80,8 @@ void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
 	if (format[*i] == 'u')
 	{
 		if (!(v_args->f_conv[v_args->i_args]->modifier->ll ||
-			v_args->f_conv[v_args->i_args]->modifier->l))
+			v_args->f_conv[v_args->i_args]->modifier->l ||
+			v_args->f_conv[v_args->i_args]->modifier->h))
 		{
 			L_CONV = 'u';
 			U_INT = va_arg(*args, unsigned int);
@@ -100,5 +114,26 @@ void	conv_lu_decimal_lu(va_list *args, t_args *v_args, const char *format,
 			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
 		if (A_SPACE == 1)
 			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+	}
+}
+
+void	conv_u_decimal_hu(va_list *args, t_args *v_args, const char *format,
+					size_t * i)
+{
+	if (format[*i] == 'u')
+	{
+		if (v_args->f_conv[v_args->i_args]->modifier->h)
+		{
+			L_CONV = 'u';
+			U_SHORT = (unsigned short)va_arg(*args, unsigned int);
+			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
+												ft_strlen(ft_itoa(U_SHORT));
+			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
+												ft_strlen(ft_itoa(U_SHORT));
+			if (A_PLUS == 1)
+				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			if (A_SPACE == 1)
+				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/21 23:45:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 12:27:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	get_content_flags(va_list *args, t_args *v_args,
 		conv_octal_lo(args, v_args, format, i);
 		conv_u_decimal_u(args, v_args, format, i);
 		conv_lu_decimal_lu(args, v_args, format, i);
+		conv_u_decimal_hu(args, v_args, format, i);
 		v_args->i_args++;
 		*i += 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 01:23:59 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/22 14:23:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define I_U_L_INT v_args->f_conv[i]->type->u_l_nb
 # define INT v_args->f_conv[v_args->i_args]->type->nb
 # define I_INT v_args->f_conv[i]->type->nb
+# define U_SHORT v_args->f_conv[v_args->i_args]->type->s_nb
+# define I_U_SHORT v_args->f_conv[i]->type->s_nb
 # define L_INT v_args->f_conv[v_args->i_args]->type->l_nb
 # define I_L_INT v_args->f_conv[i]->type->l_nb
 # define U_INT v_args->f_conv[v_args->i_args]->type->u_nb
