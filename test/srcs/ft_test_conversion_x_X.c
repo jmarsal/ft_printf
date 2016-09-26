@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/20 15:40:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/26 16:18:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,225 @@ int	main(void)
 	ft_printf("%d\n", ret);
 	ret = ft_printf("%llX\n", (long long)2147483649051561567);
 	ft_printf("%d\n", ret);
+
+	nb = ft_printf("%#-8.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-8.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-16.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-8.16hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-8.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-16.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-8.16hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#8.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#16.8hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#8.16hhx\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16llx\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-8.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-16.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-16.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#-8.16hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#-8.16llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-8.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-16.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-16.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%-8.16hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#8.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#16.8hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#8.16hhX\n", (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16hX\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16X\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16lX\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#8.16llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
 
 	return (0);
 }

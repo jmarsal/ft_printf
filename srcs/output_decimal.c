@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/22 14:25:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/26 15:31:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ void 	print_decimal_u(t_args *v_args, size_t i)
 	{
 		if (!(v_args->f_conv[i]->modifier->l ||
 				v_args->f_conv[i]->modifier->ll ||
-				v_args->f_conv[i]->modifier->h))
+				v_args->f_conv[i]->modifier->h ||
+				v_args->f_conv[i]->modifier->hh))
 			RET_STR = ft_strjoin(RET_STR, ft_litoa(I_U_INT));
 		else if (v_args->f_conv[i]->modifier->l ||
 				v_args->f_conv[i]->modifier->ll)
 			RET_STR = ft_strjoin(RET_STR, ft_ulitoa(I_U_L_INT));
 		else if (v_args->f_conv[i]->modifier->h)
-			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_SHORT));
+			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_INT));
+		else if (v_args->f_conv[i]->modifier->hh)
+			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_INT));
 	}
 }
 

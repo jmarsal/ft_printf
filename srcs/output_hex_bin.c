@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:05:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/22 11:35:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/23 01:36:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,8 @@ void	print_hex_b(t_args *v_args, size_t i)
 	if (I_L_CONV == 'b')
 	{
 		if (I_INT == INT_MIN)
-			RET_STR = ft_strjoin(RET_STR,
-							"10000000000000000000000000000000");
+			RET_STR = ft_strjoin(RET_STR, "10000000000000000000000000000000");
 		else
-			RET_STR = ft_strjoin(RET_STR,
-							ft_itoa_base(I_INT, 2));
+			RET_STR = ft_strjoin(RET_STR, ft_itoa_base(I_INT, 2));
 	}
 }

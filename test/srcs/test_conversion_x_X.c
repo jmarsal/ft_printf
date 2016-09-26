@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/20 15:39:53 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/26 16:16:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(void)
 	printf("%d\n", ret);
 
 	// test precision
-	
+
 	ret = printf("%#-8.0X\n", nb);
 	printf("%d\n", ret);
 	ret = printf("%#-8.1X\n", nb);
@@ -118,5 +118,226 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("%llX\n", (long long)2147483649051561567);
 	printf("%d\n", ret);
+
+	nb = printf("%#-8.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-8.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-16.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-8.16hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-16.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.16hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#16.8hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.16hhx\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16hx\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16x\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16lx\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16llx\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-8.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-16.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-8.16hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-16.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.16hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#16.8hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.16hhX\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16hX\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16X\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16lX\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16llX\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+
 	return (0);
 }

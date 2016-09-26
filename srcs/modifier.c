@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/20 00:12:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/22 11:36:02 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/23 01:58:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ char	*modifier_x(t_args *v_args, size_t i, size_t len)
 		tmp = ft_strjoin(tmp, ft_strtolower(ft_itoa_base(I_INT, 16)));
 	else if (I_L_CONV == 'x' && (v_args->f_conv[i]->modifier->l ||
 								v_args->f_conv[i]->modifier->ll))
-		tmp = ft_strjoin(tmp, ft_strtolower(ft_litoa_base(I_L_INT, 16)));
-	if (I_L_CONV == 'X' && (!(v_args->f_conv[i]->modifier->ll ||
+		tmp = ft_strjoin(tmp, ft_strtolower(ft_ulitoa_base(I_U_L_INT, 16)));
+	else if (I_L_CONV == 'X' && (!(v_args->f_conv[i]->modifier->ll ||
 									v_args->f_conv[i]->modifier->l)))
 		tmp = ft_strjoin(tmp, ft_itoa_base(I_INT, 16));
 	else if (I_L_CONV == 'X' && (v_args->f_conv[i]->modifier->l ||
 								v_args->f_conv[i]->modifier->ll))
-		tmp = ft_strjoin(tmp, ft_litoa_base(I_L_INT, 16));
+		tmp = ft_strjoin(tmp, ft_ulitoa_base(I_U_L_INT, 16));
 	if (len <= ft_strlen(tmp))
 		index = ft_strlen(tmp)- len;
 	else

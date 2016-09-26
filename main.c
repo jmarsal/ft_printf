@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/22 14:31:44 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:17:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,15 @@
 
 int main()
 {
-
-	// int	nb;
-	int nb1;
+	int	nb;
+	// int nb1;
 	// int nb2;
 	// int ret;
-
 	// nb2 = 10;
-
 	int			ret;
-	char	c;
-
-	c = -128;
-
+	// char	c;
+	// c = -128;
+nb = INT_MAX;
 // 	ret = ft_printf("%#-8.0X\n", nb2);
 // 	ft_printf("%d\n", ret);
 // 	ret = ft_printf("%#-8.1X\n", nb2);
@@ -101,32 +97,35 @@ int main()
 
 // test with modifier
 
-ret = ft_printf("%hho\n", (char)2147483649051561567);
+ret = ft_printf("%#x\n", nb);
 ft_printf("%d\n", ret);
-ret = ft_printf("%ho\n", (short)2147483649051561567);
+ret = ft_printf("%#X\n", nb);
 ft_printf("%d\n", ret);
-ret = ft_printf("%o\n", (int)2147483649051561567);
+ret = ft_printf("%#8x\n", nb);
 ft_printf("%d\n", ret);
-ret = ft_printf("%lo\n", (long)2147483649051561567);
+ret = ft_printf("%-#8x\n", nb);
 ft_printf("%d\n", ret);
-ret = ft_printf("%llo\n", (long long)2147483649051561567);
+ret = ft_printf("%#8X\n", nb);
 ft_printf("%d\n", ret);
+ret = ft_printf("%-#8X\n", nb);
+ft_printf("%d\n", ret);
+
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-ret = printf("%hho\n", (char)2147483649051561567);
+ret = printf("%#x\n", nb);
 printf("%d\n", ret);
-ret = printf("%ho\n", (short)2147483649051561567);
+ret = printf("%#X\n", nb);
 printf("%d\n", ret);
-ret = printf("%o\n", (int)2147483649051561567);
+ret = printf("%#8x\n", nb);
 printf("%d\n", ret);
-ret = printf("%lo\n", (long)2147483649051561567);
+ret = printf("%-#8x\n", nb);
 printf("%d\n", ret);
-ret = printf("%llo\n", (long long)2147483649051561567);
+ret = printf("%#8X\n", nb);
 printf("%d\n", ret);
-
-
+ret = printf("%-#8X\n", nb);
+printf("%d\n", ret);
 // 	// printf("avec printf\n");
 // 	// ret = printf("%p\n", &nb2);
 // 	// printf("%d\n", ret);

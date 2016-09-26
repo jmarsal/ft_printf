@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/06 16:05:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/25 03:01:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,129 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("%#o\n", nb);
 	printf("%d\n", ret);
+
+	//with modifier
+
+	ret = printf("%hho\n", (char)2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%ho\n", (short)2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%o\n", (int)2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%lo\n", (long)2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%llo\n", (long long)2147483649051561567);
+	printf("%d\n", ret);
+
+	ret = printf("%hho\n", (char)-2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%ho\n", (short)-2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%o\n", (int)-2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%lo\n", (long)-2147483649051561567);
+	printf("%d\n", ret);
+	ret = printf("%llo\n", (long long)-2147483649051561567);
+	printf("%d\n", ret);
+
+	nb = printf("%#-8.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-16.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-16.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#-8.16hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#-8.16llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-16.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-16.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%-8.16hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#16.8hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#16.8llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
+	nb = printf("%#8.16hho\n", (char)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16ho\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16o\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16lo\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%#8.16llo\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
+
 	return (0);
 }

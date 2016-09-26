@@ -1,4 +1,2 @@
-1c1$
-< Antoine est le plus intelligent des Bébés !$
----$
+0a1$
 > $
