@@ -19,13 +19,13 @@ void	print_hex_x(t_args *v_args, size_t i)
 		if (!v_args->f_conv[i]->is_modifier)
 			RET_STR = ft_strjoin(RET_STR,
 				ft_strtolower(ft_itoa_base(I_INT, 16)));
-		else if (v_args->f_conv[i]->modifier->hh == 1)
+		else if (MOD_HH == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 2));
-		else if (v_args->f_conv[i]->modifier->h == 1)
+		else if (MOD_H == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 4));
-		else if (v_args->f_conv[i]->modifier->l == 1)
+		else if (MOD_L == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 16));
-		else if (v_args->f_conv[i]->modifier->ll == 1)
+		else if (MOD_LL == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 64));
 
 	}
@@ -38,13 +38,13 @@ void	print_hex_maj_x(t_args *v_args, size_t i)
 		if (!v_args->f_conv[i]->is_modifier)
 			RET_STR = ft_strjoin(RET_STR,
 							ft_itoa_base(I_INT, 16));
-		else if (v_args->f_conv[i]->modifier->hh == 1)
+		else if (MOD_HH == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 2));
-		else if (v_args->f_conv[i]->modifier->h == 1)
+		else if (MOD_H == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 4));
-		else if (v_args->f_conv[i]->modifier->l == 1)
+		else if (MOD_L == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 16));
-		else if (v_args->f_conv[i]->modifier->ll == 1)
+		else if (MOD_LL == 1)
 			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 64));
 	}
 }

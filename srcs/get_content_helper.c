@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 22:23:03 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 02:03:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	get_width_in_format(const char *format, size_t *i, t_args *v_args)
 	if (is_conversion_flag(format, i, F_WIDTH) == 1)
 	{
 		get_width = ft_get_number(format, i);
-		v_args->f_conv[v_args->i_args]->width_precision->width = ft_atoi(get_width);
-		v_args->f_conv[v_args->i_args]->width_precision->width_cpy =
-		v_args->f_conv[v_args->i_args]->width_precision->width;
+		I_WIDTH = ft_atoi(get_width);
+		I_WIDTH_CPY = I_WIDTH;
 		free(get_width);
 		v_args->f_conv[v_args->i_args]->is_width = 1;
 	}
@@ -37,9 +36,8 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args)
 		get_precision = ft_get_number(format, i);
 		if (ft_atoi(get_precision) >= 0)
 		{
-			v_args->f_conv[v_args->i_args]->width_precision->precision = ft_atoi(get_precision);
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy =
-			v_args->f_conv[v_args->i_args]->width_precision->precision;
+			I_PRECISION_O = ft_atoi(get_precision);
+			I_PRECISION_CPY = I_PRECISION_O;
 			v_args->f_conv[v_args->i_args]->is_precision = 1;
 			free(get_precision);
 		}
@@ -53,17 +51,17 @@ void	get_precision_in_format(const char *format, size_t *i, t_args *v_args)
 static void find_witch_modifier(t_args *v_args, char *tmp_modifier)
 {
 	if (ft_strcmp(tmp_modifier, "hh") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->hh = 1;
+		I_MOD_HH = 1;
 	else if (ft_strcmp(tmp_modifier, "h") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->h = 1;
+		I_MOD_H = 1;
 	else if (ft_strcmp(tmp_modifier, "l") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->l = 1;
+		I_MOD_L = 1;
 	else if (ft_strcmp(tmp_modifier, "ll") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->ll = 1;
+		I_MOD_LL = 1;
 	else if (ft_strcmp(tmp_modifier, "j") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->j = 1;
+		I_MOD_J = 1;
 	else if (ft_strcmp(tmp_modifier, "z") == 0)
-		v_args->f_conv[v_args->i_args]->modifier->z = 1;
+		I_MOD_Z = 1;
 }
 
 void	get_modifier_in_format(const char *format, size_t *i, t_args *v_args)

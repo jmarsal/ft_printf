@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/27 01:17:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 02:40:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main()
 {
 	int	nb;
 	// int nb1;
-	// int nb2;
+	int nb2;
 	// int ret;
 	// nb2 = 10;
 	int			ret;
@@ -97,35 +97,33 @@ nb = INT_MAX;
 
 // test with modifier
 
-ret = ft_printf("%#x\n", nb);
-ft_printf("%d\n", ret);
-ret = ft_printf("%#X\n", nb);
-ft_printf("%d\n", ret);
-ret = ft_printf("%#8x\n", nb);
-ft_printf("%d\n", ret);
-ret = ft_printf("%-#8x\n", nb);
-ft_printf("%d\n", ret);
-ret = ft_printf("%#8X\n", nb);
-ft_printf("%d\n", ret);
-ret = ft_printf("%-#8X\n", nb);
-ft_printf("%d\n", ret);
+nb = ft_printf("%#8.16hho\n", (char)-2147483649051561567);
+ft_printf("%d\n", nb);
+nb = ft_printf("%#8.16ho\n", (short)-2147483649051561567);
+ft_printf("%d\n", nb);
+nb = ft_printf("%#8.16o\n", (int)-2147483649051561567);
+ft_printf("%d\n", nb);
+nb = ft_printf("%#8.16lo\n", (long)-2147483649051561567);
+ft_printf("%d\n", nb);
+nb = ft_printf("%#8.16llo\n", (long long)-2147483649051561567);
+ft_printf("%d\n", nb);
+
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-ret = printf("%#x\n", nb);
-printf("%d\n", ret);
-ret = printf("%#X\n", nb);
-printf("%d\n", ret);
-ret = printf("%#8x\n", nb);
-printf("%d\n", ret);
-ret = printf("%-#8x\n", nb);
-printf("%d\n", ret);
-ret = printf("%#8X\n", nb);
-printf("%d\n", ret);
-ret = printf("%-#8X\n", nb);
-printf("%d\n", ret);
+nb = printf("%#8.16hho\n", (char)-2147483649051561567);
+printf("%d\n", nb);
+nb = printf("%#8.16ho\n", (short)-2147483649051561567);
+printf("%d\n", nb);
+nb = printf("%#8.16o\n", (int)-2147483649051561567);
+printf("%d\n", nb);
+nb = printf("%#8.16lo\n", (long)-2147483649051561567);
+printf("%d\n", nb);
+nb = printf("%#8.16llo\n", (long long)-2147483649051561567);
+printf("%d\n", nb);
+
 // 	// printf("avec printf\n");
 // 	// ret = printf("%p\n", &nb2);
 // 	// printf("%d\n", ret);

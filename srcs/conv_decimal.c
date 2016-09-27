@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/26 15:31:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:50:33 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,22 @@ void	conv_decimal_d(va_list *args, t_args *v_args, const char *format,
 	if (format[*i] == 'd' || format[*i] == 'i')
 	{
 		L_CONV = 'd';
-		if (!(v_args->f_conv[v_args->i_args]->modifier->ll ||
-			v_args->f_conv[v_args->i_args]->modifier->l))
+		if (!(I_MOD_LL || I_MOD_L))
 		{
 			INT = va_arg(*args, int);
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_itoa(INT));
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(INT));
+			I_WIDTH_CPY -= ft_strlen(ft_itoa(INT));
+			I_PRECISION_CPY -= ft_strlen(ft_itoa(INT));
 		}
-		else if (v_args->f_conv[v_args->i_args]->modifier->l ||
-				v_args->f_conv[v_args->i_args]->modifier->ll)
+		else if (I_MOD_L || I_MOD_LL)
 		{
 			L_INT = va_arg(*args, long);
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-											ft_strlen(ft_litoa(L_INT));
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-											ft_strlen(ft_litoa(L_INT));
+			I_WIDTH_CPY -= ft_strlen(ft_litoa(L_INT));
+			I_PRECISION_CPY -= ft_strlen(ft_litoa(L_INT));
 		}
 		if (A_PLUS == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 		if (A_SPACE == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 	}
 }
 
@@ -63,14 +57,12 @@ void	conv_decimal_ld(va_list *args, t_args *v_args, const char *format,
 	{
 		L_CONV = 'D';
 		L_INT = va_arg(*args, long int);
-		v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_litoa(L_INT));
-		v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(L_INT));
+		I_WIDTH_CPY -= ft_strlen(ft_litoa(L_INT));
+		I_PRECISION_CPY -= ft_strlen(ft_itoa(L_INT));
 		if (A_PLUS == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 		if (A_SPACE == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 	}
 }
 
@@ -79,21 +71,16 @@ void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
 {
 	if (format[*i] == 'u')
 	{
-		if (!(v_args->f_conv[v_args->i_args]->modifier->ll ||
-			v_args->f_conv[v_args->i_args]->modifier->l ||
-			v_args->f_conv[v_args->i_args]->modifier->h ||
-			v_args->f_conv[v_args->i_args]->modifier->hh))
+		if (!(I_MOD_LL || I_MOD_L || I_MOD_H || I_MOD_HH))
 		{
 			L_CONV = 'u';
 			U_INT = va_arg(*args, unsigned int);
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_litoa(U_INT));
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(U_INT));
+			I_WIDTH_CPY -= ft_strlen(ft_litoa(U_INT));
+			I_PRECISION_CPY -= ft_strlen(ft_itoa(U_INT));
 			if (A_PLUS == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 			if (A_SPACE == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 		}
 	}
 }
@@ -101,20 +88,16 @@ void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
 void	conv_lu_decimal_lu(va_list *args, t_args *v_args, const char *format,
 					size_t * i)
 {
-	if (format[*i] == 'U' || (format[*i] == 'u' &&
-		(v_args->f_conv[v_args->i_args]->modifier->l ||
-			v_args->f_conv[v_args->i_args]->modifier->ll)))
+	if (format[*i] == 'U' || (format[*i] == 'u' && (I_MOD_L || I_MOD_LL)))
 	{
 		L_CONV = 'U';
 		U_L_INT = va_arg(*args, unsigned long);
-		v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_ulitoa(U_L_INT));
-		v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(U_L_INT));
+		I_WIDTH_CPY -= ft_strlen(ft_ulitoa(U_L_INT));
+		I_PRECISION_CPY -= ft_strlen(ft_itoa(U_L_INT));
 		if (A_PLUS == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 		if (A_SPACE == 1)
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+			I_WIDTH_CPY--;
 	}
 }
 
@@ -123,31 +106,27 @@ void	conv_u_decimal_hu(va_list *args, t_args *v_args, const char *format,
 {
 	if (format[*i] == 'u')
 	{
-		if (v_args->f_conv[v_args->i_args]->modifier->h)
+		if (I_MOD_H)
 		{
 			L_CONV = 'u';
 			U_INT = (unsigned short)va_arg(*args, unsigned int);
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_itoa(U_INT));
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(U_INT));
+			I_WIDTH_CPY -= ft_strlen(ft_itoa(U_INT));
+			I_PRECISION_CPY -= ft_strlen(ft_itoa(U_INT));
 			if (A_PLUS == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 			if (A_SPACE == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 		}
-		else if (v_args->f_conv[v_args->i_args]->modifier->hh)
+		else if (I_MOD_HH)
 		{
 			L_CONV = 'u';
 			U_INT = (unsigned char)va_arg(*args, unsigned int);
-			v_args->f_conv[v_args->i_args]->width_precision->width_cpy -=
-												ft_strlen(ft_itoa(U_INT));
-			v_args->f_conv[v_args->i_args]->width_precision->precision_cpy -=
-												ft_strlen(ft_itoa(U_INT));
+			I_WIDTH_CPY -= ft_strlen(ft_itoa(U_INT));
+			I_PRECISION_CPY -= ft_strlen(ft_itoa(U_INT));
 			if (A_PLUS == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 			if (A_SPACE == 1)
-				v_args->f_conv[v_args->i_args]->width_precision->width_cpy--;
+				I_WIDTH_CPY--;
 		}
 	}
 }

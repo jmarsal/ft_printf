@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/26 15:31:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:50:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void 	print_decimal_d(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'd')
 	{
-		if (!(v_args->f_conv[i]->modifier->l ||
-				v_args->f_conv[i]->modifier->ll))
+		if (!(MOD_L || MOD_LL))
 			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_INT));
-		else if (v_args->f_conv[i]->modifier->l ||
-				v_args->f_conv[i]->modifier->ll)
+		else if (MOD_L || MOD_LL)
 			RET_STR = ft_strjoin(RET_STR, ft_litoa(I_L_INT));
 	}
 }
@@ -37,17 +35,13 @@ void 	print_decimal_u(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 'u')
 	{
-		if (!(v_args->f_conv[i]->modifier->l ||
-				v_args->f_conv[i]->modifier->ll ||
-				v_args->f_conv[i]->modifier->h ||
-				v_args->f_conv[i]->modifier->hh))
+		if (!(MOD_L || MOD_LL || MOD_H || MOD_HH))
 			RET_STR = ft_strjoin(RET_STR, ft_litoa(I_U_INT));
-		else if (v_args->f_conv[i]->modifier->l ||
-				v_args->f_conv[i]->modifier->ll)
+		else if (MOD_L || MOD_LL)
 			RET_STR = ft_strjoin(RET_STR, ft_ulitoa(I_U_L_INT));
-		else if (v_args->f_conv[i]->modifier->h)
+		else if (MOD_H)
 			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_INT));
-		else if (v_args->f_conv[i]->modifier->hh)
+		else if (MOD_HH)
 			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_INT));
 	}
 }

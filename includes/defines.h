@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/25 02:28:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/27 02:42:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@
 
 #define IS_WIDTH v_args->f_conv[i]->is_width
 #define WIDTH v_args->f_conv[i]->width_precision->width
+#define I_WIDTH v_args->f_conv[v_args->i_args]->width_precision->width
 #define WIDTH_CPY v_args->f_conv[i]->width_precision->width_cpy
+#define I_WIDTH_CPY v_args->f_conv[v_args->i_args]->width_precision->width_cpy
 #define PRECISION_O v_args->f_conv[i]->width_precision->precision
+#define I_PRECISION_O v_args->f_conv[v_args->i_args]->width_precision->precision
 #define PRECISION_CPY v_args->f_conv[i]->width_precision->precision_cpy
+#define I_PRECISION_CPY v_args->f_conv[v_args->i_args]->width_precision->precision_cpy
 #define IS_PRECISION v_args->f_conv[i]->is_precision
 
 /*
@@ -59,6 +63,23 @@
 #define A_SHARP v_args->f_conv[v_args->i_args]->caracters->sharp
 #define ZERO v_args->f_conv[i]->caracters->zero
 #define A_ZERO v_args->f_conv[v_args->i_args]->caracters->zero
+
+/*
+** modifier
+*/
+
+# define MOD_HH v_args->f_conv[i]->modifier->hh
+# define MOD_H v_args->f_conv[i]->modifier->h
+# define MOD_L v_args->f_conv[i]->modifier->l
+# define MOD_LL v_args->f_conv[i]->modifier->ll
+# define MOD_J v_args->f_conv[i]->modifier->j
+# define MOD_Z v_args->f_conv[i]->modifier->z
+# define I_MOD_HH v_args->f_conv[v_args->i_args]->modifier->hh
+# define I_MOD_H v_args->f_conv[v_args->i_args]->modifier->h
+# define I_MOD_L v_args->f_conv[v_args->i_args]->modifier->l
+# define I_MOD_LL v_args->f_conv[v_args->i_args]->modifier->ll
+# define I_MOD_J v_args->f_conv[v_args->i_args]->modifier->j
+# define I_MOD_Z v_args->f_conv[v_args->i_args]->modifier->z
 
 /*
 ** ret_ft_printf
