@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/23 00:42:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 02:06:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,55 +43,25 @@ t_args		*init_t_args(void);
 t_conv		**init_tab_args(t_args *v_args);
 
 /*
-** conv_hex_bin.c
+** conv_hex.c
 */
 
 void	conv_hex_x(va_list *args, t_args *v_args, const char *format,
 					size_t * i);
-void	conv_hex_lx(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_binary_b(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
 
 /*
-** conv_str.c
+** conv_char_str.c
 */
 
 void	conv_str_s(va_list *args, t_args *v_args, const char *format,
 					size_t * i);
 
 /*
-** conv_char.c
+** conv_bin_dec_oct.c
 */
 
-void	conv_char_c(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-
-/*
-** conv_decimal.c
-*/
-
-void	conv_decimal_d(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_decimal_ld(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_u_decimal_u(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_lu_decimal_lu(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_u_decimal_hu(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-
-/*
-** conv_octal.c
-*/
-
-void	conv_octal_o(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_octal_lo(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
-void	conv_octal_ho(va_list *args, t_args *v_args, const char *format,
-					size_t * i);
+void	conv_bin_dec_oct(va_list *args, t_args *v_args, const char *format,
+					size_t *i);
 
 /*
 ** conv_mem.c
@@ -112,18 +82,18 @@ int		is_conversion_flag(const char *format, size_t *i,
 */
 
 int		print_format(t_args *v_args);
-void	is_caracters_is_positive(t_args *v_args, size_t i);
-void	is_caracters_is_space(t_args *v_args, size_t i);
-
 
 /*
-** output_f_caracters.c
+** output_width_precision_minus.c
 */
 
-void	is_caracters_is_neg_and_precision(t_args *v_args, size_t i);
 void	is_width_precision_and_not_minus(t_args *v_args, size_t i);
-void	is_caracters_is_sharp(t_args *v_args, size_t i);
-void	is_width_precision_plus_minus(t_args *v_args, size_t i);
+
+/*
+** output_width_precision_minus.c
+*/
+
+void	is_width_precision_minus(t_args *v_args, size_t i);
 
 /*
 ** get_content_format.c
@@ -137,8 +107,6 @@ void	get_content_format(va_list *args, const char *format,
 */
 
 void	get_width_in_format(const char *format, size_t *i, t_args *v_args);
-void	get_precision_in_format(const char *format, size_t *i, t_args *v_args);
-void	get_modifier_in_format(const char *format, size_t *i, t_args *v_args);
 
 /*
 ** error.c
@@ -148,52 +116,36 @@ int		find_error_in_format(t_args *v_args);
 void 	error_output(int err);
 
 /*
-** output_char.c
+** output_char_str.c
 */
 
-void	print_char_c(t_args *v_args, size_t i, size_t *test_c);
+void	print_char_str(t_args *v_args, size_t i, size_t *test_c);
 
 /*
-** output_str.c
+** output_bin_dec_octal.c
 */
 
-void	print_str_s(t_args *v_args, size_t i);
+void	print_bin_dec_oct(t_args *v_args, size_t i);
 
 /*
-** output_decimal.c
-*/
-
-void	print_decimal_d(t_args *v_args, size_t i);
-void	print_decimal_ld(t_args *v_args, size_t i);
-void	print_decimal_u(t_args *v_args, size_t i);
-void	print_decimal_lu(t_args *v_args, size_t i);
-
-/*
-** output_hex_bin.c
+** output_hex.c
 */
 
 void 	print_hex_x(t_args *v_args, size_t i);
-void 	print_hex_maj_x(t_args *v_args, size_t i);
-void 	print_hex_b(t_args *v_args, size_t i);
 
 /*
 ** output_mem.c
 */
 
 void	print_ptr(t_args *v_args, size_t i);
-char	*ft_get_ptr(int *ptr);
 
 /*
-** output_octal.c
+** conv_helper.c
 */
 
-void	print_octal_o(t_args *v_args, size_t i);
-void	print_octal_lo(t_args *v_args, size_t i);
-
-/*
-** modifier.c
-*/
-
-char	*modifier_x(t_args *v_args, size_t i, size_t len);
+void	ajust_width_precision_itoa_base(t_args *v_args, int base);
+void	ajust_width_precision_litoa_base(t_args *v_args, int base);
+void	ajust_width_precision_ulitoa_base(t_args *v_args, int base);
+void	get_specifier_and_ajust_width(char specifier, t_args *v_args);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/27 02:42:03 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/29 15:52:35 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 */
 
 #define IS_WIDTH v_args->f_conv[i]->is_width
+#define I_IS_WIDTH v_args->f_conv[v_args->i_args]->is_width
 #define WIDTH v_args->f_conv[i]->width_precision->width
 #define I_WIDTH v_args->f_conv[v_args->i_args]->width_precision->width
 #define WIDTH_CPY v_args->f_conv[i]->width_precision->width_cpy
@@ -48,6 +49,7 @@
 #define PRECISION_CPY v_args->f_conv[i]->width_precision->precision_cpy
 #define I_PRECISION_CPY v_args->f_conv[v_args->i_args]->width_precision->precision_cpy
 #define IS_PRECISION v_args->f_conv[i]->is_precision
+#define I_IS_PRECISION v_args->f_conv[v_args->i_args]->is_precision
 
 /*
 ** caracters
@@ -68,6 +70,8 @@
 ** modifier
 */
 
+# define IS_MODIFIER v_args->f_conv[v_args->i_args]->is_modifier
+# define I_IS_MODIFIER v_args->f_conv[i]->is_modifier
 # define MOD_HH v_args->f_conv[i]->modifier->hh
 # define MOD_H v_args->f_conv[i]->modifier->h
 # define MOD_L v_args->f_conv[i]->modifier->l

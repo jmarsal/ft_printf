@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/19 22:15:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/29 02:23:23 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ static int get_modifier(const char *format, size_t *i)
 
 	count = 0;
 	j = *i + 1;
-	while ((is_conversion_flag(format, i, L_MODIFIER) == 1) &&
-		count < 2)
+	while ((is_conversion_flag(format, i, L_MODIFIER) == 1) && count < 2)
 	{
-		if (count == 1 &&
-			is_conversion_flag(format, &j, L_MODIFIER) == 1)
+		if (count == 1 && is_conversion_flag(format, &j, L_MODIFIER) == 1)
 			return (-1);
 		*i += 1;
 		j = *i + 1;
@@ -32,8 +30,8 @@ static int get_modifier(const char *format, size_t *i)
 	return (0);
 }
 
-static int	if_specifier(const char *format, t_w_or_p tmp,
-						size_t *i, size_t *index)
+static int	if_specifier(const char *format, t_w_or_p tmp, size_t *i,
+							size_t *index)
 {
 	while (is_conversion_flag(format, i, CARACTERS) == 1)
 		*i += 1;
@@ -50,8 +48,7 @@ static int	if_specifier(const char *format, t_w_or_p tmp,
 			*i += 1;
 		tmp.precision = 1;
 	}
-	if (tmp.width == 1 || tmp.precision == 1)
-		*i -= 1;
+	*i = (tmp.width == 1 || tmp.precision == 1) ? *i - 1 : *i;
 	if (get_modifier(format, i) == -1)
 		return (-1);
 	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)

@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/20 00:16:23 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/09/30 02:07:47 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,27 +27,24 @@ SRC_PATH = srcs
 vpath %.c $(SRC_PATH)
 SOURCES += ft_printf.c \
 						parser.c \
-						output.c \
+						parser_helper.c \
 						init.c \
 						init_f_conv.c \
-						conv_hex_bin.c \
-						conv_str.c \
-						conv_char.c \
-						conv_decimal.c \
-						conv_mem.c \
-						conv_octal.c \
-						parser_helper.c \
-						output_f_caracters.c \
 						get_content_format.c \
 						get_content_helper.c \
+						conv_hex.c \
+						conv_char_str.c \
+						conv_bin_dec_oct.c \
+						conv_mem.c \
 						error.c \
-						output_char.c \
-						output_str.c \
-						output_decimal.c \
-						output_hex_bin.c \
+						output.c \
+						output_width_precision_minus.c \
+						output_width_precision_not_minus.c \
+						output_char_str.c \
+						output_bin_dec_octal.c \
+						output_hex.c \
 						output_mem.c \
-						output_octal.c \
-						modifier.c
+						conv_helper.c
 
 # Objects
 OBJ_PATH = obj

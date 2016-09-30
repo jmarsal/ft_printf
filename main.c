@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/27 02:40:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 03:05:15 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@
 
 int main()
 {
-	int	nb;
+	unsigned int	nb;
 	// int nb1;
-	int nb2;
+	long nb2;
 	// int ret;
 	// nb2 = 10;
 	int			ret;
@@ -96,33 +96,15 @@ nb = INT_MAX;
 //
 
 // test with modifier
-
-nb = ft_printf("%#8.16hho\n", (char)-2147483649051561567);
-ft_printf("%d\n", nb);
-nb = ft_printf("%#8.16ho\n", (short)-2147483649051561567);
-ft_printf("%d\n", nb);
-nb = ft_printf("%#8.16o\n", (int)-2147483649051561567);
-ft_printf("%d\n", nb);
-nb = ft_printf("%#8.16lo\n", (long)-2147483649051561567);
-ft_printf("%d\n", nb);
-nb = ft_printf("%#8.16llo\n", (long long)-2147483649051561567);
-ft_printf("%d\n", nb);
-
+ret = ft_printf(NULL);
+ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-nb = printf("%#8.16hho\n", (char)-2147483649051561567);
-printf("%d\n", nb);
-nb = printf("%#8.16ho\n", (short)-2147483649051561567);
-printf("%d\n", nb);
-nb = printf("%#8.16o\n", (int)-2147483649051561567);
-printf("%d\n", nb);
-nb = printf("%#8.16lo\n", (long)-2147483649051561567);
-printf("%d\n", nb);
-nb = printf("%#8.16llo\n", (long long)-2147483649051561567);
-printf("%d\n", nb);
+ret = printf(NULL);
+printf("%d\n", ret);
 
 // 	// printf("avec printf\n");
 // 	// ret = printf("%p\n", &nb2);

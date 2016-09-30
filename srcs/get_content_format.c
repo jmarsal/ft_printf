@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/23 00:43:39 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/29 02:44:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@ static void	find_witch_caracters(const char *format, size_t *i, t_args *v_args)
 {
 	if (format[*i] == '-')
 		A_MINUS = 1;
-	if (format[*i] == '+')
+	else if (format[*i] == '+')
 		A_PLUS = 1;
-	if (format[*i] == ' ')
+	else if (format[*i] == ' ')
 		A_SPACE = 1;
-	if (format[*i] == '#')
+	else if (format[*i] == '#')
 		A_SHARP = 1;
-	if (format[*i] == '0')
+	else if (format[*i] == '0')
 		A_ZERO = 1;
 }
 
-static void	get_caracters(const char *format, size_t *i, t_args *v_args)
+static void	get_flags(const char *format, size_t *i, t_args *v_args)
 {
 	while (is_conversion_flag(format, i, CARACTERS) == 1)
 	{
 		find_witch_caracters(format, i, v_args);
 		*i += 1;
 	}
+	get_width_in_format(format, i, v_args);
 }
 
 static void	get_content_flags(va_list *args, t_args *v_args,
@@ -42,26 +43,13 @@ static void	get_content_flags(va_list *args, t_args *v_args,
 
 	len = 0;
 	*i += 1;
-	get_caracters(format, i, v_args);
-	get_width_in_format(format, i, v_args);
-	get_precision_in_format(format, i, v_args);
-	get_modifier_in_format(format, i, v_args);
+	get_flags(format, i, v_args);
 	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)
 	{
 		conv_str_s(args, v_args, format, i);
-		conv_decimal_d(args, v_args, format, i);
-		conv_decimal_ld(args, v_args, format, i);
-		conv_char_c(args, v_args, format, i);
+		conv_bin_dec_oct(args, v_args, format, i);
 		conv_hex_x(args, v_args, format, i);
-		conv_hex_lx(args, v_args, format, i);
-		conv_binary_b(args, v_args, format, i);
 		conv_mem_p(args, v_args, format, i);
-		conv_octal_ho(args, v_args, format, i);
-		conv_octal_o(args, v_args, format, i);
-		conv_octal_lo(args, v_args, format, i);
-		conv_u_decimal_hu(args, v_args, format, i);
-		conv_u_decimal_u(args, v_args, format, i);
-		conv_lu_decimal_lu(args, v_args, format, i);
 		v_args->i_args++;
 		*i += 1;
 	}
@@ -75,21 +63,21 @@ void	get_content_format(va_list *args, const char *format,
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] && format[i] != '%')
+		if (format[i] != '%')
 		{
 			L_CONV = 's';
 			STR = ft_strdup(ft_strchr_bef(format + i, '%'));
 			i += ft_strlen(STR);
 			v_args->i_args++;
 		}
-		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
+		else if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
 			L_CONV = 's';
 			STR = "%";
 			i += 2;
 			v_args->i_args++;
 		}
-		if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
+		else if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(args, v_args, format, &i);
 	}
 }
