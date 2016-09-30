@@ -6,29 +6,11 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/17 01:16:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 03:16:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void 	error_output(int err)
-{
-	if (err == -1)
-		ft_putstr(ERR_SHARP);
-	else if (err == -2)
-		ft_putstr(ERR_ZERO);
-	else if (err == -3)
-		ft_putstr(ERR_SPACE);
-	else if (err == -4)
-		ft_putstr(ERR_PLUS);
-	else if (err == -5)
-		ft_putstr(ERR_PLUS_SPACE);
-	else if (err == -6)
-		ft_putstr(ERR_MEM);
-	else if (err == -7)
-		ft_putstr(ERR_BIN);
-}
 
 int		find_error_in_format(t_args *v_args)
 {

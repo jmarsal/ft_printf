@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 02:06:36 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 03:18:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@
 
 int				ft_printf(const char *format, ...);
 int				treatment(va_list *args, const char *format, t_args *v_args);
-
-/*
-** print_format
-*/
-
 
 /*
 ** init.c
@@ -113,7 +108,6 @@ void	get_width_in_format(const char *format, size_t *i, t_args *v_args);
 */
 
 int		find_error_in_format(t_args *v_args);
-void 	error_output(int err);
 
 /*
 ** output_char_str.c
