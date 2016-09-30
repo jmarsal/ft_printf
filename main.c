@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 03:05:15 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 16:08:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 #include <limits.h>
 #include <locale.h>
 #include <stdio.h>
-
-// Voir a ajouter une variable width_cpy pour garder en memoire la largeur de base
-// Peut etre une variable qui compte chaques caracteres ajoute pour le deduire
-// de la largeur (width_cpy)
-
-// IMPORTANT !
-
-// Prendre le temps de factoriser voir repenser les fonctions,
-// mtn que l'essenssiel des flags sont gerer afin de pouvoir travailler
-// plus proprement et plus efficacement !
-// Et peut etre aussi des structs...
-
 
 /*
 ** % [drapeaux] [largeur] [.precision] [modificateur] type
@@ -53,13 +41,7 @@
 // int main()
 //   {
 // 	// wchar_t		test[50] = L"Schöne Grüße";
-// 	wint_t		c = L'é';
 // 	// test = L"Schöne Grüße";
-//     if (!setlocale(LC_CTYPE, "")) {
-//       fprintf(stderr, "Can't set the specified locale! "
-//               "Check LANG, LC_CTYPE, LC_ALL.\n");
-//       return 1;
-//     }
 //     printf("%lc\n", c);
 //     return 0;
 //   }
@@ -71,63 +53,29 @@ int main()
 	long nb2;
 	// int ret;
 	// nb2 = 10;
+	wint_t		c = L'é';
+	wchar_t		test[50] = L"Schöne Grüße";
 	int			ret;
-	// char	c;
-	// c = -128;
-nb = INT_MAX;
-// 	ret = ft_printf("%#-8.0X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.1X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.2X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.3X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.4X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.5X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.6X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.7X\n", nb2);
-// 	ft_printf("%d\n", ret);
-// 	ret = ft_printf("%#-8.8X\n", nb2);
-// 	ft_printf("%d\n", ret);
-//
 
-// test with modifier
-ret = ft_printf(NULL);
-ft_printf("%d\n", ret);
+	if (!setlocale(LC_CTYPE, ""))
+	{
+		fprintf(stderr, "Can't set the specified locale! "
+			"Check LANG, LC_CTYPE, LC_ALL.\n");
+		return 1;
+	}
+
+	// test with modifier
+	ret = ft_printf("%S\n", test);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%ls\n", test);
+	ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-ret = printf(NULL);
-printf("%d\n", ret);
-
-// 	// printf("avec printf\n");
-// 	// ret = printf("%p\n", &nb2);
-// 	// printf("%d\n", ret);
-// 	//
-// 	ret = printf("%#-8.0X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.1X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.2X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.3X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.4X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.5X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.6X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.7X\n", nb2);
-// 	printf("%d\n", ret);
-// 	ret = printf("%#-8.8X\n", nb2);
-// 	printf("%d\n", ret);
+	ret = printf("%ls\n", test);
+	printf("%d\n", ret);
 
 	// // ret = printf("%-+*.10d\n", 9, nb2);
 	// // printf("%d\n", ret);

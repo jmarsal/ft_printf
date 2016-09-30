@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 02:23:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 14:52:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static int get_modifier(const char *format, size_t *i)
 	j = *i + 1;
 	while ((is_conversion_flag(format, i, L_MODIFIER) == 1) && count < 2)
 	{
-		if (count == 1 && is_conversion_flag(format, &j, L_MODIFIER) == 1)
+		if ((count == 1 && is_conversion_flag(format, &j, L_MODIFIER) == 1) ||
+			(count == 1 && (format[*i] == 'j' || format[*i] == 'z')))
 			return (-1);
 		*i += 1;
 		j = *i + 1;

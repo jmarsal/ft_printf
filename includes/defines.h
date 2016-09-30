@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 15:52:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 14:49:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,6 @@
 # define ERR_PLUS_SPACE "Error : flag ' ' is ignored when flag '+' is present\n"
 # define ERR_MEM "Error : flag 'p' results in undefined behavior with 'precision' conversion specifier\n"
 # define ERR_BIN "Error : flag 'b' results in undefined behavior with 'precision' conversion specifier\n"
+# define ERR_MOD_J "error : invalid modifier 'j' with modifier 'h' or 'l'\n"
+# define ERR_MOD_Z "error : invalid modifier 'z' with modifier 'h' or 'l'\n"
 #endif

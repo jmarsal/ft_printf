@@ -16,7 +16,7 @@ clang -Wall -Wextra -Werror test/srcs/test_conversion_S.c -o t_conv_S
 clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_S.c -o ft_t_conv_S -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
 ./t_conv_S > t_conv_S.txt
 ./ft_t_conv_S > ft_t_conv_S.txt
-diff ./t_conv_S.txt ./ft_t_conv_S.txt | cat -e > test/diff_output/diff_conv_S.txt
+diff ./t_conv_S.txt ./ft_t_conv_S.txt > test/diff_output/diff_conv_S.txt
 rm t_conv_S ft_t_conv_S t_conv_S.txt ft_t_conv_S.txt
 
 # <<<< %p >>>>
@@ -90,7 +90,7 @@ clang -Wall -Wextra -Werror test/srcs/test_conversion_C.c -o t_conv_C
 clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_C.c -o ft_t_conv_C -I./includes -L./ -lftprintf -I./libft/includes -L./libft -lft
 ./t_conv_C > t_conv_C.txt
 ./ft_t_conv_C > ft_t_conv_C.txt
-diff ./t_conv_C.txt ./ft_t_conv_C.txt | cat -e > test/diff_output/diff_conv_C.txt
+diff ./t_conv_C.txt ./ft_t_conv_C.txt > test/diff_output/diff_conv_C.txt
 rm t_conv_C ft_t_conv_C t_conv_C.txt ft_t_conv_C.txt
 
 # <<<< %b >>>>

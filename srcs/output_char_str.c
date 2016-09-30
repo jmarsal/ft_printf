@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:44:22 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 02:37:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/09/30 16:22:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_char(t_args *v_args, size_t i, size_t *test_c)
 {
-	if (I_L_CONV == 'c')
+	if (I_L_CONV == 'c' && !MOD_L)
 	{
 		if (I_C == 0)
 		{
@@ -24,6 +24,8 @@ static void	print_char(t_args *v_args, size_t i, size_t *test_c)
 		else
 			RET_STR = ft_strjoin(RET_STR, &I_C);
 	}
+	else if (I_L_CONV == 'c' && MOD_L) // si 's' ok, delette
+		RET_STR = ft_strjoin(RET_STR, I_STR);
 }
 
 static void print_str(t_args *v_args, size_t i)
