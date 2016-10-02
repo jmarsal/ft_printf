@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 14:49:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/02 16:35:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,4 +132,5 @@
 # define ERR_BIN "Error : flag 'b' results in undefined behavior with 'precision' conversion specifier\n"
 # define ERR_MOD_J "error : invalid modifier 'j' with modifier 'h' or 'l'\n"
 # define ERR_MOD_Z "error : invalid modifier 'z' with modifier 'h' or 'l'\n"
+# define ERR_C_S "error : use another modifier that 'l' results in undefined behavior with 'c', 'C', 's' or 'S' specifier\n"
 #endif

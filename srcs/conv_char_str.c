@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/02 02:07:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/02 16:35:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,18 +114,26 @@ void		conv_str_s(va_list *args, t_args *v_args, const char *format,
 	char	*ret;
 
 	ret = NULL;
-	if (format[*i] == 's' && !I_MOD_L)
+	if (!IS_MODIFIER || I_MOD_L)
 	{
-		get_specifier_and_ajust_width('s', v_args);
-		STR = ft_strdup(va_arg(*args, char *));
-		I_WIDTH_CPY -= ft_strlen(STR);
-		I_PRECISION_CPY -= ft_strlen(STR);
+		if (format[*i] == 's' && !I_MOD_L)
+		{
+			get_specifier_and_ajust_width('s', v_args);
+			STR = ft_strdup(va_arg(*args, char *));
+			I_WIDTH_CPY -= ft_strlen(STR);
+			I_PRECISION_CPY -= ft_strlen(STR);
+		}
+		else if ((format[*i] == 's' && I_MOD_L) || format[*i] == 'S')
+		{
+			I_MOD_L = 1;
+			get_specifier_and_ajust_width('s', v_args);
+			STR = ft_putwcs(va_arg(*args, wchar_t *));
+		}
+		conv_char_c(args, v_args, format, i);
 	}
-	else if ((format[*i] == 's' && I_MOD_L) || format[*i] == 'S')
+	else if (format[*i] == 's' || format[*i] == 'S' || format[*i] == 'c' ||
+			format[*i] == 'C')
 	{
-		I_MOD_L = 1;
-		get_specifier_and_ajust_width('s', v_args);
-		STR = ft_putwcs(va_arg(*args, wchar_t *));
+		ft_putstr(ERR_C_S);
 	}
-	conv_char_c(args, v_args, format, i);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/01 17:00:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/02 23:15:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ int main()
 	}
 
 	// test with modifier
-	ret = ft_printf("%C\n", c);
+	ret = ft_printf(NULL);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("%C\n", NULL);
 	ft_printf("%d\n", ret);
 	ret = ft_printf("%S\n", test);
 	ft_printf("%d\n", ret);
@@ -77,6 +79,8 @@ int main()
 // // ////////////////////////////////////////////////////////////////////////////////
 
 	ret = printf("%ls\n", test);
+	printf("%d\n", ret);
+	ret = printf("%p\n", &test);
 	printf("%d\n", ret);
 
 	// // ret = printf("%-+*.10d\n", 9, nb2);
