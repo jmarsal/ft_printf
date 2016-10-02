@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/02 23:15:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/02 23:26:06 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int main()
 	printf("%d\n", ret);
 	ret = printf("%p\n", &test);
 	printf("%d\n", ret);
+	printf("{\n");
 
 	// // ret = printf("%-+*.10d\n", 9, nb2);
 	// // printf("%d\n", ret);
