@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/10 15:44:22 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 16:22:48 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/10/02 01:06:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void	print_char(t_args *v_args, size_t i, size_t *test_c)
 		RET_STR = ft_strjoin(RET_STR, I_STR);
 }
 
-static void print_str(t_args *v_args, size_t i)
+static void	print_str(t_args *v_args, size_t i)
 {
 	if (I_L_CONV == 's')
 		RET_STR = ft_strjoin(RET_STR, I_STR);
 }
 
-void 		print_char_str(t_args *v_args, size_t i, size_t *test_c)
+void		print_char_str(t_args *v_args, size_t i, size_t *test_c)
 {
 	print_str(v_args, i);
 	print_char(v_args, i, test_c);

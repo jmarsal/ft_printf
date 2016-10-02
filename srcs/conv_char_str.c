@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 17:06:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/02 02:07:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,78 @@
 static size_t	ft_wcslen(const wchar_t *s)
 {
 	size_t	i;
+
 	i = 0;
 	while (s[i] != L'\0')
 		i++;
 	return (i);
+}
+
+/*
+**	0xxxxxxx // 0x00
+**	Aucune action
+**
+**	110xxxxx 10xxxxxx // 0xC0 0x80
+**	Je deplace de 6 sur la droite et j'ajoute 11000000
+**	Je filtre par 111111 et j'ajoute 10000000
+**
+**	1110xxxx 10xxxxxx 10xxxxxx // 0xE0 0x80 0x80
+**	Je deplace de 12 sur la droite et j'ajoute 11100000
+**	Je deplace de 6, je filtre par 111111 et j'ajoute 10000000
+**	Je filtre par 111111 et j'ajoute 10000000
+**
+**	11110xxx 10xxxxxx 10xxxxxx 10xxxxxx // 0xF0 0x80 0x80 0x80
+**	Je deplace de 18 sur la droite et j'ajoute 11110000
+**	Je deplace de 12 sur la droite, je filtre par 111111 et j'ajoute 10000000
+**	Je deplace de 6 sur la droite, je filtre par 111111 et j'ajoute 10000000
+**	Je filtre par 111111 et j'ajoute 10000000
+*/
+
+static size_t	ft_putwc(wchar_t wchar, char *str, size_t i)
+{
+	if (wchar <= 0x7f)
+		str[i++] = wchar;
+	else if (wchar <= 0x7ff)
+	{
+		str[i++] = (wchar >> 6) + 0xC0;
+		str[i++] = (wchar & 0x3F) + 0x80;
+	}
+	else if (wchar <= 0xffff)
+	{
+		str[i++] = (wchar >> 12) + 0xE0;
+		str[i++] = ((wchar >> 6) & 0x3F) + 0x80;
+		str[i++] = (wchar & 0x3F) + 0x80;
+	}
+	else
+	{
+		str[i++] = (wchar >> 18) + 0xF0;
+		str[i++] = ((wchar >> 12) & 0x3F) + 0x80;
+		str[i++] = ((wchar >> 6) & 0x3F) + 0x80;
+		str[i++] = (wchar & 0x3F) + 0x80;
+	}
+	return (i);
+}
+
+/*
+**		Transforme les wchar en char
+*/
+
+static char	*ft_putwcs(wchar_t *ws)
+{
+	char	*str_tmp;
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	if (!ws)
+		return (0);
+	i = 0;
+	j = 0;
+	len = ft_wcslen(ws) * sizeof(wchar_t) + 1;
+	str_tmp = ft_memalloc(sizeof(char) * len);
+	while (ws[j])
+		i = ft_putwc(ws[j++], str_tmp, i);
+	return (str_tmp);
 }
 
 static void	conv_char_c(va_list *args, t_args *v_args, const char *format,
@@ -32,25 +100,20 @@ static void	conv_char_c(va_list *args, t_args *v_args, const char *format,
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
 	{
-		STR = ft_strnew(0);
+		STR = ft_strnew(1);
 		I_MOD_L = 1;
 		get_specifier_and_ajust_width('c', v_args); // voir si 's' ok
-		wctomb(STR, va_arg(*args, wint_t));
+		ft_putwc((wchar_t)va_arg(*args, wint_t), STR, 0);
+		//test vs code
 	}
 }
 
 void		conv_str_s(va_list *args, t_args *v_args, const char *format,
-					size_t * i)
+		size_t *i)
 {
-	wchar_t	*tmp;
-	size_t	tmp_len;
-	size_t	j;
 	char	*ret;
 
-	tmp = NULL;
 	ret = NULL;
-	tmp_len = 0;
-	j = 0;
 	if (format[*i] == 's' && !I_MOD_L)
 	{
 		get_specifier_and_ajust_width('s', v_args);
@@ -62,16 +125,7 @@ void		conv_str_s(va_list *args, t_args *v_args, const char *format,
 	{
 		I_MOD_L = 1;
 		get_specifier_and_ajust_width('s', v_args);
-		tmp = va_arg(*args, wchar_t *);
-		tmp_len = ft_wcslen(tmp) * sizeof(wchar_t) + 1;
-		STR = ft_memalloc(sizeof(char) * tmp_len);
-		while (tmp[j] != L'\0')
-		{
-			ret = ft_strnew(0);
-			wctomb(ret, tmp[j++]);
-			STR = ft_strjoin(STR, ret);
-			free(ret);
-		}
+		STR = ft_putwcs(va_arg(*args, wchar_t *));
 	}
 	conv_char_c(args, v_args, format, i);
 }
