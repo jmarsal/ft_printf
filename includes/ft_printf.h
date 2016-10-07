@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 03:18:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 11:32:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	conv_mem_p(va_list *args, t_args *v_args, const char *format,
 ** parser_helper.c
 */
 
+void	find_is_color(const char *format, size_t *i, t_args *v_args);
+void	get_is_color(const char *format, size_t *i, t_args *v_args);
 int		is_conversion_flag(const char *format, size_t *i,
 					const char *flags);
 

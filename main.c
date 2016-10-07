@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/02 23:26:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 11:28:20 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,27 +65,36 @@ int main()
 	}
 
 	// test with modifier
-	ret = ft_printf(NULL);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%C\n", NULL);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%S\n", test);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("%ls\n", test);
-	ft_printf("%d\n", ret);
+	// ret = ft_printf(NULL);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("%C\n", NULL);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("%S\n", test);
+	// ft_printf("%d\n", ret);
+	ret = ft_printf("{green}%ls{eoc} comment {green}va tu {eoc}?\n", test);
+	ret = ft_printf("{red}%ls{eoc} comment {red}va tu {eoc}?\n", test);
+	ret = ft_printf("{blue}%ls{eoc} comment {blue}va tu {eoc}?\n", test);
+	ret = ft_printf("{pink}%ls{eoc} comment {pink}va tu {eoc}?\n", test);
+	ret = ft_printf("{cyan}%ls{eoc} comment {cyan}va tu {eoc}?\n", test);
+	ret = ft_printf("{yan}%ls{eoc} comment {cyan}va tu {eoc}?\n", test);
+	// ft_printf("%d\n", ret);
+	//ret = ft_printf("\033[32;1m%ls\033[0m\n", test);
+	// ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	ret = printf("%ls\n", test);
-	printf("%d\n", ret);
-	ret = printf("%p\n", &test);
-	printf("%d\n", ret);
-	printf("{\n");
+	// ret = printf("%ls\n", test);
+	// printf("%d\n", ret);
+	// ret = printf("%p\n", &test);
+	// printf("%d\n", ret);
+	// printf("\033[32;1mcoucou\n");
 
 	// // ret = printf("%-+*.10d\n", 9, nb2);
 	// // printf("%d\n", ret);
 
+	// tmp 			= "{green}%ls\n"
+	// new_format 	= "\033[32{green};1m%ls\n"
 return (0);
 }

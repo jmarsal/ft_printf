@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/02 02:32:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/04 01:20:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int         ft_printf(const char *format, ...)
 		return (-1);
 	len = format ? 0 : -1;
 	if (format)
-	{
+	{	
 		va_start(args, format);
 		if ((treatment(&args, format, v_args)) == -1)
 			return (-1);
