@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 12:40:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 14:43:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@
 
 int main()
 {
-	unsigned int	nb;
+	// unsigned int	nb;
 	// int nb1;
-	long nb2;
+	// long nb2;
 	// int ret;
 	// nb2 = 10;
-	wint_t		c = L'é';
-	wchar_t		test[50] = L"Schöne Grüße";
+	// wint_t		c = L'é';
+	// wchar_t		test[50] = L"Schöne Grüße";
 	int			ret;
 
 	if (!setlocale(LC_CTYPE, ""))

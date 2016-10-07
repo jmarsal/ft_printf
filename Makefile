@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/09/30 02:07:47 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/10/07 12:53:42 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,5 +100,4 @@ norme:
 	norminette $(SRC)
 	norminette $(INC_PATH)*.h
 
-.PHONY:  all, clean, fclean, re, libs, libs-clean, libs-fclean, libs-re \
-		fclean-all, debug, norme
+.PHONY:  all, clean, fclean, re, debug, norme

@@ -6,11 +6,11 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/04 00:33:03 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 11:50:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 14:46:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static void	get_is_color_suite(const char *format, size_t *i, t_args *v_args)
 {
