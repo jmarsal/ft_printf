@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 15:19:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 12:38:56 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 int	main(void)
 {
 	wchar_t texte[50] = L"Schöne Grüße";
+	int 	ret;
 
 	if (!setlocale(LC_CTYPE, ""))
 	{
@@ -25,6 +26,20 @@ int	main(void)
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	ft_printf("%S\n", texte);
+	ret = ft_printf("%ls\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{green}%ls{eoc} comment {green}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{red}%ls{eoc} comment {red}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{blue}%ls{eoc} comment {blue}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{pink}%ls{eoc} comment {pink}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{cyan}%ls{eoc} comment {cyan}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+	ret = ft_printf("{yan}%ls{eoc} comment {cyan}va tu {eoc}?\n", texte);
+	ft_printf("%d\n", ret);
+
 	return (0);
 }

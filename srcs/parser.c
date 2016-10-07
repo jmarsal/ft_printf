@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 11:34:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 12:25:18 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,16 @@ static int	search_flags_in_format(t_args *v_args, const char *format)
 	i = 0;
 	while (format[i])
 	{
-		while (format[i] && (format[i] != '%' && format[i] != '{'))
+		while (format[i] != '%' && format[i] != '{')
 		{
-			if (format[i + 1] && (format[i + 1] == '%' ||
-			format[i + 1] == '{' || format[i + 1] == '\0' || format[i + 1] == '\n'))
+			if (format[i + 1] == '%' || format[i + 1] == '{' ||
+				format[i] == '\0' || format[i + 1] == '\n')
+			{
 				v_args->index++;
+				if (format[i])
+					i++;
+				break;
+			}
 			i++;
 		}
 		find_is_color(format, &i, v_args);

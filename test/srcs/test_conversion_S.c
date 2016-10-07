@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 15:18:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 12:39:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int	main(void)
 {
 	wchar_t texte[50] = L"Schöne Grüße";
+	int		ret;
 
 	if (!setlocale(LC_CTYPE, ""))
 	{
@@ -24,6 +25,19 @@ int	main(void)
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	printf("%ls\n", texte);
+	ret = printf("%ls\n", texte);
+	printf("%d\n", ret);
+	ret = printf("\033[32;1m%ls\033[0m comment \033[32;1mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
+	ret = printf("\033[31m%ls\033[0m comment \033[31mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
+	ret = printf("\033[34m%ls\033[0m comment \033[34mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
+	ret = printf("\033[35;1m%ls\033[0m comment \033[35;1mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
+	ret = printf("\033[36;1m%ls\033[0m comment \033[36;1mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
+	ret = printf("{yan}%ls\033[0m comment \033[36;1mva tu \033[0m?\n", texte);
+	printf("%d\n", ret);
 	return (0);
 }

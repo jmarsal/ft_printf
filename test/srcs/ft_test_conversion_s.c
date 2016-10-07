@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/03 17:02:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 12:35:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ int	main(void)
 	ft_printf("%d\n", nb1);
 
 	nb1 = ft_printf("%%%s", "Hello World !\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("{green}%s{eoc} comment {green}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{red}%s{eoc} comment {red}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{blue}%s{eoc} comment {blue}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{pink}%s{eoc} comment {pink}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{cyan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{yan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
 	ft_printf("%d\n", nb1);
 	return (0);
 }
