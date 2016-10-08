@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/10/07 12:53:42 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/10/08 23:43:03 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,19 @@ OPTI = -O2
 CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
 
 # Headers
+LIBFT_INC_PATH = libft/includes
+LIBFT_INC_FILES = $(LIBFT_INC_PATH)/libft.h
 INC_PATH = includes
 INC_FILES = ft_printf.h
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
-CFLAGS += $(addprefix -I,$(INC_PATH))
+HEADERS +=  $(LIBFT_INC_FILES)
+CFLAGS += $(addprefix -I,$(INC_PATH) $(LIBFT_INC_PATH))
 
 # Sources
 SRC_PATH = srcs
+SRC_PATH += libft
 vpath %.c $(SRC_PATH)
-SOURCES += ft_printf.c \
+SOURCES = ft_printf.c \
 						parser.c \
 						parser_helper.c \
 						init.c \
@@ -46,21 +50,45 @@ SOURCES += ft_printf.c \
 						output_mem.c \
 						conv_helper.c
 
+LIBFT_SRCS = ft_putchar_fd.c \
+						ft_atoi.c \
+						ft_get_number.c \
+						ft_isalnum.c \
+						ft_itoa.c \
+						ft_itoa_base.c \
+						ft_litoa.c \
+						ft_litoa_base.c \
+						ft_memalloc.c \
+						ft_memcpy.c \
+						ft_strcat.c \
+						ft_strchr.c \
+						ft_strcmp.c \
+						ft_strdup.c \
+						ft_strnew.c \
+						ft_strjoin.c \
+						ft_strncmp.c \
+						ft_strrev.c \
+						ft_strtolower.c \
+						ft_ulitoa.c \
+						ft_ulitoa_base.c \
+						ft_bzero.c\
+						ft_isalpha.c \
+						ft_isdigit.c \
+						ft_putchar.c \
+						ft_putstr.c \
+						ft_strcpy.c \
+						ft_strlen.c \
+						ft_memset.c \
+						ft_tolower.c
+
 # Objects
 OBJ_PATH = obj
-OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
-
-# Libft
-LIBFT_PATH = libft
-LIBFT = $(LIBFT_PATH)/libft.a
-CFLAGS += -I $(LIBFT_PATH)/includes
+OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o) $(LIBFT_SRCS:%.c=%.o))
 
 # Rules
 all: $(NAME)
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_PATH) all
 
-$(NAME): $(OBJECTS) $(LIBFT)
+$(NAME): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo "\n-------------------------------------------------"
@@ -75,14 +103,12 @@ $(OBJ_PATH):
 	@-mkdir -p $@
 
 clean:
-	@make clean -C libft/
 	@rm -rf $(OBJ_PATH)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
-	@make fclean -C libft/
 	@rm -f $(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
