@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/10/08 23:43:03 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/10/09 17:20:04 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,14 +81,20 @@ LIBFT_SRCS = ft_putchar_fd.c \
 						ft_memset.c \
 						ft_tolower.c
 
+# Libft
+ LIBFT_PATH = libft
+ LIBFT = $(LIBFT_PATH)/libft.a
+
 # Objects
 OBJ_PATH = obj
 OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o) $(LIBFT_SRCS:%.c=%.o))
 
 # Rules
 all: $(NAME)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_PATH) all
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(LIBFT)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo "\n-------------------------------------------------"
@@ -103,12 +109,14 @@ $(OBJ_PATH):
 	@-mkdir -p $@
 
 clean:
+	@make clean -C $(LIBFT_PATH)/
 	@rm -rf $(OBJ_PATH)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
+	@make fclean -C $(LIBFT_PATH)/
 	@rm -f $(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
