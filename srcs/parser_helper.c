@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/04 00:33:03 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 14:46:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:15 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	get_is_color_suite(const char *format, size_t *i, t_args *v_args)
+static void	get_is_color_suite(const char *format, size_t *i, t_result *result)
 {
 	if ((ft_strncmp(format + *i, "{cyan}", ft_strlen("{cyan}"))) == 0)
 	{
@@ -31,7 +31,7 @@ static void	get_is_color_suite(const char *format, size_t *i, t_args *v_args)
 	}
 }
 
-void	get_is_color(const char *format, size_t *i, t_args *v_args)
+void	get_is_color(const char *format, size_t *i, t_result *result)
 {
 	if ((ft_strncmp(format + *i, "{green}", ft_strlen("{green}"))) == 0)
 	{
@@ -54,10 +54,10 @@ void	get_is_color(const char *format, size_t *i, t_args *v_args)
 		STR = ft_strdup(PINK);
 	}
 	else
-		get_is_color_suite(format, i, v_args);
+		get_is_color_suite(format, i, result);
 }
 
-void		find_is_color(const char *format, size_t *i, t_args *v_args)
+void		find_is_color(const char *format, size_t *i, t_result *result)
 {
 	if (format[*i] == '{')
 	{
@@ -75,7 +75,7 @@ void		find_is_color(const char *format, size_t *i, t_args *v_args)
 			*i += ft_strlen("{eoc}");
 		else
 			*i += 1;
-		v_args->index++;
+		result->index++;
 	}
 }
 

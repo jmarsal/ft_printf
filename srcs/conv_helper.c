@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 22:53:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 00:36:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ajust_width_precision_itoa_base(t_args *v_args, int base)
+void	ajust_width_precision_itoa_base(t_result *result, int base)
 {
 	if (L_CONV == 'd' || L_CONV == 'x' || L_CONV == 'X' || L_CONV == 'b' ||
 		(L_CONV == 'o' && (I_MOD_H || I_MOD_HH)))
@@ -32,7 +32,7 @@ void	ajust_width_precision_itoa_base(t_args *v_args, int base)
 	}
 }
 
-void	ajust_width_precision_litoa_base(t_args *v_args, int base)
+void	ajust_width_precision_litoa_base(t_result *result, int base)
 {
 	if (L_CONV != 'u' && L_CONV != 'x' && L_CONV != 'X' && L_CONV != 'o')
 	{
@@ -52,7 +52,7 @@ void	ajust_width_precision_litoa_base(t_args *v_args, int base)
 	}
 }
 
-void	ajust_width_precision_ulitoa_base(t_args *v_args, int base)
+void	ajust_width_precision_ulitoa_base(t_result *result, int base)
 {
 	if (L_CONV == 'U' || (L_CONV == 'u' && (I_MOD_L || I_MOD_LL)))
 	{
@@ -66,7 +66,7 @@ void	ajust_width_precision_ulitoa_base(t_args *v_args, int base)
 	}
 }
 
-void	get_specifier_and_ajust_width(char specifier, t_args *v_args)
+void	get_specifier_and_ajust_width(char specifier, t_result *result)
 {
 	if (A_PLUS == 1)
 		I_WIDTH_CPY--;

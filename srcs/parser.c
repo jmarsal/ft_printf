@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 12:25:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:13:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ static int	if_specifier(const char *format, t_w_or_p tmp, size_t *i,
 	return (-1);
 }
 
-static int	get_index(t_args *v_args, const char *format, size_t *i)
+static int	get_index(t_result *result, const char *format, size_t *i)
 {
 	t_w_or_p	tmp;
 
 	tmp.width = 0;
 	tmp.precision = 0;
 	*i += 1;
-	if (if_specifier(format, tmp, i, &v_args->index) != -1)
+	if (if_specifier(format, tmp, i, &result->index) != -1)
 		return(0);
 	else
 	{
@@ -80,7 +80,7 @@ static int	get_index(t_args *v_args, const char *format, size_t *i)
 	return (-1);
 }
 
-static int	search_flags_in_format(t_args *v_args, const char *format)
+static int	search_flags_in_format(t_result *result, const char *format)
 {
 	size_t	i;
 
@@ -92,32 +92,32 @@ static int	search_flags_in_format(t_args *v_args, const char *format)
 			if (format[i + 1] == '%' || format[i + 1] == '{' ||
 				format[i] == '\0' || format[i + 1] == '\n')
 			{
-				v_args->index++;
+				result->index++;
 				if (format[i])
 					i++;
 				break;
 			}
 			i++;
 		}
-		find_is_color(format, &i, v_args);
+		find_is_color(format, &i, result);
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
 			i += 2;
-			v_args->index++;
+			result->index++;
 		}
 		else if (format[i + 1] && format[i] == '%' &&
-				(get_index(v_args, format, &i) == -1))
+				(get_index(result, format, &i) == -1))
 			return (-1);
 	}
 	return (0);
 }
 
-int			treatment(va_list *args, const char *format, t_args *v_args)
+int			treatment(const char *format, t_result *result)
 {
-	if (search_flags_in_format(v_args, format) == -1)
+	if (search_flags_in_format(result, format) == -1)
 		return (-1);
-	if (!(v_args->f_conv = init_tab_args(v_args)))
+	if (!(result->f_conv = init_tab_ap(result)))
 		return (-1);
-	get_content_format(args, format, v_args);
+	get_content_format(&result->ap, format, result);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 02:48:01 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	print_binaire(t_args *v_args, size_t i)
+static void	print_binaire(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'b')
 	{
@@ -23,7 +23,7 @@ static void	print_binaire(t_args *v_args, size_t i)
 	}
 }
 
-static void	print_octal_o(t_args *v_args, size_t i)
+static void	print_octal_o(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'o')
 	{
@@ -36,7 +36,7 @@ static void	print_octal_o(t_args *v_args, size_t i)
 	}
 }
 
-static void print_decimal_u(t_args *v_args, size_t i)
+static void print_decimal_u(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'u')
 	{
@@ -49,7 +49,7 @@ static void print_decimal_u(t_args *v_args, size_t i)
 	}
 }
 
-static void	print_decimal_d(t_args *v_args, size_t i)
+static void	print_decimal_d(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'd')
 	{
@@ -60,10 +60,10 @@ static void	print_decimal_d(t_args *v_args, size_t i)
 	}
 }
 
-void		print_bin_dec_oct(t_args *v_args, size_t i)
+void		print_bin_dec_oct(t_result *result, size_t i)
 {
-	print_decimal_d(v_args, i);
-	print_decimal_u(v_args, i);
-	print_octal_o(v_args, i);
-	print_binaire(v_args, i);
+	print_decimal_d(result, i);
+	print_decimal_u(result, i);
+	print_octal_o(result, i);
+	print_binaire(result, i);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/23 00:29:02 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:03:33 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ typedef struct		s_conv
 	char			l_conv;
 }					t_conv;
 
-typedef struct		s_args
+typedef struct		s_result
 {
+	va_list			ap;
+	char			*format;
+	t_array			*strings;
+	t_array			*conversions;
 	t_conv			**f_conv;
-	size_t			i_args;
+	size_t			i_ap;
 	size_t			index;
 	char			*ret_str;
-}					t_args;
+}					t_result;
 
 #endif

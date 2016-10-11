@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 01:50:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:49 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void find_witch_modifier(t_args *v_args, char *tmp_modifier)
+static void find_witch_modifier(t_result *result, char *tmp_modifier)
 {
 	if (ft_strcmp(tmp_modifier, "hh") == 0)
 		I_MOD_HH = 1;
@@ -28,7 +28,7 @@ static void find_witch_modifier(t_args *v_args, char *tmp_modifier)
 		I_MOD_Z = 1;
 }
 
-static void	get_modifier_in_format(const char *format, size_t *i, t_args *v_args)
+static void	get_modifier_in_format(const char *format, size_t *i, t_result *result)
 {
 	char	tmp_modifier[3];
 	size_t	index;
@@ -42,10 +42,10 @@ static void	get_modifier_in_format(const char *format, size_t *i, t_args *v_args
 	}
 	tmp_modifier[index] = '\0';
 	if (IS_MODIFIER == 1)
-		find_witch_modifier(v_args, tmp_modifier);
+		find_witch_modifier(result, tmp_modifier);
 }
 
-static void	get_precision_in_format(const char *format, size_t *i, t_args *v_args)
+static void	get_precision_in_format(const char *format, size_t *i, t_result *result)
 {
 	char *get_precision;
 
@@ -63,10 +63,10 @@ static void	get_precision_in_format(const char *format, size_t *i, t_args *v_arg
 			RET_STR = ft_strcat(RET_STR, format);
 		free(get_precision);
 	}
-	get_modifier_in_format(format, i, v_args);
+	get_modifier_in_format(format, i, result);
 }
 
-void		get_width_in_format(const char *format, size_t *i, t_args *v_args)
+void		get_width_in_format(const char *format, size_t *i, t_result *result)
 {
 	char *get_width;
 
@@ -77,7 +77,7 @@ void		get_width_in_format(const char *format, size_t *i, t_args *v_args)
 		I_WIDTH = ft_atoi(get_width);
 		I_WIDTH_CPY = I_WIDTH;
 		free(get_width);
-		v_args->f_conv[v_args->i_args]->is_width = 1;
+		result->f_conv[result->i_ap]->is_width = 1;
 	}
-	get_precision_in_format(format, i, v_args);
+	get_precision_in_format(format, i, result);
 }

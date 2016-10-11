@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/02 16:35:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:03:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,26 @@ static char	*ft_putwcs(wchar_t *ws)
 	return (str_tmp);
 }
 
-static void	conv_char_c(va_list *args, t_args *v_args, const char *format,
+static void	conv_char_c(va_list *ap, t_result *result, const char *format,
 					size_t * i)
 {
 	if (format[*i] == 'c' && !I_MOD_L)
 	{
-		get_specifier_and_ajust_width('c', v_args);
-		C = (unsigned char)va_arg(*args, int);
-		ajust_width_precision_itoa_base(v_args, 10);
+		get_specifier_and_ajust_width('c', result);
+		C = (unsigned char)va_arg(*ap, int);
+		ajust_width_precision_itoa_base(result, 10);
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
 	{
 		STR = ft_strnew(1);
 		I_MOD_L = 1;
-		get_specifier_and_ajust_width('c', v_args); // voir si 's' ok
-		ft_putwc((wchar_t)va_arg(*args, wint_t), STR, 0);
+		get_specifier_and_ajust_width('c', result); // voir si 's' ok
+		ft_putwc((wchar_t)va_arg(*ap, wint_t), STR, 0);
 		//test vs code
 	}
 }
 
-void		conv_str_s(va_list *args, t_args *v_args, const char *format,
+void		conv_str_s(va_list *ap, t_result *result, const char *format,
 		size_t *i)
 {
 	char	*ret;
@@ -118,18 +118,18 @@ void		conv_str_s(va_list *args, t_args *v_args, const char *format,
 	{
 		if (format[*i] == 's' && !I_MOD_L)
 		{
-			get_specifier_and_ajust_width('s', v_args);
-			STR = ft_strdup(va_arg(*args, char *));
+			get_specifier_and_ajust_width('s', result);
+			STR = ft_strdup(va_arg(*ap, char *));
 			I_WIDTH_CPY -= ft_strlen(STR);
 			I_PRECISION_CPY -= ft_strlen(STR);
 		}
 		else if ((format[*i] == 's' && I_MOD_L) || format[*i] == 'S')
 		{
 			I_MOD_L = 1;
-			get_specifier_and_ajust_width('s', v_args);
-			STR = ft_putwcs(va_arg(*args, wchar_t *));
+			get_specifier_and_ajust_width('s', result);
+			STR = ft_putwcs(va_arg(*ap, wchar_t *));
 		}
-		conv_char_c(args, v_args, format, i);
+		conv_char_c(ap, result, format, i);
 	}
 	else if (format[*i] == 's' || format[*i] == 'S' || format[*i] == 'c' ||
 			format[*i] == 'C')

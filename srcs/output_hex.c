@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:05:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 16:54:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:39 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ret_modifier(char *get_conversion, size_t len, char *tmp)
 	return (get_conversion);
 }
 
-static char	*modifier_x(t_args *v_args, size_t i, size_t len)
+static char	*modifier_x(t_result *result, size_t i, size_t len)
 {
 	char	*tmp;
 	char	*get_conversion;
@@ -44,7 +44,7 @@ static char	*modifier_x(t_args *v_args, size_t i, size_t len)
 	return (get_conversion = ret_modifier(get_conversion, len, tmp));
 }
 
-void		print_hex_x(t_args *v_args, size_t i)
+void		print_hex_x(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'x' || I_L_CONV == 'X')
 	{
@@ -53,13 +53,13 @@ void		print_hex_x(t_args *v_args, size_t i)
 				ft_strjoin(RET_STR, ft_strtolower(ft_itoa_base(I_INT, 16))) :
 				ft_strjoin(RET_STR, ft_itoa_base(I_INT, 16));
 		else if (MOD_HH == 1)
-			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 2));
+			RET_STR = ft_strjoin(RET_STR, modifier_x(result, i, 2));
 		else if (MOD_H == 1)
-			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 4));
+			RET_STR = ft_strjoin(RET_STR, modifier_x(result, i, 4));
 		else if (MOD_L == 1)
-			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 16));
+			RET_STR = ft_strjoin(RET_STR, modifier_x(result, i, 16));
 		else if (MOD_LL == 1)
-			RET_STR = ft_strjoin(RET_STR, modifier_x(v_args, i, 64));
+			RET_STR = ft_strjoin(RET_STR, modifier_x(result, i, 64));
 
 	}
 }

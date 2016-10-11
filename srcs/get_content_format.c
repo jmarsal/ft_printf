@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/07 12:03:01 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	find_witch_caracters(const char *format, size_t *i, t_args *v_args)
+static void	find_witch_caracters(const char *format, size_t *i, t_result *result)
 {
 	if (format[*i] == '-')
 		A_MINUS = 1;
@@ -26,36 +26,36 @@ static void	find_witch_caracters(const char *format, size_t *i, t_args *v_args)
 		A_ZERO = 1;
 }
 
-static void	get_flags(const char *format, size_t *i, t_args *v_args)
+static void	get_flags(const char *format, size_t *i, t_result *result)
 {
 	while (is_conversion_flag(format, i, CARACTERS) == 1)
 	{
-		find_witch_caracters(format, i, v_args);
+		find_witch_caracters(format, i, result);
 		*i += 1;
 	}
-	get_width_in_format(format, i, v_args);
+	get_width_in_format(format, i, result);
 }
 
-static void	get_content_flags(va_list *args, t_args *v_args,
+static void	get_content_flags(va_list *ap, t_result *result,
 								const char *format, size_t *i)
 {
 	size_t	len;
 
 	len = 0;
 	*i += 1;
-	get_flags(format, i, v_args);
+	get_flags(format, i, result);
 	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)
 	{
-		conv_str_s(args, v_args, format, i);
-		conv_bin_dec_oct(args, v_args, format, i);
-		conv_hex_x(args, v_args, format, i);
-		conv_mem_p(args, v_args, format, i);
-		v_args->i_args++;
+		conv_str_s(ap, result, format, i);
+		conv_bin_dec_oct(ap, result, format, i);
+		conv_hex_x(ap, result, format, i);
+		conv_mem_p(ap, result, format, i);
+		result->i_ap++;
 		*i += 1;
 	}
 }
 
-static void	get_str_in_format(const char *format, size_t *i, t_args *v_args)
+static void	get_str_in_format(const char *format, size_t *i, t_result *result)
 {
 	int		j;
 	int		k;
@@ -71,7 +71,7 @@ static void	get_str_in_format(const char *format, size_t *i, t_args *v_args)
 			STR = ft_strnew(j + 1);
 			while (++k <= j)
 				STR[k] = format[*i - j + k];
-			v_args->i_args++;
+			result->i_ap++;
 			*i = (format[*i]) ? *i +1 : *i;
 			j = 0;
 			break ;
@@ -81,29 +81,29 @@ static void	get_str_in_format(const char *format, size_t *i, t_args *v_args)
 	}
 }
 
-void		get_content_format(va_list *args, const char *format,
-								t_args *v_args)
+void		get_content_format(va_list *ap, const char *format,
+								t_result *result)
 {
 	size_t	i;
 
 	i = 0;
 	while (format[i])
 	{
-		get_str_in_format(format, &i, v_args);
+		get_str_in_format(format, &i, result);
 		if (format[i] == '{')
 		{
 			L_CONV = 's';
-			get_is_color(format, &i, v_args);
-			v_args->i_args++;
+			get_is_color(format, &i, result);
+			result->i_ap++;
 		}
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
 			L_CONV = 's';
 			STR = "%";
 			i += 2;
-			v_args->i_args++;
+			result->i_ap++;
 		}
 		else if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
-			get_content_flags(args, v_args, format, &i);
+			get_content_flags(ap, result, format, &i);
 	}
 }

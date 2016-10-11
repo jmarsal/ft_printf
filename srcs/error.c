@@ -6,18 +6,18 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 03:16:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		find_error_in_format(t_args *v_args)
+int		find_error_in_format(t_result *result)
 {
 	int	index_cpy;
 	int	i;
 
-	index_cpy = v_args->index;
+	index_cpy = result->index;
 	i = 0;
 	while (index_cpy--)
 	{

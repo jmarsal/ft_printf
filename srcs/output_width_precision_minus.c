@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 02:58:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	if_l_conv_u(t_args *v_args, size_t i)
+static void	if_l_conv_u(t_result *result, size_t i)
 {
 	if (!I_IS_MODIFIER)
 	{
@@ -33,7 +33,7 @@ static void	if_l_conv_u(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_width_precision_minus_not_sharp(t_args *v_args, size_t i)
+static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 {
 	if (WIDTH_CPY > PRECISION_CPY)
 		WIDTH_CPY -= PRECISION_CPY;
@@ -54,13 +54,13 @@ static void	is_width_precision_minus_not_sharp(t_args *v_args, size_t i)
 				RET_STR = ft_strjoin(RET_STR, "0");
 	}
 	if (I_L_CONV == 'u')
-		if_l_conv_u(v_args, i);
+		if_l_conv_u(result, i);
 	if (!(MOD_HH || MOD_H || I_L_CONV == 'u'))
 		while (PRECISION_CPY-- > 0)
 			RET_STR = ft_strjoin(RET_STR, "0");
 }
 
-static void	is_width_precision_sharp_minus(t_args *v_args, size_t i)
+static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 {
 	if (PRECISION_CPY > 0)
 		WIDTH_CPY -= PRECISION_CPY;
@@ -86,7 +86,7 @@ static void	is_width_precision_sharp_minus(t_args *v_args, size_t i)
 		RET_STR = ft_strjoin(RET_STR, "0");
 }
 
-static void	is_width_precision_plus_minus(t_args *v_args, size_t i)
+static void	is_width_precision_plus_minus(t_result *result, size_t i)
 {
 	if (PRECISION_CPY > 0)
 		WIDTH_CPY -= PRECISION_CPY;
@@ -95,15 +95,15 @@ static void	is_width_precision_plus_minus(t_args *v_args, size_t i)
 		RET_STR = ft_strjoin(RET_STR, "0");
 }
 
-void		is_width_precision_minus(t_args *v_args, size_t i)
+void		is_width_precision_minus(t_result *result, size_t i)
 {
 	if (IS_WIDTH && IS_PRECISION && MINUS && PLUS)
-		is_width_precision_plus_minus(v_args, i);
+		is_width_precision_plus_minus(result, i);
 	if (IS_WIDTH && IS_PRECISION && SHARP && MINUS)
-		is_width_precision_sharp_minus(v_args, i);
+		is_width_precision_sharp_minus(result, i);
 	if (IS_WIDTH && IS_PRECISION && MINUS && !SHARP)
 	{
-		is_width_precision_minus_not_sharp(v_args, i);
+		is_width_precision_minus_not_sharp(result, i);
 		if (MOD_HH || MOD_H)
 		{
 			PRECISION_CPY = ((I_L_CONV == 'x' || I_L_CONV == 'X') && (MOD_HH)) ?

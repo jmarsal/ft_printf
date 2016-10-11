@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 02:43:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	is_sharp_and_o(t_args *v_args, size_t i)
+static void	is_sharp_and_o(t_result *result, size_t i)
 {
 	size_t	j;
 	int		test_o;
@@ -28,7 +28,7 @@ static void	is_sharp_and_o(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_width_sup_precision(t_args *v_args, size_t i)
+static void	is_width_sup_precision(t_result *result, size_t i)
 {
 	if (WIDTH > PRECISION_O)
 	{
@@ -49,7 +49,7 @@ static void	is_width_sup_precision(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_precision_sup_width(t_args *v_args, size_t i)
+static void	is_precision_sup_width(t_result *result, size_t i)
 {
 	if (PRECISION_O >= WIDTH)
 	{
@@ -63,7 +63,7 @@ static void	is_precision_sup_width(t_args *v_args, size_t i)
 	}
 }
 
-static void is_width_precision(t_args *v_args, size_t i)
+static void is_width_precision(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'o' || I_L_CONV == 'd')
 	{
@@ -78,18 +78,18 @@ static void is_width_precision(t_args *v_args, size_t i)
 		PRECISION_CPY--;
 	if (I_L_CONV == 'x' || I_L_CONV == 'X')
 	{
-		is_precision_sup_width(v_args, i);
-		is_width_sup_precision(v_args, i);
+		is_precision_sup_width(result, i);
+		is_width_sup_precision(result, i);
 	}
 	else
 		while (PRECISION_CPY-- > 0)
 			RET_STR = ft_strjoin(RET_STR, "0");
-	is_sharp_and_o(v_args, i);
+	is_sharp_and_o(result, i);
 	if (PLUS == 1 && MINUS == 0 && !IS_PRECISION)
 		RET_STR = ft_strjoin(RET_STR, "+");
 }
 
-void	is_width_precision_and_not_minus(t_args *v_args, size_t i)
+void	is_width_precision_and_not_minus(t_result *result, size_t i)
 {
 	if (IS_WIDTH && !MINUS)
 	{
@@ -107,6 +107,6 @@ void	is_width_precision_and_not_minus(t_args *v_args, size_t i)
 				RET_STR = ft_strjoin(RET_STR, "0");
 		}
 		else
-			is_width_precision(v_args, i);
+			is_width_precision(result, i);
 	}
 }

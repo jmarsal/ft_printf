@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/06 12:12:15 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ static t_w_or_p	*init_width_precision(void)
 	return (tmp);
 }
 
-t_conv			**init_tab_args(t_args *v_args)
+t_conv			**init_tab_ap(t_result *result)
 {
 	t_conv	**f_conv;
 	size_t	i;
 
 	i = 0;
-	if (!(f_conv = ft_memalloc(sizeof(t_conv*) * v_args->index + 1)))
+	if (!(f_conv = ft_memalloc(sizeof(t_conv*) * result->index + 1)))
 		return (NULL);
-	while (i < v_args->index)
+	while (i < result->index)
 	{
 		if (!(f_conv[i] = ft_memalloc(sizeof(t_conv))))
 			return (NULL);

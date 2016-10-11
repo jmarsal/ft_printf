@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:10:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/29 02:13:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:02:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char	*ft_get_ptr(int *ptr)
 	return (ret);
 }
 
-void	print_ptr(t_args *v_args, size_t i)
+void	print_ptr(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'p')
 		RET_STR = ft_get_ptr(I_PTR);

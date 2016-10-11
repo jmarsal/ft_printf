@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/30 02:05:44 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:03:34 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	is_neg_and_precision(t_args *v_args, size_t i)
+static void	is_neg_and_precision(t_result *result, size_t i)
 {
 	if (MINUS && IS_WIDTH)
 	{
@@ -37,7 +37,7 @@ static void	is_neg_and_precision(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_space_or_positive(t_args *v_args, size_t i)
+static void	is_space_or_positive(t_result *result, size_t i)
 {
 	if (SPACE == 1 && I_INT >= 0 && I_L_INT >= 0)
 	{
@@ -54,7 +54,7 @@ static void	is_space_or_positive(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_caracters_is_sharp(t_args *v_args, size_t i)
+static void	is_caracters_is_sharp(t_result *result, size_t i)
 {
 	if (SHARP == 1)
 	{
@@ -77,29 +77,29 @@ static void	is_caracters_is_sharp(t_args *v_args, size_t i)
 	}
 }
 
-static void	is_flags_width_precision(t_args *v_args, size_t i)
+static void	is_flags_width_precision(t_result *result, size_t i)
 {
-	is_caracters_is_sharp(v_args, i);
-	is_space_or_positive(v_args, i);
-	is_width_precision_and_not_minus(v_args, i);
-	is_width_precision_minus(v_args, i);
+	is_caracters_is_sharp(result, i);
+	is_space_or_positive(result, i);
+	is_width_precision_and_not_minus(result, i);
+	is_width_precision_minus(result, i);
 }
 
-int			print_format(t_args *v_args)
+int			print_format(t_result *result)
 {
 	size_t	i;
 	size_t	test_c;
 
 	i = 0;
 	test_c = 0;
-	while (v_args->index--)
+	while (result->index--)
 	{
-		is_flags_width_precision(v_args, i);
-		print_char_str(v_args, i, &test_c);
-		print_bin_dec_oct(v_args, i);
-		print_hex_x(v_args, i);
-		print_ptr(v_args, i);
-		is_neg_and_precision(v_args, i);
+		is_flags_width_precision(result, i);
+		print_char_str(result, i, &test_c);
+		print_bin_dec_oct(result, i);
+		print_hex_x(result, i);
+		print_ptr(result, i);
+		is_neg_and_precision(result, i);
 		i++;
 	}
 	ft_putstr(RET_STR);

@@ -59,8 +59,7 @@ SOURCES = ft_printf.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
 						output_mem.c \
-						conv_helper.c \
-						nparser.c
+						conv_helper.c
 
 LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_atoi.c \
@@ -91,7 +90,8 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strcpy.c \
 						ft_strlen.c \
 						ft_memset.c \
-						ft_tolower.c
+						ft_tolower.c \
+						ft_array_create.c
 
 # Libft
  LIBFT_PATH = libft
