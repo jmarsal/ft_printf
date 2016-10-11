@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/10/09 17:20:04 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/10/10 16:54:05 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ SOURCES = ft_printf.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
 						output_mem.c \
-						conv_helper.c
+						conv_helper.c \
+						nparser.c
 
 LIBFT_SRCS = ft_putchar_fd.c \
 						ft_atoi.c \
@@ -131,7 +132,7 @@ debug : re
 	@echo "-----------------------------------------------------------------\n"
 
 norme:
-	norminette $(SRC)
-	norminette $(INC_PATH)*.h
+	norminette $(SOURCES) $(LIBFT_SRCS)
+	norminette $(HEADERS)*.h
 
 .PHONY:  all, clean, fclean, re, debug, norme
