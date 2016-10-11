@@ -18,11 +18,11 @@ CFLAGS = -Wall -Werror -Wextra -pedantic $(OPTI)
 
 # Headers
 LIBFT_INC_PATH = libft/includes
-LIBFT_INC_FILES = $(LIBFT_INC_PATH)/libft.h
+LIBFT_INC_FILES = libft.h
 INC_PATH = includes
 INC_FILES = ft_printf.h
-HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
-HEADERS +=  $(LIBFT_INC_FILES)
+HEADERS =  $(LIBFT_INC_FILES:%.h=$(LIBFT_INC_PATH)/%.h)
+HEADERS += $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH) $(LIBFT_INC_PATH))
 
 # Sources
@@ -104,10 +104,10 @@ OBJECTS += $(addprefix $(OBJ_PATH)/, $(LIBFT_SRCS:%.c=%.o))
 
 # Rules
 all: $(NAME)
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_PATH) all
+# $(LIBFT):
+# 	$(MAKE) -C $(LIBFT_PATH) all
 
-$(NAME): $(OBJECTS) $(LIBFT)
+$(NAME): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo "\n-------------------------------------------------"
@@ -122,14 +122,14 @@ $(OBJ_PATH):
 	@-mkdir -p $@
 
 clean:
-	@make clean -C $(LIBFT_PATH)/
+	# @make clean -C $(LIBFT_PATH)/
 	@rm -rf $(OBJ_PATH)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH)/
+	# @make fclean -C $(LIBFT_PATH)/
 	@rm -f $(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
