@@ -27,8 +27,19 @@ CFLAGS += $(addprefix -I,$(INC_PATH) $(LIBFT_INC_PATH))
 
 # Sources
 SRC_PATH = srcs
-SRC_PATH += libft
+SRC_PATH += libft/src_array
+SRC_PATH += libft/src_char_control
+SRC_PATH += libft/src_conversion
+SRC_PATH += libft/src_file_manage
+SRC_PATH += libft/src_list
+SRC_PATH += libft/src_math
+SRC_PATH += libft/src_mem
+SRC_PATH += libft/src_numeric_manage
+SRC_PATH += libft/src_output
+SRC_PATH += libft/src_str_control
+SRC_PATH += libft/src_str_manage
 vpath %.c $(SRC_PATH)
+
 SOURCES = ft_printf.c \
 						parser.c \
 						parser_helper.c \
@@ -51,7 +62,7 @@ SOURCES = ft_printf.c \
 						conv_helper.c \
 						nparser.c
 
-LIBFT_SRCS = ft_putchar_fd.c \
+LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_atoi.c \
 						ft_get_number.c \
 						ft_isalnum.c \
@@ -88,7 +99,8 @@ LIBFT_SRCS = ft_putchar_fd.c \
 
 # Objects
 OBJ_PATH = obj
-OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o) $(LIBFT_SRCS:%.c=%.o))
+OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
+OBJECTS += $(addprefix $(OBJ_PATH)/, $(LIBFT_SRCS:%.c=%.o))
 
 # Rules
 all: $(NAME)
