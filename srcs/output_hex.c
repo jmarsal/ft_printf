@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:05:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:39 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 16:02:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static char	*ret_modifier(char *get_conversion, size_t len, char *tmp)
 	while (tmp[index])
 		get_conversion[i++] = tmp[index++];
 	free(tmp);
+	tmp = NULL;
 	return (get_conversion);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:13:58 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 10:34:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ static int	if_specifier(const char *format, t_w_or_p tmp, size_t *i,
 	return (-1);
 }
 
-static int	get_index(t_result *result, const char *format, size_t *i)
+static int	get_index(t_result *result, size_t *i)
 {
 	t_w_or_p	tmp;
+	char		*format;
 
 	tmp.width = 0;
 	tmp.precision = 0;
+	format = result->format;
 	*i += 1;
 	if (if_specifier(format, tmp, i, &result->index) != -1)
 		return(0);
@@ -80,10 +82,12 @@ static int	get_index(t_result *result, const char *format, size_t *i)
 	return (-1);
 }
 
-static int	search_flags_in_format(t_result *result, const char *format)
+static int	search_flags_in_format(t_result *result)
 {
+	char	*format;
 	size_t	i;
 
+	format = result->format;
 	i = 0;
 	while (format[i])
 	{
@@ -106,18 +110,18 @@ static int	search_flags_in_format(t_result *result, const char *format)
 			result->index++;
 		}
 		else if (format[i + 1] && format[i] == '%' &&
-				(get_index(result, format, &i) == -1))
+				(get_index(result, &i) == -1))
 			return (-1);
 	}
 	return (0);
 }
 
-int			treatment(const char *format, t_result *result)
+int			treatment(t_result *result)
 {
-	if (search_flags_in_format(result, format) == -1)
+	if (search_flags_in_format(result) == -1)
 		return (-1);
-	if (!(result->f_conv = init_tab_ap(result)))
+	if (!(result->tab_conv = init_tab_conv(result)))
 		return (-1);
-	get_content_format(&result->ap, format, result);
+	get_content_format(&result->ap, result->format, result);
 	return (0);
 }

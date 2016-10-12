@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_f_conv.c                                      :+:      :+:    :+:   */
+/*   init_tab_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 17:37:12 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,31 +70,31 @@ static t_w_or_p	*init_width_precision(void)
 	return (tmp);
 }
 
-t_conv			**init_tab_ap(t_result *result)
+t_conv			**init_tab_conv(t_result *result)
 {
-	t_conv	**f_conv;
+	t_conv	**tab_conv;
 	size_t	i;
 
 	i = 0;
-	if (!(f_conv = ft_memalloc(sizeof(t_conv*) * result->index + 1)))
+	if (!(tab_conv = ft_memalloc(sizeof(t_conv*) * result->index + 1)))
 		return (NULL);
 	while (i < result->index)
 	{
-		if (!(f_conv[i] = ft_memalloc(sizeof(t_conv))))
+		if (!(tab_conv[i] = ft_memalloc(sizeof(t_conv))))
 			return (NULL);
-		if (!(f_conv[i]->caracters = init_caracters()))
+		if (!(tab_conv[i]->caracters = init_caracters()))
 			return (NULL);
-		if (!(f_conv[i]->type = init_type()))
+		if (!(tab_conv[i]->type = init_type()))
 			return (NULL);
-		if (!(f_conv[i]->modifier = init_modifier()))
+		if (!(tab_conv[i]->modifier = init_modifier()))
 			return (NULL);
-		if (!(f_conv[i]->width_precision = init_width_precision()))
+		if (!(tab_conv[i]->width_precision = init_width_precision()))
 			return (NULL);
-		f_conv[i]->is_width = 0;
-		f_conv[i]->is_precision = 0;
-		f_conv[i]->is_modifier = 0;
-		f_conv[i]->l_conv = 0;
+		tab_conv[i]->is_width = 0;
+		tab_conv[i]->is_precision = 0;
+		tab_conv[i]->is_modifier = 0;
+		tab_conv[i]->l_conv = 0;
 		i++;
 	}
-	return (f_conv);
+	return (tab_conv);
 }

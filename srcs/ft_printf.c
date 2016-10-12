@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:13:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/11 16:34:39 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_vasprintf(va_list ap, const char *format)
 
 	if (!(result = init_t_result(ap, format)))
 			return (-1);
-	if ((treatment(format, result)) == -1)
+	if ((treatment(result)) == -1)
 			return (-1);
 	if ((err = find_error_in_format(result)) != 0)
 			return (error_output(err));

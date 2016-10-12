@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 10:34:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,73 +17,73 @@
 ** type
 */
 
-# define STR result->f_conv[result->i_ap]->type->str
-# define I_STR result->f_conv[i]->type->str
-# define U_L_INT result->f_conv[result->i_ap]->type->u_l_nb
-# define I_U_L_INT result->f_conv[i]->type->u_l_nb
-# define INT result->f_conv[result->i_ap]->type->nb
-# define I_INT result->f_conv[i]->type->nb
-# define L_INT result->f_conv[result->i_ap]->type->l_nb
-# define I_L_INT result->f_conv[i]->type->l_nb
-# define U_INT result->f_conv[result->i_ap]->type->u_nb
-# define I_U_INT result->f_conv[i]->type->u_nb
-# define C result->f_conv[result->i_ap]->type->c
-# define I_C result->f_conv[i]->type->c
-# define L_CONV result->f_conv[result->i_ap]->l_conv
-# define I_L_CONV result->f_conv[i]->l_conv
-# define PTR result->f_conv[result->i_ap]->type->ptr
-# define I_PTR result->f_conv[i]->type->ptr
+# define STR result->tab_conv[result->i_args]->type->str
+# define I_STR result->tab_conv[i]->type->str
+# define U_L_INT result->tab_conv[result->i_args]->type->u_l_nb
+# define I_U_L_INT result->tab_conv[i]->type->u_l_nb
+# define INT result->tab_conv[result->i_args]->type->nb
+# define I_INT result->tab_conv[i]->type->nb
+# define L_INT result->tab_conv[result->i_args]->type->l_nb
+# define I_L_INT result->tab_conv[i]->type->l_nb
+# define U_INT result->tab_conv[result->i_args]->type->u_nb
+# define I_U_INT result->tab_conv[i]->type->u_nb
+# define C result->tab_conv[result->i_args]->type->c
+# define I_C result->tab_conv[i]->type->c
+# define L_CONV result->tab_conv[result->i_args]->l_conv
+# define I_L_CONV result->tab_conv[i]->l_conv
+# define PTR result->tab_conv[result->i_args]->type->ptr
+# define I_PTR result->tab_conv[i]->type->ptr
 
 /*
 ** width_precision
 */
 
-#define IS_WIDTH result->f_conv[i]->is_width
-#define I_IS_WIDTH result->f_conv[result->i_ap]->is_width
-#define WIDTH result->f_conv[i]->width_precision->width
-#define I_WIDTH result->f_conv[result->i_ap]->width_precision->width
-#define WIDTH_CPY result->f_conv[i]->width_precision->width_cpy
-#define I_WIDTH_CPY result->f_conv[result->i_ap]->width_precision->width_cpy
-#define PRECISION_O result->f_conv[i]->width_precision->precision
-#define I_PRECISION_O result->f_conv[result->i_ap]->width_precision->precision
-#define PRECISION_CPY result->f_conv[i]->width_precision->precision_cpy
-#define I_PRECISION_CPY result->f_conv[result->i_ap]->width_precision->precision_cpy
-#define IS_PRECISION result->f_conv[i]->is_precision
-#define I_IS_PRECISION result->f_conv[result->i_ap]->is_precision
+#define IS_WIDTH result->tab_conv[i]->is_width
+#define I_IS_WIDTH result->tab_conv[result->i_args]->is_width
+#define WIDTH result->tab_conv[i]->width_precision->width
+#define I_WIDTH result->tab_conv[result->i_args]->width_precision->width
+#define WIDTH_CPY result->tab_conv[i]->width_precision->width_cpy
+#define I_WIDTH_CPY result->tab_conv[result->i_args]->width_precision->width_cpy
+#define PRECISION_O result->tab_conv[i]->width_precision->precision
+#define I_PRECISION_O result->tab_conv[result->i_args]->width_precision->precision
+#define PRECISION_CPY result->tab_conv[i]->width_precision->precision_cpy
+#define I_PRECISION_CPY result->tab_conv[result->i_args]->width_precision->precision_cpy
+#define IS_PRECISION result->tab_conv[i]->is_precision
+#define I_IS_PRECISION result->tab_conv[result->i_args]->is_precision
 
 /*
 ** caracters
 */
 
-#define MINUS result->f_conv[i]->caracters->minus
-#define A_MINUS result->f_conv[result->i_ap]->caracters->minus
-#define PLUS result->f_conv[i]->caracters->plus
-#define A_PLUS result->f_conv[result->i_ap]->caracters->plus
-#define SPACE result->f_conv[i]->caracters->space
-#define A_SPACE result->f_conv[result->i_ap]->caracters->space
-#define SHARP result->f_conv[i]->caracters->sharp
-#define A_SHARP result->f_conv[result->i_ap]->caracters->sharp
-#define ZERO result->f_conv[i]->caracters->zero
-#define A_ZERO result->f_conv[result->i_ap]->caracters->zero
+#define MINUS result->tab_conv[i]->caracters->minus
+#define A_MINUS result->tab_conv[result->i_args]->caracters->minus
+#define PLUS result->tab_conv[i]->caracters->plus
+#define A_PLUS result->tab_conv[result->i_args]->caracters->plus
+#define SPACE result->tab_conv[i]->caracters->space
+#define A_SPACE result->tab_conv[result->i_args]->caracters->space
+#define SHARP result->tab_conv[i]->caracters->sharp
+#define A_SHARP result->tab_conv[result->i_args]->caracters->sharp
+#define ZERO result->tab_conv[i]->caracters->zero
+#define A_ZERO result->tab_conv[result->i_args]->caracters->zero
 
 /*
 ** modifier
 */
 
-# define IS_MODIFIER result->f_conv[result->i_ap]->is_modifier
-# define I_IS_MODIFIER result->f_conv[i]->is_modifier
-# define MOD_HH result->f_conv[i]->modifier->hh
-# define MOD_H result->f_conv[i]->modifier->h
-# define MOD_L result->f_conv[i]->modifier->l
-# define MOD_LL result->f_conv[i]->modifier->ll
-# define MOD_J result->f_conv[i]->modifier->j
-# define MOD_Z result->f_conv[i]->modifier->z
-# define I_MOD_HH result->f_conv[result->i_ap]->modifier->hh
-# define I_MOD_H result->f_conv[result->i_ap]->modifier->h
-# define I_MOD_L result->f_conv[result->i_ap]->modifier->l
-# define I_MOD_LL result->f_conv[result->i_ap]->modifier->ll
-# define I_MOD_J result->f_conv[result->i_ap]->modifier->j
-# define I_MOD_Z result->f_conv[result->i_ap]->modifier->z
+# define IS_MODIFIER result->tab_conv[result->i_args]->is_modifier
+# define I_IS_MODIFIER result->tab_conv[i]->is_modifier
+# define MOD_HH result->tab_conv[i]->modifier->hh
+# define MOD_H result->tab_conv[i]->modifier->h
+# define MOD_L result->tab_conv[i]->modifier->l
+# define MOD_LL result->tab_conv[i]->modifier->ll
+# define MOD_J result->tab_conv[i]->modifier->j
+# define MOD_Z result->tab_conv[i]->modifier->z
+# define I_MOD_HH result->tab_conv[result->i_args]->modifier->hh
+# define I_MOD_H result->tab_conv[result->i_args]->modifier->h
+# define I_MOD_L result->tab_conv[result->i_args]->modifier->l
+# define I_MOD_LL result->tab_conv[result->i_args]->modifier->ll
+# define I_MOD_J result->tab_conv[result->i_args]->modifier->j
+# define I_MOD_Z result->tab_conv[result->i_args]->modifier->z
 
 /*
 ** ret_ft_printf

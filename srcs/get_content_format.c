@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 09:32:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	get_content_flags(va_list *ap, t_result *result,
 		conv_bin_dec_oct(ap, result, format, i);
 		conv_hex_x(ap, result, format, i);
 		conv_mem_p(ap, result, format, i);
-		result->i_ap++;
+		result->i_args++;
 		*i += 1;
 	}
 }
@@ -71,7 +71,7 @@ static void	get_str_in_format(const char *format, size_t *i, t_result *result)
 			STR = ft_strnew(j + 1);
 			while (++k <= j)
 				STR[k] = format[*i - j + k];
-			result->i_ap++;
+			result->i_args++;
 			*i = (format[*i]) ? *i +1 : *i;
 			j = 0;
 			break ;
@@ -94,14 +94,14 @@ void		get_content_format(va_list *ap, const char *format,
 		{
 			L_CONV = 's';
 			get_is_color(format, &i, result);
-			result->i_ap++;
+			result->i_args++;
 		}
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
 			L_CONV = 's';
 			STR = "%";
 			i += 2;
-			result->i_ap++;
+			result->i_args++;
 		}
 		else if (format[i + 1] && format[i] == '%' && format[i + 1] != '%')
 			get_content_flags(ap, result, format, &i);

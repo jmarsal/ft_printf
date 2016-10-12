@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:49 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 16:02:12 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	get_precision_in_format(const char *format, size_t *i, t_result *res
 		else if (I_PRECISION_O <= 0)
 			RET_STR = ft_strcat(RET_STR, format);
 		free(get_precision);
+		get_precision = NULL;
 	}
 	get_modifier_in_format(format, i, result);
 }
@@ -77,7 +78,8 @@ void		get_width_in_format(const char *format, size_t *i, t_result *result)
 		I_WIDTH = ft_atoi(get_width);
 		I_WIDTH_CPY = I_WIDTH;
 		free(get_width);
-		result->f_conv[result->i_ap]->is_width = 1;
+		get_width = NULL;
+		result->tab_conv[result->i_args]->is_width = 1;
 	}
 	get_precision_in_format(format, i, result);
 }

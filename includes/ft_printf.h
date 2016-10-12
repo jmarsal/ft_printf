@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:12:59 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 10:34:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <stdio.h> // WARNING !!!!
 
 int				ft_printf(const char *format, ...);
-int				treatment(const char *format, t_result *result);
+int				treatment(t_result *result);
 
 /*
 ** init.c
@@ -32,10 +32,10 @@ int				treatment(const char *format, t_result *result);
 t_result		*init_t_result(va_list ap, const char *format);
 
 /*
-** init_f_conv.c
+** init_tab_conv.c
 */
 
-t_conv		**init_tab_ap(t_result *result);
+t_conv		**init_tab_conv(t_result *result);
 
 /*
 ** conv_hex.c
