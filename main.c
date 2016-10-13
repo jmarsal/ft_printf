@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 15:20:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 16:52:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 
 int main()
 {
-	// unsigned int	nb;
+	int	nb;
 	// int nb1;
 	// long nb2;
 	// int ret;
@@ -63,7 +63,8 @@ int main()
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-
+	nb = ft_printf("%s%c%s\n","coucou", 0, "ca va?");
+	ft_printf("%d\n", nb);
 	// test with modifier
 	// ret = ft_printf(NULL);
 	// ft_printf("%d\n", ret);
@@ -71,18 +72,18 @@ int main()
 	// ft_printf("%d\n", ret);
 	// ret = ft_printf("%S\n", test);
 	// ft_printf("%d\n", ret);
-	ret = ft_printf("{green}%d{eoc} comment {green}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{red}%d{eoc} comment {red}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{blue}%d{eoc} comment {blue}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{pink}%d{eoc} comment {pink}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{cyan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{yan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
-	ft_printf("%d\n", ret);
+	// ret = ft_printf("{green}%d{eoc} comment {green}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("{red}%d{eoc} comment {red}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("{blue}%d{eoc} comment {blue}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("{pink}%d{eoc} comment {pink}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("{cyan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
+	// ret = ft_printf("{yan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
+	// ft_printf("%d\n", ret);
 	// // ft_printf("%d\n", ret);
 	// //ret = ft_printf("\033[32;1m%d\033[0m\n", 42);
 	// // ft_printf("%d\n", ret);
@@ -91,18 +92,20 @@ int main()
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	ret = printf("\033[32;1m%d\033[0m comment \033[32;1mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
-	ret = printf("\033[31m%d\033[0m comment \033[31mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
-	ret = printf("\033[34m%d\033[0m comment \033[34mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
-	ret = printf("\033[35;1m%d\033[0m comment \033[35;1mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
-	ret = printf("\033[36;1m%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
-	ret = printf("{yan}%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
-	printf("%d\n", ret);
+	nb = printf("%s%c%s\n", "coucou", 0, "ca va?");
+	printf("%d\n", nb);
+	// ret = printf("\033[32;1m%d\033[0m comment \033[32;1mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
+	// ret = printf("\033[31m%d\033[0m comment \033[31mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
+	// ret = printf("\033[34m%d\033[0m comment \033[34mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
+	// ret = printf("\033[35;1m%d\033[0m comment \033[35;1mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
+	// ret = printf("\033[36;1m%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
+	// ret = printf("{yan}%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
+	// printf("%d\n", ret);
 	// ret = printf("%ls\n", test);
 	// printf("%d\n", ret);
 	// ret = printf("%p\n", &test);

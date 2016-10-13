@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/12 10:32:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/12 16:33:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int			main(void)
 	//test diffs sur les conversions
 ////////////////////////////////////////////////////////////////////////////////
 	// %s
-	if ((fd = open("test/diff_output/diftab_conv_s.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_s.txt", O_RDONLY)) < 1)
 	{
-		printf("Erreur : Pas de fichier diftab_conv_s.txt");
+		printf("Erreur : Pas de fichier diff_conv_s.txt");
 		return (-1);
 	}
 	if ((len = read(fd, buffer, 4096)) == 0)
 	{
 		printf("\033[32m%s\033[0m\n", "---> test de conversion \%s ok !");
 		close(fd);
-		remove("diff_output/diftab_conv_s.txt");
+		remove("diff_output/diff_conv_s.txt");
 	}
 	else
 	{
@@ -49,16 +49,16 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %S
-	if ((fd = open("test/diff_output/diftab_conv_S.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_S.txt", O_RDONLY)) < 1)
 	{
-		printf("Erreur : Pas de fichier diftab_conv_S.txt");
+		printf("Erreur : Pas de fichier diff_conv_S.txt");
 		return (-1);
 	}
 	if ((len = read(fd, buffer, 4096)) == 0)
 	{
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%S ok !");
 		close(fd);
-		remove("diff_output/diftab_conv_S.txt");
+		remove("diff_output/diff_conv_S.txt");
 	}
 	else
 	{
@@ -89,16 +89,16 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %d
-	if ((fd = open("test/diff_output/diftab_conv_d_i.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_d_i.txt", O_RDONLY)) < 1)
 	{
-		printf("Erreur : Pas de fichier diftab_conv_d_i.txt");
+		printf("Erreur : Pas de fichier diff_conv_d_i.txt");
 		return (-1);
 	}
 	if ((len = read(fd, buffer, 4096)) == 0)
 	{
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%d ou \%i ok !");
 		close(fd);
-		remove("diff_output/diftab_conv_d.txt");
+		remove("diff_output/diff_conv_d.txt");
 	}
 	else
 	{
@@ -112,16 +112,16 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %D
-	if ((fd = open("test/diff_output/diftab_conv_D.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_D.txt", O_RDONLY)) < 1)
 	{
-		printf("Erreur : Pas de fichier diftab_conv_D.txt");
+		printf("Erreur : Pas de fichier diff_conv_D.txt");
 		return (-1);
 	}
 	if ((len = read(fd, buffer, 4096)) == 0)
 	{
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%D ok !");
 		close(fd);
-		remove("diff_output/diftab_conv_d.txt");
+		remove("diff_output/diff_conv_d.txt");
 	}
 	else
 	{
@@ -135,16 +135,16 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 // %o
-if ((fd = open("test/diff_output/diftab_conv_o.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_o.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_o.txt");
+	printf("Erreur : Pas de fichier diff_conv_o.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%o ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -158,16 +158,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %O
-if ((fd = open("test/diff_output/diftab_conv_O.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_O.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_O.txt");
+	printf("Erreur : Pas de fichier diff_conv_O.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%O ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -181,16 +181,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %u
-if ((fd = open("test/diff_output/diftab_conv_u.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_u.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_u.txt");
+	printf("Erreur : Pas de fichier diff_conv_u.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%u ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -204,16 +204,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %U
-if ((fd = open("test/diff_output/diftab_conv_U.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_U.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_U.txt");
+	printf("Erreur : Pas de fichier diff_conv_U.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%U ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -227,16 +227,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %x %X
-if ((fd = open("test/diff_output/diftab_conv_x_X.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_x_X.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_x_X.txt");
+	printf("Erreur : Pas de fichier diff_conv_x_X.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%x ou \%X ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -250,16 +250,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %c
-if ((fd = open("test/diff_output/diftab_conv_c.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_c.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_c.txt");
+	printf("Erreur : Pas de fichier diff_conv_c.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%c ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -273,16 +273,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %C
-if ((fd = open("test/diff_output/diftab_conv_C.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_C.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_C.txt");
+	printf("Erreur : Pas de fichier diff_conv_C.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%C ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {
@@ -296,16 +296,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %b
-if ((fd = open("test/diff_output/diftab_conv_b.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_b.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diftab_conv_b.txt");
+	printf("Erreur : Pas de fichier diff_conv_b.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%b ok !");
 	close(fd);
-	remove("diff_output/diftab_conv_d.txt");
+	remove("diff_output/diff_conv_d.txt");
 }
 else
 {

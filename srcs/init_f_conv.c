@@ -33,8 +33,7 @@ static t_type		*init_type(void)
 	if (!(tmp = ft_memalloc(sizeof(t_type))))
 		return (NULL);
 	tmp->ptr = NULL;
-	tmp->str = NULL;
-	tmp->c = 0;
+	tmp->str = ft_strnew(1);
 	tmp->l_nb = 0;
 	tmp->nb = 0;
 	tmp->u_l_nb = 0;
@@ -78,17 +77,13 @@ t_conv			**init_tab_conv(t_result *result)
 	i = 0;
 	if (!(tab_conv = ft_memalloc(sizeof(t_conv*) * result->index + 1)))
 		return (NULL);
-	while (i < result->index)
+	while (i <= result->index)
 	{
-		if (!(tab_conv[i] = ft_memalloc(sizeof(t_conv))))
-			return (NULL);
-		if (!(tab_conv[i]->caracters = init_caracters()))
-			return (NULL);
-		if (!(tab_conv[i]->type = init_type()))
-			return (NULL);
-		if (!(tab_conv[i]->modifier = init_modifier()))
-			return (NULL);
-		if (!(tab_conv[i]->width_precision = init_width_precision()))
+		if (!(tab_conv[i] = ft_memalloc(sizeof(t_conv))) ||
+			!(tab_conv[i]->caracters = init_caracters()) ||
+			!(tab_conv[i]->type = init_type()) ||
+			!(tab_conv[i]->modifier = init_modifier()) ||
+			!(tab_conv[i]->width_precision = init_width_precision()))
 			return (NULL);
 		tab_conv[i]->is_width = 0;
 		tab_conv[i]->is_precision = 0;
@@ -96,5 +91,6 @@ t_conv			**init_tab_conv(t_result *result)
 		tab_conv[i]->l_conv = 0;
 		i++;
 	}
+	tab_conv[i] = NULL;
 	return (tab_conv);
 }

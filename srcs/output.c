@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:03:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 17:46:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,16 @@ static void	is_flags_width_precision(t_result *result, size_t i)
 	is_width_precision_minus(result, i);
 }
 
-int			print_format(t_result *result)
+int			print_result(t_result *result)
 {
+	char	*str_c;
 	size_t	i;
+	int		len;
 	size_t	test_c;
 
+	str_c = NULL;
 	i = 0;
+	len = 0;
 	test_c = 0;
 	while (result->index--)
 	{
@@ -102,6 +106,30 @@ int			print_format(t_result *result)
 		is_neg_and_precision(result, i);
 		i++;
 	}
-	ft_putstr(RET_STR);
-	return (ft_strlen(RET_STR) + test_c);
+	if (test_c != 0)
+	{
+		i = 0;
+		while (RET_STR[i])
+		{
+			if (-1 != (len = ft_strchrpos(RET_STR + i, '~')))
+			{
+				str_c = ft_strsub(RET_STR, i, len);
+				ft_putstr(str_c);
+				ft_putchar('\0');
+				i += 1;
+			}
+			else
+			{
+				str_c = ft_strsub(RET_STR, i, ft_strlen(RET_STR + i));
+				ft_putstr(str_c);
+			}
+			i += ft_strlen(str_c);
+			ft_bzero(str_c, ft_strlen(str_c));
+		}
+		free (str_c);
+		str_c = NULL;
+	}
+	else
+		ft_putstr(RET_STR);
+	return (ft_strlen(RET_STR));
 }

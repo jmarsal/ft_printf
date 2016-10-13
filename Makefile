@@ -91,7 +91,12 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strlen.c \
 						ft_memset.c \
 						ft_tolower.c \
-						ft_array_create.c
+						ft_wcslen.c \
+						ft_wcconv.c \
+						ft_wcsconv.c \
+						ft_strsub.c \
+						ft_strchrpos.c \
+						ft_strncpy.c
 
 # Libft
  LIBFT_PATH = libft
@@ -104,8 +109,6 @@ OBJECTS += $(addprefix $(OBJ_PATH)/, $(LIBFT_SRCS:%.c=%.o))
 
 # Rules
 all: $(NAME)
-# $(LIBFT):
-# 	$(MAKE) -C $(LIBFT_PATH) all
 
 $(NAME): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
@@ -116,20 +119,18 @@ $(NAME): $(OBJECTS)
 
 $(OBJECTS): $(HEADERS) | $(OBJ_PATH)
 $(OBJECTS): $(OBJ_PATH)/%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 
 $(OBJ_PATH):
 	@-mkdir -p $@
 
 clean:
-	# @make clean -C $(LIBFT_PATH)/
 	@rm -rf $(OBJ_PATH)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
-	# @make fclean -C $(LIBFT_PATH)/
 	@rm -f $(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"

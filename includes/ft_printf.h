@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/12 10:34:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 17:54:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int				treatment(t_result *result);
 ** init.c
 */
 
-t_result		*init_t_result(va_list ap, const char *format);
+t_result		*init_result(va_list ap, const char *format);
 
 /*
 ** init_tab_conv.c
@@ -41,44 +41,39 @@ t_conv		**init_tab_conv(t_result *result);
 ** conv_hex.c
 */
 
-void	conv_hex_x(va_list *ap, t_result *result, const char *format,
-					size_t * i);
+void	conv_hex_x(t_result *result, size_t * i);
 
 /*
 ** conv_char_str.c
 */
 
-void	conv_str_s(va_list *ap, t_result *result, const char *format,
-					size_t * i);
+void	conv_str_s(t_result *result, size_t * i);
 
 /*
 ** conv_bin_dec_oct.c
 */
 
-void	conv_bin_dec_oct(va_list *ap, t_result *result, const char *format,
-					size_t *i);
+void	conv_bin_dec_oct(t_result *result, size_t *i);
 
 /*
 ** conv_mem.c
 */
 
-void	conv_mem_p(va_list *ap, t_result *result, const char *format,
-					size_t * i);
+void	conv_mem_p(t_result *result, size_t * i);
 
 /*
 ** parser_helper.c
 */
 
-void	find_is_color(const char *format, size_t *i, t_result *result);
-void	get_is_color(const char *format, size_t *i, t_result *result);
-int		is_conversion_flag(const char *format, size_t *i,
-					const char *flags);
+void	find_is_color(t_result *result, size_t *i);
+void	get_is_color(t_result *result, size_t *i);
+int		is_conversion_flag(const char *format, size_t *i, const char *flags);
 
 /*
 ** output.c
 */
 
-int		print_format(t_result *result);
+int		print_result(t_result *result);
 
 /*
 ** output_width_precision_minus.c
@@ -96,14 +91,13 @@ void	is_width_precision_minus(t_result *result, size_t i);
 ** get_content_format.c
 */
 
-void	get_content_format(va_list *ap, const char *format,
-								t_result *result);
+void	get_content_format(t_result *result);
 
 /*
 ** get_content_helper.c
 */
 
-void	get_width_in_format(const char *format, size_t *i, t_result *result);
+void	get_width_in_format(t_result *result, size_t *i);
 
 /*
 ** error.c
@@ -116,6 +110,7 @@ int		find_error_in_format(t_result *result);
 */
 
 void	print_char_str(t_result *result, size_t i, size_t *test_c);
+void	print_char_if_zero(t_result *result);
 
 /*
 ** output_bin_dec_octal.c
@@ -142,6 +137,6 @@ void	print_ptr(t_result *result, size_t i);
 void	ajust_width_precision_itoa_base(t_result *result, int base);
 void	ajust_width_precision_litoa_base(t_result *result, int base);
 void	ajust_width_precision_ulitoa_base(t_result *result, int base);
-void	get_specifier_and_ajust_width(char specifier, t_result *result);
+void	get_specifier_and_ajust_width(t_result *result, char specifier);
 
 #endif

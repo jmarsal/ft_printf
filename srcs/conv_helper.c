@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 22:53:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:57 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 18:01:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ajust_width_precision_itoa_base(t_result *result, int base)
 	}
 	else if (L_CONV == 'c')
 	{
-		I_WIDTH_CPY -= ft_strlen(ft_itoa_base(C, base));
-		I_PRECISION_CPY -= ft_strlen(ft_itoa_base(C, base));
+		I_WIDTH_CPY -= ft_strlen(ft_itoa_base(*STR, base));
+		I_PRECISION_CPY -= ft_strlen(ft_itoa_base(*STR, base));
 	}
 	else if (L_CONV == 'u' && (I_MOD_H || I_MOD_HH))
 	{
@@ -66,7 +66,7 @@ void	ajust_width_precision_ulitoa_base(t_result *result, int base)
 	}
 }
 
-void	get_specifier_and_ajust_width(char specifier, t_result *result)
+void	get_specifier_and_ajust_width(t_result *result, char specifier)
 {
 	if (A_PLUS == 1)
 		I_WIDTH_CPY--;

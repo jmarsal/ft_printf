@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/12 10:34:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 16:04:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static int	search_flags_in_format(t_result *result)
 			}
 			i++;
 		}
-		find_is_color(format, &i, result);
+		find_is_color(result, &i);
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
 			i += 2;
@@ -122,6 +122,6 @@ int			treatment(t_result *result)
 		return (-1);
 	if (!(result->tab_conv = init_tab_conv(result)))
 		return (-1);
-	get_content_format(&result->ap, result->format, result);
+	get_content_format(result);
 	return (0);
 }

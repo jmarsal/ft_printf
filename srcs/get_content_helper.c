@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/12 16:02:12 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 15:45:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void find_witch_modifier(t_result *result, char *tmp_modifier)
+static void	find_witch_modifier(t_result *result, char *tmp_modifier)
 {
 	if (ft_strcmp(tmp_modifier, "hh") == 0)
 		I_MOD_HH = 1;
@@ -47,7 +47,7 @@ static void	get_modifier_in_format(const char *format, size_t *i, t_result *resu
 
 static void	get_precision_in_format(const char *format, size_t *i, t_result *result)
 {
-	char *get_precision;
+	char	*get_precision;
 
 	get_precision = NULL;
 	if (is_conversion_flag(format, i, PRECISION) == 1)
@@ -67,11 +67,13 @@ static void	get_precision_in_format(const char *format, size_t *i, t_result *res
 	get_modifier_in_format(format, i, result);
 }
 
-void		get_width_in_format(const char *format, size_t *i, t_result *result)
+void		get_width_in_format(t_result *result, size_t *i)
 {
-	char *get_width;
+	char	*get_width;
+	char	*format;
 
 	get_width = NULL;
+	format = result->format;
 	if (is_conversion_flag(format, i, F_WIDTH) == 1)
 	{
 		get_width = ft_get_number(format, i);
