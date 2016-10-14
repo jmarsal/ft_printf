@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 17:14:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,7 @@ static void	if_l_conv_u(t_result *result, size_t i)
 	if (!I_IS_MODIFIER)
 	{
 		while ((int)ft_strlen(RET_STR) +
-				(int)ft_strlen(ft_itoa(I_U_INT)) <= PRECISION_O)
-			RET_STR = ft_strjoin(RET_STR, "0");
-	}
-	if (MOD_L || MOD_LL)
-	{
-		PRECISION_CPY -= WIDTH_CPY;
-		while (WIDTH_CPY-- > 0)
+				(int)ft_strlen(I_STR) < PRECISION_O)
 			RET_STR = ft_strjoin(RET_STR, "0");
 	}
 	if ((MOD_HH || MOD_H) && WIDTH >= PRECISION_O)
@@ -37,12 +31,11 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 {
 	if (WIDTH_CPY > PRECISION_CPY)
 		WIDTH_CPY -= PRECISION_CPY;
-	if ((I_INT < 0 || I_L_INT < 0) && I_L_CONV == 'd')
+	if (*I_STR == '-' && I_L_CONV == 'd')
 	{
-		I_INT = -I_INT;
-		I_L_INT = -I_L_INT;
+		I_STR = ft_strdup(I_STR + 1);
 		RET_STR = ft_strjoin(RET_STR, "-");
-		if ((int)ft_strlen(ft_litoa(I_INT + I_L_INT)) < PRECISION_O)
+		if ((int)ft_strlen(I_STR) < PRECISION_O)
 		{
 			RET_STR = ft_strjoin(RET_STR, "0");
 			WIDTH_CPY -= 1;
@@ -66,8 +59,6 @@ static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 		WIDTH_CPY -= PRECISION_CPY;
 	WIDTH_CPY = (I_L_CONV == 'x' || I_L_CONV == 'X') ?
 												WIDTH_CPY - 2 : WIDTH_CPY;
-	PRECISION_CPY = (MOD_HH && (I_L_CONV == 'x' || I_L_CONV == 'X')) ?
-											PRECISION_CPY + 6 : PRECISION_CPY;
 	if (I_L_CONV == 'o')
 	{
 		WIDTH_CPY -= 1;
@@ -75,8 +66,7 @@ static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 			RET_STR = ft_strjoin(RET_STR, "0") : RET_STR;
 		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
 		{
-			PRECISION_CPY =
-				(WIDTH_CPY - ft_strlen(ft_itoa_base(I_INT, 8)));
+			PRECISION_CPY = (WIDTH_CPY - ft_strlen(I_STR));
 			WIDTH_CPY += 1;
 		}
 		else
@@ -99,15 +89,13 @@ void		is_width_precision_minus(t_result *result, size_t i)
 {
 	if (IS_WIDTH && IS_PRECISION && MINUS && PLUS)
 		is_width_precision_plus_minus(result, i);
-	if (IS_WIDTH && IS_PRECISION && SHARP && MINUS)
+	else if (IS_WIDTH && IS_PRECISION && SHARP && MINUS)
 		is_width_precision_sharp_minus(result, i);
-	if (IS_WIDTH && IS_PRECISION && MINUS && !SHARP)
+	else if (IS_WIDTH && IS_PRECISION && MINUS && !SHARP)
 	{
 		is_width_precision_minus_not_sharp(result, i);
 		if (MOD_HH || MOD_H)
 		{
-			PRECISION_CPY = ((I_L_CONV == 'x' || I_L_CONV == 'X') && (MOD_HH)) ?
-										PRECISION_CPY + 6 : PRECISION_CPY;
 			WIDTH_CPY = (PRECISION_CPY >= WIDTH_CPY) ?
 										WIDTH_CPY - PRECISION_CPY : WIDTH_CPY;
 			while (PRECISION_CPY-- > 0)

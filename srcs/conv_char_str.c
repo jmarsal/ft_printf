@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 16:43:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 10:59:56 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	conv_char_c(t_result *result, size_t * i)
 		get_specifier_and_ajust_width(result, 'c');
 		STR[0] = (unsigned char)va_arg(result->ap, int);
 		STR[1] = '\0';
-		ajust_width_precision_itoa_base(result, 10);
+		ajust_width_precision_itoa_base(result);
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
 	{

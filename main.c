@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 16:52:32 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 17:11:15 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,74 +48,55 @@
 
 int main()
 {
-	int	nb;
-	// int nb1;
-	// long nb2;
-	// int ret;
-	// nb2 = 10;
-	// wint_t		c = L'é';
-	// wchar_t		test[50] = L"Schöne Grüße";
-	int			ret;
+	unsigned int	nb;
+	int				ret;
 
-	if (!setlocale(LC_CTYPE, ""))
-	{
-		fprintf(stderr, "Can't set the specified locale! "
-			"Check LANG, LC_CTYPE, LC_ALL.\n");
-		return 1;
-	}
-	nb = ft_printf("%s%c%s\n","coucou", 0, "ca va?");
+	nb = ft_printf("%-8.16hhu\n", (char)-2147483649051561567);
 	ft_printf("%d\n", nb);
-	// test with modifier
-	// ret = ft_printf(NULL);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%C\n", NULL);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("%S\n", test);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{green}%d{eoc} comment {green}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{red}%d{eoc} comment {red}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{blue}%d{eoc} comment {blue}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{pink}%d{eoc} comment {pink}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{cyan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// ret = ft_printf("{yan}%d{eoc} comment {cyan}va tu {eoc}?\n", 42);
-	// ft_printf("%d\n", ret);
-	// // ft_printf("%d\n", ret);
-	// //ret = ft_printf("\033[32;1m%d\033[0m\n", 42);
-	// // ft_printf("%d\n", ret);
+	nb = ft_printf("%-8.16hu\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16u\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16lu\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8.16llu\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
 
+// nb = ft_printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
+// 	ft_printf("%d\n", nb);
+// 	nb = ft_printf("%#16.8hx\n", (short)-2147483649051561567);
+// 	ft_printf("%d\n", nb);
+// 	nb = ft_printf("%#16.8x\n", (int)-2147483649051561567);
+// 	ft_printf("%d\n", nb);
+// 	nb = ft_printf("%#16.8lx\n", (long)-2147483649051561567);
+// 	ft_printf("%d\n", nb);
+// 	nb = ft_printf("%#16.8llx\n", (long long)-2147483649051561567);
+// 	ft_printf("%d\n", nb);
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb = printf("%s%c%s\n", "coucou", 0, "ca va?");
+	nb = printf("%-8.16hhu\n", (char)-2147483649051561567);
 	printf("%d\n", nb);
-	// ret = printf("\033[32;1m%d\033[0m comment \033[32;1mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("\033[31m%d\033[0m comment \033[31mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("\033[34m%d\033[0m comment \033[34mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("\033[35;1m%d\033[0m comment \033[35;1mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("\033[36;1m%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("{yan}%d\033[0m comment \033[36;1mva tu \033[0m?\n", 42);
-	// printf("%d\n", ret);
-	// ret = printf("%ls\n", test);
-	// printf("%d\n", ret);
-	// ret = printf("%p\n", &test);
-	// printf("%d\n", ret);
-	// printf("\033[32;1mcoucou\n");
+	nb = printf("%-8.16hu\n", (short)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16u\n", (int)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16lu\n", (long)-2147483649051561567);
+	printf("%d\n", nb);
+	nb = printf("%-8.16llu\n", (long long)-2147483649051561567);
+	printf("%d\n", nb);
 
-	// // ret = printf("%-+*.10d\n", 9, nb2);
-	// // printf("%d\n", ret);
+	// nb = printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%#16.8hx\n", (short)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%#16.8x\n", (int)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%#16.8lx\n", (long)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%#16.8llx\n", (long long)-2147483649051561567);
+	// printf("%d\n", nb);
 
-	// tmp 			= "{green}%ls\n"
-	// new_format 	= "\033[32{green};1m%ls\n"
 return (0);
 }

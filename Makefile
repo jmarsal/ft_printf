@@ -65,10 +65,8 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_atoi.c \
 						ft_get_number.c \
 						ft_isalnum.c \
-						ft_itoa.c \
+						ft_abs.c \
 						ft_itoa_base.c \
-						ft_litoa.c \
-						ft_litoa_base.c \
 						ft_memalloc.c \
 						ft_memcpy.c \
 						ft_strcat.c \
@@ -79,9 +77,7 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strjoin.c \
 						ft_strncmp.c \
 						ft_strrev.c \
-						ft_strtolower.c \
-						ft_ulitoa.c \
-						ft_ulitoa_base.c \
+						ft_utoa_base.c \
 						ft_bzero.c\
 						ft_isalpha.c \
 						ft_isdigit.c \
@@ -96,7 +92,9 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_wcsconv.c \
 						ft_strsub.c \
 						ft_strchrpos.c \
-						ft_strncpy.c
+						ft_strncpy.c \
+						ft_strtoupper.c \
+						ft_toupper.c
 
 # Libft
  LIBFT_PATH = libft

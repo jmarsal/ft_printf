@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 17:56:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/13 18:07:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		print_char_str(t_result *result, size_t i, size_t *test_c)
 	print_char(result, i, test_c);
 }
 
-void		print_char_if_zero(t_result *result)
+void		print_str_if_char_to_zero(t_result *result)
 {
 	char	*str_c;
 	size_t	i;

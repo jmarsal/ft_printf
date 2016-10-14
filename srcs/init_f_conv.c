@@ -34,10 +34,6 @@ static t_type		*init_type(void)
 		return (NULL);
 	tmp->ptr = NULL;
 	tmp->str = ft_strnew(1);
-	tmp->l_nb = 0;
-	tmp->nb = 0;
-	tmp->u_l_nb = 0;
-	tmp->u_nb = 0;
 	return (tmp);
 }
 

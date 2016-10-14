@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 15:45:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 16:20:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ static void	find_witch_modifier(t_result *result, char *tmp_modifier)
 		I_MOD_Z = 1;
 }
 
-static void	get_modifier_in_format(const char *format, size_t *i, t_result *result)
+static void	get_modifier_in_format(t_result *result, size_t *i)
 {
+	char	*format;
 	char	tmp_modifier[3];
 	size_t	index;
 
+	format = result->format;
 	index = 0;
 	while (is_conversion_flag(format, i, L_MODIFIER) == 1)
 	{
@@ -45,26 +47,28 @@ static void	get_modifier_in_format(const char *format, size_t *i, t_result *resu
 		find_witch_modifier(result, tmp_modifier);
 }
 
-static void	get_precision_in_format(const char *format, size_t *i, t_result *result)
+static void	get_precision_in_format(t_result *result, size_t *i)
 {
 	char	*get_precision;
+	char	*format;
 
 	get_precision = NULL;
+	format = result->format;
 	if (is_conversion_flag(format, i, PRECISION) == 1)
 	{
 		*i += 1;
 		get_precision = ft_get_number(format, i);
-		if ((I_PRECISION_O = ft_atoi(get_precision)) >= 0)
+		if ((I_PRECISION_O = ft_atoi(get_precision)) > 0)
 		{
 			I_PRECISION_CPY = I_PRECISION_O;
 			I_IS_PRECISION = 1;
 		}
 		else if (I_PRECISION_O <= 0)
-			RET_STR = ft_strcat(RET_STR, format);
+			I_IS_PRECISION = 0; // Je pense qu'il y a un soucis, peut etre exit (-1) ? A voir...
 		free(get_precision);
 		get_precision = NULL;
 	}
-	get_modifier_in_format(format, i, result);
+	get_modifier_in_format(result, i);
 }
 
 void		get_width_in_format(t_result *result, size_t *i)
@@ -81,7 +85,7 @@ void		get_width_in_format(t_result *result, size_t *i)
 		I_WIDTH_CPY = I_WIDTH;
 		free(get_width);
 		get_width = NULL;
-		result->tab_conv[result->i_args]->is_width = 1;
+		I_IS_WIDTH = 1;
 	}
-	get_precision_in_format(format, i, result);
+	get_precision_in_format(result, i);
 }

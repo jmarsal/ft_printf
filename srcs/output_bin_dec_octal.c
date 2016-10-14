@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/11 16:02:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 15:19:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	print_binaire(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'b')
 	{
-		if (I_INT == INT_MIN)
+		if (ft_atoi(I_STR) == INT_MIN)
 			RET_STR = ft_strjoin(RET_STR, "10000000000000000000000000000000");
 		else
-			RET_STR = ft_strjoin(RET_STR, ft_litoa_base(I_INT, 2));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 	}
 }
 
@@ -28,11 +28,11 @@ static void	print_octal_o(t_result *result, size_t i)
 	if (I_L_CONV == 'o')
 	{
 		if (!(MOD_L || MOD_LL || MOD_H || MOD_HH))
-			RET_STR = ft_strjoin(RET_STR, ft_litoa_base(I_U_INT, 8));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, ft_ulitoa_base(I_U_L_INT, 8));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 		else if (MOD_H || MOD_HH)
-			RET_STR = ft_strjoin(RET_STR, ft_itoa_base(I_INT, 8));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 	}
 }
 
@@ -41,11 +41,11 @@ static void print_decimal_u(t_result *result, size_t i)
 	if (I_L_CONV == 'u')
 	{
 		if (!(MOD_L || MOD_LL || MOD_H || MOD_HH))
-			RET_STR = ft_strjoin(RET_STR, ft_litoa(I_U_INT));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 		else if (MOD_HH || MOD_H)
-			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_U_INT));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, ft_ulitoa(I_U_L_INT));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 	}
 }
 
@@ -54,9 +54,9 @@ static void	print_decimal_d(t_result *result, size_t i)
 	if (I_L_CONV == 'd')
 	{
 		if (!(MOD_L || MOD_LL))
-			RET_STR = ft_strjoin(RET_STR, ft_itoa(I_INT));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, ft_litoa(I_L_INT));
+			RET_STR = ft_strjoin(RET_STR, I_STR);
 	}
 }
 

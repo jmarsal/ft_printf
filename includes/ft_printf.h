@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 17:54:57 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 11:01:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		find_error_in_format(t_result *result);
 */
 
 void	print_char_str(t_result *result, size_t i, size_t *test_c);
-void	print_char_if_zero(t_result *result);
+void	print_str_if_char_to_zero(t_result *result);
 
 /*
 ** output_bin_dec_octal.c
@@ -134,9 +134,9 @@ void	print_ptr(t_result *result, size_t i);
 ** conv_helper.c
 */
 
-void	ajust_width_precision_itoa_base(t_result *result, int base);
-void	ajust_width_precision_litoa_base(t_result *result, int base);
-void	ajust_width_precision_ulitoa_base(t_result *result, int base);
+void	ajust_width_precision_itoa_base(t_result *result);
+void	ajust_width_precision_litoa_base(t_result *result);
+void	ajust_width_precision_ulitoa_base(t_result *result);
 void	get_specifier_and_ajust_width(t_result *result, char specifier);
 
 #endif

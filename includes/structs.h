@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 17:57:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 12:45:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 
 typedef struct		s_type
 {
-	unsigned long	u_l_nb;
-	long int		l_nb;
-	unsigned int	u_nb;
 	char			*str;
 	int				*ptr;
-	int				nb;
 }					t_type;
 
 typedef struct		s_modifier
