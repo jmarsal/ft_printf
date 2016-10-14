@@ -94,7 +94,8 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strchrpos.c \
 						ft_strncpy.c \
 						ft_strtoupper.c \
-						ft_toupper.c
+						ft_toupper.c \
+						ft_strdel.c
 
 # Libft
  LIBFT_PATH = libft

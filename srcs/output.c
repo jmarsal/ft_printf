@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 16:16:32 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 00:37:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,21 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 
 static void	is_space_or_positive(t_result *result, size_t i)
 {
-	if (SPACE == 1 && *I_STR != '-')
-	{
-		if (I_L_CONV == 'd' || I_L_CONV == 'D' || I_L_CONV == 'b')
-			RET_STR = ft_strcat(RET_STR, " ");
-	}
-	if (*I_STR != '-' && PLUS == 1 && I_IS_PRECISION == 0)
-	{
-		if	((IS_WIDTH == 0) || (IS_WIDTH == 1 && MINUS == 1))	
-			RET_STR = ft_strcat(RET_STR, "+");
-	}
+	if ((SPACE && *I_STR != '-') &&
+	(I_L_CONV == 'd' || I_L_CONV == 'D' || I_L_CONV == 'b'))
+		RET_STR = ft_strcat(RET_STR, " ");
+	else if ((*I_STR != '-' && PLUS && !I_IS_PRECISION) &&
+	((!IS_WIDTH) || (IS_WIDTH && MINUS)))
+		RET_STR = ft_strcat(RET_STR, "+");
 }
 
 static void	is_caracters_is_sharp(t_result *result, size_t i)
 {
-	if (SHARP == 1)
+	if (SHARP)
 	{
 		if ((I_L_CONV == 'o' || I_L_CONV == 'O') && WIDTH <= PRECISION_O)
 			RET_STR = ft_strjoin(RET_STR, "0");
-		if (MINUS && (I_L_CONV == 'x' || I_L_CONV == 'X'))
+		else if (MINUS && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 		{
 			if (I_L_CONV == 'x')
 				RET_STR = ft_strjoin(RET_STR, "0x");
@@ -97,11 +93,12 @@ int			print_result(t_result *result)
 		print_hex_x(result, i);
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
+		result->result_str = ft_strjoin(result->result_str, RET_STR);
 		i++;
 	}
 	if (test_c != 0)
 		print_str_if_char_to_zero(result);
 	else
-		ft_putstr(RET_STR);
-	return (ft_strlen(RET_STR));
+		ft_putstr(result->result_str);
+	return (ft_strlen(result->result_str));
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 17:14:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 23:55:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 {
 	if (WIDTH > PRECISION_O)
 	{
-		if ((int)ft_strlen(I_STR) < WIDTH)
+		if (I_STRLEN < WIDTH)
 		{
 			while ((int)ft_strlen(RET_STR) + ((PRECISION_O + 2) -
-					(int)ft_strlen(I_STR)) < WIDTH_CPY)
+					I_STRLEN) < WIDTH_CPY)
 				RET_STR = ft_strjoin(RET_STR, " ");
 		}
 		RET_STR = (I_L_CONV == 'x') ?
@@ -52,8 +52,7 @@ static void	is_precision_sup_width(t_result *result, size_t i)
 		RET_STR = (I_L_CONV == 'x') ?
 			ft_strjoin(RET_STR, "0x") : ft_strjoin(RET_STR, "0X");
 		PRECISION_O += 1;
-		while (((int)ft_strlen(RET_STR) +
-				(int)ft_strlen(I_STR)) <= PRECISION_O)
+		while (((int)ft_strlen(RET_STR) + I_STRLEN) <= PRECISION_O)
 			RET_STR = ft_strjoin(RET_STR, "0");
 	}
 }

@@ -34,6 +34,7 @@ static t_type		*init_type(void)
 		return (NULL);
 	tmp->ptr = NULL;
 	tmp->str = ft_strnew(1);
+	tmp->str_len = 0;
 	return (tmp);
 }
 
@@ -85,6 +86,8 @@ t_conv			**init_tab_conv(t_result *result)
 		tab_conv[i]->is_precision = 0;
 		tab_conv[i]->is_modifier = 0;
 		tab_conv[i]->l_conv = 0;
+		tab_conv[i]->ret_str = ft_strnew(0);
+		*tab_conv[i]->ret_str = '\0';
 		i++;
 	}
 	tab_conv[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 15:21:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 23:40:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ static void	conv_binary(t_result *result, size_t * i)
 	base = 2;
 	if (format[*i] == 'b' && !IS_MODIFIER)
 	{
-		get_specifier_and_ajust_width(result, 'b');
 		STR = ft_itoa_base((unsigned int)va_arg(result->ap, int), base);
-		ajust_width_precision_itoa_base(result);
+		get_specifier_and_ajust_width(result, 'b');
 	}
 }
 
@@ -37,24 +36,15 @@ static void	conv_decimal_u(t_result *result, size_t *i)
 	if (format[*i] == 'u' || format[*i] == 'U')
 	{
 		I_MOD_L = (format[*i] == 'U') ? 1 : I_MOD_L;
-		get_specifier_and_ajust_width(result, 'u');
 		if (I_MOD_HH || I_MOD_H)
-		{
 			STR = I_MOD_HH ? ft_utoa_base((unsigned char)va_arg(result->ap, int), base) :
 							ft_utoa_base((unsigned short)va_arg(result->ap, int), base);
-			ajust_width_precision_itoa_base(result);
-		}
 		else if (!(I_MOD_LL || I_MOD_L || I_MOD_H || I_MOD_HH || I_MOD_J
 					|| I_MOD_Z))
-		{
 			STR = ft_utoa_base((unsigned int)va_arg(result->ap, int), base);
-			ajust_width_precision_litoa_base(result);
-		}
 		else if (I_MOD_L || I_MOD_LL || I_MOD_J || I_MOD_Z)
-		{
 			STR = ft_utoa_base((unsigned long)va_arg(result->ap, long), base);
-			ajust_width_precision_ulitoa_base(result);
-		}
+		get_specifier_and_ajust_width(result, 'u');
 	}
 }
 
@@ -69,24 +59,15 @@ static void	conv_octal(t_result *result, size_t * i)
 	{
 		if (format[*i] == 'O')
 			I_MOD_L = 1;
-		get_specifier_and_ajust_width(result, 'o');
 		if (I_MOD_H || I_MOD_HH)
-		{
 			STR = (I_MOD_H) ? ft_utoa_base((unsigned short)va_arg(result->ap, int), base) :
 							ft_utoa_base((unsigned char)va_arg(result->ap, int), base);
-			ajust_width_precision_itoa_base(result);
-		}
 		else if (!(I_MOD_LL || I_MOD_L || I_MOD_H || I_MOD_HH || I_MOD_J
 					|| I_MOD_Z))
-		{
 			STR = ft_utoa_base((unsigned int)va_arg(result->ap, int), base);
-			ajust_width_precision_litoa_base(result);
-		}
 		else if (I_MOD_L || I_MOD_LL || I_MOD_J || I_MOD_Z)
-		{
 			STR = ft_utoa_base((unsigned long)va_arg(result->ap, long), base);
-			ajust_width_precision_ulitoa_base(result);
-		}
+		get_specifier_and_ajust_width(result, 'o');		
 	}
 }
 
@@ -100,23 +81,18 @@ static void	conv_decimal_d(t_result *result, size_t *i)
 	if (format[*i] == 'd' || format[*i] == 'i'|| format[*i] == 'D')
 	{
 		I_MOD_L = (format[*i] == 'D') ? 1 : I_MOD_L;
-		get_specifier_and_ajust_width(result, 'd');
-		if (L_CONV == 'd' && !(I_MOD_LL || I_MOD_L || I_MOD_J || I_MOD_Z))
+		if (I_MOD_HH || I_MOD_H)
 		{
 			if (I_MOD_HH)
 				STR = ft_itoa_base((signed char)va_arg(result->ap, int), base);
 			else if (I_MOD_H)
 				STR = ft_itoa_base((short)va_arg(result->ap, int), base);
-			else
-				STR = ft_itoa_base(va_arg(result->ap, int), base);
-			ajust_width_precision_itoa_base(result);
 		}
-		else if (L_CONV == 'd' && (I_MOD_L || I_MOD_LL || I_MOD_J
-					|| I_MOD_Z))
-		{
+		else if (I_MOD_L || I_MOD_LL || I_MOD_J || I_MOD_Z)
 			STR = ft_itoa_base(va_arg(result->ap, long), base);
-			ajust_width_precision_litoa_base(result);
-		}
+		else
+			STR = ft_itoa_base(va_arg(result->ap, int), base);
+		get_specifier_and_ajust_width(result, 'd');
 	}
 }
 

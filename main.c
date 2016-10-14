@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 17:11:15 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 17:43:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,44 +51,23 @@ int main()
 	unsigned int	nb;
 	int				ret;
 
-	nb = ft_printf("%-8.16hhu\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16hu\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16u\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16lu\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16llu\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
 
-// nb = ft_printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
-// 	ft_printf("%d\n", nb);
-// 	nb = ft_printf("%#16.8hx\n", (short)-2147483649051561567);
-// 	ft_printf("%d\n", nb);
-// 	nb = ft_printf("%#16.8x\n", (int)-2147483649051561567);
-// 	ft_printf("%d\n", nb);
-// 	nb = ft_printf("%#16.8lx\n", (long)-2147483649051561567);
-// 	ft_printf("%d\n", nb);
-// 	nb = ft_printf("%#16.8llx\n", (long long)-2147483649051561567);
-// 	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	// nb = ft_printf("%#16.8hx\n", (short)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%#16.8x\n", (int)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%#16.8lx\n", (long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%#16.8llx\n", (long long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb = printf("%-8.16hhu\n", (char)-2147483649051561567);
+	nb = printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
 	printf("%d\n", nb);
-	nb = printf("%-8.16hu\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16u\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16lu\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16llu\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	// nb = printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
-	// printf("%d\n", nb);
 	// nb = printf("%#16.8hx\n", (short)-2147483649051561567);
 	// printf("%d\n", nb);
 	// nb = printf("%#16.8x\n", (int)-2147483649051561567);

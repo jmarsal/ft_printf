@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/26 16:18:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 17:41:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,6 +337,17 @@ int	main(void)
 	nb = ft_printf("%#8.16lX\n", (long)-2147483649051561567);
 	ft_printf("%d\n", nb);
 	nb = ft_printf("%#8.16llX\n", (long long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+
+	nb = ft_printf("%#16.8hhx%#16.8hhx\n", (char)-2147483649051561567, (char)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8hx\n", (short)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8x\n", (int)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8lx\n", (long)-2147483649051561567);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%#16.8llx\n", (long long)-2147483649051561567);
 	ft_printf("%d\n", nb);
 
 	return (0);

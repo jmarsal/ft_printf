@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/12 10:34:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 23:52:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,12 @@
 
 # define STR result->tab_conv[result->i_args]->type->str
 # define I_STR result->tab_conv[i]->type->str
-# define U_L_INT result->tab_conv[result->i_args]->type->u_l_nb
-# define I_U_L_INT result->tab_conv[i]->type->u_l_nb
-# define INT result->tab_conv[result->i_args]->type->nb
-# define I_INT result->tab_conv[i]->type->nb
-# define L_INT result->tab_conv[result->i_args]->type->l_nb
-# define I_L_INT result->tab_conv[i]->type->l_nb
-# define U_INT result->tab_conv[result->i_args]->type->u_nb
-# define I_U_INT result->tab_conv[i]->type->u_nb
-# define C result->tab_conv[result->i_args]->type->c
-# define I_C result->tab_conv[i]->type->c
-# define L_CONV result->tab_conv[result->i_args]->l_conv
-# define I_L_CONV result->tab_conv[i]->l_conv
+# define STRLEN result->tab_conv[result->i_args]->type->str_len
+# define I_STRLEN (int)result->tab_conv[i]->type->str_len
 # define PTR result->tab_conv[result->i_args]->type->ptr
 # define I_PTR result->tab_conv[i]->type->ptr
+# define L_CONV result->tab_conv[result->i_args]->l_conv
+# define I_L_CONV result->tab_conv[i]->l_conv
 
 /*
 ** width_precision
@@ -89,7 +81,7 @@
 ** ret_ft_printf
 */
 
-# define RET_STR result->ret_str
+# define RET_STR result->tab_conv[i]->ret_str
 
 /*
 ** conversion flags

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 12:45:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/14 22:58:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct		s_type
 {
 	char			*str;
+	size_t			str_len;
 	int				*ptr;
 }					t_type;
 
@@ -54,6 +55,7 @@ typedef struct		s_conv
 	t_type			*type;
 	t_modifier		*modifier;
 	t_w_or_p		*width_precision;
+	char			*ret_str;
 	int				is_width;
 	int				is_precision;
 	int				is_modifier;
@@ -67,7 +69,7 @@ typedef struct		s_result
 	char			*format;
 	size_t			i_args;
 	size_t			index;
-	char			*ret_str;
+	char			*result_str;
 }					t_result;
 
 #endif
