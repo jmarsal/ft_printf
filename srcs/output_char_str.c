@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 17:36:12 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 00:00:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,5 @@ void		print_str_if_char_to_zero(t_result *result)
 		i += ft_strlen(str_c);
 		ft_bzero(str_c, ft_strlen(str_c));
 	}
-	free (str_c);
-	str_c = NULL;
+	ft_free_null(str_c);
 }

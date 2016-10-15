@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/15 01:54:12 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 23:52:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,12 @@ static void	tab_conv_destroy(t_conv **conv)
 	del = *conv;
 	if (del)
 	{
-		free(del->caracters);
-		del->caracters = NULL;
-		free(del->type);
-		del->type = NULL;
-		free(del->modifier);
-		del->modifier = NULL;
-		free(del->width_precision);
-		del->width_precision = NULL;
+		ft_free_null(del->caracters);
+		ft_free_null(del->type);
+		ft_free_null(del->modifier);
+		ft_free_null(del->width_precision);
 		ft_strdel(&del->ret_str);
-		free(del);
-		del = NULL;
+		ft_free_null(del);
 	}
 }
 
@@ -65,6 +60,6 @@ void		destroy_result(t_result **result)
 		tab_conv_destroy(&tab_for_del);
 	}
 	ft_strdel(&tmp_for_del->result_str);
-	free(tmp_for_del);
+	ft_free_null(tmp_for_del);
 	*result = NULL;
 }

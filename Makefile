@@ -38,6 +38,7 @@ SRC_PATH += libft/src_numeric_manage
 SRC_PATH += libft/src_output
 SRC_PATH += libft/src_str_control
 SRC_PATH += libft/src_str_manage
+SRC_PATH += libft/src_buffer
 vpath %.c $(SRC_PATH)
 
 SOURCES = ft_printf.c \
@@ -95,7 +96,8 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strncpy.c \
 						ft_strtoupper.c \
 						ft_toupper.c \
-						ft_strdel.c
+						ft_strdel.c \
+						ft_free_null.c
 
 # Libft
  LIBFT_PATH = libft

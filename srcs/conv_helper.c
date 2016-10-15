@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 22:53:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/15 23:09:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 23:59:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void	add_padding(t_result *result, size_t i, int size, char c)
 		ft_memset(padding, c, PRECISION_O - (I_STRLEN));
 		RET_STR = ft_strjoin(RET_STR, padding);
 	}
-	free (padding);
-	padding = NULL;
+	ft_free_null (padding);
 }

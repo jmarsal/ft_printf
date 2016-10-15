@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 16:20:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 00:00:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ static void	get_precision_in_format(t_result *result, size_t *i)
 		}
 		else if (I_PRECISION_O <= 0)
 			I_IS_PRECISION = 0; // Je pense qu'il y a un soucis, peut etre exit (-1) ? A voir...
-		free(get_precision);
-		get_precision = NULL;
+		ft_free_null(get_precision);
 	}
 	get_modifier_in_format(result, i);
 }
@@ -83,8 +82,7 @@ void		get_width_in_format(t_result *result, size_t *i)
 		get_width = ft_get_number(format, i);
 		I_WIDTH = ft_atoi(get_width);
 		I_WIDTH_CPY = I_WIDTH;
-		free(get_width);
-		get_width = NULL;
+		ft_free_null(get_width);
 		I_IS_WIDTH = 1;
 	}
 	get_precision_in_format(result, i);
