@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 23:57:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 03:00:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,5 @@ void		print_ptr(t_result *result, size_t i);
 */
 
 void		get_specifier_and_ajust_width(t_result *result, char specifier);
-
+void		add_padding(t_result *result, size_t i, int size, char c);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 23:55:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 23:08:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void is_width_precision(t_result *result, size_t i)
 		while (PRECISION_CPY-- > 0)
 			RET_STR = ft_strjoin(RET_STR, "0");
 	is_sharp_and_o(result, i);
-	if (PLUS == 1 && MINUS == 0 && !IS_PRECISION)
+	if (PLUS && !IS_PRECISION)
 		RET_STR = ft_strjoin(RET_STR, "+");
 }
 
@@ -92,7 +92,7 @@ void	is_width_precision_and_not_minus(t_result *result, size_t i)
 			RET_STR = (PLUS) ? ft_strjoin(RET_STR, "+") : RET_STR;
 			if (*I_STR == '-' && (I_L_CONV != 'x' && I_L_CONV != 'X'))
 				{
-					I_STR = ft_strdup(I_STR + 1);
+					I_STR = I_STR + 1;
 					RET_STR = ft_strjoin(RET_STR, "-");
 				}
 			while (WIDTH_CPY-- > 0)

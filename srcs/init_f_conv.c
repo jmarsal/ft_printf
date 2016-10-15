@@ -33,7 +33,8 @@ static t_type		*init_type(void)
 	if (!(tmp = ft_memalloc(sizeof(t_type))))
 		return (NULL);
 	tmp->ptr = NULL;
-	tmp->str = ft_strnew(1);
+	tmp->str = ft_strnew(0);
+	*tmp->str = '\0';
 	tmp->str_len = 0;
 	return (tmp);
 }
@@ -72,7 +73,7 @@ t_conv			**init_tab_conv(t_result *result)
 	size_t	i;
 
 	i = 0;
-	if (!(tab_conv = ft_memalloc(sizeof(t_conv*) * result->index + 1)))
+	if (!(tab_conv = ft_memalloc(sizeof(t_conv*) * result->index + 2)))
 		return (NULL);
 	while (i <= result->index)
 	{
@@ -90,6 +91,6 @@ t_conv			**init_tab_conv(t_result *result)
 		*tab_conv[i]->ret_str = '\0';
 		i++;
 	}
-	tab_conv[i] = NULL;
+	// tab_conv[i] = NULL;
 	return (tab_conv);
 }

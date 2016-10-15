@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 23:40:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/15 00:56:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ static void	conv_decimal_u(t_result *result, size_t *i)
 	{
 		I_MOD_L = (format[*i] == 'U') ? 1 : I_MOD_L;
 		if (I_MOD_HH || I_MOD_H)
-			STR = I_MOD_HH ? ft_utoa_base((unsigned char)va_arg(result->ap, int), base) :
-							ft_utoa_base((unsigned short)va_arg(result->ap, int), base);
+			STR = I_MOD_HH ?
+				ft_utoa_base((unsigned char)va_arg(result->ap, int), base) :
+				ft_utoa_base((unsigned short)va_arg(result->ap, int), base);
 		else if (!(I_MOD_LL || I_MOD_L || I_MOD_H || I_MOD_HH || I_MOD_J
 					|| I_MOD_Z))
 			STR = ft_utoa_base((unsigned int)va_arg(result->ap, int), base);
@@ -60,8 +61,9 @@ static void	conv_octal(t_result *result, size_t * i)
 		if (format[*i] == 'O')
 			I_MOD_L = 1;
 		if (I_MOD_H || I_MOD_HH)
-			STR = (I_MOD_H) ? ft_utoa_base((unsigned short)va_arg(result->ap, int), base) :
-							ft_utoa_base((unsigned char)va_arg(result->ap, int), base);
+			STR = (I_MOD_H) ? 
+				ft_utoa_base((unsigned short)va_arg(result->ap, int), base) :
+				ft_utoa_base((unsigned char)va_arg(result->ap, int), base);
 		else if (!(I_MOD_LL || I_MOD_L || I_MOD_H || I_MOD_HH || I_MOD_J
 					|| I_MOD_Z))
 			STR = ft_utoa_base((unsigned int)va_arg(result->ap, int), base);
