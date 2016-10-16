@@ -67,7 +67,7 @@ static t_w_or_p	*init_width_precision(void)
 	return (tmp);
 }
 
-t_conv			**init_tab_conv(t_result *result)
+/*t_conv			**init_tab_conv(t_result *result)
 {
 	t_conv	**tab_conv;
 	size_t	i;
@@ -93,4 +93,65 @@ t_conv			**init_tab_conv(t_result *result)
 	}
 	// tab_conv[i] = NULL;
 	return (tab_conv);
+}*/
+
+static t_conv	*tab_conv_init(t_conv *tab_conv)
+{
+	if (!(tab_conv = ft_memalloc(sizeof(t_conv))) ||
+		!(tab_conv->caracters = init_caracters()) ||
+		!(tab_conv->type = init_type()) ||
+		!(tab_conv->modifier = init_modifier()) ||
+		!(tab_conv->width_precision = init_width_precision()))
+		return (NULL);
+	tab_conv->is_width = 0;
+	tab_conv->is_precision = 0;
+	tab_conv->is_modifier = 0;
+	tab_conv->l_conv = 0;
+	tab_conv->ret_str = ft_strnew(0);
+	*tab_conv->ret_str = '\0';
+	return (tab_conv);
 }
+
+static t_conv	**tab_conv_resize(t_result *result)
+{
+	void	*new;
+	size_t	newsize;
+
+	newsize = sizeof(void*) * result->sizemax * 2;
+	if (!(new = ft_realloc(result->tab_conv, newsize, sizeof(void *) * result->sizemax)))
+		return (NULL);
+	result->sizemax *= 2;
+	result->tab_conv = new;
+	return (result->tab_conv);
+}
+
+static t_conv	**tab_conv_create()
+{
+	t_conv	**tab_conv;
+
+	tab_conv = NULL;
+	if (!tab_conv)
+		if (!(tab_conv = ft_memalloc(sizeof(t_conv**))))
+			return (NULL);
+	return (tab_conv);
+}
+
+t_conv			**tab_conv_add(t_result *result, size_t tab_index)
+{
+	if (!result->tab_conv)
+		result->tab_conv = tab_conv_create();
+	if (tab_index >= result->sizemax)
+	{
+		if (result->sizemax == 0)
+			result->sizemax = INIT_SIZE_TAB_CONV;
+		if (tab_conv_resize(result) == NULL)
+			return (NULL);
+		while (tab_index <= result->sizemax)
+		{
+			result->tab_conv[tab_index] = tab_conv_init(result->tab_conv[tab_index]);
+			tab_index++;
+		}
+	}
+	return (result->tab_conv);
+}
+

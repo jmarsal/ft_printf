@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/15 03:00:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 17:58:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void		destroy_result(t_result **result);
 ** init_tab_conv.c
 */
 
-t_conv		**init_tab_conv(t_result *result);
-
+t_conv		**tab_conv_add(t_result *result, size_t tab_index);
 /*
 ** conv_hex.c
 */

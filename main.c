@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/16 00:19:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/17 00:18:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,21 @@
 
 int main()
 {
-	char	*buffer;
+	int	nb;
+	int nb1;
 
-	buffer = NULL;
-	// buffer = ft_buffer_create(&buffer, 8);
-	if (buffer != NULL)
-		printf("ok !\n");
-	else
-	{
-		printf("null\n");
-	}
+	nb = 42;
+	nb1 = ft_printf("%d\n", nb);
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("%d\n%d\n%d\n", nb, nb, nb);
+	ft_printf("%d\n", nb1);
 // // ////////////////////////////////////////////////////////////////////////////////
-	printf("Avec printf\n");
+	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
+	// nb1 = printf("%d\n", nb);
+	// printf("%d\n", nb1);
+	nb1 = printf("%d\n%d\n%d\n", nb, nb, nb);
+	printf("%d\n", nb1);
 return (0);
 }

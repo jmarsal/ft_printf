@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/16 00:00:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 22:50:44 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	get_precision_in_format(t_result *result, size_t *i)
 			I_IS_PRECISION = 1;
 		}
 		else if (I_PRECISION_O <= 0)
-			I_IS_PRECISION = 0; // Je pense qu'il y a un soucis, peut etre exit (-1) ? A voir...
+			I_IS_PRECISION = 0;
 		ft_free_null(get_precision);
 	}
 	get_modifier_in_format(result, i);

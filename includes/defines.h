@@ -6,12 +6,18 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 23:52:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/17 00:22:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
+
+/*
+** tab_conv
+*/
+
+# define INIT_SIZE_TAB_CONV 8
 
 /*
 ** type

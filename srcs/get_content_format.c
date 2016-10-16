@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 23:56:31 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 15:44:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 22:21:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	get_content_flags(t_result *result, size_t *i)
 	get_flags(result, i);
 	if (is_conversion_flag(format, i, C_SPECIFIERS) == 1)
 	{
+		result->tab_conv = tab_conv_add(result, result->i_args);
 		conv_str_s(result, i);
 		conv_bin_dec_oct(result, i);
 		conv_hex_x(result, i);
@@ -76,6 +77,7 @@ static void	get_str_in_format(t_result *result, size_t *i)
 		if (format[*i] == '\0' || format[*i + 1] == '%' ||
 			format[*i + 1] == '{')
 		{
+			result->tab_conv = tab_conv_add(result, result->i_args);
 			L_CONV = 's';
 			STR = ft_strnew(j);
 			ft_bzero(STR, j + 1);
@@ -103,12 +105,14 @@ void		get_content_format(t_result *result)
 		get_str_in_format(result, &i);
 		if (format[i] == '{')
 		{
+			result->tab_conv = tab_conv_add(result, result->i_args);
 			L_CONV = 's';
 			get_is_color(result, &i);
 			result->i_args++;
 		}
 		if (format[i + 1] && (format[i] == '%' && format[i + 1] == '%'))
 		{
+			result->tab_conv = tab_conv_add(result, result->i_args);
 			L_CONV = 's';
 			STR = "%";
 			i += 2;

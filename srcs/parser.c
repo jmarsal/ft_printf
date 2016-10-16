@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 16:04:32 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/16 22:31:37 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int get_modifier(const char *format, size_t *i)
+/*static int get_modifier(const char *format, size_t *i)
 {
 	size_t	count;
 	size_t	j;
@@ -114,14 +114,16 @@ static int	search_flags_in_format(t_result *result)
 			return (-1);
 	}
 	return (0);
-}
+}*/
 
 int			treatment(t_result *result)
 {
-	if (search_flags_in_format(result) == -1)
-		return (-1);
-	if (!(result->tab_conv = init_tab_conv(result)))
-		return (-1);
+	// if (search_flags_in_format(result) == -1)
+	// 	return (-1);
+	// if (!(result->tab_conv = tab_conv_create(result)))
+	// 	return (-1);
+	result->tab_conv = tab_conv_add(result, result->i_args);
 	get_content_format(result);
+	result->index = result->i_args;
 	return (0);
 }

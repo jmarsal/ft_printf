@@ -103,6 +103,6 @@ rm t_conv_b ft_t_conv_b t_conv_b.txt ft_t_conv_b.txt
 
 echo "Differences entre les deux fonctions testes sur les conversions...\n"
 clang -Wall -Wextra -Werror test/srcs/diff.c -o diff -I./includes -L./ -lftprintf
-./diff
+time ./diff
 rm diff
 cd test
