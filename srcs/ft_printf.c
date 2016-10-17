@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/16 16:34:33 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/17 14:09:37 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_vasprintf(va_list ap, const char *format)
 			return (error_output(err));
 	if ((len = print_result(result)) == -1)
 				return (-1);
-	// destroy_result(&result);
+	destroy_result(&result);
 	return (len);
 }
 

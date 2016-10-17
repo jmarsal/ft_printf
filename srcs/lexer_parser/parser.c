@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_content_helper.c                               :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/10 01:47:32 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/16 22:50:44 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/10/17 16:45:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	find_witch_modifier(t_result *result, char *tmp_modifier)
 		I_MOD_Z = 1;
 }
 
-static void	get_modifier_in_format(t_result *result, size_t *i)
+static void	parser_modifier(t_result *result, size_t *i)
 {
 	char	*format;
 	char	tmp_modifier[3];
@@ -36,7 +36,7 @@ static void	get_modifier_in_format(t_result *result, size_t *i)
 
 	format = result->format;
 	index = 0;
-	while (is_conversion_flag(format, i, L_MODIFIER) == 1)
+	while (format[*i] && ft_strchr(L_MODIFIER, format[*i]))
 	{
 		IS_MODIFIER = 1;
 		tmp_modifier[index++] = format[*i];
@@ -47,14 +47,14 @@ static void	get_modifier_in_format(t_result *result, size_t *i)
 		find_witch_modifier(result, tmp_modifier);
 }
 
-static void	get_precision_in_format(t_result *result, size_t *i)
+static void	parser_precision(t_result *result, size_t *i)
 {
 	char	*get_precision;
 	char	*format;
 
 	get_precision = NULL;
 	format = result->format;
-	if (is_conversion_flag(format, i, PRECISION) == 1)
+	if (ft_strchr(PRECISION, format[*i]))
 	{
 		*i += 1;
 		get_precision = ft_get_number(format, i);
@@ -67,17 +67,17 @@ static void	get_precision_in_format(t_result *result, size_t *i)
 			I_IS_PRECISION = 0;
 		ft_free_null(get_precision);
 	}
-	get_modifier_in_format(result, i);
+	parser_modifier(result, i);
 }
 
-void		get_width_in_format(t_result *result, size_t *i)
+static void	parser_width(t_result *result, size_t *i)
 {
 	char	*get_width;
 	char	*format;
 
 	get_width = NULL;
 	format = result->format;
-	if (is_conversion_flag(format, i, F_WIDTH) == 1)
+	if (ft_strchr(F_WIDTH, format[*i]))
 	{
 		get_width = ft_get_number(format, i);
 		I_WIDTH = ft_atoi(get_width);
@@ -85,5 +85,24 @@ void		get_width_in_format(t_result *result, size_t *i)
 		ft_free_null(get_width);
 		I_IS_WIDTH = 1;
 	}
-	get_precision_in_format(result, i);
+	parser_precision(result, i);
+}
+
+void		get_flags(t_result *result, size_t *i)
+{
+	while (ft_strchr(CARACTERS, result->format[*i]))
+	{
+		if (result->format[*i] == '-')
+			A_MINUS = 1;
+		else if (result->format[*i] == '+')
+			A_PLUS = 1;
+		else if (result->format[*i] == ' ')
+			A_SPACE = 1;
+		else if (result->format[*i] == '#')
+			A_SHARP = 1;
+		else if (result->format[*i] == '0')
+			A_ZERO = 1;
+		*i += 1;
+	}
+	parser_width(result, i);
 }

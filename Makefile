@@ -26,7 +26,12 @@ HEADERS += $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH) $(LIBFT_INC_PATH))
 
 # Sources
-SRC_PATH = srcs
+SRC_PATH = srcs/
+SRC_PATH += srcs/conversions
+SRC_PATH += srcs/error
+SRC_PATH += srcs/memory
+SRC_PATH += srcs/lexer_parser
+SRC_PATH += srcs/output
 SRC_PATH += libft/src_array
 SRC_PATH += libft/src_char_control
 SRC_PATH += libft/src_conversion
@@ -42,12 +47,15 @@ SRC_PATH += libft/src_buffer
 vpath %.c $(SRC_PATH)
 
 SOURCES = ft_printf.c \
-						parser.c \
-						parser_helper.c \
 						init.c \
-						init_f_conv.c \
-						get_content_format.c \
-						get_content_helper.c \
+						init_tab_conv.c \
+						tab_conv_add.c \
+						lex_and_parse.c \
+						parser.c \
+						parser_color.c \
+						parser_percent.c \
+						parser_str.c \
+						parser_specifier.c \
 						conv_hex.c \
 						conv_char_str.c \
 						conv_bin_dec_oct.c \
@@ -60,7 +68,7 @@ SOURCES = ft_printf.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
 						output_mem.c \
-						conv_helper.c
+						output_helper.c
 
 LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_atoi.c \
