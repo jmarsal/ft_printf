@@ -26,11 +26,11 @@ sans compter l'octet nul « \0 » final dans les chaînes.
 **Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
 se terminant dans son état de décalage initial.
 1. **La chaîne de format** est composée d'**indicateurs** :
-	1.**les caractères ordinaires** (différents de %), qui sont copiés sans modification sur la sortie.
-	2.**les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
+	1. **les caractères ordinaires** (différents de %), qui sont copiés sans modification sur la sortie.
+	2. **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
 2. **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
 de conversion**.
-	*Entre eux peuvent se trouver (dans l'ordre)* :
+	* *Entre eux peuvent se trouver (dans l'ordre)* :
 		1. **zéro ou plusieurs attributs**.
 		2. **une valeur optionnelle de largeur minimal de champ**.
 		3. **une valeur optionnelle de précision**.
