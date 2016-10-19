@@ -23,7 +23,7 @@ sans compter l'octet nul « \0 » final dans les chaînes.
 
 #### Chaîne de format :
 
-* Le format de conversion est *indiqué* par **une chaîne de caractères**, commençant et
+* **Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
 se terminant dans son état de décalage initial.
 * **La chaîne de format** est composée d'**indicateurs** :
 	* les caractères ordinaires (différents de %), qui sont copiés sans modification sur la sortie.
