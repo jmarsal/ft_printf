@@ -1,7 +1,5 @@
-###ft_printf
+#NAME :
+	`ft_printf`
 
-##TO DO
-
-- [ ] Gerer width de facon simplifier
-- [ ] Gerer precision de foncon simplifier
-- [ ] Integrer un buffer pour ne malloc pas a tout va
+##SYNOPSYS :
+	`int printf(const char *format, ...);`
