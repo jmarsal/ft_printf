@@ -53,7 +53,7 @@ Un nombre optionnel ne commençant pas par un zéro, peut indiquer une **largeur
 de champ**. Si la valeur convertie occupe moins de caractères que cette largeur, 
 elle sera complétée par des **espaces à gauche** (**ou à droite si l'attribut d'alignement 
 à gauche a été fourni**). À la place de la chaîne représentant le nombre décimal, 
-on peut écrire « * » ou « *m$ » (m étant entier) **pour indiquer que la largeur 
+on peut écrire « * » ou « *m$ » (m étant entier). **pour indiquer que la largeur 
 du champ est fournie dans l'argument suivant, ou dans le m-ième argument, 
 respectivement**. L'argument fournissant **la largeur doit être de type int**. 
 **Une largeur négative est considéré comme l'attribut « - »** vu plus haut suivi 
