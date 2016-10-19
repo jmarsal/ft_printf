@@ -21,18 +21,18 @@ de taille variable de stdarg(3).
 sans compter l'octet nul « \0 » final dans les chaînes.
 * Si une erreur de sortie s'est produite, une valeur négative est renvoyée.
 
-1. *Chaîne de format* :
+#### *Chaîne de format* :
 
-* **Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
+**Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
 se terminant dans son état de décalage initial.
-* **La chaîne de format** est composée d'**indicateurs** :
-	* les caractères ordinaires (différents de %), qui sont copiés sans modification sur la sortie.
-	* **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
-* **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
+1. **La chaîne de format** est composée d'**indicateurs** :
+	1.**les caractères ordinaires** (différents de %), qui sont copiés sans modification sur la sortie.
+	2.**les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
+2. **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
 de conversion**.
-	* *Entre eux peuvent se trouver (dans l'ordre)* :
-		* **zéro ou plusieurs attributs**.
-		* **une valeur optionnelle de largeur minimal de champ**.
-		* **une valeur optionnelle de précision**.
-		* **un éventuel modificateur de longueur**.
+	*Entre eux peuvent se trouver (dans l'ordre)* :
+		1. **zéro ou plusieurs attributs**.
+		2. **une valeur optionnelle de largeur minimal de champ**.
+		3. **une valeur optionnelle de précision**.
+		4. **un éventuel modificateur de longueur**.
 
