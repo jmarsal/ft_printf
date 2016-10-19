@@ -59,6 +59,8 @@ Le caractère **%** peut être éventuellement suivi par un ou plusieurs attribu
 		* Si **une précision est fournie** avec une conversion numérique 
 		(**d, i, o, u, x, et X**), **l'attribut 0 est ignoré**.
 		* Pour **les autres conversions**, **le comportement est indéfini**.
-* **-** : indique que la valeur doit être justifiée sur la limite gauche du champ (par défaut elle l'est à droite). Sauf pour la conversion n, les valeurs sont complétées à droite par des espaces, plutôt qu'à gauche par des zéros ou des blancs. Un attribut **-** surcharge un attribut 0 si les deux sont fournis.
+* **-** : indique que la valeur doit être justifiée sur la limite gauche du champ 
+(par défaut elle l'est à droite). Un attribut **-** surcharge un attribut 0 si 
+les deux sont fournis.
 
 
