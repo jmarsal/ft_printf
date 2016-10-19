@@ -28,7 +28,7 @@ se terminant dans son état de décalage initial.
 * **La chaîne de format** est composée d'**indicateurs** :
 	* les caractères ordinaires (différents de %), qui sont copiés sans modification sur la sortie.
 	* **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
-* Les spécifications de conversion sont introduites par le caractère **%**, et se terminent par un **indicateur
+* **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
 de conversion**.
 	* *Entre eux peuvent se trouver (dans l'ordre)* :
 		* **zéro ou plusieurs attributs**.
