@@ -88,7 +88,7 @@ Ici, une conversion entière correspond à **d, i, o, u, x ou X**.
 	conversion c suivante correspond à un argument wint_t, ou encore la conversion s 
 	suivante correspond à un pointeur sur un wchar_t.
 * **ll**
-	*La conversion entière suivante correspond à un long long int, ou unsigned long long int, 
+	* La conversion entière suivante correspond à un long long int, ou unsigned long long int, 
 	ou la conversion n suivante correspond à un pointeur sur un long long int.
 * **j**
 	* La conversion entière suivante correspond à un argument intmax_t ou uintmax_t.
