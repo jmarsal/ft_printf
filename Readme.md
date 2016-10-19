@@ -1,13 +1,13 @@
 # ft_printf
 
-## SYNOPSYS :
+### SYNOPSYS :
 ``` c
 	#include "ft_printf.h"
 
 	int ft_printf(const char *format, ...);
 ```
 
-## DESCRIPTION :
+### DESCRIPTION :
 
 * La fonction ft_printf() produit une sortie en accord avec le **format**.
 * La fonction ft_printf() écrit sa sortie sur **stdout**, le flux de sortie standard.
