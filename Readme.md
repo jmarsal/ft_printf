@@ -35,7 +35,7 @@ de conversion**. *Entre eux peuvent se trouver (dans l'ordre)* :
 	* 2. **une valeur optionnelle de largeur minimal de champ**.
 	* 3. **une valeur optionnelle de précision**.
 	* 4. **un éventuel modificateur de longueur**.
-* 3. **Les spécificateurs de couleurs** sont introduites par le caractères **{**, et se terminent par le
-carcatères **}**. Pour arreter à un endroit précis la mise en couleurs de la sortie de la fonction, on y introduit
+* 3. **Les spécificateurs de couleurs** sont introduites par le caractère **{** et se terminent par le
+carcatère **}**. Pour arreter à un endroit précis la mise en couleurs de la sortie de la fonction, on y introduit
 un specificateur(optionnel) **{EOC}**.
 
