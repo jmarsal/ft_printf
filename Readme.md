@@ -60,6 +60,17 @@ respectivement**. L'argument fournissant **la largeur doit être de type int**.
 d'une largeur positive. **En aucun cas une largeur trop petite ne provoque la 
 troncature du champ**. Si le résultat de **la conversion est plus grand que la largeur** 
 indiquée, **le champ est élargi pour contenir le résultat**.
+
+#### *Précision* :
+
+Une précision éventuelle, sous la forme d'un point (« . ») suivi par un nombre.
+À la place de la chaîne représentant le nombre décimal, on peut écrire « * » ou « *m$ » 
+(m étant entier) **pour indiquer que la précision est fournie dans l'argument suivant, 
+ou dans le m-ième argument, respectivement**. **L'argument fournissant la précision 
+doit être de type int**. **Si la précision ne contient que le caractère « . », ou une 
+valeur négative, elle est considérée comme nulle**. Cette précision indique **un nombre 
+minimum de chiffres à faire apparaître lors des conversions d, i, o, u, x, et X**, 
+**le nombre maximum de caractères à imprimer depuis une chaîne pour les conversions s et S**.
 Se référer au MAN 3 printf : http://manpagesfr.free.fr/man/man3/printf.3.html.
 
 
