@@ -21,7 +21,7 @@ de taille variable de stdarg(3).
 sans compter l'octet nul « \0 » final dans les chaînes.
 * Si une erreur de sortie s'est produite, une valeur négative est renvoyée.
 
-1) *Chaîne de format* :
+1. *Chaîne de format* :
 
 * **Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
 se terminant dans son état de décalage initial.
