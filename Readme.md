@@ -46,6 +46,20 @@ en couleurs de la sortie de la fonction, on y introduit un specificateur(optionn
 #### *Caractère d'attribut* :
 
 ft_printf prend en charge les atributs suivant : **#, 0, ' ' (space), +** et **-**.
+
+#### *Largeur de champ* :
+
+Un nombre optionnel ne commençant pas par un zéro, peut indiquer une **largeur minimale
+de champ**. Si la valeur convertie occupe moins de caractères que cette largeur, 
+elle sera complétée par des **espaces à gauche** (**ou à droite si l'attribut d'alignement 
+à gauche a été fourni**). À la place de la chaîne représentant le nombre décimal, 
+on peut écrire « **\*** » ou « **\*m$** » (m étant entier) **pour indiquer que la largeur 
+du champ est fournie dans l'argument suivant, ou dans le m-ième argument, 
+respectivement**. L'argument fournissant **la largeur doit être de type int**. 
+**Une largeur négative est considéré comme l'attribut « - »** vu plus haut suivi 
+d'une largeur positive. **En aucun cas une largeur trop petite ne provoque la 
+troncature du champ**. Si le résultat de **la conversion est plus grand que la largeur** 
+indiquée, **le champ est élargi pour contenir le résultat**.
 Se référer au MAN 3 printf : http://manpagesfr.free.fr/man/man3/printf.3.html.
 
 
