@@ -1,5 +1,4 @@
-#NAME :
-	- ft_printf
+# ft_printf
 
-##SYNOPSYS :
+## SYNOPSYS :
 	int ft_printf(const char *format, ...);
