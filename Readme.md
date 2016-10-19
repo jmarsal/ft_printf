@@ -28,11 +28,14 @@ se terminant dans son état de décalage initial.
 * 1. **La chaîne de format** est composée d'**indicateurs** :
 	* 1. **les caractères ordinaires** (différents de %), qui sont copiés sans modification sur la sortie.
 	* 2. **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
+	* 3. **les spécifications de couleurs**.
 * 2. **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
-de conversion**.
-*Entre eux peuvent se trouver (dans l'ordre)* :
+de conversion**. *Entre eux peuvent se trouver (dans l'ordre)* :
 	* 1. **zéro ou plusieurs attributs**.
 	* 2. **une valeur optionnelle de largeur minimal de champ**.
 	* 3. **une valeur optionnelle de précision**.
 	* 4. **un éventuel modificateur de longueur**.
+* 3. **Les spécificateurs de couleurs** sont introduites par le caractères **{**, et se terminent par le
+carcatères **}**. Pour arreter à un endroit précis la mise en couleurs de la sortie de la fonction, on y introduit
+un specificateur(optionnel) **{EOC}**.
 
