@@ -23,21 +23,25 @@ sans compter l'octet nul « \0 » final dans les chaînes.
 
 #### *Chaîne de format* :
 
-**Le format de conversion** est *indiqué* par **une chaîne de caractères**, commençant et
-se terminant dans son état de décalage initial.
+**Le format de conversion** est *indiqué* par **une chaîne de caractères**, 
+commençant et se terminant dans son état de décalage initial.
 * 1. **La chaîne de format** est composée d'**indicateurs** :
-	* 1. **les caractères ordinaires** (différents de %), qui sont copiés sans modification sur la sortie.
-	* 2. **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
+	* 1. **les caractères ordinaires** (différents de %), qui sont copiés sans
+	modification sur la sortie.
+	* 2. **les spécifications de conversion**, qui sont mises en correspondance 
+	avec les arguments suivants.
 	* 3. **les spécifications de couleurs**.
-* 2. **Les spécifications de conversion** sont introduites par le caractère **%**, et se terminent par un **indicateur
-de conversion**. *Entre eux peuvent se trouver (dans l'ordre)* :
+* 2. **Les spécifications de conversion** sont introduites par le 
+caractère **%**, et se terminent par un **indicateur de conversion**. *Entre eux
+peuvent se trouver (dans l'ordre)* :
 	* 1. **zéro ou plusieurs attributs**.
 	* 2. **une valeur optionnelle de largeur minimal de champ**.
 	* 3. **une valeur optionnelle de précision**.
 	* 4. **un éventuel modificateur de longueur**.
-* 3. **Les spécificateurs de couleurs** sont introduites par le caractère **{** et se terminent par le
-carcatère **}**. Pour arreter à un endroit précis la mise en couleurs de la sortie de la fonction, on y introduit
-un specificateur(optionnel) **{EOC}**.
+* 3. **Les spécificateurs de couleurs** sont introduites par le caractère **{** 
+et se terminent par le carcatère **}**. Pour arreter à un endroit précis la mise
+en couleurs de la sortie de la fonction, on y introduit un specificateur(optionnel) 
+**{EOC}**.
 
 #### *Caractère d'attribut* :
 
@@ -50,6 +54,6 @@ Le caractère **%** peut être éventuellement suivi par un ou plusieurs attribu
 		* Si les attributs **0** et **-** apparaissent ensemble, **l'attribut 0 est ignoré**.
 		* Si **une précision est fournie** avec une conversion numérique (**d, i, o, u, x, et X**), **l'attribut 0 est ignoré**.
 		* Pour **les autres conversions**, **le comportement est indéfini**.
-* **-**
+* **-** : indique que la valeur doit être justifiée sur la limite gauche du champ (par défaut elle l'est à droite). Sauf pour la conversion n, les valeurs sont complétées à droite par des espaces, plutôt qu'à gauche par des zéros ou des blancs. Un attribut **-** surcharge un attribut 0 si les deux sont fournis.
 
 
