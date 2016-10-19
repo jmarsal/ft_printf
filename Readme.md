@@ -30,9 +30,9 @@ se terminant dans son état de décalage initial.
 	* **les spécifications de conversion**, qui sont mises en correspondance avec les arguments suivants.
 * Les spécifications de conversion sont introduites par le caractère **%**, et se terminent par un **indicateur
 de conversion**.
-* *Entre eux peuvent se trouver (dans l'ordre)* :
-	* **zéro ou plusieurs attributs**.
-	* **une valeur optionnelle de largeur minimal de champ**.
-	* **une valeur optionnelle de précision**.
-	* **un éventuel modificateur de longueur**.
+	* *Entre eux peuvent se trouver (dans l'ordre)* :
+		* **zéro ou plusieurs attributs**.
+		* **une valeur optionnelle de largeur minimal de champ**.
+		* **une valeur optionnelle de précision**.
+		* **un éventuel modificateur de longueur**.
 
