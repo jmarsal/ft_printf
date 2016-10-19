@@ -41,14 +41,14 @@ un specificateur(optionnel) **{EOC}**.
 
 #### *Caractère d'attribut* :
 
-Le caractère *%* peut être éventuellement suivi par un ou plusieurs attributs suivants :
-	* **#** : indique que **la valeur** doit être **convertie en une autre forme**.
-		* Pour la conversion o le premier caractère de la chaîne de sortie vaudra zéro (en ajoutant un préfixe 0 si ce n'est pas déjà un zéro).
-		* Pour les conversions x et X une valeur non nulle reçoit le préfixe « 0x » (ou « 0X » pour l'indicateur X).
-	* **0** : indique le remplissage avec des zéros.
+Le caractère **%** peut être éventuellement suivi par un ou plusieurs attributs suivants :
+	* 1. **#** : indique que **la valeur** doit être **convertie en une autre forme**.
+		* 1. Pour la conversion o le premier caractère de la chaîne de sortie vaudra zéro (en ajoutant un préfixe 0 si ce n'est pas déjà un zéro).
+		* 2. Pour les conversions x et X une valeur non nulle reçoit le préfixe « 0x » (ou « 0X » pour l'indicateur X).
+	* 2. **0** : indique le remplissage avec des zéros.
 		* Pour les conversions **d, i, o, u, x, X,** la valeur est **complétée à gauche avec des zéros** plutôt qu'avec des espaces.
-			*Si les attributs **0 et -** apparaissent ensemble, **l'attribut 0 est ignoré**.
-			*Si **une précision est fournie** avec une conversion numérique (**d, i, o, u, x, et X**), **l'attribut 0 est ignoré**.
-			*Pour **les autres conversions**, **le comportement est indéfini**.
+			1. *Si les attributs **0 et -** apparaissent ensemble, **l'attribut 0 est ignoré**.
+			2. *Si **une précision est fournie** avec une conversion numérique (**d, i, o, u, x, et X**), **l'attribut 0 est ignoré**.
+			3. *Pour **les autres conversions**, **le comportement est indéfini**.
 
 
