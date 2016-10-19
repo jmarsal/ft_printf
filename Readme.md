@@ -1,5 +1,5 @@
 #NAME :
-	`ft_printf`
+	- ft_printf
 
 ##SYNOPSYS :
-	`int printf(const char *format, ...);`
+	int ft_printf(const char *format, ...);
