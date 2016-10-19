@@ -45,6 +45,7 @@ en couleurs de la sortie de la fonction, on y introduit un specificateur(optionn
 
 #### *Caractère d'attribut* :
 
+ft_printf prend en charge les atributs suivant : **#, 0, ' ' (space), +** et **-**.
 Se référer au MAN 3 printf : http://manpagesfr.free.fr/man/man3/printf.3.html.
 
 
