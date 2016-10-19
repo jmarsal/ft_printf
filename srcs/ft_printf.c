@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 14:09:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/19 22:33:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int error_output(int err)
 	return (-1);
 }
 
-static int	ft_vasprintf(va_list ap, const char *format)
+static int	ft_vsprintf(const char *format, va_list ap)
 {
 	t_result	*result;
 	int			err;
@@ -50,7 +50,7 @@ static int	ft_vasprintf(va_list ap, const char *format)
 	return (len);
 }
 
-int         ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			len;
@@ -59,7 +59,7 @@ int         ft_printf(const char *format, ...)
 	if (format)
 	{	
 		va_start(ap, format);
-		len = ft_vasprintf(ap, format);
+		len = ft_vsprintf(format, ap);
 		va_end(ap);
 	}
 	return (len);
