@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/16 22:31:09 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/21 10:50:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,14 @@ int			print_result(t_result *result)
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
 		result->result_str = ft_strjoin(result->result_str, RET_STR);
+		// printf("ret_str = %s\n", RET_STR);
 		i++;
 	}
 	if (test_c != 0)
 		print_str_if_char_to_zero(result);
 	else
+		printf("result_str = %s\n", result->result_str);
 		ft_putstr(result->result_str);
-	return (ft_strlen(result->result_str));
+		printf("ret_str = %d\n", (int)ft_strlen(result->result_str));
+	return ((int)ft_strlen(result->result_str));
 }

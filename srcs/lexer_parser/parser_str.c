@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:59:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/18 10:15:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/21 10:56:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	get_str(t_result *result, size_t *i, int j)
 	k = -1;
 	tab_conv_add(result, result->i_args);
 	L_CONV = 's';
-	STR = ft_strnew(j);
+	STR = ft_strnew(j + 1);
 	while (++k <= j)
 		STR[k] = result->format[*i - j + k];
 	result->i_args++;
