@@ -12,12 +12,12 @@ diff ./t_conv_s.txt ./ft_t_conv_s.txt | cat -e > test/diff_output/diff_conv_s.tx
 rm t_conv_s ft_t_conv_s t_conv_s.txt ft_t_conv_s.txt
 
 # <<<< %S >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_S.c -o t_conv_S
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_S.c -o ft_t_conv_S -I./includes -L./ -lftprintf
-./t_conv_S > t_conv_S.txt
-./ft_t_conv_S > ft_t_conv_S.txt
-diff ./t_conv_S.txt ./ft_t_conv_S.txt > test/diff_output/diff_conv_S.txt
-rm t_conv_S ft_t_conv_S t_conv_S.txt ft_t_conv_S.txt
+clang -Wall -Wextra -Werror test/srcs/test_conversion_ls.c -o t_conv_ls
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_ls.c -o ft_t_conv_ls -I./includes -L./ -lftprintf
+./t_conv_ls > t_conv_ls.txt
+./ft_t_conv_ls > ft_t_conv_ls.txt
+diff ./t_conv_ls.txt ./ft_t_conv_ls.txt > test/diff_output/diff_conv_ls.txt
+rm t_conv_ls ft_t_conv_ls t_conv_ls.txt ft_t_conv_ls.txt
 
 # <<<< %p >>>>
 
@@ -46,12 +46,12 @@ diff ./t_conv_o.txt ./ft_t_conv_o.txt | cat -e > test/diff_output/diff_conv_o.tx
 rm t_conv_o ft_t_conv_o t_conv_o.txt ft_t_conv_o.txt
 
 # <<<< %O >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_O.c -o t_conv_O
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_O.c -o ft_t_conv_O -I./includes -L./ -lftprintf
-./t_conv_O > t_conv_O.txt
-./ft_t_conv_O > ft_t_conv_O.txt
-diff ./t_conv_O.txt ./ft_t_conv_O.txt | cat -e > test/diff_output/diff_conv_O.txt
-rm t_conv_O ft_t_conv_O t_conv_O.txt ft_t_conv_O.txt
+clang -Wall -Wextra -Werror test/srcs/test_conversion_lo.c -o t_conv_lo
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_lo.c -o ft_t_conv_lo -I./includes -L./ -lftprintf
+./t_conv_lo > t_conv_lo.txt
+./ft_t_conv_lo > ft_t_conv_lo.txt
+diff ./t_conv_lo.txt ./ft_t_conv_lo.txt | cat -e > test/diff_output/diff_conv_lo.txt
+rm t_conv_lo ft_t_conv_lo t_conv_lo.txt ft_t_conv_lo.txt
 
 # <<<< %u >>>>
 clang -Wall -Wextra -Werror test/srcs/test_conversion_u.c -o t_conv_u
@@ -62,12 +62,12 @@ diff ./t_conv_u.txt ./ft_t_conv_u.txt | cat -e > test/diff_output/diff_conv_u.tx
 rm t_conv_u ft_t_conv_u t_conv_u.txt ft_t_conv_u.txt
 
 # <<<< %U >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_U.c -o t_conv_U
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_U.c -o ft_t_conv_U -I./includes -L./ -lftprintf
-./t_conv_U > t_conv_U.txt
-./ft_t_conv_U > ft_t_conv_U.txt
-diff ./t_conv_U.txt ./ft_t_conv_U.txt | cat -e > test/diff_output/diff_conv_U.txt
-rm t_conv_U ft_t_conv_U t_conv_U.txt ft_t_conv_U.txt
+clang -Wall -Wextra -Werror test/srcs/test_conversion_lu.c -o t_conv_lu
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_lu.c -o ft_t_conv_lu -I./includes -L./ -lftprintf
+./t_conv_lu > t_conv_lu.txt
+./ft_t_conv_lu > ft_t_conv_lu.txt
+diff ./t_conv_lu.txt ./ft_t_conv_lu.txt | cat -e > test/diff_output/diff_conv_lu.txt
+rm t_conv_lu ft_t_conv_lu t_conv_lu.txt ft_t_conv_lu.txt
 
 # <<<< %x ou %X >>>>
 clang -Wall -Wextra -Werror test/srcs/test_conversion_x_X.c -o t_conv_x_X
@@ -86,12 +86,12 @@ diff ./t_conv_c.txt ./ft_t_conv_c.txt | cat -e > test/diff_output/diff_conv_c.tx
 rm t_conv_c ft_t_conv_c t_conv_c.txt ft_t_conv_c.txt
 
 # <<<< %C >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_C.c -o t_conv_C
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_C.c -o ft_t_conv_C -I./includes -L./ -lftprintf
-./t_conv_C > t_conv_C.txt
-./ft_t_conv_C > ft_t_conv_C.txt
-diff ./t_conv_C.txt ./ft_t_conv_C.txt > test/diff_output/diff_conv_C.txt
-rm t_conv_C ft_t_conv_C t_conv_C.txt ft_t_conv_C.txt
+clang -Wall -Wextra -Werror test/srcs/test_conversion_wC.c -o t_conv_wC
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_wC.c -o ft_t_conv_wC -I./includes -L./ -lftprintf
+./t_conv_wC > t_conv_wC.txt
+./ft_t_conv_wC > ft_t_conv_wC.txt
+diff ./t_conv_wC.txt ./ft_t_conv_wC.txt > test/diff_output/diff_conv_wC.txt
+rm t_conv_wC ft_t_conv_wC t_conv_wC.txt ft_t_conv_wC.txt
 
 # <<<< %b >>>>
 clang -Wall -Wextra -Werror test/srcs/test_conversion_b.c -o t_conv_b

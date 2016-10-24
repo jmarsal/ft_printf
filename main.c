@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/21 10:36:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/22 01:08:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main()
 	// nb1 = ft_printf("\n\n%s%s", "Hello World !\n", "C'est la fete !\n");
 	// ft_printf("%d\n", nb1);
 
-	nb1 = ft_printf("s");
+	nb1 = ft_printf("%s\n", "s");
 	// nb1 = 1;
 	ft_printf("%d\n", nb1);
 	// ft_printf("%d\n", nb1);
@@ -77,8 +77,8 @@ int main()
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	// nb1 = printf("s\n");
-	// printf("%d\n", nb1);
+	nb1 = printf("%s\n", "s");
+	printf("%d\n", nb1);
 	// nb1 = printf("%d\n%d\n%d\n", nb, nb, nb);
 	// printf("%d\n", nb1);
 return (0);

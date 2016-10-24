@@ -1,45 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_conversion_S.c                             :+:      :+:    :+:   */
+/*   ft_test_conversion_s.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/20 23:12:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/07 12:35:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
-#include <locale.h>
-#include <wchar.h>
 
 int	main(void)
 {
-	wchar_t texte[50] = L"Schöne Grüße";
-	int 	ret;
+	int nb1;
 
-	if (!setlocale(LC_CTYPE, ""))
-	{
-		fprintf(stderr, "Can't set the specified locale! "
-			"Check LANG, LC_CTYPE, LC_ALL.\n");
-		return 1;
-	}
-	ret = ft_printf("%ls\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{green}%ls{eoc} comment {green}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{red}%ls{eoc} comment {red}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{blue}%ls{eoc} comment {blue}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{pink}%ls{eoc} comment {pink}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{cyan}%ls{eoc} comment {cyan}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
-	ret = ft_printf("{yan}%ls{eoc} comment {cyan}va tu {eoc}?\n", texte);
-	ft_printf("%d\n", ret);
+	nb1 = ft_printf("Hello%s%s world\n", " World !\n", "I am so happy");
+	ft_printf("%d\n", nb1);
 
+	nb1 = ft_printf("%s", "Hello World !\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("\n\n%s%s", "Hello World !\n", "C'est la fete !\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("\n\n%s%s%%%%%s", "Justine et jolie\n", "Antoine aussi!\n", "mon ange evidemment !\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("%%\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("Hello World\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("%%%s", "Hello World !\n");
+	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("{green}%s{eoc} comment {green}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{red}%s{eoc} comment {red}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{blue}%s{eoc} comment {blue}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{pink}%s{eoc} comment {pink}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{cyan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("{yan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
+	ft_printf("%d\n", nb1);
 	return (0);
 }

@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_c.c                                :+:      :+:    :+:   */
+/*   ft_test_conversion_C.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/09/13 17:08:05 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/09/30 15:18:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <limits.h>
+#include "ft_printf.h"
+#include <wchar.h>
+#include <locale.h>
 
 int	main(void)
 {
-	int	nb;
+	wint_t texte = L'é';
 
-	nb = printf("%c\n", 42);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", -42);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 0);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 100);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 127);
-	printf("%d\n", nb);
-
-	nb = printf("%c\n", 'Y');
-	printf("%d\n", nb);
-
+	if (!setlocale(LC_CTYPE, ""))
+	{
+		fprintf(stderr, "Can't set the specified locale! "
+			"Check LANG, LC_CTYPE, LC_ALL.\n");
+		return 1;
+	}
+	ft_printf("%C\n", texte);
 	return (0);
 }

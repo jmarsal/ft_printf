@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/21 10:50:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/22 01:03:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,15 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 
 static void	is_space_or_positive(t_result *result, size_t i)
 {
-	if ((SPACE && *I_STR != '-') &&
-	(I_L_CONV == 'd' || I_L_CONV == 'D' || I_L_CONV == 'b'))
-		RET_STR = ft_strcat(RET_STR, " ");
-	else if ((*I_STR != '-' && PLUS && !I_IS_PRECISION) &&
-	((!IS_WIDTH) || (IS_WIDTH && MINUS)))
-		RET_STR = ft_strcat(RET_STR, "+");
+	if (I_L_CONV != 's' && I_L_CONV != 'c')
+	{
+		if ((SPACE && *I_STR != '-') &&
+			(I_L_CONV == 'd' || I_L_CONV == 'D' || I_L_CONV == 'b'))
+			RET_STR = ft_strjoin(RET_STR, " ");
+		else if ((*I_STR != '-' && PLUS && !I_IS_PRECISION) &&
+			((!IS_WIDTH) || (IS_WIDTH && MINUS)))
+			RET_STR = ft_strjoin(RET_STR, "+");
+	}
 }
 
 static void	is_caracters_is_sharp(t_result *result, size_t i)
@@ -74,6 +77,7 @@ static void	is_flags_width_precision(t_result *result, size_t i)
 {
 	is_caracters_is_sharp(result, i);
 	is_space_or_positive(result, i);
+	// ft_putstr(RET_STR);
 	is_width_precision_and_not_minus(result, i);
 	is_width_precision_minus(result, i);
 }
@@ -94,14 +98,11 @@ int			print_result(t_result *result)
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
 		result->result_str = ft_strjoin(result->result_str, RET_STR);
-		// printf("ret_str = %s\n", RET_STR);
 		i++;
 	}
 	if (test_c != 0)
 		print_str_if_char_to_zero(result);
 	else
-		printf("result_str = %s\n", result->result_str);
 		ft_putstr(result->result_str);
-		printf("ret_str = %d\n", (int)ft_strlen(result->result_str));
 	return ((int)ft_strlen(result->result_str));
 }

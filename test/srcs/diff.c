@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:02:43 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/20 23:09:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/24 12:08:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ int			main(void)
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	// %S
-	if ((fd = open("test/diff_output/diff_conv_S.txt", O_RDONLY)) < 1)
+	if ((fd = open("test/diff_output/diff_conv_ls.txt", O_RDONLY)) < 1)
 	{
-		printf("Erreur : Pas de fichier diff_conv_S.txt");
+		printf("Erreur : Pas de fichier diff_conv_ls.txt");
 		return (-1);
 	}
 	if ((len = read(fd, buffer, 4096)) == 0)
 	{
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%S ok !");
 		close(fd);
-		remove("diff_output/diff_conv_S.txt");
+		remove("diff_output/diff_conv_ls.txt");
 	}
 	else
 	{
@@ -121,7 +121,7 @@ int			main(void)
 	{
 		printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%D ok !");
 		close(fd);
-		remove("diff_output/diff_conv_d.txt");
+		remove("diff_output/diff_conv_D.txt");
 	}
 	else
 	{
@@ -144,7 +144,7 @@ if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%o ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_o.txt");
 }
 else
 {
@@ -158,16 +158,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %O
-if ((fd = open("test/diff_output/diff_conv_O.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_lo.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diff_conv_O.txt");
+	printf("Erreur : Pas de fichier diff_conv_lo.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%O ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_lo.txt");
 }
 else
 {
@@ -190,7 +190,7 @@ if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%u ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_u.txt");
 }
 else
 {
@@ -204,16 +204,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %U
-if ((fd = open("test/diff_output/diff_conv_U.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_lu.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diff_conv_U.txt");
+	printf("Erreur : Pas de fichier diff_conv_lu.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%U ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_lu.txt");
 }
 else
 {
@@ -236,7 +236,7 @@ if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%x ou \%X ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_x_X.txt");
 }
 else
 {
@@ -259,7 +259,7 @@ if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%c ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_c.txt");
 }
 else
 {
@@ -273,16 +273,16 @@ else
 }
 ////////////////////////////////////////////////////////////////////////////////
 // %C
-if ((fd = open("test/diff_output/diff_conv_C.txt", O_RDONLY)) < 1)
+if ((fd = open("test/diff_output/diff_conv_wC.txt", O_RDONLY)) < 1)
 {
-	printf("Erreur : Pas de fichier diff_conv_C.txt");
+	printf("Erreur : Pas de fichier diff_conv_wC.txt");
 	return (-1);
 }
 if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%C ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_wC.txt");
 }
 else
 {
@@ -305,7 +305,7 @@ if ((len = read(fd, buffer, 4096)) == 0)
 {
 	printf("\033[32m\n%s\033[0m\n", "---> test de conversion \%b ok !");
 	close(fd);
-	remove("diff_output/diff_conv_d.txt");
+	remove("diff_output/diff_conv_b.txt");
 }
 else
 {
