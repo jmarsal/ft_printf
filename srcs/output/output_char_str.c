@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/22 00:59:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:39:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ static void	print_char(t_result *result, size_t i, size_t *test_c)
 	{
 		if (*I_STR == 0)
 		{
-			RET_STR = ft_strjoin(RET_STR, "~");
+			ft_buffer_add(RET_STR, RET_STR->len, "~", 1);
 			*test_c += 1;
 		}
 		else
-			RET_STR = ft_strjoin(RET_STR, I_STR);
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 	else if (I_L_CONV == 'c' && MOD_L)
-		RET_STR = ft_strjoin(RET_STR, I_STR);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 }
 
 static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
-		RET_STR = ft_strjoin(RET_STR, I_STR);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 }
 
 void		print_char_str(t_result *result, size_t i, size_t *test_c)

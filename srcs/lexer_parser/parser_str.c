@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:59:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/22 00:05:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:27:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ static void	get_str(t_result *result, size_t *i, int j)
 	int	k;
 
 	k = -1;
-	tab_conv_add(result, result->i_args);
+	tab_conv_add(result, result->i_args);	
 	L_CONV = 's';
-	STR = ft_strnew(j);
+	STR = ft_strnew(j + 1);
 	while (++k <= j)
 		STR[k] = result->format[*i - j + k];
+	STR[++k] = '\0';
 	result->i_args++;
 	*i = (result->format[*i]) ? *i + 1 : *i;
 }
@@ -33,7 +34,7 @@ void		parser_str(t_result *result, size_t *i)
 
 	format = result->format;
 	j = 0;
-	while (format[*i] != '%' && format[*i] != '{')
+	while (format[*i] && format[*i] != '%' && format[*i] != '{')
 	{
 		if (format[*i] == '\0' || format[*i + 1] == '%' ||
 			format[*i + 1] == '{' || format[*i] == '\n')

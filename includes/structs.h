@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 21:53:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 16:54:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct		s_conv
 	t_type			*type;
 	t_modifier		*modifier;
 	t_w_or_p		*width_precision;
-	char			*ret_str; // remplacer par un t_buffer *
+	t_buffer		*ret_str;
 	int				is_width;
 	int				is_precision;
 	int				is_modifier;

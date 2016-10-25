@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:05:23 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 16:47:01 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:20:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	lex_and_parse(t_result *result)
 	i = 0;
 	while (format[i])
 	{
+		// printf("MINUS = %d\n", A_MINUS);
 		parser_str(result, &i);
 		lexer_parser_color(result, &i);
 		lex_parse_percent(result, &i);

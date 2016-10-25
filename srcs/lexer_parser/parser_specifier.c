@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:01:48 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 16:59:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:27:23 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	get_specifier(t_result *result, size_t *i)
 {
-	tab_conv_add(result, result->i_args);
+	tab_conv_add(result, result->i_args);	
 	conv_str_s(result, i);
 	conv_bin_dec_oct(result, i);
 	conv_hex_x(result, i);

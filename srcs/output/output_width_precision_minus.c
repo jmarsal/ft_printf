@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/15 22:52:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 21:56:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 	if (*I_STR == '-' && I_L_CONV == 'd')
 	{
 		I_STR = I_STR + 1;
-		RET_STR = ft_strjoin(RET_STR, "-");
+		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		if (I_STRLEN < PRECISION_O)
 		{
-			RET_STR = ft_strjoin(RET_STR, "0");
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 			WIDTH_CPY -= 1;
 		}
 		add_padding(result, i, -1, '0');
@@ -44,8 +44,8 @@ static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 	if (I_L_CONV == 'o')
 	{
 		WIDTH_CPY -= 1;
-		RET_STR = (*RET_STR != '0') ?
-			RET_STR = ft_strjoin(RET_STR, "0") : RET_STR;
+		if (*RET_STR->str != '0')
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
 		{
 			PRECISION_CPY = (WIDTH_CPY - I_STRLEN);
@@ -59,7 +59,7 @@ static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 
 static void	is_width_precision_plus_minus(t_result *result, size_t i)
 {
-	RET_STR = ft_strjoin(RET_STR, "+");
+	ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 	add_padding(result, i, -1, '0');
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/14 15:19:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:38:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 static void	print_binaire(t_result *result, size_t i)
 {
+	char	*int_min_bin;
+
+	int_min_bin = "10000000000000000000000000000000";
 	if (I_L_CONV == 'b')
 	{
 		if (ft_atoi(I_STR) == INT_MIN)
-			RET_STR = ft_strjoin(RET_STR, "10000000000000000000000000000000");
+			ft_buffer_add(RET_STR, RET_STR->len, int_min_bin, ft_strlen(int_min_bin));
 		else
-			RET_STR = ft_strjoin(RET_STR, I_STR);
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 }
 
@@ -27,12 +30,7 @@ static void	print_octal_o(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'o')
 	{
-		if (!(MOD_L || MOD_LL || MOD_H || MOD_HH))
-			RET_STR = ft_strjoin(RET_STR, I_STR);
-		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, I_STR);
-		else if (MOD_H || MOD_HH)
-			RET_STR = ft_strjoin(RET_STR, I_STR);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 }
 
@@ -40,12 +38,7 @@ static void print_decimal_u(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'u')
 	{
-		if (!(MOD_L || MOD_LL || MOD_H || MOD_HH))
-			RET_STR = ft_strjoin(RET_STR, I_STR);
-		else if (MOD_HH || MOD_H)
-			RET_STR = ft_strjoin(RET_STR, I_STR);
-		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, I_STR);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 }
 
@@ -53,10 +46,7 @@ static void	print_decimal_d(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'd')
 	{
-		if (!(MOD_L || MOD_LL))
-			RET_STR = ft_strjoin(RET_STR, I_STR);
-		else if (MOD_L || MOD_LL)
-			RET_STR = ft_strjoin(RET_STR, I_STR);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 }
 

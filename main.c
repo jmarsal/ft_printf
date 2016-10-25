@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/22 01:08:31 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 16:51:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,167 @@
 **					--> ('h', 'hh', 'l', 'll', 'j', 'z')
 */
 
-// int main()
-//   {
-// 	// wchar_t		test[50] = L"Schöne Grüße";
-// 	// test = L"Schöne Grüße";
-//     printf("%lc\n", c);
-//     return 0;
-//   }
-
 int main()
 {
 	int	nb;
-	int nb1;
+	int nb2;
 
-	// nb1 = ft_printf("Hello%s%s world\n", " World !\n", "I am so happy");
-	// ft_printf("%d\n", nb1);
+	// test Flags caracters
 
-	// nb1 = ft_printf("%s", "Hello World !\n");
-	// ft_printf("%d\n", nb1);
+	// nb = ft_printf("%+d\n", 0);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%+d\n", 42);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%+d\n", -42);
+	// ft_printf("%d\n", nb);
 
-	// nb1 = ft_printf("\n\n%s%s", "Hello World !\n", "C'est la fete !\n");
-	// ft_printf("%d\n", nb1);
+	nb2 = 42;
+	nb = ft_printf("%8d\n", nb2);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%-8d\n", nb2);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%08d\n", nb2);
+	ft_printf("%d\n", nb);
+	nb = ft_printf("%+08d\n", nb2);
+	ft_printf("%d\n", nb);
 
-	nb1 = ft_printf("%s\n", "s");
-	// nb1 = 1;
-	ft_printf("%d\n", nb1);
-	// ft_printf("%d\n", nb1);
+	// //test modifier
 
-	// nb1 = ft_printf("%%\n");
-	// ft_printf("%d\n", nb1);
+	// nb = ft_printf("%hhd\n", (char)2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%hd\n", (short)2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%d\n", (int)2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%ld\n", (long)2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%lld\n", (long long)2147483649051561567);
+	// ft_printf("%d\n", nb);
 
-	// nb1 = ft_printf("Hello World\n");
-	// ft_printf("%d\n", nb1);
+	// nb = ft_printf("%hhd\n", (char)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%hd\n", (short)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%d\n", (int)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%ld\n", (long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%lld\n", (long long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
 
-	// nb1 = ft_printf("%%%s", "Hello World !\n");
-	// ft_printf("%d\n", nb1);
+	// nb = ft_printf("%-8.8hhd\n", (char)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.8hd\n", (short)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.8d\n", (int)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.8ld\n", (long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.8lld\n", (long long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+
+	// nb = ft_printf("%-16.8hhd\n", (char)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-16.8hd\n", (short)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-16.8d\n", (int)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-16.8ld\n", (long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-16.8lld\n", (long long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+
+	// nb = ft_printf("%-8.16hhd\n", (char)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.16hd\n", (short)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.16d\n", (int)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.16ld\n", (long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+	// nb = ft_printf("%-8.16lld\n", (long long)-2147483649051561567);
+	// ft_printf("%d\n", nb);
+
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb1 = printf("%s\n", "s");
-	printf("%d\n", nb1);
-	// nb1 = printf("%d\n%d\n%d\n", nb, nb, nb);
-	// printf("%d\n", nb1);
+	// test Flags caracters
+
+	// nb = printf("%+d\n", 0);
+	// printf("%d\n", nb);
+	// nb = printf("%+d\n", 42);
+	// printf("%d\n", nb);
+	// nb = printf("%+d\n", -42);
+	// printf("%d\n", nb);
+
+	nb2 = 42;
+	nb = printf("%8d\n", nb2);
+	printf("%d\n", nb);
+	nb = printf("%-8d\n", nb2);
+	printf("%d\n", nb);
+	nb = printf("%08d\n", nb2);
+	printf("%d\n", nb);
+	nb = printf("%+08d\n", nb2);
+	printf("%d\n", nb);
+
+	// //test modifier
+
+	// nb = printf("%hhd\n", (char)2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%hd\n", (short)2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%d\n", (int)2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%ld\n", (long)2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%lld\n", (long long)2147483649051561567);
+	// printf("%d\n", nb);
+
+	// nb = printf("%hhd\n", (char)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%hd\n", (short)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%d\n", (int)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%ld\n", (long)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%lld\n", (long long)-2147483649051561567);
+	// printf("%d\n", nb);
+
+	// nb = printf("%-8.8hhd\n", (char)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.8hd\n", (short)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.8d\n", (int)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.8ld\n", (long)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.8lld\n", (long long)-2147483649051561567);
+	// printf("%d\n", nb);
+
+	// nb = printf("%-16.8hhd\n", (char)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-16.8hd\n", (short)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-16.8d\n", (int)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-16.8ld\n", (long)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-16.8lld\n", (long long)-2147483649051561567);
+	// printf("%d\n", nb);
+
+	// nb = printf("%-8.16hhd\n", (char)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.16hd\n", (short)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.16d\n", (int)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.16ld\n", (long)-2147483649051561567);
+	// printf("%d\n", nb);
+	// nb = printf("%-8.16lld\n", (long long)-2147483649051561567);
+	// printf("%d\n", nb);
+
+	
 return (0);
 }

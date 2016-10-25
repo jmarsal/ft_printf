@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:06:00 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/22 00:42:25 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 14:33:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_type		*init_type(void)
 		return (NULL);
 	tmp->ptr = NULL;
 	tmp->str = ft_strnew(0);
-	*tmp->str = '\0';
+	ft_bzero(tmp->str, 1);
 	tmp->str_len = 0;
 	return (tmp);
 }
@@ -79,7 +79,6 @@ t_conv	*tab_conv_init(t_conv *tab_conv)
 	tab_conv->is_precision = 0;
 	tab_conv->is_modifier = 0;
 	tab_conv->l_conv = 0;
-	tab_conv->ret_str = ft_strnew(0);
-	*tab_conv->ret_str = '\0';
+	tab_conv->ret_str = ft_buffer_new(0);
 	return (tab_conv);
 }

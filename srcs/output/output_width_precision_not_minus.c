@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 14:24:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 22:02:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static void	is_sharp_and_o(t_result *result, size_t i)
 	test_o = 0;
 	if (SHARP && I_L_CONV == 'o')
 	{
-		while (RET_STR[j])
-			test_o = (RET_STR[j++] == '0') ? 1 : 0;
+		while (RET_STR->str[j])
+			test_o = (RET_STR->str[j++] == '0') ? 1 : 0;
 		if (test_o == 0)
-			RET_STR = ft_strjoin(RET_STR, "0");
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 	}
 }
 
@@ -34,14 +34,16 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 	{
 		if (I_STRLEN < WIDTH)
 		{
-			while ((int)ft_strlen(RET_STR) + ((PRECISION_O + 2) -
+			while ((int)RET_STR->len + ((PRECISION_O + 2) -
 					I_STRLEN) < WIDTH_CPY)
-				RET_STR = ft_strjoin(RET_STR, " ");
+				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 		}
-		RET_STR = (I_L_CONV == 'x') ?
-			ft_strjoin(RET_STR, "0x") : ft_strjoin(RET_STR, "0X");
-		while ((int)ft_strlen(RET_STR) < WIDTH_CPY)
-			RET_STR = ft_strjoin(RET_STR, "0");
+		if (I_L_CONV == 'x')
+			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
+		else if (I_L_CONV == 'X')
+			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
+		while ((int)RET_STR->len < WIDTH_CPY)
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 	}
 }
 
@@ -49,11 +51,13 @@ static void	is_precision_sup_width(t_result *result, size_t i)
 {
 	if (PRECISION_O >= WIDTH)
 	{
-		RET_STR = (I_L_CONV == 'x') ?
-			ft_strjoin(RET_STR, "0x") : ft_strjoin(RET_STR, "0X");
+		if (I_L_CONV == 'x')
+			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
+		else if (I_L_CONV == 'X')
+			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		PRECISION_O += 1;
-		while (((int)ft_strlen(RET_STR) + I_STRLEN) <= PRECISION_O)
-			RET_STR = ft_strjoin(RET_STR, "0");
+		while (((int)RET_STR->len + I_STRLEN) <= PRECISION_O)
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 	}
 }
 
@@ -65,9 +69,10 @@ static void is_width_precision(t_result *result, size_t i)
 		if (SHARP && (!(MOD_HH || MOD_H)))
 			WIDTH_CPY--;
 		while (WIDTH_CPY-- > 0)
-			RET_STR = ft_strjoin(RET_STR, " ");
+			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 	}
-	RET_STR = (IS_PRECISION && PLUS) ? ft_strjoin(RET_STR, "+") : RET_STR;
+	if (IS_PRECISION && PLUS)
+		ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 	if (SHARP && PRECISION_O >= WIDTH)
 		PRECISION_CPY--;
 	if (I_L_CONV == 'x' || I_L_CONV == 'X')
@@ -77,10 +82,10 @@ static void is_width_precision(t_result *result, size_t i)
 	}
 	else
 		while (PRECISION_CPY-- > 0)
-			RET_STR = ft_strjoin(RET_STR, "0");
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 	is_sharp_and_o(result, i);
 	if (PLUS && !IS_PRECISION)
-		RET_STR = ft_strjoin(RET_STR, "+");
+		ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 }
 
 void		is_width_precision_and_not_minus(t_result *result, size_t i)
@@ -89,14 +94,15 @@ void		is_width_precision_and_not_minus(t_result *result, size_t i)
 	{
 		if (ZERO && !IS_PRECISION)
 		{
-			RET_STR = (PLUS) ? ft_strjoin(RET_STR, "+") : RET_STR;
+			if (PLUS)
+				ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 			if (*I_STR == '-' && (I_L_CONV != 'x' && I_L_CONV != 'X'))
-				{
-					I_STR = I_STR + 1;
-					RET_STR = ft_strjoin(RET_STR, "-");
-				}
+			{
+				I_STR = I_STR + 1;
+				ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
+			}
 			while (WIDTH_CPY-- > 0)
-				RET_STR = ft_strjoin(RET_STR, "0");
+				ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 		}
 		else
 			is_width_precision(result, i);

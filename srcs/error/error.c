@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 14:56:28 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 15:01:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		find_error_in_format(t_result *result)
 			return (-3);
 		else if (PLUS == 1 && (!ft_strchr(GOOD_PLUS, I_L_CONV)))
 			return (-4);
-		else if (PLUS == 1 && SPACE)
+		else if (PLUS == 1 && SPACE == 1)
 			return (-5);
 		else if (I_L_CONV == 'p' && IS_PRECISION == 1)
 			return (-6);

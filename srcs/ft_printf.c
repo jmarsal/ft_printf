@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/19 22:47:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:13:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int			ft_printf(const char *format, ...)
 		len = ft_vsprintf(format, ap);
 		va_end(ap);
 	}
+	// printf("len = %d\n", len);
 	return (len);
 }

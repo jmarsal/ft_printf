@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:05:29 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/17 14:07:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:31:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ static t_conv	**tab_conv_resize(t_result *result)
 	void	*new;
 	size_t	newsize;
 
-	newsize = sizeof(void*) * result->sizemax * 2;
-	if (!(new = ft_realloc(result->tab_conv, newsize, sizeof(void *) * result->sizemax)))
+	newsize = sizeof(void *) * result->sizemax * 2;
+	if (!(new = ft_realloc(result->tab_conv, sizeof(void *) * 
+		newsize, sizeof(void *) * result->sizemax)))
 		return (NULL);
 	result->sizemax *= 2;
 	result->tab_conv = new;

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/20 23:45:51 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:28:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_result	*init_result(va_list ap, const char *format)
 	va_copy(result->ap, ap);
 	result->format = ft_strdup(format);
 	result->result_str = ft_strnew(0);
-	ft_bzero(result->result_str, 0);
+	ft_bzero(result->result_str, 1);
 	result->index = 0;
 	result->i_args = 0;
 	result->sizemax = 0;
@@ -41,7 +41,7 @@ static void	tab_conv_destroy(t_conv **conv)
 		ft_free_null(del->type);
 		ft_free_null(del->modifier);
 		ft_free_null(del->width_precision);
-		ft_strdel(&del->ret_str);
+		ft_buffer_destroy(&del->ret_str);
 		ft_free_null(del);
 	}
 }

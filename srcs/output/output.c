@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/22 01:03:01 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/25 17:35:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 	if (MINUS && IS_WIDTH)
 	{
 		if (!I_IS_MODIFIER || MOD_L || MOD_LL)
-				while ((int)ft_strlen(RET_STR) < WIDTH)
-					RET_STR = ft_strjoin(RET_STR, " ");
+				while ((int)RET_STR->len < WIDTH)
+					ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 		else
 		{
 			if (PRECISION_O > WIDTH)
 			{
-				if ((int)ft_strlen(RET_STR) < PRECISION_O)
+				if ((int)RET_STR->len < PRECISION_O)
 					while (WIDTH_CPY-- > 0)
-						RET_STR = ft_strjoin(RET_STR, " ");
+						ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 			}
 			else if (WIDTH > PRECISION_O)
 			{
-				if ((int)ft_strlen(RET_STR) < WIDTH)
+				if ((int)RET_STR->len < WIDTH)
 					while (WIDTH_CPY-- > 0)
-						RET_STR = ft_strjoin(RET_STR, " ");
+						ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 			}
 		}
 	}
@@ -39,15 +39,12 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 
 static void	is_space_or_positive(t_result *result, size_t i)
 {
-	if (I_L_CONV != 's' && I_L_CONV != 'c')
-	{
-		if ((SPACE && *I_STR != '-') &&
+	if ((SPACE && *I_STR != '-') &&
 			(I_L_CONV == 'd' || I_L_CONV == 'D' || I_L_CONV == 'b'))
-			RET_STR = ft_strjoin(RET_STR, " ");
-		else if ((*I_STR != '-' && PLUS && !I_IS_PRECISION) &&
+		ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+	else if ((*I_STR != '-' && PLUS && !I_IS_PRECISION) &&
 			((!IS_WIDTH) || (IS_WIDTH && MINUS)))
-			RET_STR = ft_strjoin(RET_STR, "+");
-	}
+		ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 }
 
 static void	is_caracters_is_sharp(t_result *result, size_t i)
@@ -55,20 +52,20 @@ static void	is_caracters_is_sharp(t_result *result, size_t i)
 	if (SHARP)
 	{
 		if ((I_L_CONV == 'o' || I_L_CONV == 'O') && WIDTH <= PRECISION_O)
-			RET_STR = ft_strjoin(RET_STR, "0");
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 		else if (MINUS && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 		{
 			if (I_L_CONV == 'x')
-				RET_STR = ft_strjoin(RET_STR, "0x");
+				ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
 			else if (I_L_CONV == 'X')
-				RET_STR = ft_strjoin(RET_STR, "0X");
+				ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		}
 		else if (!WIDTH && !PRECISION_O && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 		{
 			if (I_L_CONV == 'x')
-				RET_STR = ft_strjoin(RET_STR, "0x");
+				ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
 			else if (I_L_CONV == 'X')
-				RET_STR = ft_strjoin(RET_STR, "0X");
+				ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		}
 	}
 }
@@ -77,7 +74,6 @@ static void	is_flags_width_precision(t_result *result, size_t i)
 {
 	is_caracters_is_sharp(result, i);
 	is_space_or_positive(result, i);
-	// ft_putstr(RET_STR);
 	is_width_precision_and_not_minus(result, i);
 	is_width_precision_minus(result, i);
 }
@@ -97,7 +93,7 @@ int			print_result(t_result *result)
 		print_hex_x(result, i);
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
-		result->result_str = ft_strjoin(result->result_str, RET_STR);
+		result->result_str = ft_strjoin(result->result_str, RET_STR->str);
 		i++;
 	}
 	if (test_c != 0)

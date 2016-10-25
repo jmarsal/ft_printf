@@ -107,7 +107,12 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_toupper.c \
 						ft_strdel.c \
 						ft_free_null.c \
-						ft_realloc.c
+						ft_realloc.c \
+						ft_buffer_add.c \
+						ft_buffer_destroy.c \
+						ft_buffer_new.c \
+						ft_buffer_resize.c \
+						ft_memmove.c
 
 # Libft
  LIBFT_PATH = libft
