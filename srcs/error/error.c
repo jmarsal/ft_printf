@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 02:06:27 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 15:01:28 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 01:42:41 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		find_error_in_format(t_result *result)
 			return (-1);
 		else if (ZERO == 1 && (!ft_strchr(GOOD_ZERO, I_L_CONV)))
 			return (-2);
-		else if (SPACE == 1 && (!ft_strchr(GOOD_SPACE, I_L_CONV)))
-			return (-3);
+		// else if (SPACE == 1 && (!ft_strchr(GOOD_SPACE, I_L_CONV)))
+		// 	return (-3);
 		else if (PLUS == 1 && (!ft_strchr(GOOD_PLUS, I_L_CONV)))
 			return (-4);
 		else if (PLUS == 1 && SPACE == 1)
@@ -42,8 +42,8 @@ int		find_error_in_format(t_result *result)
 
 int		print_error_specifier(char caracters)
 {
-	ft_putstr("error : invalid conversion specifier '");
-	ft_putchar(caracters);
-	ft_putstr("'\n");
+	write(0, "error : invalid conversion specifier '", 38);
+	write(0, &caracters, 1);
+	write(0, "'\n", 2);
 	return (-1);
 }

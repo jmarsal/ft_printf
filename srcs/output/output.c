@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:35:36 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 02:17:44 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	is_space_or_positive(t_result *result, size_t i)
 
 static void	is_caracters_is_sharp(t_result *result, size_t i)
 {
-	if (SHARP)
+	if (SHARP && *I_STR != '0')
 	{
 		if ((I_L_CONV == 'o' || I_L_CONV == 'O') && WIDTH <= PRECISION_O)
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
@@ -93,12 +93,12 @@ int			print_result(t_result *result)
 		print_hex_x(result, i);
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
-		result->result_str = ft_strjoin(result->result_str, RET_STR->str);
+		ft_buffer_add(result->result_str, result->result_str->len, RET_STR->str, RET_STR->len);
 		i++;
 	}
 	if (test_c != 0)
 		print_str_if_char_to_zero(result);
 	else
-		ft_putstr(result->result_str);
-	return ((int)ft_strlen(result->result_str));
+		write(1, result->result_str->str, result->result_str->len);
+	return (result->result_str->len);
 }

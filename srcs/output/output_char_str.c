@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:39:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/28 17:13:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ void		print_str_if_char_to_zero(t_result *result)
 	int		len;
 
 	i = 0;
-	while (result->result_str[i])
+	while (result->result_str->str[i])
 	{
-		if (-1 != (len = ft_strchrpos(result->result_str + i, '~')))
+		if (-1 != (len = ft_strchrpos(result->result_str->str + i, '~')))
 		{
-			str_c = ft_strsub(result->result_str, i, len);
-			ft_putstr(str_c);
-			ft_putchar('\0');
+			str_c = ft_strsub(result->result_str->str, i, len);
+			write(1, str_c, len - i);
+			write(1, "\0", 1);
 			i += 1;
 		}
 		else
 		{
-			str_c = ft_strsub(result->result_str, i,
-					ft_strlen(result->result_str + i));
-			ft_putstr(str_c);
+			str_c = ft_strsub(result->result_str->str, i,
+					result->result_str->len + i);
+			write(1, str_c, result->result_str->len - i);
 		}
 		i += ft_strlen(str_c);
 		ft_bzero(str_c, ft_strlen(str_c));

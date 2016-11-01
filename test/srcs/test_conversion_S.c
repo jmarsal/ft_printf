@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_conversion_s.c                                :+:      :+:    :+:   */
+/*   test_conversion_S.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 15:41:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 01:49:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,15 @@ int	main(void)
 	printf("%d\n", nb1);
 	nb1 = printf("{yan}%s\033[0m comment \033[36;1mva tu \033[0m?\n", "Hello World !");
 	printf("%d\n", nb1);
+
+	nb1 = printf("\\n");
+	printf("%d\n", nb1);
+	nb1 = printf("%5%");
+	printf("%d\n", nb1);
+	nb1 = printf("%-5%");
+	printf("%d\n", nb1);
+	nb1 = printf("%   %");
+	printf("%d\n", nb1);
+
 	return (0);
 }

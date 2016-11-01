@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:13:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 01:06:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static int error_output(int err)
 {
 	if (err == -1)
-		ft_putstr(ERR_SHARP);
+		write(0, ERR_SHARP, 87);
 	else if (err == -2)
-		ft_putstr(ERR_ZERO);
+		write(0, ERR_ZERO, 88);
 	else if (err == -3)
-		ft_putstr(ERR_SPACE);
+		write(0, ERR_SPACE, 87);
 	else if (err == -4)
-		ft_putstr(ERR_PLUS);
+		write(0, ERR_PLUS, 87);
 	else if (err == -5)
-		ft_putstr(ERR_PLUS_SPACE);
+		write(0, ERR_PLUS_SPACE, 53);
 	else if (err == -6)
-		ft_putstr(ERR_MEM);
+		write(0, ERR_MEM, 85);
 	else if (err == -7)
-		ft_putstr(ERR_BIN);
+		write(0, ERR_BIN, 85);
 	return (-1);
 }
 
@@ -38,14 +38,12 @@ static int	ft_vsprintf(const char *format, va_list ap)
 	int			len;
 
 	result = NULL;
-	if (!(result = init_result(ap, format)))
-			return (-1);
-	if ((treatment(result)) == -1)
-			return (-1);
+	if (!(result = init_result(ap, format)) || (treatment(result)) == -1)
+		return (-1);
 	if ((err = find_error_in_format(result)) != 0)
-			return (error_output(err));
+		return (error_output(err));
 	if ((len = print_result(result)) == -1)
-				return (-1);
+		return (-1);
 	destroy_result(&result);
 	return (len);
 }
@@ -62,6 +60,5 @@ int			ft_printf(const char *format, ...)
 		len = ft_vsprintf(format, ap);
 		va_end(ap);
 	}
-	// printf("len = %d\n", len);
 	return (len);
 }

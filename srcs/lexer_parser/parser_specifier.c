@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:01:48 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:27:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/27 23:57:20 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			parser_specifier(t_result *result, size_t *i)
 		get_flags(result, i);
 		if (format[*i] && ft_strchr(C_SPECIFIERS, format[*i]))
 			get_specifier(result, i);
-		else if (format[*i + 1] && format[*i] == '%')
+		else if (format[*i] == '%')
 			parser_percent_if_flags_betwin(result, i);
 		else
 			return (print_error_specifier(format[*i]));

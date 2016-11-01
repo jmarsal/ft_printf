@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/15 01:52:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/28 17:04:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void		conv_str_s(t_result *result, size_t *i)
 	}
 	else if (result->format[*i] == 's' || result->format[*i] == 'S' ||
 		result->format[*i] == 'c' || result->format[*i] == 'C')
-		ft_putstr(ERR_C_S);
+		write(0, ERR_C_S, 104);
 }

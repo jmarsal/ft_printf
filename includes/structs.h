@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 16:54:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/28 17:14:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct		s_result
 	t_conv			**tab_conv;
 	va_list			ap;
 	char			*format;
-	char			*result_str; // remplacer par un t_buffer *
+	t_buffer		*result_str;
 	size_t			i_args;
 	size_t			index;
 	size_t			sizemax;

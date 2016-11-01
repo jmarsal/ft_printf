@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:28:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/28 17:19:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ t_result	*init_result(va_list ap, const char *format)
 		return (NULL);
 	va_copy(result->ap, ap);
 	result->format = ft_strdup(format);
-	result->result_str = ft_strnew(0);
-	ft_bzero(result->result_str, 1);
+	result->result_str = ft_buffer_new(0);
 	result->index = 0;
 	result->i_args = 0;
 	result->sizemax = 0;
@@ -60,7 +59,7 @@ void		destroy_result(t_result **result)
 		tab_for_del = tmp_for_del->tab_conv[i++];
 		tab_conv_destroy(&tab_for_del);
 	}
-	ft_strdel(&tmp_for_del->result_str);
+	ft_buffer_destroy(&tmp_for_del->result_str);
 	ft_free_null(tmp_for_del);
 	*result = NULL;
 }

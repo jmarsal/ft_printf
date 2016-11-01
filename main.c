@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 23:25:56 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 02:32:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,16 @@
 int main()
 {
 	int nb1;
-	nb1 = ft_printf("{green}%s{eoc} comment {green}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
-	nb1 = ft_printf("{red}%s{eoc} comment {red}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
-	nb1 = ft_printf("{blue}%s{eoc} comment {blue}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
-	nb1 = ft_printf("{pink}%s{eoc} comment {pink}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
-	nb1 = ft_printf("{cyan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
-	nb1 = ft_printf("{yan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
-	ft_printf("%d\n", nb1);
 	
+	nb1 = ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	ft_printf("%d\n", nb1);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	
-return (0);
+	nb1 = printf("@moulitest: %#.x %#.0x", 0, 0);
+	printf("%d\n", nb1);
+
+	return (0);
 }

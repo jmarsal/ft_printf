@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_conversion_s.c                             :+:      :+:    :+:   */
+/*   ft_test_conversion_S.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 01:19:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 15:41:16 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/10/29 01:57:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,15 @@ int	main(void)
 	ft_printf("%d\n", nb1);
 	nb1 = ft_printf("{yan}%s{eoc} comment {cyan}va tu {eoc}?\n", "Hello World !");
 	ft_printf("%d\n", nb1);
+
+	nb1 = ft_printf("\\n");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("%5%");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("%-5%");
+	ft_printf("%d\n", nb1);
+	nb1 = ft_printf("%   %");
+	ft_printf("%d\n", nb1);
+	
 	return (0);
 }
