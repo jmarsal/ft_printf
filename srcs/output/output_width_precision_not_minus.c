@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/29 02:31:31 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/03 13:06:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 		{
 			if (SHARP && !IS_PRECISION && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 				WIDTH_CPY -= 2;
+			if (!SHARP && *I_STR == '0' && (I_L_CONV == 'x' || I_L_CONV == 'X'))
+				WIDTH_CPY += 2;
 			while ((int)RET_STR->len + ((PRECISION_O + 2) -
 					I_STRLEN) < WIDTH_CPY)
 				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
@@ -44,6 +46,8 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
 		else if (I_L_CONV == 'X' && SHARP)
 			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
+		if (!SHARP && *I_STR == '0' && (I_L_CONV == 'x' || I_L_CONV == 'X'))
+			WIDTH_CPY -= 2;	
 		while ((int)RET_STR->len < WIDTH_CPY)
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 	}
@@ -116,7 +120,11 @@ void		is_width_precision_and_not_minus(t_result *result, size_t i)
 		}
 		else if (I_L_CONV == 's')
 		{
-			while (--WIDTH_CPY)
+			// if (I_STRLEN < 1 && *I_STR != '\0')
+			// 	WIDTH_CPY--;
+			if (PRECISION_O <= I_STRLEN)
+				WIDTH_CPY += PRECISION_O;
+			while (WIDTH_CPY--)
 				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 		}
 		else

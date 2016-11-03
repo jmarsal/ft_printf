@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/29 02:17:44 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/03 12:44:37 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static void	is_caracters_is_sharp(t_result *result, size_t i)
 				ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		}
 	}
+	else if (SHARP && *I_STR == '0' && i < 1)
+		ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 }
 
 static void	is_flags_width_precision(t_result *result, size_t i)

@@ -2,6 +2,8 @@ mkdir diff_output
 cd .. && clear
 make debug && sleep 1 && clear
 echo "<<<<<\t\ttest de conversions\t\t>>>>>\n"
+echo "sortie avec printf    = <\n"
+echo "sortie avec ft_printf = >\n"
 
 # <<<< %s >>>>
 clang -Wall -Wextra -Werror test/srcs/test_conversion_s.c -o t_conv_s

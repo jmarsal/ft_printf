@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:42:01 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/27 23:58:11 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/03 15:30:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,9 @@ void	lex_parse_percent(t_result *result, size_t *i)
 void	parser_percent_if_flags_betwin(t_result *result, size_t *i)
 {
 	tab_conv_add(result, result->i_args);
-	// A_MINUS = 0;
-	// A_PLUS = 0;
-	// A_SHARP = 0;
-	// A_SPACE = 0;
-	// A_ZERO = 0;
-	// ft_putstr("ici\n");
 	L_CONV = 's';
+	if (I_WIDTH)
+		I_WIDTH_CPY -= 1;
 	STR = "%";
 	*i += 1;
 	result->i_args++;

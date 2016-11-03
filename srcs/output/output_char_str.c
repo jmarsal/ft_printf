@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/28 17:13:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/03 12:45:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	print_char(t_result *result, size_t i, size_t *test_c)
 static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
-		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR) - PRECISION_O);
 }
 
 void		print_char_str(t_result *result, size_t i, size_t *test_c)
