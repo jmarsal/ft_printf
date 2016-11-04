@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/03 17:01:11 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/04 16:49:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,12 @@ void		is_width_precision_and_not_minus(t_result *result, size_t i)
 			while (WIDTH_CPY-- > 0)
 				ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 		}
-		else if (I_L_CONV == 's')
+		else if (I_L_CONV == 's' || I_L_CONV == 'c')
 		{
-			// if (I_STRLEN < 1 && *I_STR != '\0')
-			// 	WIDTH_CPY--;
 			if (PRECISION_O <= I_STRLEN)
 				WIDTH_CPY += PRECISION_O;
+			if (I_L_CONV == 'c' && *I_STR == 0)
+				WIDTH_CPY--;
 			while (WIDTH_CPY--)
 				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 		}

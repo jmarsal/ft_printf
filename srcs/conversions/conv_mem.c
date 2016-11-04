@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 13:07:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/13 14:40:03 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/04 14:16:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	conv_mem_p(t_result *result, size_t * i)
 	if (format[*i] == 'p')
 	{
 		L_CONV = 'p';
-		PTR = va_arg(result->ap, int*);
+		if (!(PTR = va_arg(result->ap, int*)))
+			STR = ft_strdup("(null)");
 	}
 }

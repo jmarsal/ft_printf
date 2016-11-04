@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/29 01:54:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/04 16:50:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 	}
 	if (I_L_CONV == 'u')
 		if_l_conv_u(result, i);
-	if (!(MOD_HH || MOD_H || I_L_CONV == 'u'))
+	if (!(MOD_HH || MOD_H || I_L_CONV == 'u' || I_L_CONV == 's' ||
+		I_L_CONV == 'c'))
 		add_padding(result, i, -1, '0');
 }
 

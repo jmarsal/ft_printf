@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/03 12:44:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/04 16:53:29 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 	if (MINUS && IS_WIDTH)
 	{
 		if (!I_IS_MODIFIER || MOD_L || MOD_LL)
-				while ((int)RET_STR->len < WIDTH)
-					ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+		{
+			WIDTH = (I_L_CONV == 'c' && !*I_STR && IS_WIDTH) ? WIDTH += 1 : WIDTH;
+			while ((int)RET_STR->len < WIDTH)
+				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+		}
 		else
 		{
 			if (PRECISION_O > WIDTH)
@@ -53,6 +56,8 @@ static void	is_caracters_is_sharp(t_result *result, size_t i)
 	{
 		if ((I_L_CONV == 'o' || I_L_CONV == 'O') && WIDTH <= PRECISION_O)
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
+		else if (MINUS && !IS_PRECISION && (I_L_CONV == 'o' || I_L_CONV == 'O'))
+				ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 		else if (MINUS && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 		{
 			if (I_L_CONV == 'x')
@@ -84,10 +89,12 @@ int			print_result(t_result *result)
 {
 	size_t	i;
 	size_t	test_c;
+	size_t	test_arg;
 
 	i = 0;
 	test_c = 0;
-	while (result->index--)
+	test_arg = 0;
+	while (result->index--) // TROUVER ou est envoyer le padding dans la string avec minus
 	{
 		is_flags_width_precision(result, i);
 		print_char_str(result, i, &test_c);
@@ -95,12 +102,14 @@ int			print_result(t_result *result)
 		print_hex_x(result, i);
 		print_ptr(result, i);
 		is_neg_and_precision(result, i);
+		if (I_L_CONV == 'c' && *I_STR == '\0' && RET_STR->len < 1 && (IS_WIDTH || PRECISION_CPY))
+			test_arg++;
 		ft_buffer_add(result->result_str, result->result_str->len, RET_STR->str, RET_STR->len);
 		i++;
 	}
-	if (test_c != 0)
+	if (test_c > 0)
 		print_str_if_char_to_zero(result);
 	else
 		write(1, result->result_str->str, result->result_str->len);
-	return (result->result_str->len);
+	return (result->result_str->len - test_arg);
 }

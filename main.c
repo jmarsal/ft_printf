@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/03 12:51:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/04 16:46:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,17 @@
 int main()
 {
 	int nb1;
-	
-	nb1 = ft_printf("%10s is a string", "");
+	int	nb;
+
+	nb1 = ft_printf("%-#6o", 2500);
 	ft_printf("%d\n", nb1);
-	// nb1 = ft_printf("@moulitest: %5.x %5.0x", 0, 0);
-	// ft_printf("%d\n", nb1);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb1 = printf("%10s is a string", "");
+	nb1 = printf("%-#6o", 2500);
 	printf("%d\n", nb1);
-	// nb1 = printf("@moulitest: %5.x %5.0x", 0, 0);
-	// printf("%d\n", nb1);
 
 	return (0);
 }
