@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/04 17:10:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/05 00:51:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	print_octal_o(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'o')
 	{
-		if (*I_STR != '0' || (*I_STR == '0' && (!IS_WIDTH || !IS_PRECISION)))
+		if (*I_STR != '0' || (*I_STR == '0' && (!IS_WIDTH && !IS_PRECISION)))
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 	}
 }
