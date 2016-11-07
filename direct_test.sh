@@ -2,4 +2,5 @@
 make debug
 # clear
 clang -o main main.c -I./includes -L./ -lftprintf
-./main
+# clang -o main main.c
+time ./main
