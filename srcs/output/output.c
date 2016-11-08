@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/07 16:58:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/08 16:49:41 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 	{
 		if (!I_IS_MODIFIER || MOD_L || MOD_LL)
 		{
-			WIDTH = (I_L_CONV == 'c' && !*I_STR && IS_WIDTH) ? WIDTH += 1 : WIDTH;
-			while ((int)RET_STR->len < WIDTH)
-				ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+			// WIDTH = (I_L_CONV == 'c' && !*I_STR && IS_WIDTH) ? WIDTH += 1 : WIDTH;
+			if (WIDTH - (int)RET_STR->len > 0)
+				ft_buffer_set(RET_STR, ' ', WIDTH - RET_STR->len);
 		}
 		else
 		{
@@ -33,8 +33,10 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 			else if (WIDTH > PRECISION_O)
 			{
 				if ((int)RET_STR->len < WIDTH)
-					while (WIDTH_CPY-- > 0)
-						ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+				{
+					ft_buffer_set(RET_STR, ' ', WIDTH - RET_STR->len);
+					WIDTH_CPY = 0;
+				}
 			}
 		}
 	}
@@ -92,7 +94,8 @@ static void	if_zero_without_minus(t_result *result, size_t i)
 			I_STR = I_STR + 1;
 			ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		}
-		ft_buffer_set(RET_STR, '0', WIDTH_CPY - I_STRLEN);
+		if (WIDTH_CPY - I_STRLEN > 0)
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY - I_STRLEN);
 		WIDTH_CPY = 0;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/07 17:11:29 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/08 17:09:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,22 @@
 
 int main()
 {
-	int	nb;
-	int nb2;
+	int	*pointeur;
+	int	t;
+	int ret;
 
-	nb = ft_printf("%3.9o\n", -42); // GROS soucis si pas de SHARP...
-	ft_printf("%d\n", nb);
+	pointeur = &t;
+	// dDioOuUxXcC
+	ret = ft_printf("%p\n", pointeur);
+	ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb = printf("%3.9o\n", -42);
-	printf("%d\n", nb);
-
+	pointeur = &t;
+	// dDioOuUxXcC
+	ret = printf("%p\n", pointeur);
+	printf("%d\n", ret);
 	return (0);
 }
