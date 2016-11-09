@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/08 16:49:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/09 16:24:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 	{
 		if (!I_IS_MODIFIER || MOD_L || MOD_LL)
 		{
-			// WIDTH = (I_L_CONV == 'c' && !*I_STR && IS_WIDTH) ? WIDTH += 1 : WIDTH;
 			if (WIDTH - (int)RET_STR->len > 0)
 				ft_buffer_set(RET_STR, ' ', WIDTH - RET_STR->len);
 		}
@@ -70,19 +69,29 @@ static void	if_caracters_is_sharp(t_result *result, size_t i)
 			if (WIDTH_CPY > 0)
 				WIDTH_CPY--;
 		}
-		else if (I_L_CONV == 'x')
+		else if (I_L_CONV == 'x' ? 
+			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2) :
+			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2))
 		{
-			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
-			if (WIDTH_CPY > 1)
-				WIDTH_CPY -= 2;
-		}
-		else
-		{
-			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 			if (WIDTH_CPY > 1)
 				WIDTH_CPY -= 2;
 		}
 	}
+	else if (SHARP && MINUS && (I_L_CONV == 'x' || I_L_CONV == 'X'))
+	{
+		I_L_CONV == 'x' ? ft_buffer_add(RET_STR, RET_STR->len, "0x", 2) :
+							ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
+		if (WIDTH_CPY > 1 && WIDTH_CPY >= PRECISION_CPY)
+			WIDTH_CPY -= 2;
+	}
+	else if (SHARP && MINUS && (I_L_CONV == 'o'))
+	{
+		ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
+		if (WIDTH_CPY && WIDTH_CPY >= PRECISION_CPY && (!(MOD_H || MOD_HH)))
+			WIDTH_CPY--;
+		else if (PRECISION_CPY && PRECISION_CPY > WIDTH_CPY)
+			PRECISION_CPY--;
+	}	
 }
 
 static void	if_zero_without_minus(t_result *result, size_t i)

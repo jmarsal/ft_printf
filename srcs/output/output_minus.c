@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/08 17:01:42 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/09 15:05:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ static void	if_l_conv_u(t_result *result, size_t i)
 			PRECISION_CPY = 0;
 		}
 	}
-		// add_padding(result, i, 0, '0');
 	if ((MOD_HH || MOD_H) && WIDTH >= PRECISION_O)
 	{
-		if (PRECISION_CPY > 0)
+		if (PRECISION_CPY - I_STRLEN > 0)
 		{
-			ft_buffer_set(RET_STR, '0', PRECISION_CPY);
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - I_STRLEN);
 			PRECISION_CPY = 0;
 		}
 	}
@@ -75,15 +74,12 @@ static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 			if ((WIDTH == PRECISION_O) || (PRECISION_O > WIDTH))
 				PRECISION_CPY--;
 		}
-		// if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
-		// {
-		// 	PRECISION_CPY = (WIDTH_CPY - I_STRLEN);
-		// 	WIDTH_CPY += 1;
-		// }
-		// else
-		// 	PRECISION_CPY--;
+		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
+			PRECISION_CPY--;
 	}
-	if (PRECISION_CPY - I_STRLEN > 0)
+	// if (*RET_STR->str == '0')
+	// 	PRECISION_CPY--;
+	if (PRECISION_CPY - I_STRLEN >= 0)
 	{
 		ft_buffer_set(RET_STR, '0', PRECISION_CPY - I_STRLEN);
 		PRECISION_CPY = 0;

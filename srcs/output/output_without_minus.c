@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/08 16:44:19 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/09 16:24:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 		{
 			if (SHARP && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 				WIDTH_CPY -= 2;
-			if (!SHARP && *I_STR == '0' && (I_L_CONV == 'x' || I_L_CONV == 'X'))
-				WIDTH_CPY += 2;
-			if (WIDTH_CPY >= ((int)RET_STR->len - I_STRLEN))
-			{
-				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (RET_STR->len - I_STRLEN));
-				WIDTH_CPY -= RET_STR->len;
-			}
+			if (WIDTH_CPY >= PRECISION_CPY && PRECISION_CPY > I_STRLEN)
+				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
+			else if (WIDTH_CPY - I_STRLEN > 0 && WIDTH_CPY >= PRECISION_CPY && PRECISION_CPY <= I_STRLEN)
+				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - I_STRLEN);
 		}
 		if (I_L_CONV == 'x' && SHARP)
 			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
@@ -50,11 +47,8 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		if (!SHARP && *I_STR == '0' && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 			WIDTH_CPY -= 2;
-		if (WIDTH_CPY > (int)RET_STR->len - I_STRLEN)
-		{
-			ft_buffer_set(RET_STR, '0', WIDTH_CPY - RET_STR->len - I_STRLEN);
-			WIDTH_CPY -= RET_STR->len;
-		}
+		if (WIDTH > (int)RET_STR->len + I_STRLEN)
+			ft_buffer_set(RET_STR, '0', WIDTH - RET_STR->len - I_STRLEN);
 	}
 }
 
@@ -82,8 +76,6 @@ static void is_width_precision(t_result *result, size_t i)
 		if ((PLUS && WIDTH_CPY && !ft_strchr("GOOD_PLUS", I_L_CONV) &&
 			*I_STR != '-' && IS_PRECISION))
 			WIDTH_CPY--;
-		// if (I_L_CONV == 'o' && SHARP && *I_STR != '-' && IS_PRECISION)
-		// 	WIDTH_CPY++;
 		if (PRECISION_O > I_STRLEN && (WIDTH_CPY - PRECISION_O) > 0)
 			ft_buffer_set(RET_STR, ' ', (WIDTH_CPY - PRECISION_O));
 		else if (PRECISION_O < I_STRLEN && (WIDTH_CPY - I_STRLEN) > 0)
@@ -92,8 +84,6 @@ static void is_width_precision(t_result *result, size_t i)
 	}
 	if (IS_PRECISION && PLUS)
 		ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
-	// if (SHARP && PRECISION_O >= WIDTH)
-	// 	PRECISION_CPY--;
 	if (I_L_CONV == 'x' || I_L_CONV == 'X')
 	{
 		is_precision_sup_width(result, i);
