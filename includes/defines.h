@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/29 01:42:29 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 12:25:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define STR result->tab_conv[result->i_args]->type->str
 # define I_STR result->tab_conv[i]->type->str
 # define STRLEN result->tab_conv[result->i_args]->type->str_len
-# define I_STRLEN (int)result->tab_conv[i]->type->str_len
+# define I_STRLEN result->tab_conv[i]->type->str_len
 # define PTR result->tab_conv[result->i_args]->type->ptr
 # define I_PTR result->tab_conv[i]->type->ptr
 # define L_CONV result->tab_conv[result->i_args]->l_conv

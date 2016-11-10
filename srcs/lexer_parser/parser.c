@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:26:49 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 12:00:41 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,11 @@ static void	parser_precision(t_result *result, size_t *i)
 	format = result->format;
 	if (ft_strchr(PRECISION, format[*i]))
 	{
+		I_IS_PRECISION = 1;
 		*i += 1;
 		get_precision = ft_get_number(format, i);
 		if ((I_PRECISION_O = ft_atoi(get_precision)) > 0)
-		{
 			I_PRECISION_CPY = I_PRECISION_O;
-			I_IS_PRECISION = 1;
-		}
-		else if (I_PRECISION_O <= 0)
-			I_IS_PRECISION = 0;
 		ft_free_null(get_precision);
 	}
 	parser_modifier(result, i);

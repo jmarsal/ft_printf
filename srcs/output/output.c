@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 09:39:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 15:00:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ static void	if_zero_without_minus(t_result *result, size_t i)
 			I_STR = I_STR + 1;
 			ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		}
-		// if (WIDTH_CPY - I_STRLEN > 0)
-		// 	ft_buffer_set(RET_STR, '0', WIDTH_CPY - I_STRLEN);
+		if (WIDTH_CPY - (int)I_STRLEN > 0)
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 		WIDTH_CPY = 0;
 	}
 }
