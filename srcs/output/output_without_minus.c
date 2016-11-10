@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/09 16:24:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 09:47:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static void	is_width_sup_precision(t_result *result, size_t i)
 			else if (WIDTH_CPY - I_STRLEN > 0 && WIDTH_CPY >= PRECISION_CPY && PRECISION_CPY <= I_STRLEN)
 				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - I_STRLEN);
 		}
-		if (I_L_CONV == 'x' && SHARP)
+		if (I_L_CONV == 'x' && SHARP && !ZERO)
 			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
-		else if (I_L_CONV == 'X' && SHARP)
+		else if (I_L_CONV == 'X' && SHARP && !ZERO)
 			ft_buffer_add(RET_STR, RET_STR->len, "0X", 2);
 		if (!SHARP && *I_STR == '0' && (I_L_CONV == 'x' || I_L_CONV == 'X'))
 			WIDTH_CPY -= 2;
@@ -88,6 +88,11 @@ static void is_width_precision(t_result *result, size_t i)
 	{
 		is_precision_sup_width(result, i);
 		is_width_sup_precision(result, i);
+	}
+	else if (ZERO && WIDTH >= PRECISION_O && WIDTH > I_STRLEN)
+	{
+		ft_buffer_set(RET_STR, '0', WIDTH - I_STRLEN);
+		WIDTH_CPY = 0;
 	}
 	else
 	{

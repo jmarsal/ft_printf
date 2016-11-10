@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/09 15:24:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 09:33:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,207 +43,15 @@ int main()
 	unsigned int	nb;
 	int				ret;
 
-	nb = ft_printf("%#-8.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.8llo\n", (long long)-2147483649051561567);
+	nb = ft_printf("% c", 0);
 	ft_printf("%d\n", nb);
 
-/*	nb = ft_printf("%#-16.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-16.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-16.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-16.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-16.8llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%#-8.16hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.16ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.16o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.16lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#-8.16llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%-8.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.8llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%-16.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-16.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-16.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-16.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-16.8llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%-8.16hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%-8.16llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%#8.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.8llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%#16.8hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#16.8ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#16.8o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#16.8lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#16.8llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-
-	nb = ft_printf("%#8.16hho\n", (char)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.16ho\n", (short)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.16o\n", (int)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.16lo\n", (long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-	nb = ft_printf("%#8.16llo\n", (long long)-2147483649051561567);
-	ft_printf("%d\n", nb);
-*/
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb = printf("%#-8.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.8llo\n", (long long)-2147483649051561567);
+	nb = printf("% c", 0);
 	printf("%d\n", nb);
 
-/*	nb = printf("%#-16.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-16.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-16.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-16.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-16.8llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%#-8.16hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.16ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.16o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.16lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#-8.16llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%-8.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.8llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%-16.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-16.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-16.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-16.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-16.8llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%-8.16hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%-8.16llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%#8.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.8llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%#16.8hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#16.8ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#16.8o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#16.8lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#16.8llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-
-	nb = printf("%#8.16hho\n", (char)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.16ho\n", (short)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.16o\n", (int)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.16lo\n", (long)-2147483649051561567);
-	printf("%d\n", nb);
-	nb = printf("%#8.16llo\n", (long long)-2147483649051561567);
-	printf("%d\n", nb);
-*/	
 	return (0);
 }
