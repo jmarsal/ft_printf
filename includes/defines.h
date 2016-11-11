@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 12:25:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 13:39:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** tab_conv
 */
 
-# define INIT_SIZE_TAB_CONV 8
+# define INIT_SIZE_TAB_CONV 1
 
 /*
 ** type

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 08:12:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 11:57:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,24 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 static void	if_space_or_positive(t_result *result, size_t i)
 {
 	if (SPACE && !ft_strchr("GOOD_SPACE", I_L_CONV) && !PLUS &&
-		(*I_STR != '-' && *I_STR != '0') && I_L_CONV != 'c')
+		(*I_STR != '-' && *I_STR != '0') && (I_L_CONV != 'c'))
 	{
-		ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
-		if (WIDTH_CPY)
-			WIDTH_CPY -= 1;
+		if (I_L_CONV != 'u' && !IS_WIDTH && !IS_PRECISION)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+			if (WIDTH_CPY)
+				WIDTH_CPY -= 1;
+		}
 	}
 	else if ((PLUS && !ft_strchr("GOOD_PLUS", I_L_CONV) && *I_STR != '-' &&
 			!IS_PRECISION))
 	{
-		ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
-		if (WIDTH_CPY)
-			WIDTH_CPY -= 1;
+		if (I_L_CONV != 'u')
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
+			if (WIDTH_CPY)
+				WIDTH_CPY -= 1;
+		}
 	}
 }
 
@@ -105,12 +111,22 @@ static void	if_zero_without_minus(t_result *result, size_t i)
 			I_STR = I_STR + 1;
 			ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		}
-		ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
-		WIDTH_CPY -= 1;
-		PRECISION_CPY -= 1;
-		if (PRECISION_CPY - (int)I_STRLEN > 0)
-			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
-		WIDTH_CPY -= PRECISION_CPY;
+		if (PRECISION_CPY >= WIDTH_CPY)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
+			WIDTH_CPY -= 1;
+		}
+		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
+			WIDTH_CPY -= 1;
+			I_STRLEN = ((int)I_STRLEN == 1 && *I_STR == '0') ? 0 : 1;
+		}
+		if (PRECISION_CPY)
+			PRECISION_CPY -= 1;
+		if (WIDTH_CPY - (int)I_STRLEN > 0)
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+		WIDTH_CPY = (WIDTH_CPY >= (int)RET_STR->len) ? WIDTH_CPY - RET_STR->len : 0;
 		PRECISION_CPY = 0;
 	}
 }
@@ -133,7 +149,7 @@ int			print_result(t_result *result)
 	i = 0;
 	test_c = 0;
 	test_arg = 0;
-	while (result->index--) // TROUVER ou est envoyer le padding dans la string avec minus
+	while (result->index--)
 	{
 		is_flags_width_precision(result, i);
 		print_char_str(result, i, &test_c);

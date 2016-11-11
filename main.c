@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 08:01:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 17:03:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,27 @@
 
 int main()
 {
-	int	nb;
-	int nb2;
+	wchar_t texte[50] = L"Schöne Grüße";
+	int 	ret;
 
-	nb = ft_printf("%03.2d", -1);
-	ft_printf("%d\n", nb);
+	if (!setlocale(LC_CTYPE, ""))
+	{
+		fprintf(stderr, "Can't set the specified locale! "
+			"Check LANG, LC_CTYPE, LC_ALL.\n");
+		return 1;
+	}
+	unsigned long int	nb;
+
+	nb = INT_MIN;
+	
+	ret = ft_printf("{%10R}");
+	ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	nb = printf("%03.2d", -1);
-	printf("%d\n", nb);
-	
+	ret = printf("{%10R}");
+	printf("%d\n", ret);
 	return (0);
 }

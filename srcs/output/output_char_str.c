@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 12:29:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 15:23:16 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ static void	print_char(t_result *result, size_t i, size_t *test_c)
 			*test_c += 1;
 		}
 		else
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
 	}
 	else if (I_L_CONV == 'c' && MOD_L)
-		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
+	{
+		if (!*I_STR)
+		{
+			*I_STR = '\0';
+			I_STRLEN = 1;
+		}
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, I_STRLEN);
+	}
 }
 
 static void	print_str(t_result *result, size_t i)
@@ -33,9 +40,9 @@ static void	print_str(t_result *result, size_t i)
 	if (I_L_CONV == 's')
 	{
 		if ((int)I_STRLEN >= PRECISION_O)
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR) - PRECISION_O);
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - PRECISION_O);
 		else
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
 	}
 }
 

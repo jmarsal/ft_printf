@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:10:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:41:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 16:56:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,18 @@ static char	*itoa_ptr(unsigned char value)
 	return (ft_strrev(number));
 }
 
-static char	*ft_get_ptr(int *ptr)
+static char	*ft_get_ptr(int *ptr, char *size)
 {
 	char			*ret;
 	unsigned char	p[sizeof(ptr)];
 	int				i;
 
 	ret = ft_strnew(0);
-	i = sizeof(ptr) - 2;
+	i = sizeof(ptr);
+	if (!ft_strcmp(size, "long"))
+		i = sizeof(ptr) - 2;
+	else if (!ft_strcmp(size, "short"))
+		i = sizeof(ptr) - 7;
 	ft_memcpy(p, &ptr, sizeof(ptr));
 	ret = ft_strjoin(ret, "0x");
 	while (i-- > 0)
@@ -71,7 +75,10 @@ void	print_ptr(t_result *result, size_t i)
 	mem_tmp = NULL;
 	if (I_L_CONV == 'p')
 	{
-		mem_tmp = ft_get_ptr(I_PTR);
+		if (MOD_H || MOD_HH || MOD_L)
+			mem_tmp = ft_get_ptr(I_PTR, "short");
+		if (MOD_LL || MOD_J || MOD_Z || !I_IS_MODIFIER)
+			mem_tmp = ft_get_ptr(I_PTR, "long");
 		ft_buffer_add(RET_STR, RET_STR->len, mem_tmp, ft_strlen(mem_tmp));
 	}
 }
