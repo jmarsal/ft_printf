@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 15:51:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 07:44:36 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ static void is_width_precision(t_result *result, size_t i)
 		if ((PLUS && WIDTH_CPY && !ft_strchr("GOOD_PLUS", I_L_CONV) &&
 			*I_STR != '-' && IS_PRECISION))
 			WIDTH_CPY--;
+		if (IS_PRECISION && PRECISION_CPY == 0 && *I_STR == '0')
+			WIDTH_CPY += 1;
 		if (PRECISION_O >(int)I_STRLEN && (WIDTH_CPY - PRECISION_O) > 0)
 			ft_buffer_set(RET_STR, ' ', (WIDTH_CPY - PRECISION_O));
 		else if (PRECISION_O < (int)I_STRLEN && (WIDTH_CPY - (int)I_STRLEN) > 0)
@@ -110,7 +112,7 @@ static void is_width_precision(t_result *result, size_t i)
 
 void		if_not_minus(t_result *result, size_t i)
 {
-	if (IS_WIDTH && !MINUS)
+	if ((IS_WIDTH || PRECISION_CPY > 0) && !MINUS)
 	{
 		if (I_L_CONV == 's' || I_L_CONV == 'c')
 		{
