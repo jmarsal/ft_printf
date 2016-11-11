@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 16:10:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 00:53:44 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void		is_width_precision_minus(t_result *result, size_t i)
 		{
 			WIDTH_CPY = (PRECISION_CPY >= WIDTH_CPY) ?
 						WIDTH_CPY - PRECISION_CPY : WIDTH_CPY;
-			if ((WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY) > 0)
+			if (PRECISION_CPY && (WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY) > 0)
 			{
 				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY);
 				PRECISION_CPY = 0;
