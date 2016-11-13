@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 11:57:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/13 23:42:18 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ static void	is_neg_and_precision(t_result *result, size_t i)
 static void	if_space_or_positive(t_result *result, size_t i)
 {
 	if (SPACE && !ft_strchr("GOOD_SPACE", I_L_CONV) && !PLUS &&
-		(*I_STR != '-' && *I_STR != '0') && (I_L_CONV != 'c'))
+		(((*I_STR != '-' && *I_STR != '0') && (I_L_CONV != 'c')) ||
+		(*I_STR == '0' && ZERO && I_L_CONV == 'd')))
 	{
-		if (I_L_CONV != 'u' && !IS_WIDTH && !IS_PRECISION)
+		if (I_L_CONV != 'u' && I_L_CONV != 's' && ((!IS_WIDTH && !IS_PRECISION) || (ZERO && WIDTH && I_L_CONV == 'd')))
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 			if (WIDTH_CPY)
@@ -56,7 +57,7 @@ static void	if_space_or_positive(t_result *result, size_t i)
 	else if ((PLUS && !ft_strchr("GOOD_PLUS", I_L_CONV) && *I_STR != '-' &&
 			!IS_PRECISION))
 	{
-		if (I_L_CONV != 'u')
+		if (I_L_CONV != 'u' && I_L_CONV != 'c' && I_L_CONV != 'o' && I_L_CONV != 's')
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 			if (WIDTH_CPY)
@@ -68,7 +69,7 @@ static void	if_space_or_positive(t_result *result, size_t i)
 static void	if_caracters_is_sharp(t_result *result, size_t i)
 {
 	if (SHARP && !ft_strchr("GOOD_SHARP", I_L_CONV) &&
-		!IS_PRECISION && !IS_WIDTH)
+		!IS_PRECISION && !IS_WIDTH && I_L_CONV != 'c')
 	{
 		if (*I_STR == '0' || (I_L_CONV == 'o' || I_L_CONV == 'O'))
 		{
@@ -116,15 +117,23 @@ static void	if_zero_without_minus(t_result *result, size_t i)
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 			WIDTH_CPY -= 1;
 		}
-		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1)
+		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1 && IS_PRECISION)
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 			WIDTH_CPY -= 1;
 			I_STRLEN = ((int)I_STRLEN == 1 && *I_STR == '0') ? 0 : 1;
 		}
+		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
+			WIDTH_CPY -= 1;
+			I_STRLEN = ((int)I_STRLEN == 1 && *I_STR == '0') ? 0 : 1;
+		}
+		if (I_L_CONV == 'c' && WIDTH_CPY - (int)I_STRLEN > 0 && *I_STR == '\0')
+			WIDTH_CPY -= 1;
 		if (PRECISION_CPY)
 			PRECISION_CPY -= 1;
-		if (WIDTH_CPY - (int)I_STRLEN > 0)
+		if (WIDTH_CPY - (int)I_STRLEN > 0 && I_L_CONV != 's' && I_L_CONV != 'p')
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 		WIDTH_CPY = (WIDTH_CPY >= (int)RET_STR->len) ? WIDTH_CPY - RET_STR->len : 0;
 		PRECISION_CPY = 0;

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 17:03:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 00:47:50 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,18 @@ int main()
 		return 1;
 	}
 	unsigned long int	nb;
+	int pointer_valueLargerThanMinWidth_zeroFlag;
 
 	nb = INT_MIN;
 	
-	ret = ft_printf("{%10R}");
+	ret = ft_printf("%15.4s", "I am 42");
 	ft_printf("%d\n", ret);
 
 // // ////////////////////////////////////////////////////////////////////////////////
 	printf("Avec printf\n");	
 // // ////////////////////////////////////////////////////////////////////////////////
 
-	ret = printf("{%10R}");
+	ret = printf("%15.4s", "I am 42");
 	printf("%d\n", ret);
 	return (0);
 }

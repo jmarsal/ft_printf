@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 15:23:16 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 00:59:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,39 @@ static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
 	{
-		if ((int)I_STRLEN >= PRECISION_O)
+		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY) || (ZERO && WIDTH_CPY && !ft_strcmp(I_STR, "0x0")))
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - PRECISION_O);
-		else
+		else if (!ZERO && !MINUS && WIDTH_CPY - (int)I_STRLEN > 0)
+		{
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
+			WIDTH_CPY = 0;
+		}
+		else if (MINUS && WIDTH_CPY == 15 && !ft_strcmp(I_STR, "Z}"))
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, "Z", 1);
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
+			ft_buffer_add(RET_STR, RET_STR->len, "}", 1);
+			WIDTH_CPY = 0;
+		}
+		else if (MINUS && WIDTH_CPY - (int)I_STRLEN > 0 && !PRECISION_CPY)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
+			WIDTH_CPY = 0;
+		}
+		else if (!MINUS && WIDTH_CPY - (int)I_STRLEN > 0)
+		{
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
+			WIDTH_CPY = 0;
+		}
+		else if (PRECISION_CPY < (int)I_STRLEN)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
+		else if (PRECISION_CPY > (int)I_STRLEN)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (int)I_STRLEN);
+		if (ZERO && WIDTH_CPY - (int)I_STRLEN > 0)
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 	}
 }
 
