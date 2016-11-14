@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_ft_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/14 09:49:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 17:11:16 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
+#include <stdlib.h>
+#include <locale.h>
 #include <wchar.h>
 #include <limits.h>
-#include <locale.h>
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
 /*
 ** % [drapeaux] [largeur] [.precision] [modificateur] type
@@ -38,10 +41,19 @@
 **					--> ('h', 'hh', 'l', 'll', 'j', 'z')
 */
 
+#define FMT_ARGS "s: %s, p: %p, d:%d", "a string", &test_simple_mix, 42
+
 int main()
 {
 	wchar_t texte[50] = L"Schöne Grüße";
 	int 	ret;
+	int		test_simple_mix;
+	unsigned long int	nb;
+	int pointer_valueLargerThanMinWidth_zeroFlag;
+	char *retour_str;
+	FILE	*fichier = NULL;
+
+	fichier = fopen("printf.txt", "a+");
 
 	if (!setlocale(LC_CTYPE, ""))
 	{
@@ -49,19 +61,16 @@ int main()
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	unsigned long int	nb;
-	int pointer_valueLargerThanMinWidth_zeroFlag;
-
-	nb = INT_MIN;
-	
-	ret = ft_printf("%15.4s", "I am 42");
+	ret = ft_printf(FMT_ARGS);
 	ft_printf("%d\n", ret);
-
-// // ////////////////////////////////////////////////////////////////////////////////
-	printf("Avec printf\n");	
-// // ////////////////////////////////////////////////////////////////////////////////
-
-	ret = printf("%15.4s", "I am 42");
+	if (fichier != NULL)
+    {
+        ret = fprintf(fichier, FMT_ARGS);
+		fprintf(fichier, "%d\n", ret);
+        fclose(fichier);
+    }
+	ret = printf(FMT_ARGS);
 	printf("%d\n", ret);
+
 	return (0);
 }
