@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/14 00:59:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 09:51:20 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
 	{
-		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY) || (ZERO && WIDTH_CPY && !ft_strcmp(I_STR, "0x0")))
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - PRECISION_O);
+		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY && !WIDTH) ||
+			(ZERO && WIDTH_CPY && !ft_strcmp(I_STR, "0x0")))
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - PRECISION_CPY);
+		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
+		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY && WIDTH_CPY > PRECISION_CPY)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
 		else if (!ZERO && !MINUS && WIDTH_CPY - (int)I_STRLEN > 0)
 		{
 			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
@@ -66,10 +71,12 @@ static void	print_str(t_result *result, size_t i)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
 			WIDTH_CPY = 0;
 		}
-		else if (PRECISION_CPY < (int)I_STRLEN)
+		else if (PRECISION_CPY < (int)I_STRLEN && !WIDTH)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
 		else if (PRECISION_CPY > (int)I_STRLEN)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (int)I_STRLEN);
+		else if (WIDTH && !WIDTH_CPY && !IS_PRECISION)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 		if (ZERO && WIDTH_CPY - (int)I_STRLEN > 0)
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 	}

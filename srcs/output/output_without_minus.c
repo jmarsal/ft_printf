@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/14 00:58:33 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 09:37:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,13 +136,19 @@ void		if_not_minus(t_result *result, size_t i)
 	{
 		if (I_L_CONV == 's' || I_L_CONV == 'c')
 		{
-			if (PRECISION_O <= (int)I_STRLEN)
-				WIDTH_CPY += PRECISION_O;
+			if (PRECISION_CPY <= (int)I_STRLEN && PRECISION_CPY >= WIDTH_CPY)
+				WIDTH_CPY += PRECISION_CPY;
 			if ((I_L_CONV == 'c' || I_L_CONV == 'C') && *I_STR == 0)
 				WIDTH_CPY--;
 			if (WIDTH_CPY - (int)I_STRLEN > 0 && *I_STR != '0' && !ZERO)
 			{
-				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
+				if (!PRECISION_CPY || PRECISION_CPY >= WIDTH_CPY ||
+					(WIDTH_CPY > PRECISION_CPY && PRECISION_CPY > (int)I_STRLEN))
+					ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
+				else if (WIDTH_CPY >= PRECISION_CPY)
+				{
+					ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
+				}
 				WIDTH_CPY = 0;
 			}
 		}
