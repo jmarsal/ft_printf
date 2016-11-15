@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/14 17:11:16 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 09:40:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@
 **					--> ('h', 'hh', 'l', 'll', 'j', 'z')
 */
 
-#define FMT_ARGS "s: %s, p: %p, d:%d", "a string", &test_simple_mix, 42
+#define FRM_ARGS "%.0p, %.p", 0, 0
+#define PRINTF fprintf(fichier, FRM_ARGS)
+#define FT_PRINTF ft_printf(FRM_ARGS)
 
 int main()
 {
@@ -55,22 +57,20 @@ int main()
 
 	fichier = fopen("printf.txt", "a+");
 
-	if (!setlocale(LC_CTYPE, ""))
+	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	ret = ft_printf(FMT_ARGS);
+	ret = FT_PRINTF;
 	ft_printf("%d\n", ret);
 	if (fichier != NULL)
     {
-        ret = fprintf(fichier, FMT_ARGS);
+        ret = PRINTF;
 		fprintf(fichier, "%d\n", ret);
         fclose(fichier);
     }
-	ret = printf(FMT_ARGS);
-	printf("%d\n", ret);
 
 	return (0);
 }
