@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/13 23:42:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 16:01:42 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ static void	if_zero_without_minus(t_result *result, size_t i)
 			WIDTH_CPY -= 1;
 			I_STRLEN = ((int)I_STRLEN == 1 && *I_STR == '0') ? 0 : 1;
 		}
-		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1)
+		else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1 && I_L_CONV != 'p')
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 			WIDTH_CPY -= 1;

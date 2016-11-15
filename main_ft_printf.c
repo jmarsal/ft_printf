@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 09:40:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 16:49:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 #include <string.h>
 #include <unistd.h>
 
+// Modifier ici
+#define FRM_ARGS "%2.9p", 1234
+
+#define PRINTF fprintf(fichier, FRM_ARGS)
+#define FT_PRINTF ft_printf(FRM_ARGS)
 /*
 ** % [drapeaux] [largeur] [.precision] [modificateur] type
 **
@@ -41,19 +46,16 @@
 **					--> ('h', 'hh', 'l', 'll', 'j', 'z')
 */
 
-#define FRM_ARGS "%.0p, %.p", 0, 0
-#define PRINTF fprintf(fichier, FRM_ARGS)
-#define FT_PRINTF ft_printf(FRM_ARGS)
-
 int main()
 {
 	wchar_t texte[50] = L"Schöne Grüße";
-	int 	ret;
-	int		test_simple_mix;
+	int 				ret;
+	int					test_simple_mix;
 	unsigned long int	nb;
-	int pointer_valueLargerThanMinWidth_zeroFlag;
-	char *retour_str;
-	FILE	*fichier = NULL;
+	int 				pointer_valueLargerThanMinWidth_zeroFlag;
+	char 				*retour_str;
+	FILE				*fichier = NULL;
+	int					t;
 
 	fichier = fopen("printf.txt", "a+");
 
@@ -63,6 +65,7 @@ int main()
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
+	printf("Format + ARGS = %s\n", FRM_ARGS);
 	ret = FT_PRINTF;
 	ft_printf("%d\n", ret);
 	if (fichier != NULL)

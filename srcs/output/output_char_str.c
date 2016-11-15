@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 09:12:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 15:34:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
 	{
-		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY && !WIDTH) ||
-			(ZERO && WIDTH_CPY && !ft_strcmp(I_STR, "0x0")))
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - PRECISION_CPY);
+		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY &&
+			!WIDTH && *I_STR != '0') || (*I_STR == '0' &&
+			!IS_PRECISION) || (ZERO && WIDTH_CPY && *I_STR == '0'))
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR) - PRECISION_CPY));
+		else if ((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY && !WIDTH && *I_STR == '0')
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)) - 1);
 		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
 		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY &&
@@ -80,8 +83,13 @@ static void	print_str(t_result *result, size_t i)
 		}
 		else if (PRECISION_CPY < (int)I_STRLEN && !WIDTH)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
-		else if (PRECISION_CPY > (int)I_STRLEN)
+		else if (PRECISION_CPY > (int)I_STRLEN && ft_strcmp(I_STR, "0x0"))
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (int)I_STRLEN);
+		else if (PRECISION_CPY > (int)I_STRLEN && !ft_strcmp(I_STR, "0x0"))
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (int)I_STRLEN);
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - 1);
+		}
 		else if (WIDTH && !WIDTH_CPY && !IS_PRECISION)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 		else if (WIDTH && !WIDTH_CPY && !PRECISION_CPY && (int)RET_STR->len < WIDTH)
