@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 11:03:11 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 16:49:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "%4.1S", L"Jambon"
+#define FRM_ARGS "%*d", 5, 42
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
@@ -59,7 +59,7 @@ int main()
 
 	fichier = fopen("printf.txt", "a+");
 
-	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
+	if (!setlocale(LC_ALL, "en_US.UTF-8"))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
