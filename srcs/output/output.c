@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 16:01:42 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 09:23:05 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ static void	if_space_or_positive(t_result *result, size_t i)
 		(((*I_STR != '-' && *I_STR != '0') && (I_L_CONV != 'c')) ||
 		(*I_STR == '0' && ZERO && I_L_CONV == 'd')))
 	{
-		if (I_L_CONV != 'u' && I_L_CONV != 's' && ((!IS_WIDTH && !IS_PRECISION) || (ZERO && WIDTH && I_L_CONV == 'd')))
+		if (I_L_CONV != 'u' && I_L_CONV != 's' && I_L_CONV != 'p' &&
+			I_L_CONV != 'o' && I_L_CONV != 'x' && I_L_CONV != 'X' &&
+			((!IS_WIDTH && !IS_PRECISION) || (ZERO && WIDTH && I_L_CONV == 'd')))
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
 			if (WIDTH_CPY)
@@ -57,7 +59,9 @@ static void	if_space_or_positive(t_result *result, size_t i)
 	else if ((PLUS && !ft_strchr("GOOD_PLUS", I_L_CONV) && *I_STR != '-' &&
 			!IS_PRECISION))
 	{
-		if (I_L_CONV != 'u' && I_L_CONV != 'c' && I_L_CONV != 'o' && I_L_CONV != 's')
+		if (I_L_CONV != 'u' && I_L_CONV != 'c' && I_L_CONV != 'o' &&
+			I_L_CONV != 's' && I_L_CONV != 'p' && I_L_CONV != 'x' &&
+			I_L_CONV != 'X')
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
 			if (WIDTH_CPY)
@@ -99,7 +103,9 @@ static void	if_caracters_is_sharp(t_result *result, size_t i)
 			WIDTH_CPY--;
 		else if (PRECISION_CPY && PRECISION_CPY > WIDTH_CPY)
 			PRECISION_CPY--;
-	}	
+	}
+	else if (SHARP && IS_PRECISION && PRECISION_CPY == 0 && I_L_CONV == 'o')
+		ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 }
 
 static void	if_zero_without_minus(t_result *result, size_t i)

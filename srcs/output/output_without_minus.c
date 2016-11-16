@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 16:17:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 18:42:35 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,8 @@ void		if_not_minus(t_result *result, size_t i)
 				WIDTH_CPY--;
 			if (WIDTH_CPY - (int)I_STRLEN > 0 && *I_STR != '0' && !ZERO)
 			{
-				if ((!PRECISION_CPY) || PRECISION_CPY >= WIDTH_CPY ||
+				if ((!PRECISION_CPY && *I_STR != '%') ||
+					PRECISION_CPY >= WIDTH_CPY ||
 					(WIDTH_CPY > PRECISION_CPY && PRECISION_CPY > (int)I_STRLEN))
 					ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
 				else if (WIDTH_CPY >= PRECISION_CPY &&

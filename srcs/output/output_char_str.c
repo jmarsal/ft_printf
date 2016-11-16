@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 15:34:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 09:45:04 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,16 @@ static void	print_str(t_result *result, size_t i)
 		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY &&
 			WIDTH_CPY > PRECISION_CPY && (int)I_STRLEN > WIDTH_CPY)
 		{
-			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
+			if (!MOD_L)
+			{
+				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
+				ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
+			}
+			else
+			{
+				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (PRECISION_CPY - 1));
+				ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY - 1);
+			}
 		}
 		else if (!ZERO && !MINUS && WIDTH_CPY - (int)I_STRLEN > 0)
 		{
@@ -77,12 +85,17 @@ static void	print_str(t_result *result, size_t i)
 		}
 		else if (!MINUS && WIDTH_CPY - (int)I_STRLEN > 0)
 		{
-			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+			if (*I_STR != '%')
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+			else
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY);
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
 			WIDTH_CPY = 0;
 		}
-		else if (PRECISION_CPY < (int)I_STRLEN && !WIDTH)
+		else if (PRECISION_CPY < (int)I_STRLEN && !WIDTH && !MOD_L)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
+		else if (PRECISION_CPY < (int)I_STRLEN && !WIDTH && MOD_L)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY - 1);
 		else if (PRECISION_CPY > (int)I_STRLEN && ft_strcmp(I_STR, "0x0"))
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (int)I_STRLEN);
 		else if (PRECISION_CPY > (int)I_STRLEN && !ft_strcmp(I_STR, "0x0"))
@@ -96,6 +109,10 @@ static void	print_str(t_result *result, size_t i)
 			ft_buffer_set(RET_STR, ' ', WIDTH - RET_STR->len);
 		if (ZERO && WIDTH_CPY - (int)I_STRLEN > 0)
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+		else if (ZERO && !PRECISION_CPY && !ft_strcmp(I_STR, "(null)"))
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY);
+		else if (ZERO && WIDTH_CPY && PRECISION_CPY == 0 && IS_PRECISION)
+			ft_buffer_set(RET_STR, '0', WIDTH_CPY);
 	}
 }
 

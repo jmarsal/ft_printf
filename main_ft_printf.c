@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "%2.9p", 1234
+#define FRM_ARGS "%4.S", L"我是一只猫。"
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
@@ -59,7 +59,7 @@ int main()
 
 	fichier = fopen("printf.txt", "a+");
 
-	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
+	if (!setlocale(LC_ALL, "en_US.UTF-8"))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
