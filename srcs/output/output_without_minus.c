@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 18:42:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 15:30:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ static void	is_precision_sup_width(t_result *result, size_t i)
 
 static void is_width_precision(t_result *result, size_t i)
 {
-	if ((I_L_CONV == 'o' || I_L_CONV == 'd') && WIDTH_CPY)
+	if ((I_L_CONV == 'o' || I_L_CONV == 'd') && WIDTH_CPY &&
+		!result->tab_conv[i]->is_wildchar_width)
 	{
 		if (WIDTH_CPY && SHARP && (!(MOD_HH || MOD_H)))
 			WIDTH_CPY--;

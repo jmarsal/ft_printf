@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 16:59:05 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/28 17:14:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 15:20:31 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct		s_conv
 	int				is_width;
 	int				is_precision;
 	int				is_modifier;
+	int				is_wildchar_width;
+	int				is_wildchar_prec;
 	char			l_conv;
 }					t_conv;
 

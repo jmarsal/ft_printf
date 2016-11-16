@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:06:00 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 14:33:02 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 15:21:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ t_conv	*tab_conv_init(t_conv *tab_conv)
 	tab_conv->is_width = 0;
 	tab_conv->is_precision = 0;
 	tab_conv->is_modifier = 0;
+	tab_conv->is_wildchar_width = 0;
+	tab_conv->is_wildchar_prec = 0;
 	tab_conv->l_conv = 0;
 	tab_conv->ret_str = ft_buffer_new(0);
 	return (tab_conv);

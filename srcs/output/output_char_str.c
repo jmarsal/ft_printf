@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 11:09:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 17:11:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static void	print_str(t_result *result, size_t i)
 {
 	if (I_L_CONV == 's')
 	{
-		if (((int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY &&
+		if ((!result->tab_conv[i]->is_wildchar_prec &&
+			(int)I_STRLEN >= PRECISION_CPY && !WIDTH_CPY &&
 			!WIDTH && *I_STR != '0') || (*I_STR == '0' &&
 			!IS_PRECISION) || (ZERO && WIDTH_CPY && *I_STR == '0'))
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR) - PRECISION_CPY));
