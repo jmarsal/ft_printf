@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_ft_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/04 16:57:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 11:03:11 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
+#include <stdlib.h>
+#include <locale.h>
 #include <wchar.h>
 #include <limits.h>
-#include <locale.h>
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
+// Modifier ici
+#define FRM_ARGS "%4.1S", L"Jambon"
+
+#define PRINTF fprintf(fichier, FRM_ARGS)
+#define FT_PRINTF ft_printf(FRM_ARGS)
 /*
 ** % [drapeaux] [largeur] [.precision] [modificateur] type
 **
@@ -40,18 +48,32 @@
 
 int main()
 {
-	int nb1;
-	int	nb;
+	wchar_t texte[50] = L"Schöne Grüße";
+	int 				ret;
+	int					test_simple_mix;
+	unsigned long int	nb;
+	int 				pointer_valueLargerThanMinWidth_zeroFlag;
+	char 				*retour_str;
+	FILE				*fichier = NULL;
+	int					t;
 
-	nb1 = ft_printf("@moulitest: %.o %.0o", 0, 0);
-	ft_printf("%d\n", nb1);
+	fichier = fopen("printf.txt", "a+");
 
-// // ////////////////////////////////////////////////////////////////////////////////
-	printf("Avec printf\n");	
-// // ////////////////////////////////////////////////////////////////////////////////
-
-	nb1 = printf("@moulitest: %.o %.0o", 0, 0);
-	printf("%d\n", nb1);
+	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
+	{
+		fprintf(stderr, "Can't set the specified locale! "
+			"Check LANG, LC_CTYPE, LC_ALL.\n");
+		return 1;
+	}
+	printf("Format + ARGS = %s\n", FRM_ARGS);
+	ret = FT_PRINTF;
+	ft_printf("%d\n", ret);
+	if (fichier != NULL)
+    {
+        ret = PRINTF;
+		fprintf(fichier, "%d\n", ret);
+        fclose(fichier);
+    }
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:59:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/27 23:23:58 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 18:09:56 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@ static void	get_str(t_result *result, size_t *i, int j)
 	tab_conv_add(result, result->i_args);	
 	L_CONV = 's';
 	STR = ft_strnew(j + 1);
-	while (++k <= j)
-		STR[k] = result->format[*i - j + k];
-	STR[++k] = '\0';
+	if (result->format[*i - j] == '%' && result->format[*i + 1] == '\0')
+		STR = "";
+	else
+	{
+		while (++k <= j)
+			STR[k] = result->format[*i - j + k];
+		STR[++k] = '\0';
+		STRLEN = (I_WIDTH_CPY > (int)ft_strlen(STR)) ? ft_strlen(STR) - 1 : ft_strlen(STR);
+	}
 	result->i_args++;
 	*i = (result->format[*i]) ? *i + 1 : *i;
 }
@@ -34,7 +40,8 @@ void		parser_str(t_result *result, size_t *i)
 
 	format = result->format;
 	j = 0;
-	while (format[*i] != '%' && format[*i] != '{')
+	while ((format[*i] != '%' && format[*i] != '{') ||
+			(format[*i] == '%' && format[*i + 1] == '\0'))
 	{
 		if (format[*i] == '\0' || format[*i + 1] == '%' ||
 			format[*i + 1] == '{' || format[*i] == '\n')

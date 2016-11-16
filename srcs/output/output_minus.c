@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output_width_precision_minus.c                     :+:      :+:    :+:   */
+/*   output_minus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 14:32:24 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/04 16:50:01 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/11 08:00:06 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,21 @@
 static void	if_l_conv_u(t_result *result, size_t i)
 {
 	if (!I_IS_MODIFIER)
-		add_padding(result, i, 0, '0');
+	{
+		if ((PRECISION_CPY - (int)I_STRLEN) > 0)
+		{
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			PRECISION_CPY = 0;
+		}
+	}
 	if ((MOD_HH || MOD_H) && WIDTH >= PRECISION_O)
-		add_padding(result, i, -1, '0');
+	{
+		if (PRECISION_CPY - (int)I_STRLEN > 0)
+		{
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			PRECISION_CPY = 0;
+		}
+	}
 }
 
 static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
@@ -26,42 +38,59 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 	{
 		I_STR = I_STR + 1;
 		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
-		if (I_STRLEN < PRECISION_O)
+		if ((int)I_STRLEN < PRECISION_O)
 		{
 			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
 			WIDTH_CPY -= 1;
 		}
-		add_padding(result, i, -1, '0');
+		if (PRECISION_CPY > (int)I_STRLEN)
+		{
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			WIDTH_CPY -= PRECISION_CPY;
+			PRECISION_CPY = 0;
+		}
 	}
 	if (I_L_CONV == 'u')
 		if_l_conv_u(result, i);
 	if (!(MOD_HH || MOD_H || I_L_CONV == 'u' || I_L_CONV == 's' ||
 		I_L_CONV == 'c'))
-		add_padding(result, i, -1, '0');
+	{
+		if (PRECISION_CPY > (int)I_STRLEN)
+		{
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			PRECISION_CPY = 0;
+		}
+	}
 }
 
 static void	is_width_precision_sharp_minus(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'o')
 	{
-		WIDTH_CPY -= 1;
-		if (*RET_STR->str != '0')
-			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
-		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
+		if (*RET_STR->str != '0' && PRECISION_O > WIDTH)
 		{
-			PRECISION_CPY = (WIDTH_CPY - I_STRLEN);
-			WIDTH_CPY += 1;
+			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
+			if ((WIDTH == PRECISION_O) || (PRECISION_O > WIDTH))
+				PRECISION_CPY--;
 		}
-		else
+		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
 			PRECISION_CPY--;
 	}
-	add_padding(result, i, -1, '0');
+	if (PRECISION_CPY - (int)I_STRLEN >= 0)
+	{
+		ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+		PRECISION_CPY = 0;
+	}
 }
 
 static void	is_width_precision_plus_minus(t_result *result, size_t i)
 {
 	ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
-	add_padding(result, i, -1, '0');
+	if (PRECISION_CPY > 0)
+	{
+		ft_buffer_set(RET_STR, '0', PRECISION_CPY - I_STRLEN);
+		PRECISION_CPY = 0;
+	}
 }
 
 void		is_width_precision_minus(t_result *result, size_t i)
@@ -77,7 +106,16 @@ void		is_width_precision_minus(t_result *result, size_t i)
 		{
 			WIDTH_CPY = (PRECISION_CPY >= WIDTH_CPY) ?
 						WIDTH_CPY - PRECISION_CPY : WIDTH_CPY;
-			add_padding(result, i, -1, '0');
+			if (PRECISION_CPY && (WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY) > 0)
+			{
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY);
+				PRECISION_CPY = 0;
+			}
+			else if (PRECISION_CPY > (int)I_STRLEN && PRECISION_O >= WIDTH)
+			{
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+				PRECISION_CPY -= (int)I_STRLEN;
+			}
 		}
 	}
 }

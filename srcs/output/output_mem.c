@@ -6,72 +6,57 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 16:10:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:41:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/15 18:24:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static char	*malloc_str()
-{
-	char	*str;
-	int		i;
-
-	i = 0;
-	if ((str = malloc(65)) == NULL)
-		return (NULL);
-	while (i < 65)
-		str[i++] = 0;
-	return (str);
-}
-
-static char	*itoa_ptr(unsigned char value)
-{
-	int		i;
-	long	val;
-	char	*number;
-	char	*charset;
-
-	charset = "0123456789abcdef";
-	i = 0;
-	val = value;
-	if ((number = malloc_str()) == NULL)
-		return (NULL);
-	if (value == 0)
-		number[i] = '0';
-	while (val)
-	{
-		number[i++] = charset[val % 16];
-		val /= 16;
-	}
-	if (value < 16)
-		number = ft_strjoin(number, "0");
-	return (ft_strrev(number));
-}
-
-static char	*ft_get_ptr(int *ptr)
-{
-	char			*ret;
-	unsigned char	p[sizeof(ptr)];
-	int				i;
-
-	ret = ft_strnew(0);
-	i = sizeof(ptr) - 2;
-	ft_memcpy(p, &ptr, sizeof(ptr));
-	ret = ft_strjoin(ret, "0x");
-	while (i-- > 0)
-		ret = ft_strjoin(ret, itoa_ptr(p[i]));
-	return (ret);
-}
-
 void	print_ptr(t_result *result, size_t i)
 {
-	char	*mem_tmp;
-
-	mem_tmp = NULL;
 	if (I_L_CONV == 'p')
 	{
-		mem_tmp = ft_get_ptr(I_PTR);
-		ft_buffer_add(RET_STR, RET_STR->len, mem_tmp, ft_strlen(mem_tmp));
+		if (!MINUS && !ZERO && (WIDTH_CPY - (I_STRLEN + 2)) > 0 &&
+			WIDTH_CPY > PRECISION_CPY && WIDTH_CPY > (int)I_STRLEN)
+		{
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (I_STRLEN + 2));
+			WIDTH_CPY = 0;
+		}
+		if (!IS_MODIFIER)
+		{
+			ft_buffer_add(RET_STR, RET_STR->len, "0x", 2);
+			PRECISION_CPY = (PRECISION_CPY && WIDTH_CPY) ?
+				PRECISION_CPY -= 1 : PRECISION_CPY;
+			if ((*I_STR != '0' && PRECISION_CPY <= (int)I_STRLEN) ||
+				(*I_STR == '0' && !IS_PRECISION))
+				ft_buffer_add(RET_STR, RET_STR->len, I_STR, I_STRLEN);
+		}
+		if ((ZERO && WIDTH_CPY && (WIDTH_CPY - ((int)I_STRLEN + 2)) > 0) ||
+			(!WIDTH && PRECISION_CPY && *I_STR == '0'))
+		{
+			if (WIDTH_CPY)
+			{
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (I_STRLEN + 2));
+				WIDTH_CPY = 0;
+			}
+			else if (PRECISION_CPY)
+			{
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY);
+				PRECISION_CPY = 0;
+			}
+		}
+		if (WIDTH_CPY && PRECISION_CPY - WIDTH_CPY > 0 &&
+			!MINUS && PRECISION_CPY > WIDTH_CPY)
+		{
+			if (WIDTH_CPY >= (int)I_STRLEN)
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY - WIDTH_CPY);
+			else if (PRECISION_CPY - (I_STRLEN + 1) > 0)
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY - I_STRLEN + 1);
+			PRECISION_CPY = 0;
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, I_STRLEN);
+		}
+		if ((WIDTH_CPY - RET_STR->len) > 0 && WIDTH_CPY > PRECISION_CPY &&
+			WIDTH_CPY > (int)RET_STR->len && MINUS)
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - RET_STR->len);
 	}
 }

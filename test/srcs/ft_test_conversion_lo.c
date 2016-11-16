@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/24 12:02:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/24 12:02:17 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/10 14:59:53 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int	main(void)
 	ft_printf("%d\n", ret);
 	ret = ft_printf("%#O\n", nb);
 	ft_printf("%d\n", ret);
+	
 	return (0);
 }

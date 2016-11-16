@@ -62,8 +62,8 @@ SOURCES = ft_printf.c \
 						conv_mem.c \
 						error.c \
 						output.c \
-						output_width_precision_minus.c \
-						output_width_precision_not_minus.c \
+						output_minus.c \
+						output_without_minus.c \
 						output_char_str.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
@@ -112,6 +112,7 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_buffer_destroy.c \
 						ft_buffer_new.c \
 						ft_buffer_resize.c \
+						ft_buffer_set.c \
 						ft_memmove.c
 
 # Libft

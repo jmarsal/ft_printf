@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:24:59 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 16:16:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ static void	conv_decimal_u(t_result *result, size_t *i)
 	base = 10;
 	if (format[*i] == 'u' || format[*i] == 'U')
 	{
-		I_MOD_L = (format[*i] == 'U') ? 1 : I_MOD_L;
+		if (format[*i] == 'U')
+		{
+			reset_flags_struct(result);
+			I_MOD_L = (format[*i] == 'U') ? 1 : I_MOD_L;
+		}
 		if (I_MOD_HH || I_MOD_H)
 			STR = I_MOD_HH ?
 				ft_utoa_base((unsigned char)va_arg(result->ap, int), base) :
@@ -58,7 +62,8 @@ static void	conv_octal(t_result *result, size_t * i)
 	if (format[*i] == 'o' || format[*i] == 'O')
 	{
 		if (format[*i] == 'O')
-			I_MOD_L = 1;
+			reset_flags_struct(result);
+			I_MOD_L = (format[*i] == 'O') ? 1 : I_MOD_L;
 		if (I_MOD_H || I_MOD_HH)
 			STR = (I_MOD_H) ?
 				ft_utoa_base((unsigned short)va_arg(result->ap, int), base) :
@@ -80,6 +85,8 @@ static void	conv_decimal_d(t_result *result, size_t *i)
 	base = 10;
 	if (format[*i] == 'd' || format[*i] == 'i'|| format[*i] == 'D')
 	{
+		if (format[*i] == 'D')
+			reset_flags_struct(result);
 		I_MOD_L = (format[*i] == 'D') ? 1 : I_MOD_L;
 		if (I_MOD_HH || I_MOD_H)
 		{
