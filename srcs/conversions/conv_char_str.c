@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/04 15:25:36 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 16:26:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	conv_char_c(t_result *result, size_t * i)
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
 	{
-		I_MOD_L = 1;
+		if (result->format[*i] == 'C')
+				reset_flags_struct(result);
+			I_MOD_L = (result->format[*i] == 'C') ? 1 : I_MOD_L;
 		if (!(STR = ft_wcconv((wchar_t)va_arg(result->ap, wint_t))))
 			STR = ft_strdup("(null)");
 	}
@@ -33,7 +35,7 @@ static void	conv_char_c(t_result *result, size_t * i)
 
 void		conv_str_s(t_result *result, size_t *i)
 {
-	if ((result->format[*i] == 's' || result->format[*i] == 's') && (!IS_MODIFIER || I_MOD_L))
+	if ((result->format[*i] == 's' || result->format[*i] == 'S'))
 	{
 		if (result->format[*i] == 's' && !I_MOD_L)
 		{
@@ -43,7 +45,9 @@ void		conv_str_s(t_result *result, size_t *i)
 		else if ((result->format[*i] == 's' && I_MOD_L) ||
 			result->format[*i] == 'S')
 		{
-			I_MOD_L = 1;
+			if (result->format[*i] == 'S')
+				reset_flags_struct(result);
+			I_MOD_L = (result->format[*i] == 'S') ? 1 : I_MOD_L;
 			if (!(STR = ft_wcsconv(va_arg(result->ap, wchar_t *))))
 				STR = ft_strdup("(null)");
 		}

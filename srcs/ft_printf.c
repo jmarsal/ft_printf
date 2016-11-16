@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/29 01:06:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/14 16:45:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ static int	ft_vsprintf(const char *format, va_list ap)
 	t_result	*result;
 	int			err;
 	int			len;
+	FILE* fichier = NULL; //Pour test
 
+	fichier = fopen("ft_printf.txt", "a+");
+	
 	result = NULL;
 	if (!(result = init_result(ap, format)) || (treatment(result)) == -1)
 		return (-1);
@@ -44,6 +47,11 @@ static int	ft_vsprintf(const char *format, va_list ap)
 		return (error_output(err));
 	if ((len = print_result(result)) == -1)
 		return (-1);
+	if (fichier != NULL) //idem
+    {
+        fputs(result->result_str->str, fichier);
+        fclose(fichier);
+    }
 	destroy_result(&result);
 	return (len);
 }

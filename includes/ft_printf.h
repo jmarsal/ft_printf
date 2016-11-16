@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/25 17:29:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/11 14:16:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		lex_parse_percent(t_result *result, size_t *i);
 int			parser_specifier(t_result *result, size_t *i);
 void		get_flags(t_result *result, size_t *i);
 void		parser_percent_if_flags_betwin(t_result *result, size_t *i);
+void		reset_flags_struct(t_result *result);
 
 /*
 ** memory
@@ -71,7 +72,7 @@ void		print_str_if_char_to_zero(t_result *result);
 void		print_hex_x(t_result *result, size_t i);
 void		print_ptr(t_result *result, size_t i);
 void		is_width_precision_minus(t_result *result, size_t i);
-void		is_width_precision_and_not_minus(t_result *result, size_t i);
+void		if_not_minus(t_result *result, size_t i);
 void		add_padding(t_result *result, size_t i, int size, char c);
 void		get_specifier_and_ajust_width(t_result *result, char specifier);
 
