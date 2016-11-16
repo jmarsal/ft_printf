@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 09:45:04 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/16 11:09:13 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	print_str(t_result *result, size_t i)
 		else if (PRECISION_CPY && (int)I_STRLEN >= PRECISION_CPY &&
 			WIDTH_CPY > PRECISION_CPY && (int)I_STRLEN > WIDTH_CPY)
 		{
-			if (!MOD_L)
+			if ((!MOD_L) || (MOD_L && *I_STR >= 32 && *I_STR <= 126))
 			{
 				ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
 				ft_buffer_add(RET_STR, RET_STR->len, I_STR, PRECISION_CPY);
@@ -111,8 +111,10 @@ static void	print_str(t_result *result, size_t i)
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 		else if (ZERO && !PRECISION_CPY && !ft_strcmp(I_STR, "(null)"))
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY);
-		else if (ZERO && WIDTH_CPY && PRECISION_CPY == 0 && IS_PRECISION)
+		else if (ZERO && WIDTH_CPY && !PRECISION_CPY && IS_PRECISION)
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY);
+		else if (WIDTH_CPY && IS_PRECISION && !PRECISION_CPY && MOD_L)
+			ft_buffer_set(RET_STR, ' ', WIDTH_CPY);
 	}
 }
 
