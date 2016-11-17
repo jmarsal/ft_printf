@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 17:04:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 14:41:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "{%3*p}", 10, 0
+#define FRM_ARGS "{%05.*d}", -15, 42
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)

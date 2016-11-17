@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 09:36:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 14:17:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	parser_precision(t_result *result, size_t *i)
 
 	get_precision = NULL;
 	format = result->format;
-	if (ft_strchr(PRECISION, format[*i]))
+	if ((ft_strchr(PRECISION, format[*i])) || (ft_isdigit(format[*i]) &&
+		format[*i - 1] == '*'))
 	{
 		if (format[*i] == '.')
 			*i += 1;
@@ -64,7 +65,8 @@ static void	parser_precision(t_result *result, size_t *i)
 			I_PRECISION_O = ft_atoi(get_precision);
 		}
 		else if (format[*i] == '*' && !ft_isdigit(format[*i + 1]) &&
-			!result->tab_conv[result->i_args]->is_wildchar_width)
+			((!result->tab_conv[result->i_args]->is_wildchar_width) ||
+			(!I_WIDTH)))
 		{
 			result->tab_conv[result->i_args]->is_wildchar_prec = 1;
 			I_PRECISION_O = (int)va_arg(result->ap, int);
@@ -96,7 +98,7 @@ static void	parser_width(t_result *result, size_t *i)
 			get_width = ft_get_number(format, i);
 			I_WIDTH = ft_atoi(get_width);
 		}
-		else if (format[*i] == '*' && !ft_isdigit(format[*i + 1]))
+		else if (format[*i] == '*')
 		{
 			result->tab_conv[result->i_args]->is_wildchar_width = 1;
 			I_WIDTH = (int)va_arg(result->ap, int);
