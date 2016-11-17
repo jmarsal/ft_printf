@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 15:27:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 16:02:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@
 */
 
 # define INIT_SIZE_TAB_CONV 1
+# define I_ARGS result->i_args
 
 /*
 ** type
 */
 
-# define STR result->tab_conv[result->i_args]->type->str
+# define STR result->tab_conv[I_ARGS]->type->str
 # define I_STR result->tab_conv[i]->type->str
-# define STRLEN result->tab_conv[result->i_args]->type->str_len
+# define STRLEN result->tab_conv[I_ARGS]->type->str_len
 # define I_STRLEN result->tab_conv[i]->type->str_len
-# define PTR result->tab_conv[result->i_args]->type->ptr
+# define PTR result->tab_conv[I_ARGS]->type->ptr
 # define I_PTR result->tab_conv[i]->type->ptr
-# define L_CONV result->tab_conv[result->i_args]->l_conv
+# define L_CONV result->tab_conv[I_ARGS]->l_conv
 # define I_L_CONV result->tab_conv[i]->l_conv
 
 /*
@@ -37,38 +38,38 @@
 */
 
 #define IS_WIDTH result->tab_conv[i]->is_width
-#define I_IS_WIDTH result->tab_conv[result->i_args]->is_width
+#define I_IS_WIDTH result->tab_conv[I_ARGS]->is_width
 #define WIDTH result->tab_conv[i]->width_precision->width
-#define I_WIDTH result->tab_conv[result->i_args]->width_precision->width
+#define I_WIDTH result->tab_conv[I_ARGS]->width_precision->width
 #define WIDTH_CPY result->tab_conv[i]->width_precision->width_cpy
-#define I_WIDTH_CPY result->tab_conv[result->i_args]->width_precision->width_cpy
+#define I_WIDTH_CPY result->tab_conv[I_ARGS]->width_precision->width_cpy
 #define PRECISION_O result->tab_conv[i]->width_precision->precision
-#define I_PRECISION_O result->tab_conv[result->i_args]->width_precision->precision
+#define I_PRECISION_O result->tab_conv[I_ARGS]->width_precision->precision
 #define PRECISION_CPY result->tab_conv[i]->width_precision->precision_cpy
-#define I_PRECISION_CPY result->tab_conv[result->i_args]->width_precision->precision_cpy
+#define I_PRECISION_CPY result->tab_conv[I_ARGS]->width_precision->precision_cpy
 #define IS_PRECISION result->tab_conv[i]->is_precision
-#define I_IS_PRECISION result->tab_conv[result->i_args]->is_precision
+#define I_IS_PRECISION result->tab_conv[I_ARGS]->is_precision
 
 /*
 ** caracters
 */
 
 #define MINUS result->tab_conv[i]->caracters->minus
-#define A_MINUS result->tab_conv[result->i_args]->caracters->minus
+#define A_MINUS result->tab_conv[I_ARGS]->caracters->minus
 #define PLUS result->tab_conv[i]->caracters->plus
-#define A_PLUS result->tab_conv[result->i_args]->caracters->plus
+#define A_PLUS result->tab_conv[I_ARGS]->caracters->plus
 #define SPACE result->tab_conv[i]->caracters->space
-#define A_SPACE result->tab_conv[result->i_args]->caracters->space
+#define A_SPACE result->tab_conv[I_ARGS]->caracters->space
 #define SHARP result->tab_conv[i]->caracters->sharp
-#define A_SHARP result->tab_conv[result->i_args]->caracters->sharp
+#define A_SHARP result->tab_conv[I_ARGS]->caracters->sharp
 #define ZERO result->tab_conv[i]->caracters->zero
-#define A_ZERO result->tab_conv[result->i_args]->caracters->zero
+#define A_ZERO result->tab_conv[I_ARGS]->caracters->zero
 
 /*
 ** modifier
 */
 
-# define IS_MODIFIER result->tab_conv[result->i_args]->is_modifier
+# define IS_MODIFIER result->tab_conv[I_ARGS]->is_modifier
 # define I_IS_MODIFIER result->tab_conv[i]->is_modifier
 # define MOD_HH result->tab_conv[i]->modifier->hh
 # define MOD_H result->tab_conv[i]->modifier->h
@@ -76,12 +77,12 @@
 # define MOD_LL result->tab_conv[i]->modifier->ll
 # define MOD_J result->tab_conv[i]->modifier->j
 # define MOD_Z result->tab_conv[i]->modifier->z
-# define I_MOD_HH result->tab_conv[result->i_args]->modifier->hh
-# define I_MOD_H result->tab_conv[result->i_args]->modifier->h
-# define I_MOD_L result->tab_conv[result->i_args]->modifier->l
-# define I_MOD_LL result->tab_conv[result->i_args]->modifier->ll
-# define I_MOD_J result->tab_conv[result->i_args]->modifier->j
-# define I_MOD_Z result->tab_conv[result->i_args]->modifier->z
+# define I_MOD_HH result->tab_conv[I_ARGS]->modifier->hh
+# define I_MOD_H result->tab_conv[I_ARGS]->modifier->h
+# define I_MOD_L result->tab_conv[I_ARGS]->modifier->l
+# define I_MOD_LL result->tab_conv[I_ARGS]->modifier->ll
+# define I_MOD_J result->tab_conv[I_ARGS]->modifier->j
+# define I_MOD_Z result->tab_conv[I_ARGS]->modifier->z
 
 /*
 ** ret_ft_printf
@@ -93,13 +94,11 @@
 ** conversion flags
 */
 
-# define CARACTERS "-+ #0" // OK
-# define F_WIDTH "123456789*" // OK
-# define PRECISION ".*" // Warning avec * : si 1 * et pas de largeur, alors * vaut largeur.
-										// si 1 * et largeur alors * vaut precision
-										// 2 * impossible...!!
+# define CARACTERS "-+ #0"
+# define F_WIDTH "123456789*"
+# define PRECISION ".*"
 # define L_MODIFIER "hljz"
-# define C_SPECIFIERS "dDioOuUxXcCsSbp" //reste a gerer le 'C' ou 'S'
+# define C_SPECIFIERS "dDioOuUxXcCsSbp"
 
 /*
 ** colors

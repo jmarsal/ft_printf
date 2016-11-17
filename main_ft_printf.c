@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 15:30:31 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 16:04:22 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,20 @@ int main()
 
 	fichier = fopen("printf.txt", "a+");
 
-	if (!setlocale(LC_ALL, "en_US.UTF-8"))
+	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
 	printf("Format + ARGS = %s\n", "FRM_ARGS");
-	ret = FT_PRINTF;
-	ft_printf("%d\n", ret);
+		ret = FT_PRINTF;
+		ft_printf("%d\n", ret);
 	if (fichier != NULL)
-    {
-        ret = PRINTF;
+	{
+		ret = PRINTF;
 		fprintf(fichier, "%d\n", ret);
-        fclose(fichier);
-    }
-
+		fclose(fichier);
+	}
 	return (0);
 }

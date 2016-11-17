@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 16:26:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 15:36:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void	conv_char_c(t_result *result, size_t * i)
 	format = result->format;
 	if (format[*i] == 'c' && !I_MOD_L)
 	{
-		STR = ft_memalloc(sizeof(char) * 2);
+		if (!(STR = ft_strnew(0)))
+			exit (1);
 		*STR = (unsigned char)va_arg(result->ap, int);
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
