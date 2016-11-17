@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 08:00:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 14:48:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,13 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 	{
 		if (PRECISION_CPY > (int)I_STRLEN)
 		{
-			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			if (!IS_WIDTH || (!result->tab_conv[i]->is_wildcard_prec))
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			else if (WIDTH_CPY - (int)I_STRLEN > 0)
+			{
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
+				WIDTH_CPY = 0;
+			}
 			PRECISION_CPY = 0;
 		}
 	}

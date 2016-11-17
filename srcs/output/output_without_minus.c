@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 01:54:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 18:42:35 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 14:40:14 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ static void	is_precision_sup_width(t_result *result, size_t i)
 
 static void is_width_precision(t_result *result, size_t i)
 {
-	if ((I_L_CONV == 'o' || I_L_CONV == 'd') && WIDTH_CPY)
+	if ((I_L_CONV == 'o' || I_L_CONV == 'd') && WIDTH_CPY &&
+		!result->tab_conv[i]->is_wildcard_width)
 	{
 		if (WIDTH_CPY && SHARP && (!(MOD_HH || MOD_H)))
 			WIDTH_CPY--;
@@ -88,8 +89,12 @@ static void is_width_precision(t_result *result, size_t i)
 				WIDTH_CPY--;
 			ft_buffer_set(RET_STR, ' ', (WIDTH_CPY - PRECISION_CPY));
 		}
-		else if (PRECISION_O < (int)I_STRLEN && (WIDTH_CPY - (int)I_STRLEN) > 0)
+		else if (PRECISION_O < (int)I_STRLEN &&
+			(WIDTH_CPY - (int)I_STRLEN) > 0 && !result->tab_conv[i]->is_wildcard_prec)
 			ft_buffer_set(RET_STR, ' ', (WIDTH_CPY - (int)I_STRLEN));
+		else if (PRECISION_O < (int)I_STRLEN &&
+			(WIDTH_CPY - (int)I_STRLEN) > 0 && result->tab_conv[i]->is_wildcard_prec)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, I_STRLEN);
 		WIDTH_CPY = 0;
 	}
 	if (IS_PRECISION && PLUS)
@@ -104,7 +109,10 @@ static void is_width_precision(t_result *result, size_t i)
 		ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 		WIDTH_CPY = 0;
 	}
-	else if (I_L_CONV != 'p' && PRECISION_CPY >= (int)I_STRLEN)
+	else if (I_L_CONV != 'p' && PRECISION_CPY >= (int)I_STRLEN &&
+		((!result->tab_conv[i]->is_wildcard_width) ||
+		(result->tab_conv[i]->is_wildcard_width &&
+		result->tab_conv[i]->is_wildcard_prec)))
 	{
 		if (*I_STR == '-' && *RET_STR->str != '-')
 		{
@@ -115,7 +123,10 @@ static void is_width_precision(t_result *result, size_t i)
 		}
 		if (WIDTH_CPY <= PRECISION_CPY)
 		{
-			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			if (*I_STR != '0')
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
+			else
+				ft_buffer_set(RET_STR, '0', PRECISION_CPY);
 			PRECISION_CPY = 0;
 			WIDTH_CPY = 0;
 		}
@@ -124,6 +135,15 @@ static void is_width_precision(t_result *result, size_t i)
 			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - PRECISION_CPY);
 			WIDTH_CPY = 0;
 		}
+	}
+	else if (I_L_CONV != 'p' && PRECISION_CPY >= (int)I_STRLEN &&
+		result->tab_conv[i]->is_wildcard_width)
+	{
+		ft_buffer_set(RET_STR, ' ', PRECISION_CPY - I_STRLEN);
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, I_STRLEN);
+		if (WIDTH_CPY > PRECISION_CPY)
+			WIDTH_CPY -= RET_STR->len + 1;
+		PRECISION_CPY = 0;
 	}
 	is_sharp_and_o(result, i);
 	if (PLUS && !IS_PRECISION && !ZERO)

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/10 12:00:41 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 14:17:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,31 @@ static void	parser_precision(t_result *result, size_t *i)
 
 	get_precision = NULL;
 	format = result->format;
-	if (ft_strchr(PRECISION, format[*i]))
+	if ((ft_strchr(PRECISION, format[*i])) || (ft_isdigit(format[*i]) &&
+		format[*i - 1] == '*'))
 	{
+		if (format[*i] == '.')
+			*i += 1;
+		if (format[*i] != '*')
+		{
+			get_precision = ft_get_number(format, i);
+			I_PRECISION_O = ft_atoi(get_precision);
+		}
+		else if (format[*i] == '*' && !ft_isdigit(format[*i + 1]) &&
+			((!result->tab_conv[result->i_args]->is_wildcard_width) ||
+			(!I_WIDTH)))
+		{
+			result->tab_conv[result->i_args]->is_wildcard_prec = 1;
+			I_PRECISION_O = (int)va_arg(result->ap, int);
+			*i += 1;
+		}
+		if (I_PRECISION_O < 0)
+		{
+			I_PRECISION_O = -I_PRECISION_O;
+			A_MINUS = 1;
+		}
+		I_PRECISION_CPY = I_PRECISION_O;
 		I_IS_PRECISION = 1;
-		*i += 1;
-		get_precision = ft_get_number(format, i);
-		if ((I_PRECISION_O = ft_atoi(get_precision)) > 0)
-			I_PRECISION_CPY = I_PRECISION_O;
 		ft_free_null(get_precision);
 	}
 	parser_modifier(result, i);
@@ -75,8 +93,22 @@ static void	parser_width(t_result *result, size_t *i)
 	format = result->format;
 	if (ft_strchr(F_WIDTH, format[*i]))
 	{
-		get_width = ft_get_number(format, i);
-		I_WIDTH = ft_atoi(get_width);
+		if (format[*i] != '*')
+		{
+			get_width = ft_get_number(format, i);
+			I_WIDTH = ft_atoi(get_width);
+		}
+		else if (format[*i] == '*')
+		{
+			result->tab_conv[result->i_args]->is_wildcard_width = 1;
+			I_WIDTH = (int)va_arg(result->ap, int);
+			if (I_WIDTH < 0)
+			{
+				I_WIDTH = -I_WIDTH;
+				A_MINUS = 1;
+			}
+		*i += 1;
+		}
 		I_WIDTH_CPY = I_WIDTH;
 		ft_free_null(get_width);
 		I_IS_WIDTH = 1;
