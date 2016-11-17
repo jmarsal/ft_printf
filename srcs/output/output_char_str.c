@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 17:11:17 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 09:12:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ static void	print_str(t_result *result, size_t i)
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 		else if (WIDTH && !WIDTH_CPY && !PRECISION_CPY && (int)RET_STR->len < WIDTH)
 			ft_buffer_set(RET_STR, ' ', WIDTH - RET_STR->len);
+		else if (WIDTH_CPY < (int)I_STRLEN && !IS_PRECISION)
+			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 		if (ZERO && WIDTH_CPY - (int)I_STRLEN > 0)
 			ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN);
 		else if (ZERO && !PRECISION_CPY && !ft_strcmp(I_STR, "(null)"))

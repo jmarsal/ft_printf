@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "{%.*s}", 0, "42"
+#define FRM_ARGS "{%3*p}", 10, 0
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)

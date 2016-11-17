@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 17:01:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 09:36:23 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static void	parser_precision(t_result *result, size_t *i)
 	format = result->format;
 	if (ft_strchr(PRECISION, format[*i]))
 	{
-		*i += 1;
+		if (format[*i] == '.')
+			*i += 1;
 		if (format[*i] != '*')
 		{
 			get_precision = ft_get_number(format, i);
@@ -69,8 +70,12 @@ static void	parser_precision(t_result *result, size_t *i)
 			I_PRECISION_O = (int)va_arg(result->ap, int);
 			*i += 1;
 		}
-		if (I_PRECISION_O > 0)
-			I_PRECISION_CPY = I_PRECISION_O;
+		if (I_PRECISION_O < 0)
+		{
+			I_PRECISION_O = -I_PRECISION_O;
+			A_MINUS = 1;
+		}
+		I_PRECISION_CPY = I_PRECISION_O;
 		I_IS_PRECISION = 1;
 		ft_free_null(get_precision);
 	}
@@ -100,6 +105,7 @@ static void	parser_width(t_result *result, size_t *i)
 				I_WIDTH = -I_WIDTH;
 				A_MINUS = 1;
 			}
+		*i += 1;
 		}
 		I_WIDTH_CPY = I_WIDTH;
 		ft_free_null(get_width);
