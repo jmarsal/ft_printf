@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 17:57:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 16:07:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "{%05.*d}", -15, 42
+#define FRM_ARGS "Prix : %d€\nSolde de 50%%\n", 50
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
@@ -59,15 +59,14 @@ int main()
 
 	fichier = fopen("printf.txt", "a+");
 
-	if (!setlocale(LC_CTYPE, "en_US.UTF-8"))
+	if (!setlocale(LC_CTYPE, ""))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	printf("Format + ARGS = %s\n", "FRM_ARGS");
-		ret = FT_PRINTF;
-		ft_printf("%d\n", ret);
+	ret = FT_PRINTF;
+	ft_printf("%d\n", ret);
 	if (fichier != NULL)
 	{
 		ret = PRINTF;

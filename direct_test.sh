@@ -7,7 +7,7 @@ cd test_direct
 # clear
 clang -o ret_ft_printf ../main_ft_printf.c -I../includes -L../ -lftprintf
 clang -o ret_ft_asprintf ../main_ft_asprintf.c -I../includes -L../ -lftprintf
-./ret_ft_printf
+# ./ret_ft_printf
 ./ret_ft_asprintf
 # cat ft_printf.txt | od -Ax > ft_printf.hex
 # cat printf.txt | od -Ax > printf.hex

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_asprintf.c                                      :+:      :+:    :+:   */
+/*   ft_sprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 09:26:26 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 15:26:23 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/11/18 16:21:47 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/18 17:07:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	search_for_print_zero(t_result *result)
 	ft_free_null(str_c);
 }
 
-static int	ft_vsprintf(char **ret, const char *format, va_list ap)
+static int	ft_vsprintf(char *ret, const char *format, va_list ap)
 {
 	t_result	*result;
 	int			err;
@@ -55,12 +55,13 @@ static int	ft_vsprintf(char **ret, const char *format, va_list ap)
 	if ((len = print_result(result)) == -1)
 		return (-1);
 	search_for_print_zero(result);
-	*ret = ft_strdup(result->result_str->str);
+	// ret = ft_strnew((int)ft_strlen(result->result_str->str));
+	ret = ft_strcpy(ret, result->result_str->str);
 	destroy_result(&result);
 	return (len);
 }
 
-int			ft_asprintf(char **ret, const char *format, ...)
+int			ft_sprintf(char *restrict str, const char * restrict format, ...)
 {
 	va_list		ap;
 	int			len;
@@ -69,7 +70,7 @@ int			ft_asprintf(char **ret, const char *format, ...)
 	if (format)
 	{	
 		va_start(ap, format);
-		len = ft_vsprintf(ret, format, ap);
+		len = ft_vsprintf(str, format, ap);
 		va_end(ap);
 	}
 	return (len);

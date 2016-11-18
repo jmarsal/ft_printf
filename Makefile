@@ -48,6 +48,7 @@ vpath %.c $(SRC_PATH)
 
 SOURCES = ft_printf.c \
 						ft_asprintf.c \
+						ft_sprintf.c \
 						init.c \
 						init_tab_conv.c \
 						tab_conv_add.c \
@@ -102,7 +103,6 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_wcsconv.c \
 						ft_strsub.c \
 						ft_strchrpos.c \
-						ft_strcpy.c \
 						ft_strncpy.c \
 						ft_strtoupper.c \
 						ft_toupper.c \
@@ -114,7 +114,7 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_buffer_new.c \
 						ft_buffer_resize.c \
 						ft_buffer_set.c \
-						ft_memmove.c
+						ft_memmove.c \
 
 # Libft
  LIBFT_PATH = libft

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 09:49:38 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 15:39:28 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 static void	print_char(t_result *result, size_t i)
 {
+	char	zero;
+
+	zero = 140;
 	if (I_L_CONV == 'c' && !MOD_L)
 	{
 		if (*I_STR == 0)
 		{
-			ft_buffer_add(RET_STR, RET_STR->len, "`", 1);
+			ft_buffer_add(RET_STR, RET_STR->len, &zero, 1);
 			result->test_c_zero += 1;
 		}
 		else
@@ -129,9 +132,6 @@ void		print_char_str(t_result *result, size_t i)
 
 void		print_str_if_char_to_zero(t_result *result)
 {
-	//Essayer de voir ici pour que la transformation de la chaine ne print pas
-	//direct, mais soit a nouveau mise dans le buffer.
-	// --> Peut etre en y ajoutant un nouveau char *tmp;
 	char	*str_c;
 	size_t	i;
 	int		len;
@@ -140,7 +140,7 @@ void		print_str_if_char_to_zero(t_result *result)
 	str_c = NULL;
 	while (result->result_str->str[i])
 	{
-		if ((len = ft_strchrpos(result->result_str->str + i, '`')) != -1)
+		if ((len = ft_strchrpos(result->result_str->str + i, 140)) != -1)
 		{
 			str_c = ft_strsub(result->result_str->str, i, len);
 			write(1, str_c, len - i);
