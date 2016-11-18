@@ -6,20 +6,20 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 09:12:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 09:49:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	print_char(t_result *result, size_t i, size_t *test_c)
+static void	print_char(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'c' && !MOD_L)
 	{
 		if (*I_STR == 0)
 		{
-			ft_buffer_add(RET_STR, RET_STR->len, "~", 1);
-			*test_c += 1;
+			ft_buffer_add(RET_STR, RET_STR->len, "`", 1);
+			result->test_c_zero += 1;
 		}
 		else
 			ft_buffer_add(RET_STR, RET_STR->len, I_STR, (ft_strlen(I_STR)));
@@ -121,22 +121,26 @@ static void	print_str(t_result *result, size_t i)
 	}
 }
 
-void		print_char_str(t_result *result, size_t i, size_t *test_c)
+void		print_char_str(t_result *result, size_t i)
 {
 	print_str(result, i);
-	print_char(result, i, test_c);
+	print_char(result, i);
 }
 
 void		print_str_if_char_to_zero(t_result *result)
 {
+	//Essayer de voir ici pour que la transformation de la chaine ne print pas
+	//direct, mais soit a nouveau mise dans le buffer.
+	// --> Peut etre en y ajoutant un nouveau char *tmp;
 	char	*str_c;
 	size_t	i;
 	int		len;
 
 	i = 0;
+	str_c = NULL;
 	while (result->result_str->str[i])
 	{
-		if (-1 != (len = ft_strchrpos(result->result_str->str + i, '~')))
+		if ((len = ft_strchrpos(result->result_str->str + i, '`')) != -1)
 		{
 			str_c = ft_strsub(result->result_str->str, i, len);
 			write(1, str_c, len - i);
@@ -146,7 +150,7 @@ void		print_str_if_char_to_zero(t_result *result)
 		else
 		{
 			str_c = ft_strsub(result->result_str->str, i,
-					result->result_str->len + i);
+								result->result_str->len + i);
 			write(1, str_c, result->result_str->len - i);
 		}
 		i += ft_strlen(str_c);

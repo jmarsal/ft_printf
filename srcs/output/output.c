@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 09:23:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/17 18:38:37 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,16 +158,14 @@ static void	is_flags_width_precision(t_result *result, size_t i)
 int			print_result(t_result *result)
 {
 	size_t	i;
-	size_t	test_c;
 	size_t	test_arg;
 
 	i = 0;
-	test_c = 0;
 	test_arg = 0;
 	while (result->index--)
 	{
 		is_flags_width_precision(result, i);
-		print_char_str(result, i, &test_c);
+		print_char_str(result, i);
 		print_bin_dec_oct(result, i);
 		print_hex_x(result, i);
 		print_ptr(result, i);
@@ -177,9 +175,5 @@ int			print_result(t_result *result)
 		ft_buffer_add(result->result_str, result->result_str->len, RET_STR->str, RET_STR->len);
 		i++;
 	}
-	if (test_c > 0)
-		print_str_if_char_to_zero(result);
-	else
-		write(1, result->result_str->str, result->result_str->len);
 	return (result->result_str->len - test_arg);
 }

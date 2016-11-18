@@ -47,6 +47,7 @@ SRC_PATH += libft/src_buffer
 vpath %.c $(SRC_PATH)
 
 SOURCES = ft_printf.c \
+						ft_asprintf.c \
 						init.c \
 						init_tab_conv.c \
 						tab_conv_add.c \

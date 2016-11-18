@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/11 14:16:22 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 09:27:59 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <stdio.h> // WARNING !!!!
 
 int			ft_printf(const char *format, ...);
+int			ft_asprintf(char **ret, const char *format, ...);
 
 /*
 ** lexer_parser
@@ -67,7 +68,7 @@ int			print_error_specifier(char caracters);
 
 int			print_result(t_result *result);
 void		print_bin_dec_oct(t_result *result, size_t i);
-void		print_char_str(t_result *result, size_t i, size_t *test_c);
+void		print_char_str(t_result *result, size_t i);
 void		print_str_if_char_to_zero(t_result *result);
 void		print_hex_x(t_result *result, size_t i);
 void		print_ptr(t_result *result, size_t i);

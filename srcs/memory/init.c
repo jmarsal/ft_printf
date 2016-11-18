@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/10/28 17:19:24 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 09:46:05 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_result	*init_result(va_list ap, const char *format)
 	va_copy(result->ap, ap);
 	result->format = ft_strdup(format);
 	result->result_str = ft_buffer_new(0);
+	result->test_c_zero = 0;
 	result->index = 0;
 	result->i_args = 0;
 	result->sizemax = 0;
