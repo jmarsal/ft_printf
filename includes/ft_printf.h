@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 16:23:10 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 17:46:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int			ft_printf(const char *format, ...);
 int			ft_asprintf(char **ret, const char *format, ...);
-int			ft_sprintf(char *restrict str, const char * restrict format, ...);
+int			ft_sprintf(char *str, const char * restrict format, ...);
 
 /*
 ** lexer_parser

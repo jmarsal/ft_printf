@@ -69,7 +69,7 @@ static void	parser_precision(t_result *result, size_t *i)
 			(!I_WIDTH)))
 		{
 			result->tab_conv[result->i_args]->is_wildcard_prec = 1;
-			I_PRECISION_O = (int)va_arg(result->ap, int);
+			I_PRECISION_O = (int)va_arg(R_AP, int);
 			*i += 1;
 		}
 		if (I_PRECISION_O < 0)
@@ -101,7 +101,7 @@ static void	parser_width(t_result *result, size_t *i)
 		else if (format[*i] == '*')
 		{
 			result->tab_conv[result->i_args]->is_wildcard_width = 1;
-			I_WIDTH = (int)va_arg(result->ap, int);
+			I_WIDTH = (int)va_arg(R_AP, int);
 			if (I_WIDTH < 0)
 			{
 				I_WIDTH = -I_WIDTH;

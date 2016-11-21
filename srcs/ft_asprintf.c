@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 09:26:26 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 15:26:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 22:10:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,21 @@ static void	search_for_print_zero(t_result *result)
 
 	buff_tmp = ft_buffer_new(0);
 	i = 0;
-	while (result->result_str->str[i])
+	while (RESULT_STR[i])
 	{
 		str_c = NULL;
-		if ((len = ft_strchrpos(result->result_str->str + i, 140)) != -1)
+		if ((len = ft_strchrpos(RESULT_STR + i, 140)) != -1)
 		{
-			str_c = ft_strsub(result->result_str->str, i, len);
+			str_c = ft_strsub(RESULT_STR, i, len);
 			i += 1;
 		}
 		else
-			str_c = ft_strsub(result->result_str->str, i,
-								result->result_str->len + i);
+			str_c = ft_strsub(RESULT_STR, i, RESULT_LEN + i);
 		ft_buffer_add(buff_tmp, buff_tmp->len, str_c, ft_strlen(str_c));
 		i += ft_strlen(str_c);
 	}
-	result->result_str->str = ft_strdup(buff_tmp->str);
-	result->result_str->len = buff_tmp->len;
+	RESULT_STR = ft_strdup(buff_tmp->str);
+	RESULT_LEN = buff_tmp->len;
 	ft_buffer_destroy(&buff_tmp);
 	ft_free_null(str_c);
 }
@@ -55,7 +54,7 @@ static int	ft_vsprintf(char **ret, const char *format, va_list ap)
 	if ((len = print_result(result)) == -1)
 		return (-1);
 	search_for_print_zero(result);
-	*ret = ft_strdup(result->result_str->str);
+	*ret = ft_strdup(RESULT_STR);
 	destroy_result(&result);
 	return (len);
 }

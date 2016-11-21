@@ -20,7 +20,7 @@ void	conv_mem_p(t_result *result, size_t * i)
 	if (format[*i] == 'p')
 	{
 		L_CONV = 'p';
-		if (!(STR = ft_itoa_base((long)va_arg(result->ap, int*), 16)))
+		if (!(STR = ft_itoa_base((long)va_arg(R_AP, int*), 16)))
 		{
 			L_CONV = 's';
 			STR = ft_strdup("0");

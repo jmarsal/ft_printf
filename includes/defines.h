@@ -5,13 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/21 22:51:25 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 16:02:17 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/18 23:09:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
+
+/*
+**	result
+*/
+
+# define R_AP result->ap
 
 /*
 ** tab_conv
@@ -112,6 +118,13 @@
 # define EOC "\033[0m"
 
 /*
+** Output
+*/
+
+# define RESULT_STR result->result_str->str
+# define RESULT_LEN result->result_str->len
+
+/*
 ** Errors
 */
 
@@ -120,14 +133,9 @@
 # define GOOD_SPACE "dDib"
 # define GOOD_PLUS "dDi"
 
-# define ERR_SHARP "Error : flag '#' results in undefined behavior without 'o' or 'x' conversion specifier\n"
-# define ERR_ZERO "Error : flag '0' results in undefined behavior without 'dDioOuUxX' conversion specifier\n"
-# define ERR_SPACE "Error : flag ' ' results in undefined behavior without 'd' or 'i' conversion specifier\n"
-# define ERR_PLUS "Error : flag '+' results in undefined behavior without 'd' or 'i' conversion specifier\n"
 # define ERR_PLUS_SPACE "Error : flag ' ' is ignored when flag '+' is present\n"
-# define ERR_MEM "Error : flag 'p' results in undefined behavior with 'precision' conversion specifier\n"
-# define ERR_BIN "Error : flag 'b' results in undefined behavior with 'precision' conversion specifier\n"
-# define ERR_MOD_J "error : invalid modifier 'j' with modifier 'h' or 'l'\n"
-# define ERR_MOD_Z "error : invalid modifier 'z' with modifier 'h' or 'l'\n"
-# define ERR_C_S "error : use another modifier that 'l' results in undefined behavior with 'c', 'C', 's' or 'S' specifier\n"
+# define ERR_BIN "Error : flag 'b' results in undefined behavior with \
+					'precision' conversion specifier\n"
+# define ERR_C_S "error : use another modifier that 'l' results in undefined \
+					behavior with 'c', 'C', 's' or 'S' specifier\n"
 #endif

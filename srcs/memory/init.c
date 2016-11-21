@@ -19,7 +19,7 @@ t_result	*init_result(va_list ap, const char *format)
 	result = NULL;
 	if (!(result = ft_memalloc(sizeof(t_result))))
 		return (NULL);
-	va_copy(result->ap, ap);
+	va_copy(R_AP, ap);
 	result->format = ft_strdup(format);
 	result->result_str = ft_buffer_new(0);
 	result->test_c_zero = 0;

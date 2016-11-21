@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 09:34:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 16:59:29 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/18 22:21:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ int	main()
 	int		len;
 
 	ret = NULL;
-	ret = ft_strnew(100);
-	len = ft_sprintf(ret, "{blue}coucou{eoc} {pink}c'est cool'{eoc}{green}la couleur{eoc}\n");
+	// ret = ft_strnew(0);
+	len = ft_asprintf(&ret, "{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
 	printf("ft_asprintf = %s%d\n", ret, len);
-	len = sprintf(ret, "{blue}coucou{eoc} {pink}c'est cool'{eoc}{green}la couleur{eoc}\n");
+	// printf("%s\n", ret);
+	len = asprintf(&ret, "{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
 	printf("asprintf = %s%d\n", ret, len);
 	// len = ft_printf("%c\n", 0);
 	// ft_printf("%d\n", len);

@@ -138,20 +138,20 @@ void		print_str_if_char_to_zero(t_result *result)
 
 	i = 0;
 	str_c = NULL;
-	while (result->result_str->str[i])
+	while (RESULT_STR[i])
 	{
-		if ((len = ft_strchrpos(result->result_str->str + i, 140)) != -1)
+		if ((len = ft_strchrpos(RESULT_STR + i, 140)) != -1)
 		{
-			str_c = ft_strsub(result->result_str->str, i, len);
+			str_c = ft_strsub(RESULT_STR, i, len);
 			write(1, str_c, len - i);
 			write(1, "\0", 1);
 			i += 1;
 		}
 		else
 		{
-			str_c = ft_strsub(result->result_str->str, i,
-								result->result_str->len + i);
-			write(1, str_c, result->result_str->len - i);
+			str_c = ft_strsub(RESULT_STR, i,
+								RESULT_LEN + i);
+			write(1, str_c, RESULT_LEN - i);
 		}
 		i += ft_strlen(str_c);
 		ft_bzero(str_c, ft_strlen(str_c));

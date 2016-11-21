@@ -31,10 +31,10 @@ static int	ft_vsprintf(const char *format, va_list ap)
 	if (result->test_c_zero > 0)
 		print_str_if_char_to_zero(result);
 	else
-		write(1, result->result_str->str, result->result_str->len);
+		write(1, RESULT_STR, RESULT_LEN);
 	if (fichier != NULL) //idem
     {
-        fputs(result->result_str->str, fichier);
+        fputs(RESULT_STR, fichier);
         fclose(fichier);
     }
 	destroy_result(&result);

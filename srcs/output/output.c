@@ -172,8 +172,8 @@ int			print_result(t_result *result)
 		is_neg_and_precision(result, i);
 		if (I_L_CONV == 'c' && *I_STR == '\0' && RET_STR->len < 1 && (IS_WIDTH || PRECISION_CPY))
 			test_arg++;
-		ft_buffer_add(result->result_str, result->result_str->len, RET_STR->str, RET_STR->len);
+		ft_buffer_add(result->result_str, RESULT_LEN, RET_STR->str, RET_STR->len);
 		i++;
 	}
-	return (result->result_str->len - test_arg);
+	return (RESULT_LEN - test_arg);
 }
