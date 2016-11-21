@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 14:48:46 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 14:48:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	if_l_conv_u(t_result *result, size_t i)
 	}
 }
 
-static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
+static void	if_str_negative_and_l_conv_d(t_result *result, size_t i)
 {
 	if (*I_STR == '-' && I_L_CONV == 'd')
 	{
@@ -50,6 +50,11 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 			PRECISION_CPY = 0;
 		}
 	}
+}
+
+static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
+{
+	if_str_negative_and_l_conv_d(result, i);
 	if (I_L_CONV == 'u')
 		if_l_conv_u(result, i);
 	if (!(MOD_HH || MOD_H || I_L_CONV == 'u' || I_L_CONV == 's' ||
@@ -57,7 +62,7 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 	{
 		if (PRECISION_CPY > (int)I_STRLEN)
 		{
-			if (!IS_WIDTH || (!result->tab_conv[i]->is_wildcard_prec))
+			if (!IS_WIDTH || (!IS_WILDCARD_PRECISION))
 				ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
 			else if (WIDTH_CPY - (int)I_STRLEN > 0)
 			{
@@ -66,36 +71,6 @@ static void	is_width_precision_minus_not_sharp(t_result *result, size_t i)
 			}
 			PRECISION_CPY = 0;
 		}
-	}
-}
-
-static void	is_width_precision_sharp_minus(t_result *result, size_t i)
-{
-	if (I_L_CONV == 'o')
-	{
-		if (*RET_STR->str != '0' && PRECISION_O > WIDTH)
-		{
-			ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
-			if ((WIDTH == PRECISION_O) || (PRECISION_O > WIDTH))
-				PRECISION_CPY--;
-		}
-		if ((MOD_HH || MOD_H) && PRECISION_CPY <= WIDTH_CPY)
-			PRECISION_CPY--;
-	}
-	if (PRECISION_CPY - (int)I_STRLEN >= 0)
-	{
-		ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
-		PRECISION_CPY = 0;
-	}
-}
-
-static void	is_width_precision_plus_minus(t_result *result, size_t i)
-{
-	ft_buffer_add(RET_STR, RET_STR->len, "+", 1);
-	if (PRECISION_CPY > 0)
-	{
-		ft_buffer_set(RET_STR, '0', PRECISION_CPY - I_STRLEN);
-		PRECISION_CPY = 0;
 	}
 }
 
@@ -112,9 +87,11 @@ void		is_width_precision_minus(t_result *result, size_t i)
 		{
 			WIDTH_CPY = (PRECISION_CPY >= WIDTH_CPY) ?
 						WIDTH_CPY - PRECISION_CPY : WIDTH_CPY;
-			if (PRECISION_CPY && (WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY) > 0)
+			if (PRECISION_CPY &&
+				(WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY) > 0)
 			{
-				ft_buffer_set(RET_STR, '0', WIDTH_CPY - (int)I_STRLEN - PRECISION_CPY);
+				ft_buffer_set(RET_STR, '0', WIDTH_CPY -
+					(int)I_STRLEN - PRECISION_CPY);
 				PRECISION_CPY = 0;
 			}
 			else if (PRECISION_CPY > (int)I_STRLEN && PRECISION_O >= WIDTH)

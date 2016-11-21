@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:28:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 23:18:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 11:31:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	conv_hex_h_hh(t_result *result, int base)
 	}
 }
 
-void	conv_hex_x(t_result *result, size_t * i)
+void		conv_hex_x(t_result *result, size_t *i)
 {
 	char	*format;
 	int		base;

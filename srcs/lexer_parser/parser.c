@@ -6,45 +6,34 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 14:17:03 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 11:55:32 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	find_witch_modifier(t_result *result, char *tmp_modifier)
+static void	parser_get_precision(t_result *result, size_t *i, char **precision)
 {
-	if (ft_strcmp(tmp_modifier, "hh") == 0)
-		I_MOD_HH = 1;
-	else if (ft_strcmp(tmp_modifier, "h") == 0)
-		I_MOD_H = 1;
-	else if (ft_strcmp(tmp_modifier, "l") == 0)
-		I_MOD_L = 1;
-	else if (ft_strcmp(tmp_modifier, "ll") == 0)
-		I_MOD_LL = 1;
-	else if (ft_strcmp(tmp_modifier, "j") == 0)
-		I_MOD_J = 1;
-	else if (ft_strcmp(tmp_modifier, "z") == 0)
-		I_MOD_Z = 1;
-}
-
-static void	parser_modifier(t_result *result, size_t *i)
-{
-	char	*format;
-	char	tmp_modifier[3];
-	size_t	index;
-
-	format = result->format;
-	index = 0;
-	while (format[*i] && ft_strchr(L_MODIFIER, format[*i]))
+	if (result->format[*i] != '*')
 	{
-		IS_MODIFIER = 1;
-		tmp_modifier[index++] = format[*i];
+		*precision = ft_get_number(result->format, i);
+		I_PRECISION_O = ft_atoi(*precision);
+	}
+	else if (result->format[*i] == '*' && !ft_isdigit(result->format[*i + 1]) &&
+		((!result->tab_conv[result->i_args]->is_wildcard_width) ||
+		(!I_WIDTH)))
+	{
+		result->tab_conv[result->i_args]->is_wildcard_prec = 1;
+		I_PRECISION_O = (int)va_arg(R_AP, int);
 		*i += 1;
 	}
-	tmp_modifier[index] = '\0';
-	if (IS_MODIFIER == 1)
-		find_witch_modifier(result, tmp_modifier);
+	if (I_PRECISION_O < 0)
+	{
+		I_PRECISION_O = -I_PRECISION_O;
+		A_MINUS = 1;
+	}
+	I_PRECISION_CPY = I_PRECISION_O;
+	I_IS_PRECISION = 1;
 }
 
 static void	parser_precision(t_result *result, size_t *i)
@@ -59,29 +48,30 @@ static void	parser_precision(t_result *result, size_t *i)
 	{
 		if (format[*i] == '.')
 			*i += 1;
-		if (format[*i] != '*')
-		{
-			get_precision = ft_get_number(format, i);
-			I_PRECISION_O = ft_atoi(get_precision);
-		}
-		else if (format[*i] == '*' && !ft_isdigit(format[*i + 1]) &&
-			((!result->tab_conv[result->i_args]->is_wildcard_width) ||
-			(!I_WIDTH)))
-		{
-			result->tab_conv[result->i_args]->is_wildcard_prec = 1;
-			I_PRECISION_O = (int)va_arg(R_AP, int);
-			*i += 1;
-		}
-		if (I_PRECISION_O < 0)
-		{
-			I_PRECISION_O = -I_PRECISION_O;
-			A_MINUS = 1;
-		}
-		I_PRECISION_CPY = I_PRECISION_O;
-		I_IS_PRECISION = 1;
+		parser_get_precision(result, i, &get_precision);
 		ft_free_null(get_precision);
 	}
 	parser_modifier(result, i);
+}
+
+static void	parser_get_width(t_result *result, size_t *i, char **get_width)
+{
+	if (result->format[*i] != '*')
+	{
+		*get_width = ft_get_number(result->format, i);
+		I_WIDTH = ft_atoi(*get_width);
+	}
+	else if (result->format[*i] == '*')
+	{
+		result->tab_conv[result->i_args]->is_wildcard_width = 1;
+		I_WIDTH = (int)va_arg(R_AP, int);
+		if (I_WIDTH < 0)
+		{
+			I_WIDTH = -I_WIDTH;
+			A_MINUS = 1;
+		}
+		*i += 1;
+	}
 }
 
 static void	parser_width(t_result *result, size_t *i)
@@ -93,22 +83,7 @@ static void	parser_width(t_result *result, size_t *i)
 	format = result->format;
 	if (ft_strchr(F_WIDTH, format[*i]))
 	{
-		if (format[*i] != '*')
-		{
-			get_width = ft_get_number(format, i);
-			I_WIDTH = ft_atoi(get_width);
-		}
-		else if (format[*i] == '*')
-		{
-			result->tab_conv[result->i_args]->is_wildcard_width = 1;
-			I_WIDTH = (int)va_arg(R_AP, int);
-			if (I_WIDTH < 0)
-			{
-				I_WIDTH = -I_WIDTH;
-				A_MINUS = 1;
-			}
-		*i += 1;
-		}
+		parser_get_width(result, i, &get_width);
 		I_WIDTH_CPY = I_WIDTH;
 		ft_free_null(get_width);
 		I_IS_WIDTH = 1;

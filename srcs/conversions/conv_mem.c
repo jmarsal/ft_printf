@@ -6,13 +6,13 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 13:07:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/15 15:21:18 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 11:32:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	conv_mem_p(t_result *result, size_t * i)
+void	conv_mem_p(t_result *result, size_t *i)
 {
 	char	*format;
 

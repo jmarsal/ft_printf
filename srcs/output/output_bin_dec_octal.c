@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:55:09 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 15:42:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 13:33:46 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 static void	print_binaire(t_result *result, size_t i)
 {
-	char	*int_min_bin;
-
-	int_min_bin = "10000000000000000000000000000000";
 	if (I_L_CONV == 'b')
-	{
-		if (ft_atoi(I_STR) == INT_MIN)
-			ft_buffer_add(RET_STR, RET_STR->len, int_min_bin, ft_strlen(int_min_bin));
-		else
-			ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
-	}
+		ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 }
 
 static void	print_octal_o(t_result *result, size_t i)
@@ -38,7 +30,8 @@ static void	print_octal_o(t_result *result, size_t i)
 		if (*I_STR != '0' || (*I_STR == '0' &&
 		(!IS_WIDTH && !IS_PRECISION)) || (*I_STR == '0' && SHARP))
 		{
-			if ((ft_strcmp(RET_STR->str, "0")) || (!ft_strcmp(RET_STR->str, "0") && MINUS))
+			if ((ft_strcmp(RET_STR->str, "0")) ||
+				(!ft_strcmp(RET_STR->str, "0") && MINUS))
 				ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
 			else if (*I_STR != '0' && SHARP)
 				ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
@@ -46,7 +39,7 @@ static void	print_octal_o(t_result *result, size_t i)
 	}
 }
 
-static void print_decimal_u(t_result *result, size_t i)
+static void	print_decimal_u(t_result *result, size_t i)
 {
 	if (I_L_CONV == 'u')
 	{
@@ -80,13 +73,6 @@ static void	print_decimal_d(t_result *result, size_t i)
 			ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
 			WIDTH_CPY = 0;
 		}
-		// else if (WIDTH_CPY > (int)I_STRLEN && !MINUS &&
-		// 	result->tab_conv[i]->is_wildcard_width)
-		// {
-		// 	ft_buffer_add(RET_STR, RET_STR->len, I_STR, ft_strlen(I_STR));
-		// 	ft_buffer_set(RET_STR, ' ', WIDTH_CPY - (int)I_STRLEN);
-		// 	WIDTH_CPY = 0;
-		// }
 		if ((*I_STR != '0') ||
 			(*I_STR == '0' && (!IS_WIDTH && !IS_PRECISION)) ||
 			(*I_STR == '0' && SHARP))

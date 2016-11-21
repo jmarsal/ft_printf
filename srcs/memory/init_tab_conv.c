@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:06:00 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/16 15:21:28 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 12:00:48 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_modifier	*init_modifier(void)
 	return (tmp);
 }
 
-static t_w_or_p	*init_width_precision(void)
+static t_w_or_p		*init_width_precision(void)
 {
 	t_w_or_p	*tmp;
 
@@ -67,7 +67,7 @@ static t_w_or_p	*init_width_precision(void)
 	return (tmp);
 }
 
-t_conv	*tab_conv_init(t_conv *tab_conv)
+t_conv				*tab_conv_init(t_conv *tab_conv)
 {
 	if (!(tab_conv = ft_memalloc(sizeof(t_conv))) ||
 		!(tab_conv->caracters = init_caracters()) ||

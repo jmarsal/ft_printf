@@ -58,15 +58,22 @@ SOURCES = ft_printf.c \
 						parser_percent.c \
 						parser_str.c \
 						parser_specifier.c \
+						parser_modifier.c \
 						conv_hex.c \
 						conv_char_str.c \
 						conv_bin_dec_oct.c \
 						conv_mem.c \
 						error.c \
 						output.c \
+						output_if_zero_without_minus.c \
+						output_if_caracters_is_sharp.c \
+						output_if_space_or_positive.c \
 						output_minus.c \
+						output_minus_sharp_or_plus.c \
 						output_without_minus.c \
-						output_char_str.c \
+						output_paddind_if_not_minus.c \
+						output_char.c \
+						output_str.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
 						output_mem.c \
@@ -162,8 +169,4 @@ debug : re
 	@echo "|\033[32;1m\tDebug mode for $(NAME) with $(CFLAGS_DEBUG)!\t\033[0m|"
 	@echo "-----------------------------------------------------------------\n"
 
-norme:
-	norminette $(SOURCES) $(LIBFT_SRCS)
-	norminette $(HEADERS)*.h
-
-.PHONY:  all, clean, fclean, re, debug, norme
+.PHONY:  all, clean, fclean, re, debug

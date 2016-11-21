@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 09:26:26 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 22:10:43 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 16:00:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	search_for_print_zero(t_result *result)
 {
 	t_buffer	*buff_tmp;
-	char	*str_c;
-	size_t	i;
-	int		len;
+	char		*str_c;
+	size_t		i;
+	int			len;
 
 	buff_tmp = ft_buffer_new(0);
 	i = 0;
@@ -66,7 +66,7 @@ int			ft_asprintf(char **ret, const char *format, ...)
 
 	len = format ? 0 : -1;
 	if (format)
-	{	
+	{
 		va_start(ap, format);
 		len = ft_vsprintf(ret, format, ap);
 		va_end(ap);

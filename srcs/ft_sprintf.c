@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 16:21:47 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 22:21:00 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/11/21 16:02:16 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/21 16:02:18 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			ft_sprintf(char *restrict str, const char *restrict format, ...)
 
 	len = format ? 0 : -1;
 	if (format)
-	{	
+	{
 		va_start(ap, format);
 		len = ft_vsprintf(str, format, ap);
 		va_end(ap);

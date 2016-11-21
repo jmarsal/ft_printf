@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/21 00:37:13 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 23:09:02 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/21 16:57:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 # define INIT_SIZE_TAB_CONV 1
 # define I_ARGS result->i_args
+# define W_P width_precision
+# define IS_WILDCARD_PRECISION result->tab_conv[i]->is_wildcard_prec
+# define IS_WILDCARD_WIDTH result->tab_conv[i]->is_wildcard_width
 
 /*
 ** type
@@ -43,33 +46,33 @@
 ** width_precision
 */
 
-#define IS_WIDTH result->tab_conv[i]->is_width
-#define I_IS_WIDTH result->tab_conv[I_ARGS]->is_width
-#define WIDTH result->tab_conv[i]->width_precision->width
-#define I_WIDTH result->tab_conv[I_ARGS]->width_precision->width
-#define WIDTH_CPY result->tab_conv[i]->width_precision->width_cpy
-#define I_WIDTH_CPY result->tab_conv[I_ARGS]->width_precision->width_cpy
-#define PRECISION_O result->tab_conv[i]->width_precision->precision
-#define I_PRECISION_O result->tab_conv[I_ARGS]->width_precision->precision
-#define PRECISION_CPY result->tab_conv[i]->width_precision->precision_cpy
-#define I_PRECISION_CPY result->tab_conv[I_ARGS]->width_precision->precision_cpy
-#define IS_PRECISION result->tab_conv[i]->is_precision
-#define I_IS_PRECISION result->tab_conv[I_ARGS]->is_precision
+# define IS_WIDTH result->tab_conv[i]->is_width
+# define I_IS_WIDTH result->tab_conv[I_ARGS]->is_width
+# define WIDTH result->tab_conv[i]->W_P->width
+# define I_WIDTH result->tab_conv[I_ARGS]->W_P->width
+# define WIDTH_CPY result->tab_conv[i]->W_P->width_cpy
+# define I_WIDTH_CPY result->tab_conv[I_ARGS]->W_P->width_cpy
+# define PRECISION_O result->tab_conv[i]->W_P->precision
+# define I_PRECISION_O result->tab_conv[I_ARGS]->W_P->precision
+# define PRECISION_CPY result->tab_conv[i]->W_P->precision_cpy
+# define I_PRECISION_CPY result->tab_conv[I_ARGS]->W_P->precision_cpy
+# define IS_PRECISION result->tab_conv[i]->is_precision
+# define I_IS_PRECISION result->tab_conv[I_ARGS]->is_precision
 
 /*
 ** caracters
 */
 
-#define MINUS result->tab_conv[i]->caracters->minus
-#define A_MINUS result->tab_conv[I_ARGS]->caracters->minus
-#define PLUS result->tab_conv[i]->caracters->plus
-#define A_PLUS result->tab_conv[I_ARGS]->caracters->plus
-#define SPACE result->tab_conv[i]->caracters->space
-#define A_SPACE result->tab_conv[I_ARGS]->caracters->space
-#define SHARP result->tab_conv[i]->caracters->sharp
-#define A_SHARP result->tab_conv[I_ARGS]->caracters->sharp
-#define ZERO result->tab_conv[i]->caracters->zero
-#define A_ZERO result->tab_conv[I_ARGS]->caracters->zero
+# define MINUS result->tab_conv[i]->caracters->minus
+# define A_MINUS result->tab_conv[I_ARGS]->caracters->minus
+# define PLUS result->tab_conv[i]->caracters->plus
+# define A_PLUS result->tab_conv[I_ARGS]->caracters->plus
+# define SPACE result->tab_conv[i]->caracters->space
+# define A_SPACE result->tab_conv[I_ARGS]->caracters->space
+# define SHARP result->tab_conv[i]->caracters->sharp
+# define A_SHARP result->tab_conv[I_ARGS]->caracters->sharp
+# define ZERO result->tab_conv[i]->caracters->zero
+# define A_ZERO result->tab_conv[I_ARGS]->caracters->zero
 
 /*
 ** modifier
@@ -133,9 +136,7 @@
 # define GOOD_SPACE "dDib"
 # define GOOD_PLUS "dDi"
 
-# define ERR_PLUS_SPACE "Error : flag ' ' is ignored when flag '+' is present\n"
-# define ERR_BIN "Error : flag 'b' results in undefined behavior with \
-					'precision' conversion specifier\n"
-# define ERR_C_S "error : use another modifier that 'l' results in undefined \
-					behavior with 'c', 'C', 's' or 'S' specifier\n"
+# define ERR_BIN_1 "Error : flag 'b' results in undefined behavior with "
+# define ERR_BIN ERR_BIN_1 "precision conversion specifier\n"
+
 #endif

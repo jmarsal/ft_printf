@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 16:07:45 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 16:52:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 // Modifier ici
-#define FRM_ARGS "Prix : %d€\nSolde de 50%%\n", 50
+#define FRM_ARGS "Prix : % +s\nSolde de 50%%\n", "coucou"
 
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
@@ -54,10 +54,10 @@ int main()
 	unsigned long int	nb;
 	int 				pointer_valueLargerThanMinWidth_zeroFlag;
 	char 				*retour_str;
-	FILE				*fichier = NULL;
+	// FILE				*fichier = NULL;
 	int					t;
 
-	fichier = fopen("printf.txt", "a+");
+	// fichier = fopen("printf.txt", "a+");
 
 	if (!setlocale(LC_CTYPE, ""))
 	{
@@ -67,11 +67,13 @@ int main()
 	}
 	ret = FT_PRINTF;
 	ft_printf("%d\n", ret);
-	if (fichier != NULL)
-	{
-		ret = PRINTF;
-		fprintf(fichier, "%d\n", ret);
-		fclose(fichier);
-	}
+	ret = printf(FRM_ARGS);
+	printf("%d\n", ret);
+	// if (fichier != NULL)
+	// {
+	// 	ret = PRINTF;
+	// 	fprintf(fichier, "%d\n", ret);
+	// 	fclose(fichier);
+	// }
 	return (0);
 }
