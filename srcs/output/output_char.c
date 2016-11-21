@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:44:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 13:47:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 22:49:34 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,34 @@ void		print_char_str(t_result *result, size_t i)
 {
 	print_str(result, i);
 	print_char(result, i);
+}
+
+void		print_str_in_fd_if_char_to_zero(int fd, t_result *result)
+{
+	char	*str_c;
+	size_t	i;
+	int		len;
+
+	i = 0;
+	while (RESULT_STR[i])
+	{
+		str_c = NULL;
+		if ((len = ft_strchrpos(RESULT_STR + i, 140)) != -1)
+		{
+			str_c = ft_strsub(RESULT_STR, i, len);
+			write(fd, str_c, len - i);
+			write(fd, "\0", 1);
+			i += 1;
+		}
+		else
+		{
+			str_c = ft_strsub(RESULT_STR, i,
+								RESULT_LEN + i);
+			write(fd, str_c, RESULT_LEN - i);
+		}
+		i += ft_strlen(str_c);
+	}
+	ft_free_null(str_c);
 }
 
 void		print_str_if_char_to_zero(t_result *result)

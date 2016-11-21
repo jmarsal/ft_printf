@@ -49,6 +49,7 @@ vpath %.c $(SRC_PATH)
 SOURCES = ft_printf.c \
 						ft_asprintf.c \
 						ft_sprintf.c \
+						ft_dprintf.c \
 						init.c \
 						init_tab_conv.c \
 						tab_conv_add.c \

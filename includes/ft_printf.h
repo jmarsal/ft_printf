@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 16:05:39 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/21 22:50:05 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 
 int			ft_printf(const char *format, ...);
 int			ft_asprintf(char **ret, const char *format, ...);
-int			ft_sprintf(char *str, const char *restrict format, ...);
+int			ft_sprintf(char *str, const char *format, ...);
+int			ft_dprintf(int fd, const char *format, ...);
 
 /*
 ** lexer_parser
@@ -73,6 +74,7 @@ void		if_space_or_positive(t_result *result, size_t i);
 void		print_bin_dec_oct(t_result *result, size_t i);
 void		print_char_str(t_result *result, size_t i);
 void		print_str(t_result *result, size_t i);
+void		print_str_in_fd_if_char_to_zero(int fd, t_result *result);
 void		print_str_if_char_to_zero(t_result *result);
 void		print_hex_x(t_result *result, size_t i);
 void		print_ptr(t_result *result, size_t i);
