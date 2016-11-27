@@ -69,7 +69,7 @@ void		print_str_in_fd_if_char_to_zero(int fd, t_result *result)
 		}
 		i += ft_strlen(str_c);
 	}
-	ft_free_null(str_c);
+	ft_free(str_c);
 }
 
 void		print_str_if_char_to_zero(t_result *result)
@@ -97,5 +97,5 @@ void		print_str_if_char_to_zero(t_result *result)
 		}
 		i += ft_strlen(str_c);
 	}
-	ft_free_null(str_c);
+	ft_free(str_c);
 }

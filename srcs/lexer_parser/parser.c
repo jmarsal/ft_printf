@@ -49,7 +49,7 @@ static void	parser_precision(t_result *result, size_t *i)
 		if (format[*i] == '.')
 			*i += 1;
 		parser_get_precision(result, i, &get_precision);
-		ft_free_null(get_precision);
+		ft_free(get_precision);
 	}
 	parser_modifier(result, i);
 }
@@ -85,7 +85,7 @@ static void	parser_width(t_result *result, size_t *i)
 	{
 		parser_get_width(result, i, &get_width);
 		I_WIDTH_CPY = I_WIDTH;
-		ft_free_null(get_width);
+		ft_free(get_width);
 		I_IS_WIDTH = 1;
 	}
 	parser_precision(result, i);

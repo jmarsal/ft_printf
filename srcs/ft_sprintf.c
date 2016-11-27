@@ -18,7 +18,7 @@ static void	destroy_result_sprintf(t_result **result)
 
 	tmp_for_del = *result;
 	va_end(tmp_for_del->ap);
-	ft_free_null(tmp_for_del);
+	ft_free(tmp_for_del);
 }
 
 static void	search_for_print_zero(t_result *result)
@@ -46,7 +46,7 @@ static void	search_for_print_zero(t_result *result)
 	RESULT_STR = ft_strdup(buff_tmp->str);
 	RESULT_LEN = buff_tmp->len;
 	ft_buffer_destroy(&buff_tmp);
-	ft_free_null(str_c);
+	ft_free(str_c);
 }
 
 static int	ft_vsprintf(char *ret, const char *format, va_list ap)

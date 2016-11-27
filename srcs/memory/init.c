@@ -37,12 +37,12 @@ static void	tab_conv_destroy(t_conv **conv)
 	del = *conv;
 	if (del)
 	{
-		ft_free_null(del->caracters);
-		ft_free_null(del->type);
-		ft_free_null(del->modifier);
-		ft_free_null(del->width_precision);
+		ft_free(del->caracters);
+		ft_free(del->type);
+		ft_free(del->modifier);
+		ft_free(del->width_precision);
 		ft_buffer_destroy(&del->ret_str);
-		ft_free_null(del);
+		ft_free(del);
 	}
 }
 
@@ -61,6 +61,6 @@ void		destroy_result(t_result **result)
 		tab_conv_destroy(&tab_for_del);
 	}
 	ft_buffer_destroy(&tmp_for_del->result_str);
-	ft_free_null(tmp_for_del);
+	ft_free(tmp_for_del);
 	*result = NULL;
 }
