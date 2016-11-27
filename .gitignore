@@ -35,4 +35,4 @@
 test/*.txt
 main
 .vscode
-test_direct/ret_ft_printf
+test_direct/*
