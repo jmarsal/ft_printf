@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/17 18:32:58 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 11:02:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct		s_type
 {
 	char			*str;
 	size_t			str_len;
-	int				*ptr;
 }					t_type;
 
 typedef struct		s_modifier

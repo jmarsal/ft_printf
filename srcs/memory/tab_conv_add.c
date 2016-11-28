@@ -6,11 +6,36 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:05:29 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:59:55 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 17:03:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void		*ft_realloctab(t_conv **ptr, size_t size, size_t oldsize)
+{
+	t_conv	*p;
+	size_t	i;
+
+	i = 0;
+	if (!ptr)
+		return (ft_memalloc(size));
+	if (size == 0)
+	{
+		ft_free(ptr);
+		return (NULL);
+	}
+	if (!(p = ft_memalloc(sizeof(t_conv) * size)))
+		return (NULL);
+	ft_memcpy(p, ptr, oldsize);
+	// while (ptr[i] && i < oldsize)
+	// {
+	// 	if (ptr[i]->type->str)
+	// 		ft_free(ptr[i++]->type->str);
+	// }
+	ft_free(ptr);
+	return (p);
+}
 
 static t_conv	**tab_conv_resize(t_result *result)
 {
@@ -18,7 +43,7 @@ static t_conv	**tab_conv_resize(t_result *result)
 	size_t	newsize;
 
 	newsize = sizeof(t_result *) * (result->sizemax * 2);
-	if (!(new = ft_realloc(result->tab_conv, newsize, sizeof(t_result *) *
+	if (!(new = ft_realloctab(result->tab_conv, newsize, sizeof(t_result *) *
 							result->sizemax)))
 		return (NULL);
 	result->sizemax *= 2;
@@ -47,11 +72,12 @@ void			tab_conv_add(t_result *result, size_t tab_index)
 			result->sizemax = sizeof(t_result *) * INIT_SIZE_TAB_CONV;
 		if (tab_conv_resize(result) == NULL)
 			exit(-1);
-		while (tab_index <= result->sizemax)
+		while (tab_index < result->sizemax)
 		{
 			result->tab_conv[tab_index] =
 				tab_conv_init(result->tab_conv[tab_index]);
 			tab_index++;
 		}
+		result->tab_conv[result->sizemax] = NULL;
 	}
 }

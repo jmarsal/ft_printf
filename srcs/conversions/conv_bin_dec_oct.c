@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:46:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:34:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 15:35:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,15 @@ static void	conv_decimal_d(t_result *result, size_t *i)
 
 void		conv_bin_dec_oct(t_result *result, size_t *i)
 {
-	conv_decimal_d(result, i);
-	conv_decimal_u(result, i);
-	conv_octal(result, i);
-	conv_binary(result, i);
+	char	*format;
+
+	format = result->format;
+	if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'D')
+		conv_decimal_d(result, i);
+	else if (format[*i] == 'u' || format[*i] == 'U')
+		conv_decimal_u(result, i);
+	else if (format[*i] == 'o' || format[*i] == 'O')
+		conv_octal(result, i);
+	else if (format[*i] == 'b')
+		conv_binary(result, i);
 }

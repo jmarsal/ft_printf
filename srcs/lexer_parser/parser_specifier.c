@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:01:48 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:36:50 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 12:31:05 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,21 @@ void		reset_flags_struct(t_result *result)
 
 static void	get_specifier(t_result *result, size_t *i)
 {
-	tab_conv_add(result, result->i_args);
-	conv_str_s(result, i);
-	conv_bin_dec_oct(result, i);
-	conv_hex_x(result, i);
-	conv_mem_p(result, i);
+	char	*format;
+
+	format = result->format;
+	if (format[*i] == 'c' || format[*i] == 'C' ||
+		format[*i] == 's' || format[*i] == 'S')
+		conv_str_s(result, i);
+	else if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'D' ||
+		format[*i] == 'o' || format[*i] == 'O' ||
+		format[*i] == 'u' || format[*i] == 'U' ||
+		format[*i] == 'b')
+		conv_bin_dec_oct(result, i);
+	else if (format[*i] == 'x' || format[*i] == 'X')
+		conv_hex_x(result, i);
+	else if (format[*i] == 'p')
+		conv_mem_p(result, i);
 	result->i_args++;
 	*i += 1;
 }
@@ -43,6 +53,7 @@ int			parser_specifier(t_result *result, size_t *i)
 	if (format[*i + 1] && format[*i] == '%' && format[*i + 1] != '%')
 	{
 		*i += 1;
+		tab_conv_add(result, result->i_args);
 		get_flags(result, i);
 		if (format[*i] && ft_strchr(C_SPECIFIERS, format[*i]))
 			get_specifier(result, i);

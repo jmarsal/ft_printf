@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 16:52:16 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 16:10:56 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,18 @@ static void	conv_char_c(t_result *result, size_t *i)
 
 void		conv_str_s(t_result *result, size_t *i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (result->format[*i] == 's' || result->format[*i] == 'S')
 	{
+		ft_free(STR);
 		if (result->format[*i] == 's' && !I_MOD_L)
 		{
-			if (!(STR = va_arg(R_AP, char *)))
+			if (!(tmp = va_arg(R_AP, char *)))
 				STR = ft_strdup("(null)");
+			else
+				STR = ft_strdup(tmp);
 		}
 		else if ((result->format[*i] == 's' && I_MOD_L) ||
 			result->format[*i] == 'S')

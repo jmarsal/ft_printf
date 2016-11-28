@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/18 09:46:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 16:35:27 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_result	*init_result(va_list ap, const char *format)
 	if (!(result = ft_memalloc(sizeof(t_result))))
 		return (NULL);
 	va_copy(R_AP, ap);
-	result->format = ft_strdup(format);
+	result->format = (char*)format;
 	result->result_str = ft_buffer_new(0);
 	result->test_c_zero = 0;
 	result->index = 0;
@@ -38,6 +38,7 @@ static void	tab_conv_destroy(t_conv **conv)
 	if (del)
 	{
 		ft_free(del->caracters);
+		ft_free(del->type->str);
 		ft_free(del->type);
 		ft_free(del->modifier);
 		ft_free(del->width_precision);
@@ -55,7 +56,7 @@ void		destroy_result(t_result **result)
 	tmp_for_del = *result;
 	va_end(tmp_for_del->ap);
 	i = 0;
-	while (i < tmp_for_del->i_args)
+	while (i < tmp_for_del->sizemax)
 	{
 		tab_for_del = tmp_for_del->tab_conv[i++];
 		tab_conv_destroy(&tab_for_del);

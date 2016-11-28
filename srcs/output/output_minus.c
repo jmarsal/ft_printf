@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 14:48:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 15:51:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,14 @@ static void	if_l_conv_u(t_result *result, size_t i)
 
 static void	if_str_negative_and_l_conv_d(t_result *result, size_t i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (*I_STR == '-' && I_L_CONV == 'd')
 	{
-		I_STR = I_STR + 1;
+		tmp = ft_strdup(I_STR + 1);
+		ft_free(I_STR);
+		I_STR = tmp;
 		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		if ((int)I_STRLEN < PRECISION_O)
 		{

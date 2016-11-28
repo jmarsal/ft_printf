@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:06:00 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 12:00:48 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 16:31:15 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static t_type		*init_type(void)
 
 	if (!(tmp = ft_memalloc(sizeof(t_type))))
 		return (NULL);
-	tmp->ptr = NULL;
-	tmp->str = ft_strnew(0);
-	ft_bzero(tmp->str, 1);
+	tmp->str = NULL;
 	tmp->str_len = 0;
 	return (tmp);
 }

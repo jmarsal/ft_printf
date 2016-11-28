@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 15:52:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 15:59:08 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/28 15:48:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 static void	add_minus_and_padding_zero_or_space(t_result *result, size_t i)
 {
+	char *tmp;
+
+	tmp = NULL;
 	if (*I_STR == '-' && *RET_STR->str != '-')
 	{
 		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
-		I_STR = I_STR + 1;
+		tmp = ft_strdup(I_STR + 1);
+		ft_free(I_STR);
+		I_STR = tmp;
+		// I_STR = I_STR + 1;
 		if ((int)I_STRLEN > 1)
 			I_STRLEN -= 1;
 	}

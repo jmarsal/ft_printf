@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 12:04:56 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 12:14:49 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/28 15:48:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,16 @@ static void	if_have_to_add_zero_or_space(t_result *result, size_t i)
 
 static void	if_istr_negative(t_result *result, size_t i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (*I_STR == '-' && (!(I_L_CONV == 'x' && I_L_CONV == 'X')))
 	{
-		I_STR = I_STR + 1;
+		tmp = ft_strdup(I_STR + 1);
+		ft_free(I_STR);
+		I_STR = tmp;
+		// ft_free(tmp);
+		// I_STR = I_STR + 1;
 		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 	}
 }

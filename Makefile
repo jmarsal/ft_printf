@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/10/10 16:54:05 by jmarsal          ###   ########.fr        #
+#*   Updated: 2016/11/28 13:29:38 by jmarsal          ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_memcpy.c \
 						ft_strcat.c \
 						ft_strchr.c \
+						ft_strrchr.c \
 						ft_strcmp.c \
 						ft_strdup.c \
 						ft_strnew.c \
@@ -123,6 +124,7 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_buffer_resize.c \
 						ft_buffer_set.c \
 						ft_memmove.c \
+						ft_strjoinf.c
 
 # Libft
  LIBFT_PATH = libft
