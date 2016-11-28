@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:42:01 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 11:01:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 17:45:51 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	lex_parse_percent(t_result *result, size_t *i)
 	format = result->format;
 	if (format[*i + 1] && (format[*i] == '%' && format[*i + 1] == '%'))
 	{
+		ft_free(STR);
 		tab_conv_add(result, result->i_args);
 		L_CONV = 's';
 		STR = ft_strdup("%");
@@ -29,6 +30,7 @@ void	lex_parse_percent(t_result *result, size_t *i)
 
 void	parser_percent_if_flags_betwin(t_result *result, size_t *i)
 {
+	ft_free(STR);
 	tab_conv_add(result, result->i_args);
 	L_CONV = 's';
 	A_SPACE = 0;

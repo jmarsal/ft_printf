@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:28:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:31:57 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 17:42:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		conv_hex_x(t_result *result, size_t *i)
 	base = 16;
 	if (format[*i] == 'x' || format[*i] == 'X')
 	{
+		ft_free(STR);
 		if (I_MOD_HH || I_MOD_H)
 			conv_hex_h_hh(result, base);
 		else if (I_MOD_L || I_MOD_LL || I_MOD_J || I_MOD_Z)

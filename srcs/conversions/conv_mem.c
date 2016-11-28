@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 13:07:46 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:32:24 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 17:39:45 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	conv_mem_p(t_result *result, size_t *i)
 	format = result->format;
 	if (format[*i] == 'p')
 	{
+		ft_free(STR);
 		L_CONV = 'p';
 		if (!(STR = ft_itoa_base((long)va_arg(R_AP, int*), 16)))
 		{

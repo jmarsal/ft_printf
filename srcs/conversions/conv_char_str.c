@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 16:10:56 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/28 18:08:52 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 static void	conv_char_c(t_result *result, size_t *i)
 {
 	char	*format;
+	char	tmp[2];
 
 	format = result->format;
+	ft_free(STR);
 	if (format[*i] == 'c' && !I_MOD_L)
 	{
-		if (!(STR = ft_strnew(0)))
-			exit(1);
-		*STR = (unsigned char)va_arg(R_AP, int);
+		// if (!(STR = ft_strnew(0)))
+		// 	exit(1);
+		tmp[0] = (unsigned char)va_arg(R_AP, int);
+		tmp[1] = '\0';
+		STR = ft_strdup(tmp);
 	}
 	else if ((format[*i] == 'c' && I_MOD_L) || format[*i] == 'C')
 	{
@@ -55,8 +59,10 @@ void		conv_str_s(t_result *result, size_t *i)
 			if (result->format[*i] == 'S')
 				reset_flags_struct(result);
 			I_MOD_L = (result->format[*i] == 'S') ? 1 : I_MOD_L;
-			if (!(STR = ft_wcsconv(va_arg(R_AP, wchar_t *))))
+			if (!(tmp = ft_wcsconv(va_arg(R_AP, wchar_t *))))
 				STR = ft_strdup("(null)");
+			else
+				STR = tmp;
 		}
 		get_specifier_and_ajust_width(result, 's');
 	}
