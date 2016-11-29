@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:05:29 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 09:16:32 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 10:53:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,8 @@ static t_conv	**tab_conv_resize(t_result *result)
 	return (result->tab_conv);
 }
 
-/*static t_conv	**tab_conv_create(void)
-{
-	t_conv	**tab_conv;
-
-	tab_conv = NULL;
-	if (!tab_conv)
-		if (!(tab_conv = ft_memalloc(sizeof(t_conv**))))
-			return (NULL);
-	return (tab_conv);
-}*/
-
 void			tab_conv_add(t_result *result, size_t tab_index)
 {
-	// if (!result->tab_conv)
-	// 	result->tab_conv = tab_conv_create();
 	if (tab_index >= result->sizemax)
 	{
 		if (result->sizemax == 0)
@@ -73,6 +60,5 @@ void			tab_conv_add(t_result *result, size_t tab_index)
 				tab_conv_init(result->tab_conv[tab_index]);
 			tab_index++;
 		}
-		// result->tab_conv[result->sizemax] = NULL;
 	}
 }

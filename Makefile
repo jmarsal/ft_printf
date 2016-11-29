@@ -124,7 +124,8 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_buffer_resize.c \
 						ft_buffer_set.c \
 						ft_memmove.c \
-						ft_strjoinf.c
+						ft_strjoinf.c \
+						ft_isspace.c
 
 # Libft
  LIBFT_PATH = libft

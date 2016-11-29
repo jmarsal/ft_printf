@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:59:44 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 09:19:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 11:22:43 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		parser_str(t_result *result, size_t *i)
 	format = result->format;
 	j = 0;
 	while ((format[*i] != '%' && format[*i] != '{') ||
-			(format[*i] == '%' && format[*i + 1] == '\0'))
+		(format[*i] == '%' && format[*i + 1] == '\0'))
 	{
 		if (format[*i] == '\0' || format[*i + 1] == '%' ||
 			format[*i + 1] == '{' || format[*i] == '\n')
@@ -53,5 +53,5 @@ void		parser_str(t_result *result, size_t *i)
 		}
 		*i += 1;
 		j++;
-	}
+	}	
 }
