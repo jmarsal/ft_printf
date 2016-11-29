@@ -6,8 +6,8 @@ echo "sortie avec printf    = <\n"
 echo "sortie avec ft_printf = >\n"
 
 # <<<< %s >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_s.c -o t_conv_s
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_s.c -o ft_t_conv_s -I./includes -L./ -lftprintf
+clang -Wall -Wextra -Werror test/srcs/test_conversion_S.c -o t_conv_s
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_S.c -o ft_t_conv_s -I./includes -L./ -lftprintf
 ./t_conv_s > t_conv_s.txt
 ./ft_t_conv_s > ft_t_conv_s.txt
 diff ./t_conv_s.txt ./ft_t_conv_s.txt | cat -e > test/diff_output/diff_conv_s.txt
@@ -40,8 +40,8 @@ diff ./t_conv_D.txt ./ft_t_conv_D.txt | cat -e > test/diff_output/diff_conv_D.tx
 rm t_conv_D ft_t_conv_D t_conv_D.txt ft_t_conv_D.txt
 
 # <<<< %o >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_o.c -o t_conv_o
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_o.c -o ft_t_conv_o -I./includes -L./ -lftprintf
+clang -Wall -Wextra -Werror test/srcs/test_conversion_O.c -o t_conv_o
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_O.c -o ft_t_conv_o -I./includes -L./ -lftprintf
 ./t_conv_o > t_conv_o.txt
 ./ft_t_conv_o > ft_t_conv_o.txt
 diff ./t_conv_o.txt ./ft_t_conv_o.txt | cat -e > test/diff_output/diff_conv_o.txt
@@ -56,8 +56,8 @@ diff ./t_conv_lo.txt ./ft_t_conv_lo.txt | cat -e > test/diff_output/diff_conv_lo
 rm t_conv_lo ft_t_conv_lo t_conv_lo.txt ft_t_conv_lo.txt
 
 # <<<< %u >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_u.c -o t_conv_u
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_u.c -o ft_t_conv_u -I./includes -L./ -lftprintf
+clang -Wall -Wextra -Werror test/srcs/test_conversion_U.c -o t_conv_u
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_U.c -o ft_t_conv_u -I./includes -L./ -lftprintf
 ./t_conv_u > t_conv_u.txt
 ./ft_t_conv_u > ft_t_conv_u.txt
 diff ./t_conv_u.txt ./ft_t_conv_u.txt | cat -e > test/diff_output/diff_conv_u.txt
@@ -80,8 +80,8 @@ diff ./t_conv_x_X.txt ./ft_t_conv_x_X.txt | cat -e > test/diff_output/diff_conv_
 rm t_conv_x_X ft_t_conv_x_X t_conv_x_X.txt ft_t_conv_x_X.txt
 
 # <<<< %c >>>>
-clang -Wall -Wextra -Werror test/srcs/test_conversion_c.c -o t_conv_c
-clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_c.c -o ft_t_conv_c -I./includes -L./ -lftprintf
+clang -Wall -Wextra -Werror test/srcs/test_conversion_C.c -o t_conv_c
+clang -Wall -Wextra -Werror test/srcs/ft_test_conversion_C.c -o ft_t_conv_c -I./includes -L./ -lftprintf
 ./t_conv_c > t_conv_c.txt
 ./ft_t_conv_c > ft_t_conv_c.txt
 diff ./t_conv_c.txt ./ft_t_conv_c.txt | cat -e > test/diff_output/diff_conv_c.txt

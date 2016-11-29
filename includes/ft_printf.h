@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 22:50:05 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 09:16:08 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "../libft/includes/libft.h"
 # include "structs.h"
 # include "defines.h"
+
+# include <stdio.h>
 
 int			ft_printf(const char *format, ...);
 int			ft_asprintf(char **ret, const char *format, ...);

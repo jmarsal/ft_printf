@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 17:57:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 09:20:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,37 +30,36 @@ t_result	*init_result(va_list ap, const char *format)
 	return (result);
 }
 
-static void	tab_conv_destroy(t_conv **conv)
+static void	tab_conv_destroy(t_result *result)
 {
 	t_conv	*del;
+	size_t	i;
 
-	del = *conv;
-	if (del)
+	i = 0;
+	while (i <= result->sizemax)
 	{
-		ft_free(del->caracters);
-		ft_free(del->type->str);
-		ft_free(del->type);
-		ft_free(del->modifier);
-		ft_free(del->width_precision);
-		ft_buffer_destroy(&del->ret_str);
-		ft_free(del);
+		del = result->tab_conv[i++];
+		if (del)
+		{
+			ft_free(del->caracters);
+			ft_free(del->type->str);
+			ft_free(del->type);
+			ft_free(del->modifier);
+			ft_free(del->width_precision);
+			ft_buffer_destroy(&del->ret_str);
+			ft_free(del);
+		}
 	}
+	ft_free(result->tab_conv);
 }
 
 void		destroy_result(t_result **result)
 {
 	t_result	*tmp_for_del;
-	t_conv		*tab_for_del;
-	size_t		i;
 
 	tmp_for_del = *result;
 	va_end(tmp_for_del->ap);
-	i = 0;
-	while (i < tmp_for_del->sizemax)
-	{
-		tab_for_del = tmp_for_del->tab_conv[i++];
-		tab_conv_destroy(&tab_for_del);
-	}
+	tab_conv_destroy(*result);
 	ft_buffer_destroy(&tmp_for_del->result_str);
 	ft_free(tmp_for_del);
 	*result = NULL;
