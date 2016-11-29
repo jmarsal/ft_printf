@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 14:49:34 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 16:54:30 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <fcntl.h>
 
 // Modifier ici
-#define FRM_ARGS "% hZ%"
+#define FRM_ARGS "% Zoooo"
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
 /*
@@ -82,7 +82,6 @@ int main()
 	// ft_printf("Avec ft_printf :");
 	ret = ft_printf(FRM_ARGS);
 	ft_printf("%d\n", ret);
-	printf("Avec printf :");
 	ret = printf(FRM_ARGS);
 	printf("%d\n", ret);
 
