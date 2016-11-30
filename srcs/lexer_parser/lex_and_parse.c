@@ -6,11 +6,17 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:05:23 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 09:17:56 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 14:57:06 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+void		get_specifier_and_ajust_width(t_result *result, char specifier)
+{
+	L_CONV = specifier;
+	STRLEN = ft_strlen(STR);
+}
 
 static int	if_undefined_percent(char *format, size_t i)
 {
@@ -45,6 +51,7 @@ static int	if_undefined_percent(char *format, size_t i)
 static int	lex_and_parse(t_result *result)
 {
 	char	*format;
+	int		ret_undefined;
 	size_t	i;
 
 	format = result->format;
@@ -53,6 +60,10 @@ static int	lex_and_parse(t_result *result)
 	{
 		if ((if_undefined_percent(format, i)) == -1)
 			break;
+		if ((ret_undefined = undefined_fmt(result, format)) != 0)
+			return (ret_undefined);
+		else if (ret_undefined == -2)
+			return (0);
 		parser_str(result, &i);
 		lexer_parser_color(result, &i);
 		lex_parse_percent(result, &i);

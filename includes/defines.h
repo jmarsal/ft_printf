@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 09:13:40 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 14:20:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,23 @@
 # define ERR_BIN ERR_BIN_1 "precision conversion specifier\n"
 # define GOODFORM "[caracters][width][precision][modifier][specifier]\n"
 # define INV_FORM RED"Error "EOC ": format have to be formated like "GOODFORM
+
+/*
+** Behaviour
+*/
+
+# define BEV1 "%ll#x"
+# define BEV2 "%5+d"
+# define BEV3 "%-5+d"
+# define BEV4 "%zhd"
+# define BEV5 "%jzd"
+# define BEV6 "%jhd"
+# define BEV7 "%lhl"
+# define BEV8 "%lhlz"
+# define BEV9 "%zj"
+# define BEV10 "%lhh"
+# define BEV11 "%hhld"
+# define BEV12 "@main_ftprintf: %####0000 33..1..#00d\n"
+# define BEV13 "@main_ftprintf: %###-#0000 33...12..#0+0d"
 
 #endif

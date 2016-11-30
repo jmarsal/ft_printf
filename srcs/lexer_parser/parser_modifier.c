@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 11:54:36 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 09:37:57 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 15:02:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int			parser_modifier(t_result *result, size_t *i)
 	size_t	index;
 
 	format = result->format;
+	ft_bzero(tmp_modifier, 3);
 	index = 0;
 	while (format[*i] && ft_strchr(L_MODIFIER, format[*i]))
 	{
@@ -49,8 +50,8 @@ int			parser_modifier(t_result *result, size_t *i)
 	tmp_modifier[index] = '\0';
 	if (IS_MODIFIER == 1)
 		find_witch_modifier(result, tmp_modifier);
-	if (format[*i] && (ft_strchr(CARACTERS, format[*i]) || ft_strchr(F_WIDTH, format[*i]) ||
-		ft_strchr(PRECISION, format[*i])))
+	if (format[*i] && (ft_strchr(CARACTERS, format[*i]) ||
+		ft_strchr(F_WIDTH, format[*i]) || ft_strchr(PRECISION, format[*i])))
 		return (-1);
 	return (0);
 }

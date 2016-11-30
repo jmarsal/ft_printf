@@ -78,7 +78,8 @@ SOURCES = ft_printf.c \
 						output_bin_dec_octal.c \
 						output_hex.c \
 						output_mem.c \
-						output_helper.c
+						output_u_b1.c \
+						output_u_b2.c
 
 LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_atoi.c \

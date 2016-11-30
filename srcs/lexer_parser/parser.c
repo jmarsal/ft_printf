@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 09:28:19 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 11:21:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	parser_precision(t_result *result, size_t *i)
 	if ((ft_strchr(PRECISION, format[*i])) || (ft_isdigit(format[*i]) &&
 		format[*i - 1] == '*'))
 	{
-		if (format[*i] == '.')
+		while (format[*i] && format[*i] == '.')
 			*i += 1;
 		parser_get_precision(result, i, &get_precision);
 		ft_free(get_precision);
@@ -118,7 +118,7 @@ int		get_flags(t_result *result, size_t *i)
 	}
 	if ((parser_width(result, i)) == -1)
 	{
-		write (0, INV_FORM, 100);
+		write(0, INV_FORM, 100);
 		return (-1);
 	}
 	return (0);

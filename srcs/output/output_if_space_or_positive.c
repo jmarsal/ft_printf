@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 12:24:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 12:28:15 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 11:38:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	is_have_to_add_space(t_result *result, size_t i)
 		((!IS_WIDTH && !IS_PRECISION) || (ZERO && WIDTH && I_L_CONV == 'd')))
 	{
 		ft_buffer_add(RET_STR, RET_STR->len, " ", 1);
-		if (WIDTH_CPY)
+		if (WIDTH_CPY && !SHARP)
 			WIDTH_CPY -= 1;
 	}
 }

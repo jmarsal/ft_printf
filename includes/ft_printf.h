@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 17:55:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:10:21 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include "structs.h"
 # include "defines.h"
 
-# include <stdio.h>
-
 int			ft_printf(const char *format, ...);
 int			ft_asprintf(char **ret, const char *format, ...);
 int			ft_sprintf(char *str, const char *format, ...);
@@ -32,6 +30,7 @@ int			ft_dprintf(int fd, const char *format, ...);
 */
 
 int			treatment(t_result *result);
+void		get_specifier_and_ajust_width(t_result *result, char specifier);
 void		parser_str(t_result *result, size_t *i);
 void		lexer_parser_color(t_result *result, size_t *i);
 void		lex_parse_percent(t_result *result, size_t *i);
@@ -88,6 +87,7 @@ void		add_padding(t_result *result, size_t i);
 void		add_padding_space_if_not_minus(t_result *result, size_t i);
 void		is_width_sup_precision(t_result *result, size_t i);
 void		is_precision_sup_width(t_result *result, size_t i);
-void		get_specifier_and_ajust_width(t_result *result, char specifier);
+int			undefined_fmt(t_result *result, char *format);
+int			undefined_fmt6(t_result *result, char *format, long long ret);
 
 #endif
