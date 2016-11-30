@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:02:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 18:22:19 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/12/01 00:24:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	destroy_result_sprintf(t_result **result)
 	tmp_for_del = *result;
 	va_end(tmp_for_del->ap);
 	tab_conv_destroy(*result);
-	// ft_buffer_destroy(&tmp_for_del->result_str);
 	ft_free(tmp_for_del);
 	*result = NULL;
 }

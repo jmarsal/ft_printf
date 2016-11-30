@@ -153,12 +153,14 @@ $(OBJ_PATH):
 
 clean:
 	@rm -rf $(OBJ_PATH)
+	make clean -C libft/
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31mall files.o are deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
 
 fclean: clean
 	@rm -f $(NAME)
+	make fclean -C libft/
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t|"
 	@echo "-----------------------------------------\n"
