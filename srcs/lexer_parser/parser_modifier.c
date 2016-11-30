@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 11:54:36 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 11:55:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 09:37:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	find_witch_modifier(t_result *result, char *tmp_modifier)
 		I_MOD_Z = 1;
 }
 
-void		parser_modifier(t_result *result, size_t *i)
+int			parser_modifier(t_result *result, size_t *i)
 {
 	char	*format;
 	char	tmp_modifier[3];
@@ -38,11 +38,19 @@ void		parser_modifier(t_result *result, size_t *i)
 	index = 0;
 	while (format[*i] && ft_strchr(L_MODIFIER, format[*i]))
 	{
-		IS_MODIFIER = 1;
+		if ((tmp_modifier[0] == 'j' || tmp_modifier[0] == 'z') ||
+			(tmp_modifier[0] == 'h' && format[*i] != 'h') ||
+			(tmp_modifier[0] == 'l' && format[*i] != 'l'))
+			return (-1);
 		tmp_modifier[index++] = format[*i];
 		*i += 1;
+		IS_MODIFIER = 1;
 	}
 	tmp_modifier[index] = '\0';
 	if (IS_MODIFIER == 1)
 		find_witch_modifier(result, tmp_modifier);
+	if (format[*i] && (ft_strchr(CARACTERS, format[*i]) || ft_strchr(F_WIDTH, format[*i]) ||
+		ft_strchr(PRECISION, format[*i])))
+		return (-1);
+	return (0);
 }

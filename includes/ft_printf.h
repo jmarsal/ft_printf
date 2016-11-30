@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 09:16:08 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/29 17:55:54 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void		parser_str(t_result *result, size_t *i);
 void		lexer_parser_color(t_result *result, size_t *i);
 void		lex_parse_percent(t_result *result, size_t *i);
 int			parser_specifier(t_result *result, size_t *i);
-void		get_flags(t_result *result, size_t *i);
+int			get_flags(t_result *result, size_t *i);
 void		parser_percent_if_flags_betwin(t_result *result, size_t *i);
 void		reset_flags_struct(t_result *result);
-void		parser_modifier(t_result *result, size_t *i);
+int			parser_modifier(t_result *result, size_t *i);
 
 /*
 ** memory

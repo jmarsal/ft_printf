@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:01:48 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 17:04:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 09:20:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,6 @@ static void	get_specifier(t_result *result, size_t *i)
 	*i += 1;
 }
 
-/*static int	test_flags(t_result *result, char *format, size_t i)
-{
-	size_t	j;
-
-	while (format[i] && !ft_strchr(C_SPECIFIERS, format[i]) &&
-		!ft_strchr("%", format[i]) && (ft_strchr(CARACTERS, format[i]) ||
-	ft_strchr(F_WIDTH, format[i]) || ft_strchr(PRECISION, format[i])))
-	{
-		j = i;
-		get_flags(result, &i);
-		if (i == j)
-			i++;
-	}
-	if (format[i] && ft_strchr(C_SPECIFIERS, format[i]))
-			get_specifier(result, &i);
-	else if (format[i] == '%')
-		parser_percent_if_flags_betwin(result, &i);
-	else
-		reset_flags_struct(result);
-	return (i);
-}*/
-
 int			parser_specifier(t_result *result, size_t *i)
 {
 	char	*format;
@@ -76,8 +54,8 @@ int			parser_specifier(t_result *result, size_t *i)
 	{
 		*i += 1;
 		tab_conv_add(result, result->i_args);
-		get_flags(result, i);
-		// *i = test_flags(result, format, *i);
+		if ((get_flags(result, i)) == -1)
+			return (-1);
 		if (format[*i] && ft_strchr(C_SPECIFIERS, format[*i]))
 			get_specifier(result, i);
 		else if (format[*i] == '%')

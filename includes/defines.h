@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 11:02:27 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 09:13:40 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,7 @@
 
 # define ERR_BIN_1 "Error : flag 'b' results in undefined behavior with "
 # define ERR_BIN ERR_BIN_1 "precision conversion specifier\n"
+# define GOODFORM "[caracters][width][precision][modifier][specifier]\n"
+# define INV_FORM RED"Error "EOC ": format have to be formated like "GOODFORM
 
 #endif

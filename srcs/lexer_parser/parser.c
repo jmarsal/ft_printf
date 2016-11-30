@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 12:15:13 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 09:28:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	parser_get_precision(t_result *result, size_t *i, char **precision)
 	I_IS_PRECISION = 1;
 }
 
-static void	parser_precision(t_result *result, size_t *i)
+static int	parser_precision(t_result *result, size_t *i)
 {
 	char	*get_precision;
 	char	*format;
@@ -51,7 +51,12 @@ static void	parser_precision(t_result *result, size_t *i)
 		parser_get_precision(result, i, &get_precision);
 		ft_free(get_precision);
 	}
-	parser_modifier(result, i);
+	if (format[*i] && (ft_strchr(CARACTERS, format[*i]) ||
+		ft_strchr(F_WIDTH, format[*i])))
+		return (-1);
+	if ((parser_modifier(result, i)) == -1)
+		return (-1);
+	return (0);
 }
 
 static void	parser_get_width(t_result *result, size_t *i, char **get_width)
@@ -74,7 +79,7 @@ static void	parser_get_width(t_result *result, size_t *i, char **get_width)
 	}
 }
 
-static void	parser_width(t_result *result, size_t *i)
+static int	parser_width(t_result *result, size_t *i)
 {
 	char	*get_width;
 	char	*format;
@@ -88,10 +93,14 @@ static void	parser_width(t_result *result, size_t *i)
 		ft_free(get_width);
 		I_IS_WIDTH = 1;
 	}
-	parser_precision(result, i);
+	if (format[*i] && (ft_strchr(CARACTERS, format[*i])))
+		return (-1);
+	if ((parser_precision(result, i)) == -1)
+		return (-1);
+	return (0);
 }
 
-void		get_flags(t_result *result, size_t *i)
+int		get_flags(t_result *result, size_t *i)
 {
 	while (ft_strchr(CARACTERS, result->format[*i]))
 	{
@@ -107,5 +116,10 @@ void		get_flags(t_result *result, size_t *i)
 			A_ZERO = 1;
 		*i += 1;
 	}
-	parser_width(result, i);
+	if ((parser_width(result, i)) == -1)
+	{
+		write (0, INV_FORM, 100);
+		return (-1);
+	}
+	return (0);
 }

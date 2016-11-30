@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 16:54:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 09:54:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <fcntl.h>
 
 // Modifier ici
-#define FRM_ARGS "% Zoooo"
+#define FRM_ARGS "%jd%jd", 0, 42
 #define PRINTF fprintf(fichier, FRM_ARGS)
 #define FT_PRINTF ft_printf(FRM_ARGS)
 /*
