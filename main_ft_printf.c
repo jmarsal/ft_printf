@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 17:02:26 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 22:53:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,43 +49,32 @@ int main()
 {
 	wchar_t texte[50] = L"Schöne Grüße";
 	int 				ret;
-	int					test_simple_mix;
-	unsigned long int	nb;
-	int 				pointer_valueLargerThanMinWidth_zeroFlag;
-	char 				*retour_str;
 	FILE				*fichier = NULL;
-	int					t;
-	int					fd;
-	int					ft_pr;
 
-	// fichier = fopen("printf.txt", "a+");
-	// fclose(fichier);
-	// fd = open("printf.txt", O_RDWR);
 	if (!setlocale(LC_CTYPE, ""))
 	{
 		fprintf(stderr, "Can't set the specified locale! "
 			"Check LANG, LC_CTYPE, LC_ALL.\n");
 		return 1;
 	}
-	// if (fichier != NULL && fd)
-	// {
-	// 	// ret = FT_PRINTF;
-	// 	ret = ft_dprintf(fd, FRM_ARGS);
-	// 	ft_dprintf(fd, "%d\n", ret);
-	// 	// ret = PRINTF;
-	// 	ret = dprintf(fd, FRM_ARGS);
-	// 	dprintf(fd, "%d\n", ret);
-	// 	close(fd);
-	// }
-
-	ft_printf("{green}_____    {eoc}{red}Avec ft_printf{eoc}    {green}_____{eoc}\n\n");
+	
+	ft_printf("     {green}_______________________{eoc}\n");
+	ft_printf("    {green}|                       |{eoc}\n");
+	ft_printf("{green}----|    {eoc}{red}Avec ft_printf{eoc}     {green}|------>{eoc}{red} Ecrit la conversion sur la sortie standard{eoc}\n");
+	ft_printf("    {green}|                       |{eoc}\n");
+	ft_printf("     {green}-----------------------{eoc}\n\n");
 
 	
-	ft_printf("ft_printf = ");
+	ft_printf("{cyan}ft_printf{eoc} = ");
 	ret = ft_printf("{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
 	ft_printf("%d\n", ret);
-	printf("printf = ");
+	ret = ft_printf("Le binaire de 42 = %b\n", 42);
+	ft_printf("%d\n", ret);
+
+	ft_printf("{cyan}printf{eoc} = ");
 	ret = printf("\033[34mcoucou\033[0m \033[35;1mc'est cool \033[0m\033[32;1mla couleur\033[0m\n");
+	printf("%d\n", ret);
+	ret = printf("Le binaire de 42 = 101010\n");
 	printf("%d\n", ret);
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:33:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 16:06:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 18:26:02 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ static int	ft_vsprintf(const char *format, va_list ap)
 	return (len);
 }
 
+/*
+** Ecrit sur la sortie standard le retour de buffer de la conversion
+*/
+ 
 int			ft_printf(const char *format, ...)
 {
 	va_list		ap;

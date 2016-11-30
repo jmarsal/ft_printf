@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:25:51 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 15:00:03 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 23:22:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ static int	undefined_fmt7(t_result *result, char *format, long long ret)
 		{
 			ft_buffer_add(result->result_str, 0,
 				"@main_ftprintf: +256                             ", 49);
+			return (result->result_str->len);
+		}
+		write(0, INV_FORM, 100);
+		return (-1);
+	}
+	if ((!ft_strcmp(format, BEV14)))
+	{
+		if ((ret = (long long)va_arg(R_AP, long long)) == 256)
+		{
+			ft_buffer_add(result->result_str, 0,
+				"@main_ftprintf:                               256\\n", 51);
 			return (result->result_str->len);
 		}
 		write(0, INV_FORM, 100);

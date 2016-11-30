@@ -12,7 +12,7 @@ clang -o ret_ft_dprintf ../main_ft_dprintf.c -I../includes -L../ -lftprintf
 ./ret_ft_printf
 ./ret_ft_asprintf
 ./ret_ft_sprintf
-./ret_ft_sprintf
+./ret_ft_dprintf
 # cat ft_printf.txt | od -Ax > ft_printf.hex
 cat printf.txt
 # diff ./ft_printf.hex ./printf.hex > diff.hex

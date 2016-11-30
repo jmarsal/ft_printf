@@ -82,6 +82,16 @@ SOURCES = ft_printf.c \
 						output_u_b2.c
 
 LIBFT_SRCS = 			ft_putchar_fd.c \
+						ft_memmove.c \
+						ft_buffer_set.c \
+						ft_buffer_resize.c \
+						ft_free.c \
+						ft_realloc.c \
+						ft_buffer_add.c \
+						ft_buffer_destroy.c \
+						ft_buffer_new.c \
+						ft_toupper.c \
+						ft_strtoupper.c \
 						ft_atoi.c \
 						ft_get_number.c \
 						ft_isalnum.c \
@@ -114,19 +124,6 @@ LIBFT_SRCS = 			ft_putchar_fd.c \
 						ft_strsub.c \
 						ft_strchrpos.c \
 						ft_strncpy.c \
-						ft_strtoupper.c \
-						ft_toupper.c \
-						ft_strdel.c \
-						ft_free.c \
-						ft_realloc.c \
-						ft_buffer_add.c \
-						ft_buffer_destroy.c \
-						ft_buffer_new.c \
-						ft_buffer_resize.c \
-						ft_buffer_set.c \
-						ft_memmove.c \
-						ft_strjoinf.c \
-						ft_isspace.c
 
 # Libft
  LIBFT_PATH = libft

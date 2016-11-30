@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 01:06:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 14:20:47 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 23:20:09 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,6 @@
 # define BEV11 "%hhld"
 # define BEV12 "@main_ftprintf: %####0000 33..1..#00d\n"
 # define BEV13 "@main_ftprintf: %###-#0000 33...12..#0+0d"
+# define BEV14 "@main_ftprintf: %####0000 33..1..#00d\\n"
 
 #endif

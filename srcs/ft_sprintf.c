@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:02:16 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 16:45:49 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 18:22:19 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	destroy_result_sprintf(t_result **result)
 	tmp_for_del = *result;
 	va_end(tmp_for_del->ap);
 	tab_conv_destroy(*result);
-	ft_buffer_destroy(&tmp_for_del->result_str);
+	// ft_buffer_destroy(&tmp_for_del->result_str);
 	ft_free(tmp_for_del);
 	*result = NULL;
 }
@@ -72,6 +72,11 @@ static int	ft_vsprintf(char *ret, const char *format, va_list ap)
 	destroy_result_sprintf(&result);
 	return (len);
 }
+
+/*
+** Recupere l'adresse de str et y copie le resultat de la conversion se
+** trouvant dans le buffer. 
+*/
 
 int			ft_sprintf(char *restrict str, const char *restrict format, ...)
 {

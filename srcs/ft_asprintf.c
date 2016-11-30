@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 09:26:26 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/21 16:00:52 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 18:23:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ static int	ft_vsprintf(char **ret, const char *format, va_list ap)
 	destroy_result(&result);
 	return (len);
 }
+
+/*
+** Alloue dynamiquement ret et y copie le retour de buffer de la conversion
+*/
 
 int			ft_asprintf(char **ret, const char *format, ...)
 {
