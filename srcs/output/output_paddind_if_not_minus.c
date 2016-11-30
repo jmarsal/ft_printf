@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/28 15:48:07 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:30:18 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,14 @@ static void	add_minus_and_padding_zero_or_space(t_result *result, size_t i)
 	{
 		ft_buffer_add(RET_STR, RET_STR->len, "-", 1);
 		tmp = ft_strdup(I_STR + 1);
-		ft_free(I_STR);
 		I_STR = tmp;
-		// I_STR = I_STR + 1;
 		if ((int)I_STRLEN > 1)
 			I_STRLEN -= 1;
 	}
 	if (WIDTH_CPY <= PRECISION_CPY)
 	{
-		if (*I_STR != '0')
-			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN);
-		else
+		*I_STR != '0' ?
+			ft_buffer_set(RET_STR, '0', PRECISION_CPY - (int)I_STRLEN) :
 			ft_buffer_set(RET_STR, '0', PRECISION_CPY);
 		PRECISION_CPY = 0;
 		WIDTH_CPY = 0;

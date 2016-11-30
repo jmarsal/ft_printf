@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_ft_asprintf.c                                 :+:      :+:    :+:   */
+/*   main_ft_dprintf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 09:34:06 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 17:05:01 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/11/30 17:05:40 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/11/30 17:09:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@
 
 int	main()
 {
-	char	*ret;
+	FILE	*fichier = NULL;
+	int		fd;
 	int		len;
 
-	ret = NULL;
+	fichier = fopen("printf.txt", "a+");
+	fclose(fichier);
+	fd = open("printf.txt", O_RDWR);
 
-	ft_printf("{green}_____    {eoc}{red}Avec ft_asprintf{eoc}    {green}_____{eoc}\n\n");
+	ft_printf("{green}_____    {eoc}{red}Avec ft_dprintf{eoc}    {green}_____{eoc}\n\n");
 
-
-	len = ft_asprintf(&ret, "{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
-	printf("ft_asprintf = %s%d\n", ret, len);
-	len = asprintf(&ret, "\033[34mcoucou\033[0m \033[35;1mc'est cool \033[0m\033[32;1mla couleur\033[0m\n");
-	printf("asprintf = %s%d\n", ret, len);
+	if (fichier != NULL && fd)
+	{
+		len = ft_dprintf(fd, "{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
+		ft_dprintf(fd, "%d\n", len);
+		len = dprintf(fd, "\033[34mcoucou\033[0m \033[35;1mc'est cool \033[0m\033[32;1mla couleur\033[0m\n");
+		dprintf(fd, "%d\n", len);
+		close(fd);
+	}
 
 	return (0);
 }

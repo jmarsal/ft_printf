@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 14:57:37 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:33:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	undefined_fmt5(t_result *result, char *format, long long ret)
 	}
 	if ((!ft_strcmp(format, BEV10)))
 	{
-		if ((ret = (long long)va_arg(R_AP,long long)) == 2147483647)
+		if ((ret = (long long)va_arg(R_AP, long long)) == 2147483647)
 			return (-2);
 		write(0, INV_FORM, 100);
 		return (-1);
@@ -121,6 +121,6 @@ int			undefined_fmt(t_result *result, char *format)
 		return (-1);
 	}
 	if ((ret = undefine_fmt2(result, format, ret)))
-		return ((int)ret); 
+		return ((int)ret);
 	return (0);
 }

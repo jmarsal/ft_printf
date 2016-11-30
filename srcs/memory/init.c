@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/21 14:53:15 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 09:20:58 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:44:24 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_result	*init_result(va_list ap, const char *format)
 	return (result);
 }
 
-static void	tab_conv_destroy(t_result *result)
+void		tab_conv_destroy(t_result *result)
 {
 	t_conv	*del;
 	size_t	i;

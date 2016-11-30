@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/16 01:03:28 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/29 14:47:10 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:26:58 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	if_have_to_add_zero_or_space(t_result *result, size_t i)
 	else if (PRECISION_CPY < WIDTH_CPY && (int)I_STRLEN == 1 && I_L_CONV != 'p')
 	{
 		ft_buffer_add(RET_STR, RET_STR->len, "0", 1);
-		WIDTH_CPY  = (*I_STR == '%') ? WIDTH_CPY : WIDTH_CPY - 1;
+		WIDTH_CPY = (*I_STR == '%') ? WIDTH_CPY : WIDTH_CPY - 1;
 		I_STRLEN = ((int)I_STRLEN == 1 && *I_STR == '0') ? 0 : 1;
 	}
 }

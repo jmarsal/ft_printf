@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 15:38:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 16:12:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:16:35 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,28 @@ static void	conv_char_c(t_result *result, size_t *i)
 	get_specifier_and_ajust_width(result, 'c');
 }
 
+static void	get_str_conv(t_result *result, size_t *i, char *tmp)
+{
+	if (result->format[*i] == 's' && !I_MOD_L)
+	{
+		if (!(tmp = va_arg(R_AP, char *)))
+			STR = ft_strdup("(null)");
+		else
+			STR = ft_strdup(tmp);
+	}
+	else if ((result->format[*i] == 's' && I_MOD_L) ||
+		result->format[*i] == 'S')
+	{
+		if (result->format[*i] == 'S')
+			reset_flags_struct(result);
+		I_MOD_L = (result->format[*i] == 'S') ? 1 : I_MOD_L;
+		if (!(tmp = ft_wcsconv(va_arg(R_AP, wchar_t *))))
+			STR = ft_strdup("(null)");
+		else
+			STR = tmp;
+	}
+}
+
 void		conv_str_s(t_result *result, size_t *i)
 {
 	char	*tmp;
@@ -42,24 +64,7 @@ void		conv_str_s(t_result *result, size_t *i)
 	tmp = NULL;
 	if (result->format[*i] == 's' || result->format[*i] == 'S')
 	{
-		if (result->format[*i] == 's' && !I_MOD_L)
-		{
-			if (!(tmp = va_arg(R_AP, char *)))
-				STR = ft_strdup("(null)");
-			else
-				STR = ft_strdup(tmp);
-		}
-		else if ((result->format[*i] == 's' && I_MOD_L) ||
-			result->format[*i] == 'S')
-		{
-			if (result->format[*i] == 'S')
-				reset_flags_struct(result);
-			I_MOD_L = (result->format[*i] == 'S') ? 1 : I_MOD_L;
-			if (!(tmp = ft_wcsconv(va_arg(R_AP, wchar_t *))))
-				STR = ft_strdup("(null)");
-			else
-				STR = tmp;
-		}
+		get_str_conv(result, i, tmp);
 		get_specifier_and_ajust_width(result, 's');
 	}
 	else if (STRLEN < 1 && (result->format[*i] == 'c' ||

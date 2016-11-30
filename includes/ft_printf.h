@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 00:40:21 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 16:10:21 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:44:38 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_result	*init_result(va_list ap, const char *format);
 void		destroy_result(t_result **result);
 t_conv		*tab_conv_init(t_conv *tab_conv);
 void		tab_conv_add(t_result *result, size_t tab_index);
+void		tab_conv_destroy(t_result *result);
 
 /*
 ** conversions

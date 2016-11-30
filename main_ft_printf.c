@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:24:50 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 15:03:30 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 17:02:26 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 #include <fcntl.h>
 
 // Modifier ici
-#define FRM_ARGS "%5+d", 42
-#define PRINTF fprintf(fichier, FRM_ARGS)
-#define FT_PRINTF ft_printf(FRM_ARGS)
+#define FRM_ARGS "{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n"
+
 /*
 ** % [drapeaux] [largeur] [.precision] [modificateur] type
 **
@@ -79,44 +78,15 @@ int main()
 	// 	close(fd);
 	// }
 
-	// ft_printf("Avec ft_printf :");
-	ret = ft_printf(FRM_ARGS);
+	ft_printf("{green}_____    {eoc}{red}Avec ft_printf{eoc}    {green}_____{eoc}\n\n");
+
+	
+	ft_printf("ft_printf = ");
+	ret = ft_printf("{blue}coucou{eoc} {pink}c'est cool {eoc}{green}la couleur{eoc}\n");
 	ft_printf("%d\n", ret);
-	ret = printf(FRM_ARGS);
+	printf("printf = ");
+	ret = printf("\033[34mcoucou\033[0m \033[35;1mc'est cool \033[0m\033[32;1mla couleur\033[0m\n");
 	printf("%d\n", ret);
 
-	//LEAKS
-
-	// ft_printf("\n");
-	// ft_printf("%%\n");
-	// ft_printf("%d\n", 42);
-	// ft_printf("%d%d\n", 42, 41);
-	// ft_printf("%d%d%d\n", 42, 43, 44);
-	// ft_printf("%ld\n", 2147483647);
-	// ft_printf("%lld\n", 9223372036854775807);
-	// ft_printf("%x\n", 505);
-	// ft_printf("%X\n", 505);
-	// ft_printf("%p\n", &ft_printf);
-	// ft_printf("%20.15d\n", 54321);
-	// ft_printf("%-10d\n", 3);
-	// ft_printf("% d\n", 3);
-	// ft_printf("%+d\n", 3);
-	// ft_printf("%010d\n", 1);
-	// ft_printf("%hhd\n", 0);
-	// ft_printf("%jd\n", 9223372036854775807);
-	// ft_printf("%zd\n", 4294967295);
-	// ft_printf("%\n");
-	// ft_printf("%U\n", 4294967295);
-	// ft_printf("%u\n", 4294967295);
-	// ft_printf("%o\n", 40);
-	// ft_printf("%%#08x\n", 42);
-	// ft_printf("%x\n", 1000);
-	// ft_printf("%#X\n", 1000);
-	// ft_printf("%s\n", NULL);
-	// ft_printf("%S\n", L"ݗݜशব");
-	// ft_printf("%s%s\n", "test", "test");
-	// ft_printf("%s%s%s\n", "test", "test", "test");
-	// ft_printf("%C\n", 15000);
-	// while (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 17:03:08 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 11:21:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:26:06 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static int	parser_width(t_result *result, size_t *i)
 	return (0);
 }
 
-int		get_flags(t_result *result, size_t *i)
+int			get_flags(t_result *result, size_t *i)
 {
 	while (ft_strchr(CARACTERS, result->format[*i]))
 	{

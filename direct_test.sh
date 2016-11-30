@@ -6,9 +6,13 @@ cd test_direct
 
 # clear
 clang -o ret_ft_printf ../main_ft_printf.c -I../includes -L../ -lftprintf
-# clang -o ret_ft_asprintf ../main_ft_asprintf.c -I../includes -L../ -lftprintf
+clang -o ret_ft_asprintf ../main_ft_asprintf.c -I../includes -L../ -lftprintf
+clang -o ret_ft_sprintf ../main_ft_sprintf.c -I../includes -L../ -lftprintf
+clang -o ret_ft_dprintf ../main_ft_dprintf.c -I../includes -L../ -lftprintf
 ./ret_ft_printf
-# ./ret_ft_asprintf
+./ret_ft_asprintf
+./ret_ft_sprintf
+./ret_ft_sprintf
 # cat ft_printf.txt | od -Ax > ft_printf.hex
 cat printf.txt
 # diff ./ft_printf.hex ./printf.hex > diff.hex

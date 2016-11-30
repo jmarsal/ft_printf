@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:05:23 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/11/30 14:57:06 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/11/30 16:24:57 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,24 @@ void		get_specifier_and_ajust_width(t_result *result, char specifier)
 	STRLEN = ft_strlen(STR);
 }
 
+static int	if_percent_caract(char *format, size_t *i, int *test)
+{
+	*test += 1;
+	if (!format[*i + 1] && *test < 2)
+		return (-1);
+	if (format[*i + 1] == ' ')
+	{
+		*i += 1;
+		while (format[*i] && format[*i] == ' ')
+		{
+			if (!format[*i + 1])
+				return (-1);
+			*i += 1;
+		}
+	}
+	return (0);
+}
+
 static int	if_undefined_percent(char *format, size_t i)
 {
 	int	test;
@@ -27,19 +45,8 @@ static int	if_undefined_percent(char *format, size_t i)
 	{
 		if (format[i] == '%')
 		{
-			test++;
-			if (!format[i + 1] && test < 2)
+			if ((if_percent_caract(format, &i, &test)) == -1)
 				return (-1);
-			if (format[i + 1] == ' ')
-			{
-				i++;
-				while (format[i] && format[i] == ' ')
-				{
-					if (!format[i + 1])
-						return(-1);
-					i++;
-				}
-			}
 		}
 		else
 			return (0);
@@ -59,7 +66,7 @@ static int	lex_and_parse(t_result *result)
 	while (format[i])
 	{
 		if ((if_undefined_percent(format, i)) == -1)
-			break;
+			break ;
 		if ((ret_undefined = undefined_fmt(result, format)) != 0)
 			return (ret_undefined);
 		else if (ret_undefined == -2)
